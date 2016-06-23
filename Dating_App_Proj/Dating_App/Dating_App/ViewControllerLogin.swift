@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+
 class ViewControllerLogin: UIViewController{
     
     @IBOutlet weak var Username: UITextField!
@@ -23,7 +24,6 @@ class ViewControllerLogin: UIViewController{
     
     override func viewDidLoad() {
     self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
     }
     
     /*override func didReceiveMemoryWarning() {
@@ -43,6 +43,7 @@ class ViewControllerLogin: UIViewController{
         
         var ref = Firebase(url:"https://simpleplus.firebaseio.com")
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+
         ref.authUser(self.Username.text, password: self.Password.text) {
             error, authData in
             if error != nil {
@@ -51,12 +52,13 @@ class ViewControllerLogin: UIViewController{
             } else {
                 // user is logged in, check authData for data
                 login.loginid = self.Username.text!;
+                loginid = self.Username.text!;
                 login.password = self.Password.text!;
                 self.Password.text = "**********";
                 login.chatid = ref.authData.uid
                 print(login.chatid)
                 self.loadDestinationVC();
-            }
+            };
         }
         
         //Login with our own register

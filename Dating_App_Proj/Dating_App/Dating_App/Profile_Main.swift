@@ -43,6 +43,7 @@ class Profile_Main : UIViewController{
     //Action Item
     override func viewDidLoad() {
     super.viewDidLoad()
+    loginid = login.loginid
     self.navigationController?.setNavigationBarHidden(true, animated: false)
     //self.navigationController!.interactivePopGestureRecognizer!.enabled = false
     let hours = hour();
@@ -161,10 +162,10 @@ class Profile_Main : UIViewController{
                                                 login_user.Profile_Name = ProfileName;
                                                 print(login_user.Profile_Name);
                                                 if let base64String = snapshot.value["Photo"] as? String{
-                                                    let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions())
-                                                        let decodedImage = UIImage(data: decodedData!)!
-                                                        self.Profile_Pic.image = decodedImage
-                                                        self.Profile_Pic.contentMode = .ScaleAspectFit
+//                                                    let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions())
+//                                                        let decodedImage = UIImage(data: decodedData!)!
+//                                                        self.Profile_Pic.image = decodedImage
+//                                                        self.Profile_Pic.contentMode = .ScaleAspectFit
                                                         login_user.photo = base64String;
                                                 }
                                             }
@@ -347,6 +348,10 @@ class Profile_Main : UIViewController{
             }) { (AFHTTPRequestOperation, NSError) -> Void in
                 print("fail")
         }
+        
+        let ref = Firebase(url:"https://simpleplus.firebaseio.com")
+        ref.unauth();
+    
     }
     
     override func viewWillAppear(animated: Bool) {
