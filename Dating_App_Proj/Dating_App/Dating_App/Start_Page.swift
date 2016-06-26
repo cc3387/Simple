@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 var loginid: String = "";
 
 class Start_Page : UIViewController{
@@ -23,7 +24,6 @@ class Start_Page : UIViewController{
         else if(loginid != ""){
             loadDestinationVC1()
         }
-        
     }
 
 
@@ -37,5 +37,3 @@ class Start_Page : UIViewController{
     }
 
 };
-
-

@@ -16,6 +16,7 @@ class ChatDetail: JSQMessagesViewController{
     var messageRef: Firebase!
     var messages = [JSQMessage]()
     var check = 0
+    var noticeonce = 0;
     
     //Setting up the bubbles
     var outgoingBubbleImageView: JSQMessagesBubbleImage!
@@ -92,6 +93,10 @@ class ChatDetail: JSQMessagesViewController{
             
             // 5
             finishSendingMessage()
+        
+            if(Chat_notification == 0){
+            Chat_notification = 1
+            }
     }
     
     override func collectionView(collectionView: UICollectionView,
@@ -140,7 +145,23 @@ class ChatDetail: JSQMessagesViewController{
             let text = snapshot.value["text"] as! String
             self.addMessage(id, text: text)
             self.finishReceivingMessage()
+            
+//            if(Chat_notification == 1){
+//                let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+//                UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+//                
+//                //send notifications to the app
+//                let notification = UILocalNotification()
+//                notification.fireDate = NSDate(timeIntervalSinceNow: 5)
+//                notification.alertBody = "New Message from " + convo_final.friend_id_final + " chatroom!"
+//                notification.alertAction = "Read Message!"
+//                notification.soundName = UILocalNotificationDefaultSoundName
+//                notification.userInfo = ["CustomField1": "w00t"]
+//                UIApplication.sharedApplication().scheduleLocalNotification(notification)
+//                self.noticeonce += 1;
+//            }
         }
+        
     }
     
     //Function to add messages and send to the server

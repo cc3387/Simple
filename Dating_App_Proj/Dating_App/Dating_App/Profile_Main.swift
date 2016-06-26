@@ -20,6 +20,7 @@ class Profile_Main : UIViewController{
     var friendsArray:[String] = [String]() //Set an array with empty array
     var friend:String = "";
     var read_count: Int = 0;
+    var id = login_user.user_name;
     
     //Getting Profile name from the server
     
@@ -43,6 +44,18 @@ class Profile_Main : UIViewController{
     //Action Item
     override func viewDidLoad() {
     super.viewDidLoad()
+        
+    if(global_observe == 0){
+    global_observe = 1;
+    var timer: NSTimer!
+    var timer2: NSTimer!
+    var refresher: UIRefreshControl!
+    refresher = UIRefreshControl()
+    refresher.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+    timer = NSTimer.scheduledTimerWithTimeInterval(300.0, target: self, selector:"refreshEvery30Secs", userInfo: nil, repeats: true)
+    timer2 = NSTimer.scheduledTimerWithTimeInterval(3600.0, target: self, selector:"refreshEvery3600Secs", userInfo: nil, repeats: true)
+    }
+        
     loginid = login.loginid
     self.navigationController?.setNavigationBarHidden(true, animated: false)
     //self.navigationController!.interactivePopGestureRecognizer!.enabled = false
@@ -162,10 +175,6 @@ class Profile_Main : UIViewController{
                                                 login_user.Profile_Name = ProfileName;
                                                 print(login_user.Profile_Name);
                                                 if let base64String = snapshot.value["Photo"] as? String{
-//                                                    let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions())
-//                                                        let decodedImage = UIImage(data: decodedData!)!
-//                                                        self.Profile_Pic.image = decodedImage
-//                                                        self.Profile_Pic.contentMode = .ScaleAspectFit
                                                         login_user.photo = base64String;
                                                 }
                                             }
@@ -186,169 +195,44 @@ class Profile_Main : UIViewController{
             for index in friendsnapshot.children.allObjects as! [FDataSnapshot]{
                 if let id = index.value["Email"] as! String?{
                     frienduser.emailarray.append(id);
+                    if let id2 = index.value["username"] as! String?{
+                        frienduser.useridarray.append(id2);
+                    }
                 }
             }
         })
-
-        //Sending ChatList and Friends to the server before checking on new information
-        //let manager = AFHTTPRequestOperationManager()
-        
-        //Clean up the friendslist
-        //var param1 = [
-        //]
-        
-        //var param2 = [
-        //    "username":login.loginid
-        //]
-        
-        /*manager.POST("http://localhost:3000/renew",
-            
-            parameters: param1,
-            //what is needed for success to execute?
-            success: { (AFHTTPRequestOperation, AnyObject) -> Void in
-                print("Successfully renew user info")
-            }) { (AFHTTPRequestOperation, NSError) -> Void in
-                print("fail")
-        }
-        
-        manager.POST("http://localhost:3000/user",
-            
-            parameters: param2,
-            //what is needed for success to execute?
-            success: { (AFHTTPRequestOperation, AnyObject) -> Void in
-                print("Successfully renew user info")
-            }) { (AFHTTPRequestOperation, NSError) -> Void in
-                print("fail")
-        }
-        
-        manager.GET("http://localhost:3000/user",
-            parameters: nil,
-            success: { (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
-                print("Object obtained successfully");
-                print(responseObject.count);
-                
-                if(responseObject.count > 0){
-                if let results = responseObject[0] as? NSDictionary {
-                    if let Profile_Name = results["Profile_Name"] as? String {
-                    login_user.user_name = Profile_Name;
-                        login_user.loginname = Profile_Name;
-                        if let Profile_Loc = results["location"] as? String {
-                            login_user.location = Profile_Loc;
-                            if let Profile_Edu = results["Education"] as? String {
-                                login_user.university = Profile_Edu;
-                                if let Profile_Major = results["Major"] as? String {
-                                    login_user.major = Profile_Major;
-                                }
-                            }
-                        }
-                     }
-                  }
-               }
-            },
-            failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
-                print("Error: " + error.localizedDescription)
-            }
-        )
-    
-        
-        
-        //Retrieving the information from parse and append to the friendsArray
-        //Creating a new PFQuery
-        var query = PFQuery(className: login.loginid + "_chatlist")
-
-        query.findObjectsInBackgroundWithBlock{
-            (objects:[AnyObject]?, error: NSError?) -> Void in
-            
-            //Clear the Message Array
-            self.friendsArray = [String]()
-            
-            if let objects = objects as? [PFObject]{
-                
-                //Loop through the objects array
-                for friendsObject in objects {
-                    
-                    //Retrieve the Text column value of each PFObject
-                    let friends_name:String? = (friendsObject as PFObject)["Friends"] as? String
-                    
-                    //Assign it into our MessageArray
-                    if friends_name != nil {
-                        self.friendsArray.append(friends_name!);
-                        NSLog(friends_name!);
-                        //self.friend = friends_name!;
-                   }
-                }
-                
-                print(self.friendsArray.count);
-                self.read_count = self.friendsArray.count;
-                
-                if(self.read_count == 0){
-                
-                var userchatlist: PFObject = PFObject(className: self.loginuser + "_chatlist");
-                    userchatlist["Friends"] = self.loginuser;
-                    userchatlist.saveInBackgroundWithBlock{
-                        (success: Bool, error: NSError?) -> Void in
-                        if(success){
-                            NSLog("Friend Saved Successfully!")
-                        }
-                        else{
-                            NSLog(error!.description)
-                        }
-                    }
-                }
-                else{
-                while(self.read_count > 0){
-                self.friend = self.friendsArray[self.read_count - 1];
-                var param = [
-                    "username":login.loginid,
-                    "friend":self.friend
-                ]
-                
-                manager.POST("http://localhost:3000/display_all",
-                    
-                    parameters: param,
-                    //what is needed for success to execute?
-                    success: { (AFHTTPRequestOperation, AnyObject) -> Void in
-                        print("successfully retrieve user's info")
-                    }) { (AFHTTPRequestOperation, NSError) -> Void in
-                        print("fail")
-                }
-              self.read_count -= 1;
-              }
-            }
-          }
-        }*/
     }
     
     
     //To Logout and delete token that is assigned
     @IBAction func Logout(sender: AnyObject) {
         
-        //print(loginUsername.text)
-        let manager = AFHTTPRequestOperationManager()
-        
-        var params = [
-            
-            "username":login.loginid,
-            "password":login.password
-            
-        ]
-        
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(nil, forKey: "token")
-        //defaults.getObject(for
-        defaults.synchronize()
-        
-        
-        manager.POST("http://localhost:3000/logout",
-            parameters: params,
-            
-            //what is needed for success to execute?
-            success: { (AFHTTPRequestOperation, AnyObject) -> Void in
-                print("successful logout")
-            }) { (AFHTTPRequestOperation, NSError) -> Void in
-                print("fail")
-        }
-        
+//        //print(loginUsername.text)
+//        let manager = AFHTTPRequestOperationManager()
+//        
+//        var params = [
+//            
+//            "username":login.loginid,
+//            "password":login.password
+//            
+//        ]
+//        
+//        let defaults = NSUserDefaults.standardUserDefaults()
+//        defaults.setObject(nil, forKey: "token")
+//        //defaults.getObject(for
+//        defaults.synchronize()
+//        
+//        
+//        manager.POST("http://localhost:3000/logout",
+//            parameters: params,
+//            
+//            //what is needed for success to execute?
+//            success: { (AFHTTPRequestOperation, AnyObject) -> Void in
+//                print("successful logout")
+//            }) { (AFHTTPRequestOperation, NSError) -> Void in
+//                print("fail")
+//        }
+//        
         let ref = Firebase(url:"https://simpleplus.firebaseio.com")
         ref.unauth();
     
@@ -423,6 +307,52 @@ class Profile_Main : UIViewController{
     func loadtoChat(){
         self.performSegueWithIdentifier("Chat", sender: nil)
     }
+    
+    func refreshEvery30Secs(){
+        observe()
+    }
+    
+    func refreshEvery3600Secs(){
+        send_reminder()
+    }
+    
+    func refresh(sender: AnyObject){
+        
+        refreshEvery30Secs() // calls when ever button is pressed
+        refreshEvery3600Secs()
+    }
+    
+    //Function to observe the information
+    private func observe() {
+        
+        for index in frienduser.useridarray{
+        var friend = "https://simpleplus.firebaseio.com/messages/" + login_user.user_name + index + "msg";
+//        var friend2 = "https://simpleplus.firebaseio.com/messages/" + index + login_user.user_name +  "msg";
+        let friendmessageaccess = Firebase(url:friend)
+//        let friendmessageaccess2 = Firebase(url:friend2)
+        
+        let last_message = friendmessageaccess.queryLimitedToLast(1);
+//        let last_message2 = friendmessageaccess2.queryLimitedToLast(1);
+        
+        last_message.observeEventType(.ChildAdded) { (snapshot: FDataSnapshot!) in
+            self.id = snapshot.value["senderId"] as! String
+        }
+        }
+        
+        print("Updated");
+    }
+    
+    func send_reminder(){
+            let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+            UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+            let notification = UILocalNotification()
+            notification.fireDate = NSDate(timeIntervalSinceNow: 1)
+            notification.alertBody = "Time to Check Your Friend's messages!"
+            notification.alertAction = "Read Message!"
+            notification.soundName = UILocalNotificationDefaultSoundName
+            notification.userInfo = ["CustomField1": "w00t"]
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
 };
 
 
@@ -440,4 +370,6 @@ struct login_user{
 
 struct frienduser{
     static var emailarray = [String]();
+    static var useridarray = [String]();
 };
+

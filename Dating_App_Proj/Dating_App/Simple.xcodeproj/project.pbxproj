@@ -11,6 +11,9 @@
 		AA0E68B81B8EC9F9000941C4 /* Male_Cloud.tif in Resources */ = {isa = PBXBuildFile; fileRef = AA0E68B71B8EC9F9000941C4 /* Male_Cloud.tif */; };
 		AA0E68BC1B8ECC53000941C4 /* Female_Cloud.tif in Resources */ = {isa = PBXBuildFile; fileRef = AA0E68BB1B8ECC53000941C4 /* Female_Cloud.tif */; };
 		AA10153A1B5170A7007F77B8 /* ViewControllerLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1015391B5170A7007F77B8 /* ViewControllerLogin.swift */; };
+		AA1EB5B01D20074400760CA6 /* Friends_Profile_Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1EB5AF1D20074300760CA6 /* Friends_Profile_Detail.swift */; };
+		AA1EB5B21D20447300760CA6 /* Update_Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1EB5B11D20447200760CA6 /* Update_Info.swift */; };
+		AA1EB5B41D2046BA00760CA6 /* Update_Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1EB5B31D2046BA00760CA6 /* Update_Photo.swift */; };
 		AA239AD71BAD9CCD00192AE0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA239AD61BAD9CCD00192AE0 /* Images.xcassets */; };
 		AA239ADB1BAD9D1600192AE0 /* boat_sea_beach-normal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA239ADA1BAD9D1600192AE0 /* boat_sea_beach-normal.jpg */; };
 		AA239ADD1BAD9D4A00192AE0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA239ADC1BAD9D4A00192AE0 /* LaunchScreen.xib */; };
@@ -71,7 +74,6 @@
 		AA6550991D0C45D4007DD200 /* Switzerland_Bridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA6550981D0C45D4007DD200 /* Switzerland_Bridge.jpg */; };
 		AA6550A51D0C4EC1007DD200 /* Dawn_City.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA6550A41D0C4EC1007DD200 /* Dawn_City.jpg */; };
 		AA6550A71D0D0323007DD200 /* Night_Sky_Pond.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA6550A61D0D0323007DD200 /* Night_Sky_Pond.jpg */; };
-		AA6550A91D0DDDB5007DD200 /* Update_Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6550A81D0DDDB5007DD200 /* Update_Profile.swift */; };
 		AA6550AC1D0DE4B4007DD200 /* Update_Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6550AB1D0DE4B4007DD200 /* Update_Location.swift */; };
 		AA6C581A1D18D2D1008F9932 /* Start_Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6C58191D18D2D1008F9932 /* Start_Page.swift */; };
 		AA6C581C1D18D487008F9932 /* Login_With_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6C581B1D18D487008F9932 /* Login_With_User.swift */; };
@@ -126,6 +128,9 @@
 		AA0E68B71B8EC9F9000941C4 /* Male_Cloud.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Male_Cloud.tif; sourceTree = "<group>"; };
 		AA0E68BB1B8ECC53000941C4 /* Female_Cloud.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Female_Cloud.tif; sourceTree = "<group>"; };
 		AA1015391B5170A7007F77B8 /* ViewControllerLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerLogin.swift; sourceTree = "<group>"; };
+		AA1EB5AF1D20074300760CA6 /* Friends_Profile_Detail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friends_Profile_Detail.swift; sourceTree = "<group>"; };
+		AA1EB5B11D20447200760CA6 /* Update_Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Update_Info.swift; sourceTree = "<group>"; };
+		AA1EB5B31D2046BA00760CA6 /* Update_Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Update_Photo.swift; sourceTree = "<group>"; };
 		AA239AD61BAD9CCD00192AE0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AA239ADA1BAD9D1600192AE0 /* boat_sea_beach-normal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "boat_sea_beach-normal.jpg"; sourceTree = "<group>"; };
 		AA239ADC1BAD9D4A00192AE0 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -193,7 +198,6 @@
 		AA6550981D0C45D4007DD200 /* Switzerland_Bridge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Switzerland_Bridge.jpg; sourceTree = "<group>"; };
 		AA6550A41D0C4EC1007DD200 /* Dawn_City.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Dawn_City.jpg; sourceTree = "<group>"; };
 		AA6550A61D0D0323007DD200 /* Night_Sky_Pond.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Night_Sky_Pond.jpg; sourceTree = "<group>"; };
-		AA6550A81D0DDDB5007DD200 /* Update_Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Update_Profile.swift; sourceTree = "<group>"; };
 		AA6550AB1D0DE4B4007DD200 /* Update_Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Update_Location.swift; sourceTree = "<group>"; };
 		AA6C58191D18D2D1008F9932 /* Start_Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Start_Page.swift; sourceTree = "<group>"; };
 		AA6C581B1D18D487008F9932 /* Login_With_User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login_With_User.swift; sourceTree = "<group>"; };
@@ -328,6 +332,7 @@
 				AADACDD31D15438A0091B142 /* Load_Friends.swift */,
 				AA7EF40A1BAE2DCE00C8A305 /* Profile_Main.swift */,
 				AA6C581D1D1A09F6008F9932 /* View_Profile.swift */,
+				AA1EB5AF1D20074300760CA6 /* Friends_Profile_Detail.swift */,
 				AAD788151BF95535002E436C /* Chat_Main.swift */,
 				AA25DDFD1CFFEF1B00E57068 /* Chat_Detail.swift */,
 				AAA36DD01C102C5F0073F6B0 /* UIImageView+AFNetworking.swift */,
@@ -452,8 +457,9 @@
 		AA6550AA1D0DE43E007DD200 /* Update_Profile */ = {
 			isa = PBXGroup;
 			children = (
-				AA6550A81D0DDDB5007DD200 /* Update_Profile.swift */,
 				AA6550AB1D0DE4B4007DD200 /* Update_Location.swift */,
+				AA1EB5B11D20447200760CA6 /* Update_Info.swift */,
+				AA1EB5B31D2046BA00760CA6 /* Update_Photo.swift */,
 			);
 			name = Update_Profile;
 			path = ..;
@@ -712,9 +718,10 @@
 				AA239AFD1BADA76600192AE0 /* SportsArtGallery.swift in Sources */,
 				AADFA2331B6D74E600491DBF /* AFSecurityPolicy.m in Sources */,
 				AAAA0FD81BC6CF6B004F2474 /* Start_View_Controller.swift in Sources */,
-				AA6550A91D0DDDB5007DD200 /* Update_Profile.swift in Sources */,
 				AA3527971BDB6C5F00679464 /* Edu_PickerView_Can.swift in Sources */,
+				AA1EB5B01D20074400760CA6 /* Friends_Profile_Detail.swift in Sources */,
 				AA6C581C1D18D487008F9932 /* Login_With_User.swift in Sources */,
+				AA1EB5B41D2046BA00760CA6 /* Update_Photo.swift in Sources */,
 				AA3527951BDB683400679464 /* Edu_PickerView_Aus.swift in Sources */,
 				AA6C581E1D1A09F6008F9932 /* View_Profile.swift in Sources */,
 				AA10153A1B5170A7007F77B8 /* ViewControllerLogin.swift in Sources */,
@@ -731,6 +738,7 @@
 				AADFA22F1B6D74E600491DBF /* AFHTTPSessionManager.m in Sources */,
 				AA239AF91BADA4D300192AE0 /* Major.swift in Sources */,
 				AA239AFF1BADAF4000192AE0 /* EDC_Classical.swift in Sources */,
+				AA1EB5B21D20447300760CA6 /* Update_Info.swift in Sources */,
 				AADFA2371B6D74E600491DBF /* AFURLRequestSerialization.m in Sources */,
 				AADFA23B1B6D74E600491DBF /* AFURLSessionManager.m in Sources */,
 				AA3527911BDB007F00679464 /* Edu_PickerView_UK.swift in Sources */,

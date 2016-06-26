@@ -92,7 +92,6 @@ class ChoosePhoto: UIViewController, UIImagePickerControllerDelegate, UINavigati
         //Using base64StringFromData method, we are able to convert data to string
         self.base64String = imageData.base64EncodedStringWithOptions([])
         register_info.Photo = self.base64String as NSString
-        print(register_info.Photo)
         loadDestinationVC()
         
     }

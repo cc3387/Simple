@@ -9,6 +9,8 @@
 import Foundation
 import Firebase
 
+var global_observe:Int = 0;
+
 class Login_With_User: UIViewController{
     
     @IBOutlet weak var Username: UITextField!

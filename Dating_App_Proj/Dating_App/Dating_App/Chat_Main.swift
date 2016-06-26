@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import Firebase
 
+var Chat_notification = 0;
+
 class Chat_Main : UIViewController{
     
     @IBOutlet weak var Chatroom_title: UILabel!
@@ -34,6 +36,7 @@ class Chat_Main : UIViewController{
     else{
         convo_final.friend_id_final = conversation_info.friend_id1!
         convo_final.chat_check_final = conversation_info.chat_check1!
+        Chat_notification = 0;
         loadDestinationVC();
     }
         
@@ -46,6 +49,15 @@ class Chat_Main : UIViewController{
     @IBOutlet weak var Friend_1_Uni: UILabel!
     @IBOutlet weak var Friend_1_Major: UILabel!
     
+    @IBAction func Friend_1_Profile(sender: AnyObject) {
+        friend_profile.Profile_Name = self.Friend_1.text;
+        friend_profile.Location = self.Friend_1_Loc.text;
+        friend_profile.University = self.Friend_1_Uni.text;
+        friend_profile.Major = self.Friend_1_Major.text;
+        friend_profile.Photo = self.Friend_1_Image.image;
+        loadDestinationVC1();
+    }
+    
     //Friend_2
     @IBAction func Chat_2(sender: AnyObject) {
         if conversation_info.friend_id2 == "" {
@@ -54,8 +66,19 @@ class Chat_Main : UIViewController{
         else{
             convo_final.friend_id_final = conversation_info.friend_id2!
             convo_final.chat_check_final = conversation_info.chat_check2!
+            Chat_notification = 0;
             loadDestinationVC();
         }
+    }
+    
+    
+    @IBAction func Friend_2_Profile(sender: AnyObject) {
+        friend_profile.Profile_Name = self.Friend_2.text;
+        friend_profile.Location = self.Friend_2_Loc.text;
+        friend_profile.University = self.Friend_2_Uni.text;
+        friend_profile.Major = self.Friend_2_Major.text;
+        friend_profile.Photo = self.Friend_2_Image.image;
+        loadDestinationVC1();
     }
     
     @IBOutlet weak var Friend_2: UILabel!
@@ -64,6 +87,7 @@ class Chat_Main : UIViewController{
     @IBOutlet weak var Friend_2_Uni: UILabel!
     @IBOutlet weak var Friend_2_Major: UILabel!
     
+
     //Friend_3
     @IBAction func Chat_3(sender: AnyObject) {
         if conversation_info.friend_id3 == ""{
@@ -72,6 +96,7 @@ class Chat_Main : UIViewController{
         else{
             convo_final.friend_id_final = conversation_info.friend_id3!
             convo_final.chat_check_final = conversation_info.chat_check3!
+            Chat_notification = 0;
             loadDestinationVC();
         }
     }
@@ -82,6 +107,16 @@ class Chat_Main : UIViewController{
     @IBOutlet weak var Friend_3_Uni: UILabel!
     @IBOutlet weak var Friend_3_Major: UILabel!
     
+    
+    @IBAction func Friend_3_Profile(sender: AnyObject) {
+        friend_profile.Profile_Name = self.Friend_3.text;
+        friend_profile.Location = self.Friend_3_Loc.text;
+        friend_profile.University = self.Friend_3_Uni.text;
+        friend_profile.Major = self.Friend_3_Major.text;
+        friend_profile.Photo = self.Friend_3_Image.image;
+        loadDestinationVC1();
+    }
+    
     //Friend_4
     @IBAction func Chat_4(sender: AnyObject) {
         if conversation_info.friend_id4 == ""{
@@ -90,6 +125,7 @@ class Chat_Main : UIViewController{
         else{
             convo_final.friend_id_final = conversation_info.friend_id4!
             convo_final.chat_check_final = conversation_info.chat_check4!
+            Chat_notification = 0;
             loadDestinationVC();
         }
     }
@@ -100,6 +136,15 @@ class Chat_Main : UIViewController{
     
     @IBOutlet weak var Friend_4_Uni: UILabel!
     @IBOutlet weak var Friend_4_Major: UILabel!
+    
+    @IBAction func Friend_4_Profile(sender: AnyObject) {
+        friend_profile.Profile_Name = self.Friend_4.text;
+        friend_profile.Location = self.Friend_4_Loc.text;
+        friend_profile.University = self.Friend_4_Uni.text;
+        friend_profile.Major = self.Friend_4_Major.text;
+        friend_profile.Photo = self.Friend_4_Image.image;
+        loadDestinationVC1();
+    }
     
     //Getting the login_user id that is collected from the login page
     var loginuser: String = login.loginid;
@@ -895,6 +940,11 @@ class Chat_Main : UIViewController{
         self.performSegueWithIdentifier("Show_Chat_Detail", sender: nil)
     }
     
+    func loadDestinationVC1(){
+        self.performSegueWithIdentifier("Friend_Profile", sender: nil)
+    }
+    
+    
     //Functions that will be used to display the time
     func hour() -> String
     {
@@ -953,6 +1003,16 @@ class Chat_Main : UIViewController{
         self.navigationController?.navigationBarHidden = true
     }
 };
+
+struct friend_profile{
+    static var Profile_Name: String? = "";
+    static var Location: String? = "";
+    static var Major: String? = "";
+    static var University: String? = "";
+    static var Photo: UIImage?;
+};
+
+
 
 struct conversation_info{
     static var friend_id1: String? = "";
