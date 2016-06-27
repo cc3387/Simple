@@ -27,8 +27,10 @@ class Login_With_User: UIViewController{
     
     override func viewDidLoad() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
         self.login_email.text = loginid
+        super.viewDidLoad()
+        NSUserDefaults.standardUserDefaults().setObject(login.loginid, forKey: "keepUsername")
+        NSUserDefaults.standardUserDefaults().setObject(login.password, forKey: "keepPassword")
     }
     
     @IBAction func Login(sender: AnyObject) {
@@ -45,6 +47,9 @@ class Login_With_User: UIViewController{
                 login.password = self.Password.text!;
                 self.Password.text = "**********";
                 login.chatid = ref.authData.uid
+                NSUserDefaults.standardUserDefaults().setObject(login.loginid, forKey: "keepUsername")
+                NSUserDefaults.standardUserDefaults().setObject(login.password, forKey: "keepPassword")
+                NSUserDefaults.standardUserDefaults().synchronize()
                 self.loadDestinationVC();
             };
         }

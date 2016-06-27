@@ -334,11 +334,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dating_App/ViewControllerLogin.swift"
-            timestampString = "488167444.70781"
+            timestampString = "488678751.658369"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "ViewControllerLogin"
             landmarkType = "3">
          </BreakpointContent>

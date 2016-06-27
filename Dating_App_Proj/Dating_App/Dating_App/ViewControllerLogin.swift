@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+var indication = 0;
 
 class ViewControllerLogin: UIViewController{
     
@@ -21,30 +22,37 @@ class ViewControllerLogin: UIViewController{
     var user1:User!
     var count: Int = 0;
     var ref: Firebase!
+    var userName = String()
+    var pssword = String()
+   
+
     
     override func viewDidLoad() {
     self.navigationController?.setNavigationBarHidden(true, animated: false)
+    super.viewDidLoad()
+    
+    if(indication == 1){
+    userName = NSUserDefaults.standardUserDefaults().stringForKey("keepUsername")!
+    pssword = NSUserDefaults.standardUserDefaults().stringForKey("keepPassword")!
+    self.Username.text = userName;
+    self.Password.text = "**********";
+    login.password = pssword;
     }
     
-    /*override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }*/
-
-    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "Main_Profile" {
-            if let destinationVC = segue.destinationViewController as? Main_Profile{
-                destinationVC.loginuser = Username.text;
-            }
-        }
-    }*/
+    }
     
     @IBAction func Login(sender: AnyObject) {
         
         var ref = Firebase(url:"https://simpleplus.firebaseio.com")
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-
-        ref.authUser(self.Username.text, password: self.Password.text) {
+        
+        login.loginid = self.Username.text!;
+        
+        if(indication == 0){
+        login.password = self.Password.text!;
+        }
+            
+        ref.authUser(login.loginid, password: login.password) {
             error, authData in
             if error != nil {
                 // an error occured while attempting login
@@ -53,10 +61,13 @@ class ViewControllerLogin: UIViewController{
                 // user is logged in, check authData for data
                 login.loginid = self.Username.text!;
                 loginid = self.Username.text!;
-                login.password = self.Password.text!;
-                self.Password.text = "**********";
+                //login.password = self.Password.text!;
+                //self.Password.text = "**********";
                 login.chatid = ref.authData.uid
-                print(login.chatid)
+                NSUserDefaults.standardUserDefaults().setObject(login.loginid, forKey: "keepUsername")
+                NSUserDefaults.standardUserDefaults().setObject(login.password, forKey: "keepPassword")
+                NSUserDefaults.standardUserDefaults().synchronize()
+                indication = 1;
                 self.loadDestinationVC();
             };
         }

@@ -18,12 +18,12 @@ class Start_Page : UIViewController{
     
     @IBAction func Login(sender: AnyObject) {
         
-        if(loginid == ""){
+//        if(loginid == ""){
             loadDestinationVC()
-        }
-        else if(loginid != ""){
-            loadDestinationVC1()
-        }
+//        }
+//        else if(loginid != ""){
+//            loadDestinationVC1()
+//        }
     }
 
 

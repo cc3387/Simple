@@ -53,7 +53,7 @@ class Profile_Main : UIViewController{
     refresher = UIRefreshControl()
     refresher.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
     timer = NSTimer.scheduledTimerWithTimeInterval(300.0, target: self, selector:"refreshEvery30Secs", userInfo: nil, repeats: true)
-    timer2 = NSTimer.scheduledTimerWithTimeInterval(3600.0, target: self, selector:"refreshEvery3600Secs", userInfo: nil, repeats: true)
+    timer2 = NSTimer.scheduledTimerWithTimeInterval(43200.0, target: self, selector:"refreshEvery3600Secs", userInfo: nil, repeats: true)
     }
         
     loginid = login.loginid
