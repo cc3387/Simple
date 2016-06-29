@@ -48,7 +48,7 @@ class ViewControllerLogin: UIViewController{
         
         login.loginid = self.Username.text!;
         
-        if(indication == 0){
+        if(self.Password.text != "**********"){
         login.password = self.Password.text!;
         }
             

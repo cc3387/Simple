@@ -39,7 +39,7 @@ class Update_Info: UIViewController{
     }
     
     override func viewDidLoad() {
-        self.navigationController?.interactivePopGestureRecognizer?.enabled = false
+        //self.navigationController?.interactivePopGestureRecognizer?.enabled = false
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         // Do any additional setup after loading the view, typically from a nib.
     }

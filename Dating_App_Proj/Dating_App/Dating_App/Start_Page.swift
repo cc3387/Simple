@@ -37,3 +37,23 @@ class Start_Page : UIViewController{
     }
 
 };
+
+
+struct login_user{
+    static var user_name: String = "";
+    static var Profile_Name: String = "";
+    static var loginname: String = "";
+    static var location: String = "";
+    static var longitude: Double = 0;
+    static var latitude: Double = 0;
+    static var university: String = "";
+    static var major: String = "";
+    static var photo: String = "";
+};
+
+
+struct frienduser{
+    static var emailarray = [String]();
+    static var useridarray = [String]();
+    static var timestamparray = [String]();
+};

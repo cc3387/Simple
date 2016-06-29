@@ -78,10 +78,13 @@ class ChatDetail: JSQMessagesViewController{
             else if (convo_final.chat_check_final == 2){
             messageRef = rootRef.childByAppendingPath(convo_final.friend_id_final + login_user.user_name + "msg")
             }
-            
+        
+            var Timestamp = "\(NSDate().timeIntervalSince1970*1000)"
+        
             let itemRef = messageRef.childByAutoId()
             
             let messageItem = [
+                "Timestamp": Timestamp,
                 "text": text,
                 "senderId": self.senderId
             ]

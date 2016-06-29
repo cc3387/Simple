@@ -20,7 +20,14 @@ class Profile_Main : UIViewController{
     var friendsArray:[String] = [String]() //Set an array with empty array
     var friend:String = "";
     var read_count: Int = 0;
-    var id = login_user.user_name;
+    var id:String = "";
+    var id1:String = "";
+    var id_user:String = login_user.user_name;
+    var timestamp:String = "";
+    var timestamp1:String = "";
+    var lstmessage:String = "";
+    var lstmessage1:String = "";
+    var indication:Int = 0;
     
     //Getting Profile name from the server
     
@@ -44,17 +51,6 @@ class Profile_Main : UIViewController{
     //Action Item
     override func viewDidLoad() {
     super.viewDidLoad()
-        
-    if(global_observe == 0){
-    global_observe = 1;
-    var timer: NSTimer!
-    var timer2: NSTimer!
-    var refresher: UIRefreshControl!
-    refresher = UIRefreshControl()
-    refresher.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
-    timer = NSTimer.scheduledTimerWithTimeInterval(300.0, target: self, selector:"refreshEvery30Secs", userInfo: nil, repeats: true)
-    timer2 = NSTimer.scheduledTimerWithTimeInterval(43200.0, target: self, selector:"refreshEvery3600Secs", userInfo: nil, repeats: true)
-    }
         
     loginid = login.loginid
     self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -190,17 +186,71 @@ class Profile_Main : UIViewController{
         //Download all the Friends' emails
         var friend = "https://simpleplus.firebaseio.com/friends/" + login_user.user_name + "_fd";
         let friendemail = Firebase(url:friend)
-        frienduser.emailarray = [];
+        //frienduser.emailarray = [];
+        //frienduser.useridarray = [];
+        
         friendemail.queryOrderedByChild("Email").observeEventType(.Value, withBlock:{friendsnapshot in
             for index in friendsnapshot.children.allObjects as! [FDataSnapshot]{
                 if let id = index.value["Email"] as! String?{
                     frienduser.emailarray.append(id);
-                    if let id2 = index.value["username"] as! String?{
-                        frienduser.useridarray.append(id2);
-                    }
                 }
             }
         })
+        
+        
+        if(frienduser.useridarray.count == 0){
+        friendemail.queryOrderedByChild("username").observeEventType(.Value, withBlock:{friendsnapshot in
+            for index in friendsnapshot.children.allObjects as! [FDataSnapshot]{
+                if let id2 = index.value["username"] as! String?{
+                frienduser.useridarray.append(id2);
+                }
+            }
+         })
+        }
+        
+        print(frienduser.useridarray)
+        
+            //Download all the messages timestamps
+            for index in frienduser.useridarray{
+                
+                var friend = "https://simpleplus.firebaseio.com/messages/" + index + login_user.user_name + "msg";
+                var friend1 = "https://simpleplus.firebaseio.com/messages/" + login_user.user_name + index + "msg";
+                
+                let friendtimestamp = Firebase(url:friend)
+                let friendtimestamp1 = Firebase(url:friend1)
+                let last_message = friendtimestamp.queryLimitedToLast(1);
+                let last_message1 = friendtimestamp1.queryLimitedToLast(1);
+                
+                last_message.observeEventType(.ChildAdded) { (snapshot: FDataSnapshot!) in
+                    let lstmessage = snapshot.value["Timestamp"] as! String!
+                    if(lstmessage != ""){
+                        if(!frienduser.timestamparray.contains(lstmessage)){
+                        frienduser.timestamparray.append(lstmessage);
+                        print(frienduser.timestamparray);
+                        }
+                    }
+                }
+                
+                last_message1.observeEventType(.ChildAdded) { (snapshot: FDataSnapshot!) in
+                    let lstmessage1 = snapshot.value["Timestamp"] as! String!
+                    if(lstmessage1 != ""){
+                        if(!frienduser.timestamparray.contains(lstmessage1)){
+                        frienduser.timestamparray.append(lstmessage1);
+                        print(frienduser.timestamparray);
+                        }
+                    }
+                }
+            }
+        
+            if(global_observe == 0){
+                global_observe = 1;
+                var timer: NSTimer!
+                var refresher: UIRefreshControl!
+                refresher = UIRefreshControl()
+                refresher.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+                timer = NSTimer.scheduledTimerWithTimeInterval(1800.0, target: self, selector:"refreshEvery30Secs", userInfo: nil, repeats: true)
+            }
+        
     }
     
     
@@ -317,7 +367,6 @@ class Profile_Main : UIViewController{
     }
     
     func refresh(sender: AnyObject){
-        
         refreshEvery30Secs() // calls when ever button is pressed
         refreshEvery3600Secs()
     }
@@ -326,20 +375,58 @@ class Profile_Main : UIViewController{
     private func observe() {
         
         for index in frienduser.useridarray{
+        self.indication = 0;
         var friend = "https://simpleplus.firebaseio.com/messages/" + login_user.user_name + index + "msg";
-//        var friend2 = "https://simpleplus.firebaseio.com/messages/" + index + login_user.user_name +  "msg";
+        var friend2 = "https://simpleplus.firebaseio.com/messages/" + index + login_user.user_name +  "msg";
         let friendmessageaccess = Firebase(url:friend)
-//        let friendmessageaccess2 = Firebase(url:friend2)
+        let friendmessageaccess2 = Firebase(url:friend2)
         
         let last_message = friendmessageaccess.queryLimitedToLast(1);
-//        let last_message2 = friendmessageaccess2.queryLimitedToLast(1);
+        let last_message2 = friendmessageaccess2.queryLimitedToLast(1);
         
         last_message.observeEventType(.ChildAdded) { (snapshot: FDataSnapshot!) in
+            self.timestamp = snapshot.value["Timestamp"] as! String
             self.id = snapshot.value["senderId"] as! String
+            
+            if(self.timestamp != ""){
+            self.indication = 1;
+                print(self.indication);
+                if(self.timestamp != "" && frienduser.timestamparray.contains(self.timestamp) && self.id != "" && self.id != login_user.user_name && !frienduser.timestamparray.isEmpty && self.indication == 1){
+                    let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+                    UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+                    let notification = UILocalNotification()
+                    notification.fireDate = NSDate(timeIntervalSinceNow: 1)
+                    notification.alertBody = "Reply Message to " + self.id
+                    notification.alertAction = "Read Message!"
+                    notification.soundName = UILocalNotificationDefaultSoundName
+                    notification.userInfo = ["CustomField1": "w00t"]
+                    UIApplication.sharedApplication().scheduleLocalNotification(notification)
+                }
+            }
+            
         }
+            
+        last_message2.observeEventType(.ChildAdded) { (snapshot: FDataSnapshot!) in
+            self.timestamp1 = snapshot.value["Timestamp"] as! String
+            self.id1 = snapshot.value["senderId"] as! String
+            
+            if(self.timestamp1 != ""){
+            self.indication = 1;
+            print(self.indication);
+            if(self.timestamp1 != "" && frienduser.timestamparray.contains(self.timestamp1) && self.id1 != "" && self.id1 != login_user.user_name && !frienduser.timestamparray.isEmpty && self.indication == 1){
+                let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+                UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+                let notification = UILocalNotification()
+                notification.fireDate = NSDate(timeIntervalSinceNow: 1)
+                notification.alertBody = "Reply Message to " + self.id1
+                notification.alertAction = "Read Message!"
+                notification.soundName = UILocalNotificationDefaultSoundName
+                notification.userInfo = ["CustomField1": "w00t"]
+                UIApplication.sharedApplication().scheduleLocalNotification(notification)
+              }
+            }
+          }
         }
-        
-        print("Updated");
     }
     
     func send_reminder(){
@@ -356,20 +443,7 @@ class Profile_Main : UIViewController{
 };
 
 
-struct login_user{
-    static var user_name: String = "";
-    static var Profile_Name: String = "";
-    static var loginname: String = "";
-    static var location: String = "";
-    static var longitude: Double = 0;
-    static var latitude: Double = 0;
-    static var university: String = "";
-    static var major: String = "";
-    static var photo: String = "";
-};
 
-struct frienduser{
-    static var emailarray = [String]();
-    static var useridarray = [String]();
-};
+
+
 

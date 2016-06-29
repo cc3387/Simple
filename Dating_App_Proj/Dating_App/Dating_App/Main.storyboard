@@ -158,7 +158,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GdQ-L3-IVw">
-                                <rect key="frame" x="93" y="211" width="121" height="26"/>
+                                <rect key="frame" x="93" y="211" width="121" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
                                 <state key="normal" title="Update Location" backgroundImage="Background_Color.tif">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -176,7 +176,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzf-bh-gUf">
-                                <rect key="frame" x="93" y="289" width="121" height="22"/>
+                                <rect key="frame" x="93" y="287" width="121" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
                                 <state key="normal" title="Update Profile Pic" backgroundImage="Background_Color.tif">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -326,7 +326,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Simple" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTT-Xv-h5m">
-                                <rect key="frame" x="143" y="28" width="54" height="38"/>
+                                <rect key="frame" x="119" y="28" width="54" height="38"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="highlightedColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -3358,7 +3358,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City Search" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nP-jY-CVu">
-                                <rect key="frame" x="115" y="124" width="86" height="39"/>
+                                <rect key="frame" x="108" y="126" width="86" height="39"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                 <color key="textColor" red="0.92941182850000004" green="0.5411764979" blue="0.50196081400000003" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3436,16 +3436,16 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Profile Picture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POt-Vl-c1u">
-                                <rect key="frame" x="82" y="118" width="159" height="21"/>
+                                <rect key="frame" x="72" y="121" width="159" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z0W-wL-uSh">
-                                <rect key="frame" x="70" y="232" width="184" height="146"/>
+                                <rect key="frame" x="60" y="235" width="184" height="146"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKB-g9-mJc">
-                                <rect key="frame" x="82" y="175" width="159" height="30"/>
+                                <rect key="frame" x="71" y="178" width="159" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                 <state key="normal" title="Choose Photo">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -3455,7 +3455,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXK-DB-0Te">
-                                <rect key="frame" x="131" y="414" width="60" height="26"/>
+                                <rect key="frame" x="121" y="417" width="60" height="26"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                 <state key="normal" title="Upload!" backgroundImage="Background_Color.tif">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -3465,7 +3465,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Simple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLQ-Us-FfQ">
-                                <rect key="frame" x="124" y="45" width="74" height="26"/>
+                                <rect key="frame" x="114" y="48" width="74" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3605,20 +3605,20 @@
         <image name="cloud-horizon.jpg" width="620" height="465"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cqz-GP-iva"/>
+        <segue reference="oiC-hM-ShA"/>
+        <segue reference="qGj-T5-CQN"/>
         <segue reference="PpB-Pu-aBD"/>
         <segue reference="Rjj-Kz-WTp"/>
-        <segue reference="UYx-V1-hc4"/>
         <segue reference="hLD-FZ-jQI"/>
         <segue reference="eZd-JO-exV"/>
         <segue reference="q1R-fB-xUp"/>
+        <segue reference="UYx-V1-hc4"/>
         <segue reference="d3S-iK-LLH"/>
-        <segue reference="b4q-gB-Y34"/>
-        <segue reference="Ccm-cV-i5q"/>
-        <segue reference="hX4-9H-kZv"/>
         <segue reference="rHi-sB-0vQ"/>
         <segue reference="fY6-3j-qXB"/>
-        <segue reference="ekB-3V-pnZ"/>
         <segue reference="26h-W4-Jl5"/>
+        <segue reference="ekB-3V-pnZ"/>
+        <segue reference="hX4-9H-kZv"/>
+        <segue reference="Ccm-cV-i5q"/>
     </inferredMetricsTieBreakers>
 </document>

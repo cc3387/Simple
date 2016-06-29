@@ -19,6 +19,7 @@ class UpdatePhoto: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     @IBAction func Choose_Photo(sender: AnyObject) {
