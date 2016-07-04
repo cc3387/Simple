@@ -429,6 +429,9 @@ class Chat_Main : UIViewController{
             var decodedImage = UIImage(data: decodedData!)!
             self.Friend_1_Image.image = decodedImage
             self.Friend_1_Image.contentMode = .ScaleAspectFit
+            self.Friend_2_Image.image = nil;
+            self.Friend_3_Image.image = nil;
+            self.Friend_4_Image.image = nil;
             conversation_info.friend_id1 = self.friendusernameArray[0 + b*4];
             conversation_info.chat_check1 = self.chatidArray[0 + b*4];
             self.Friend_1.textColor = UIColor.whiteColor();
@@ -447,6 +450,20 @@ class Chat_Main : UIViewController{
             self.Friend_4_Loc.textColor = UIColor.clearColor();
             self.Friend_4_Major.textColor = UIColor.clearColor();
             self.Friend_4_Uni.textColor = UIColor.clearColor();
+            self.Friend_2.text = "";
+            self.Friend_2_Loc.text  = "";
+            self.Friend_2_Uni.text = "";
+            self.Friend_2_Major.text = "";
+            self.Friend_3.text = "";
+            self.Friend_3_Loc.text = "";
+            self.Friend_3_Major.text = "";
+            self.Friend_3_Uni.text = "";
+            self.Friend_4.text = "";
+            self.Friend_4_Loc.text = "";
+            self.Friend_4_Major.text = "";
+            self.Friend_4_Uni.text = "";
+            
+            
             //self.multi_count -= (b-1);
         }
         else if(remainder == 2 && b > 0){
@@ -468,6 +485,8 @@ class Chat_Main : UIViewController{
             var decodedImage1 = UIImage(data: decodedData1!)!
             self.Friend_2_Image.image = decodedImage1
             self.Friend_2_Image.contentMode = .ScaleAspectFit
+            self.Friend_3_Image.image = nil;
+            self.Friend_4_Image.image = nil;
             conversation_info.friend_id1 = self.friendusernameArray[0 + b*4];
             conversation_info.chat_check1 = self.chatidArray[0 + b*4];
             conversation_info.friend_id2 = self.friendusernameArray[1 + b*4];
@@ -488,6 +507,14 @@ class Chat_Main : UIViewController{
             self.Friend_4_Loc.textColor = UIColor.clearColor();
             self.Friend_4_Major.textColor = UIColor.clearColor();
             self.Friend_4_Uni.textColor = UIColor.clearColor();
+            self.Friend_3.text = "";
+            self.Friend_3_Loc.text = "";
+            self.Friend_3_Major.text = "";
+            self.Friend_3_Uni.text = "";
+            self.Friend_4.text = "";
+            self.Friend_4_Loc.text = "";
+            self.Friend_4_Major.text = "";
+            self.Friend_4_Uni.text = "";
         }
         else if(remainder == 3 && b > 0){
             self.Friend_1.text = self.friendsArray[0 + b*4];
@@ -517,6 +544,7 @@ class Chat_Main : UIViewController{
             var decodedImage2 = UIImage(data: decodedData2!)!
             self.Friend_3_Image.image = decodedImage2
             self.Friend_3_Image.contentMode = .ScaleAspectFit
+            self.Friend_4_Image.image = nil;
             conversation_info.friend_id1 = self.friendusernameArray[0 + b*4];
             conversation_info.chat_check1 = self.chatidArray[0 + b*4];
             conversation_info.friend_id2 = self.friendusernameArray[1 + b*4];
@@ -539,6 +567,10 @@ class Chat_Main : UIViewController{
             self.Friend_4_Loc.textColor = UIColor.clearColor();
             self.Friend_4_Major.textColor = UIColor.clearColor();
             self.Friend_4_Uni.textColor = UIColor.clearColor();
+            self.Friend_4.text = "";
+            self.Friend_4_Loc.text = "";
+            self.Friend_4_Major.text = "";
+            self.Friend_4_Uni.text = "";
         }
         else if(remainder == 0 && b > 0){
             self.Friend_1.text = self.friendsArray[0 + b*4 - 4];

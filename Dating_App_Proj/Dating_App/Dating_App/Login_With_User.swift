@@ -31,6 +31,9 @@ class Login_With_User: UIViewController{
         super.viewDidLoad()
         NSUserDefaults.standardUserDefaults().setObject(login.loginid, forKey: "keepUsername")
         NSUserDefaults.standardUserDefaults().setObject(login.password, forKey: "keepPassword")
+        frienduser.emailarray.removeAll();
+        frienduser.useridarray.removeAll();
+        frienduser.timestamparray.removeAll();
     }
     
     @IBAction func Login(sender: AnyObject) {
@@ -50,6 +53,9 @@ class Login_With_User: UIViewController{
                 NSUserDefaults.standardUserDefaults().setObject(login.loginid, forKey: "keepUsername")
                 NSUserDefaults.standardUserDefaults().setObject(login.password, forKey: "keepPassword")
                 NSUserDefaults.standardUserDefaults().synchronize()
+                frienduser.emailarray.removeAll();
+                frienduser.useridarray.removeAll();
+                frienduser.timestamparray.removeAll();
                 self.loadDestinationVC();
             };
         }

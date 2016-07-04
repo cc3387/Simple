@@ -584,7 +584,13 @@
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = 7PK4W84Q3C;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
 							com.apple.Push = {

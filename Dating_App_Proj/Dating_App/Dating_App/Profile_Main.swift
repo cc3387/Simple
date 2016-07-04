@@ -54,7 +54,10 @@ class Profile_Main : UIViewController{
         
     loginid = login.loginid
     self.navigationController?.setNavigationBarHidden(true, animated: false)
-    //self.navigationController!.interactivePopGestureRecognizer!.enabled = false
+    frienduser.emailarray.removeAll();
+    frienduser.useridarray.removeAll();
+    frienduser.timestamparray.removeAll();
+
     let hours = hour();
     let minutes = minute();
     let hour_i = hour_int();
@@ -186,8 +189,6 @@ class Profile_Main : UIViewController{
         //Download all the Friends' emails
         var friend = "https://simpleplus.firebaseio.com/friends/" + login_user.user_name + "_fd";
         let friendemail = Firebase(url:friend)
-        //frienduser.emailarray = [];
-        //frienduser.useridarray = [];
         
         friendemail.queryOrderedByChild("Email").observeEventType(.Value, withBlock:{friendsnapshot in
             for index in friendsnapshot.children.allObjects as! [FDataSnapshot]{
@@ -242,14 +243,14 @@ class Profile_Main : UIViewController{
                 }
             }
         
-            if(global_observe == 0){
-                global_observe = 1;
-                var timer: NSTimer!
-                var refresher: UIRefreshControl!
-                refresher = UIRefreshControl()
-                refresher.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
-                timer = NSTimer.scheduledTimerWithTimeInterval(1800.0, target: self, selector:"refreshEvery30Secs", userInfo: nil, repeats: true)
-            }
+//            if(global_observe == 0){
+//                global_observe = 1;
+//                var timer: NSTimer!
+//                var refresher: UIRefreshControl!
+//                refresher = UIRefreshControl()
+//                refresher.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+//                timer = NSTimer.scheduledTimerWithTimeInterval(3600.0, target: self, selector:"refreshEvery30Secs", userInfo: nil, repeats: true)
+//            }
         
     }
     
@@ -372,7 +373,7 @@ class Profile_Main : UIViewController{
     }
     
     //Function to observe the information
-    private func observe() {
+    func observe() {
         
         for index in frienduser.useridarray{
         self.indication = 0;
@@ -441,9 +442,3 @@ class Profile_Main : UIViewController{
             UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
 };
-
-
-
-
-
-
