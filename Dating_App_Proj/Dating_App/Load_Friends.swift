@@ -14,7 +14,9 @@ class Load_Friends : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBarHidden = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.view.endEditing(true)
         let ref = Firebase(url:"https://simpleplus.firebaseio.com/users")
         ref.queryOrderedByChild("Email").queryEqualToValue(login.loginid)
             .observeEventType(.ChildAdded, withBlock: { snapshot in

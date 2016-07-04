@@ -20,7 +20,9 @@ class Friends_Profile_View : UIViewController{
     @IBOutlet weak var Major: UILabel!
     
     override func viewDidLoad() {
+        self.navigationController?.navigationBarHidden = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.view.endEditing(true)
         let hours = hour();
         let minutes = minute();
         let hour_i = hour_int();

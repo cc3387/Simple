@@ -82,6 +82,7 @@
 		AA7EF40D1BAE2FAC00C8A305 /* night_sky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA7EF40C1BAE2FAC00C8A305 /* night_sky.jpg */; };
 		AA7EF40F1BAE46C500C8A305 /* malaysia_morning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA7EF40E1BAE46C500C8A305 /* malaysia_morning.jpg */; };
 		AA7EF4111BAE479A00C8A305 /* chicago_afternoon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA7EF4101BAE479A00C8A305 /* chicago_afternoon.jpg */; };
+		AA7F86B91D2AB4D500329B84 /* Contact_Us.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7F86B81D2AB4D500329B84 /* Contact_Us.swift */; };
 		AA85AF531C78E0BF00321605 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA85AF521C78E0BF00321605 /* Firebase.framework */; };
 		AA8B166F1B8EAD8C00096E73 /* cloud-horizon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA8B166E1B8EAD8C00096E73 /* cloud-horizon.jpg */; };
 		AAA36DD11C102C5F0073F6B0 /* UIImageView+AFNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA36DD01C102C5F0073F6B0 /* UIImageView+AFNetworking.swift */; };
@@ -206,6 +207,7 @@
 		AA7EF40C1BAE2FAC00C8A305 /* night_sky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = night_sky.jpg; sourceTree = "<group>"; };
 		AA7EF40E1BAE46C500C8A305 /* malaysia_morning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = malaysia_morning.jpg; sourceTree = "<group>"; };
 		AA7EF4101BAE479A00C8A305 /* chicago_afternoon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chicago_afternoon.jpg; sourceTree = "<group>"; };
+		AA7F86B81D2AB4D500329B84 /* Contact_Us.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact_Us.swift; sourceTree = "<group>"; };
 		AA85AF521C78E0BF00321605 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../Firebase.framework; sourceTree = "<group>"; };
 		AA8B166E1B8EAD8C00096E73 /* cloud-horizon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cloud-horizon.jpg"; sourceTree = "<group>"; };
 		AAA36DD01C102C5F0073F6B0 /* UIImageView+AFNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+AFNetworking.swift"; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 		AA271D771B4DF4CC00EA5BA6 /* Dating_App */ = {
 			isa = PBXGroup;
 			children = (
+				AA7F86B71D2AB26B00329B84 /* Contact_Us_Terms_and_Conditions */,
 				AA6550AA1D0DE43E007DD200 /* Update_Profile */,
 				AA3527981BDBC66900679464 /* Simple_Meet */,
 				AAEDCD431BDAF5CE00CFF004 /* School */,
@@ -463,6 +466,14 @@
 			);
 			name = Update_Profile;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		AA7F86B71D2AB26B00329B84 /* Contact_Us_Terms_and_Conditions */ = {
+			isa = PBXGroup;
+			children = (
+				AA7F86B81D2AB4D500329B84 /* Contact_Us.swift */,
+			);
+			name = Contact_Us_Terms_and_Conditions;
 			sourceTree = "<group>";
 		};
 		AAAA0FD61BC6CF19004F2474 /* Login_Files */ = {
@@ -763,6 +774,7 @@
 				AA6550651D03AD9D007DD200 /* Choose_Photos.swift in Sources */,
 				AADACDD41D15438C0091B142 /* Load_Friends.swift in Sources */,
 				AA239AF51BADA49100192AE0 /* Edu_PickerView_US.swift in Sources */,
+				AA7F86B91D2AB4D500329B84 /* Contact_Us.swift in Sources */,
 				AA5AC2011B651A8100158156 /* Male_Female.swift in Sources */,
 				AA239AFB1BADA58A00192AE0 /* Google_Location.swift in Sources */,
 				AAA36DD11C102C5F0073F6B0 /* UIImageView+AFNetworking.swift in Sources */,

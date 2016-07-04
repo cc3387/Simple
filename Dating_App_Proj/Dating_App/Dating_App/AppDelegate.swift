@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
                 var storyboard = UIStoryboard(name: "Main", bundle: nil)
-                var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Profile_Main") as! UIViewController
+                var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Chat_Detail") as! UIViewController
                 self.window?.rootViewController = initialViewController
                 self.window?.makeKeyAndVisible()
             }

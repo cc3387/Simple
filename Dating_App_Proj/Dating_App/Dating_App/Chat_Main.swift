@@ -656,6 +656,7 @@ class Chat_Main : UIViewController{
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.view.endEditing(true)
 
         let hours = hour();
         let minutes = minute();

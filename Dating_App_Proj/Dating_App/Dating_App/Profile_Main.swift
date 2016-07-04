@@ -51,6 +51,7 @@ class Profile_Main : UIViewController{
     //Action Item
     override func viewDidLoad() {
     super.viewDidLoad()
+    self.view.endEditing(true)
         
     loginid = login.loginid
     self.navigationController?.setNavigationBarHidden(true, animated: false)

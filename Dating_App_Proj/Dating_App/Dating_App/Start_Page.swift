@@ -14,6 +14,9 @@ class Start_Page : UIViewController{
 
     override func viewDidLoad() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.view.endEditing(true)
     }
     
     @IBAction func Login(sender: AnyObject) {
