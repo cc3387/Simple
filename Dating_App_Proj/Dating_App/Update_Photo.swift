@@ -37,7 +37,7 @@ class UpdatePhoto: UIViewController, UIImagePickerControllerDelegate, UINavigati
         
         
         //Make an NSData PNG representation of the Image
-        let imageData: NSData = UIImagePNGRepresentation(resizeimage(uploadImage!,targetSize: CGSizeMake(uploadImage!.size.height/5, uploadImage!.size.width/5)))!
+        let imageData: NSData = UIImagePNGRepresentation(resizeimage(uploadImage!,targetSize: CGSizeMake(uploadImage!.size.height/2, uploadImage!.size.width/2)))!
         
         //Using base64StringFromData method, we are able to convert data to string
         self.base64String = imageData.base64EncodedStringWithOptions([])

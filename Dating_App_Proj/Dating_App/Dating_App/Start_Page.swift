@@ -59,4 +59,5 @@ struct frienduser{
     static var emailarray = [String]();
     static var useridarray = [String]();
     static var timestamparray = [String]();
+    static var profilenamearray = [String]();
 };

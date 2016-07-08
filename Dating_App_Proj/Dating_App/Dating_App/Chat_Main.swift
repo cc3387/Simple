@@ -351,7 +351,7 @@ class Chat_Main : UIViewController{
             print(b);
             print(self.multi_count_add)
         
-        if(self.multi_count_add <= b){
+        if(self.multi_count_add <= b && b < 2){
             
             if(self.multi_count_add <= 0){
             self.multi_count_add += 2;
@@ -692,11 +692,11 @@ class Chat_Main : UIViewController{
             let random = arc4random_uniform(2);
             
             if(random == 0){
-                Bkground_Image.image = UIImage(named: "chicago_afternoon.jpg");
+                Bkground_Image.image = UIImage(named: "Dawn_City.jpg");
             }
             
             if(random == 1){
-                Bkground_Image.image = UIImage(named: "Sunset.jpg");
+                Bkground_Image.image = UIImage(named: "Dawn_City.jpg");
             }
             
             //Setting the User ID to login user id

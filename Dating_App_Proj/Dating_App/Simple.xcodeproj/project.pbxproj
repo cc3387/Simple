@@ -52,6 +52,8 @@
 		AA3527931BDB629100679464 /* Edu_PickerView_HK.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3527921BDB629000679464 /* Edu_PickerView_HK.swift */; };
 		AA3527951BDB683400679464 /* Edu_PickerView_Aus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3527941BDB683400679464 /* Edu_PickerView_Aus.swift */; };
 		AA3527971BDB6C5F00679464 /* Edu_PickerView_Can.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3527961BDB6C5F00679464 /* Edu_PickerView_Can.swift */; };
+		AA39FCB91D2DEB84000DB554 /* Chat_Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA39FCB81D2DEB84000DB554 /* Chat_Search.swift */; };
+		AA39FCBB1D2E1C24000DB554 /* Ask_Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA39FCBA1D2E1C24000DB554 /* Ask_Question.swift */; };
 		AA3C847B1B770CF500C76304 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AA3C84791B770CF500C76304 /* GoogleMaps.bundle */; };
 		AA3C847C1B770CF500C76304 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3C847A1B770CF500C76304 /* GoogleMaps.framework */; };
 		AA3C847E1B770E0100C76304 /* Location_class.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C847D1B770E0100C76304 /* Location_class.swift */; };
@@ -175,6 +177,8 @@
 		AA3527921BDB629000679464 /* Edu_PickerView_HK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edu_PickerView_HK.swift; sourceTree = "<group>"; };
 		AA3527941BDB683400679464 /* Edu_PickerView_Aus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edu_PickerView_Aus.swift; sourceTree = "<group>"; };
 		AA3527961BDB6C5F00679464 /* Edu_PickerView_Can.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edu_PickerView_Can.swift; sourceTree = "<group>"; };
+		AA39FCB81D2DEB84000DB554 /* Chat_Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat_Search.swift; sourceTree = "<group>"; };
+		AA39FCBA1D2E1C24000DB554 /* Ask_Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ask_Question.swift; sourceTree = "<group>"; };
 		AA3C84791B770CF500C76304 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		AA3C847A1B770CF500C76304 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		AA3C847D1B770E0100C76304 /* Location_class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location_class.swift; sourceTree = "<group>"; };
@@ -338,6 +342,8 @@
 				AA1EB5AF1D20074300760CA6 /* Friends_Profile_Detail.swift */,
 				AAD788151BF95535002E436C /* Chat_Main.swift */,
 				AA25DDFD1CFFEF1B00E57068 /* Chat_Detail.swift */,
+				AA39FCB81D2DEB84000DB554 /* Chat_Search.swift */,
+				AA39FCBA1D2E1C24000DB554 /* Ask_Question.swift */,
 				AAA36DD01C102C5F0073F6B0 /* UIImageView+AFNetworking.swift */,
 				AAD2047C1C1A99CB008E1770 /* Main.storyboard */,
 				AA239AD61BAD9CCD00192AE0 /* Images.xcassets */,
@@ -735,6 +741,7 @@
 				AA239AFD1BADA76600192AE0 /* SportsArtGallery.swift in Sources */,
 				AADFA2331B6D74E600491DBF /* AFSecurityPolicy.m in Sources */,
 				AAAA0FD81BC6CF6B004F2474 /* Start_View_Controller.swift in Sources */,
+				AA39FCBB1D2E1C24000DB554 /* Ask_Question.swift in Sources */,
 				AA3527971BDB6C5F00679464 /* Edu_PickerView_Can.swift in Sources */,
 				AA1EB5B01D20074400760CA6 /* Friends_Profile_Detail.swift in Sources */,
 				AA6C581C1D18D487008F9932 /* Login_With_User.swift in Sources */,
@@ -756,6 +763,7 @@
 				AA239AF91BADA4D300192AE0 /* Major.swift in Sources */,
 				AA239AFF1BADAF4000192AE0 /* EDC_Classical.swift in Sources */,
 				AA1EB5B21D20447300760CA6 /* Update_Info.swift in Sources */,
+				AA39FCB91D2DEB84000DB554 /* Chat_Search.swift in Sources */,
 				AADFA2371B6D74E600491DBF /* AFURLRequestSerialization.m in Sources */,
 				AADFA23B1B6D74E600491DBF /* AFURLSessionManager.m in Sources */,
 				AA3527911BDB007F00679464 /* Edu_PickerView_UK.swift in Sources */,
