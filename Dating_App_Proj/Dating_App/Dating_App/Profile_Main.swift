@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Firebase
+import Batch
 
 class Profile_Main : UIViewController{
 
@@ -52,12 +53,20 @@ class Profile_Main : UIViewController{
     override func viewDidLoad() {
     super.viewDidLoad()
     self.view.endEditing(true)
+    
+    //Register for Batch
+    let editor = BatchUser.editor();
+    editor.setIdentifier(login.chatid);
+    editor.save();
+        
+    Batch.defaultUserProfile()?.customIdentifier = login.chatid
         
     loginid = login.loginid
     self.navigationController?.setNavigationBarHidden(true, animated: false)
-//    frienduser.emailarray.removeAll();
-//    frienduser.useridarray.removeAll();
-//    frienduser.timestamparray.removeAll();
+    frienduser.emailarray.removeAll();
+    frienduser.useridarray.removeAll();
+    frienduser.phoneidarray.removeAll();
+    frienduser.profilenamearray.removeAll();
 
     let hours = hour();
     let minutes = minute();
@@ -176,6 +185,12 @@ class Profile_Main : UIViewController{
                                                 print(login_user.Profile_Name);
                                                 if let base64String = snapshot.value["Photo"] as? String{
                                                         login_user.photo = base64String;
+                                                    if let uid = snapshot.value["uid"] as? String{
+                                                        login_user.uid = uid;
+                                                        if let phoneid = snapshot.value["phoneid"] as? String{
+                                                            login_user.phoneid = phoneid;
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }
@@ -190,23 +205,42 @@ class Profile_Main : UIViewController{
         
         if(frienduser.useridarray.count == 0){
         //Download all the Friends' emails
-        var friend = "https://simpleplus.firebaseio.com/friends/" + login_user.user_name + "_fd";
+        var friend = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd";
         let friendemail = Firebase(url:friend)
         
         friendemail.queryOrderedByChild("Email").observeEventType(.Value, withBlock:{friendsnapshot in
             for index in friendsnapshot.children.allObjects as! [FDataSnapshot]{
                 if let id = index.value["Email"] as! String?{
+                    if(id != login.loginid){
                     frienduser.emailarray.append(id);
-                    if let id2 = index.value["username"] as! String?{
-                    frienduser.useridarray.append(id2);
+                    }
+                    if let id2 = index.value["uid"] as! String?{
+                        if(id2 != login_user.uid){
+                            frienduser.useridarray.append(id2);
+                        }
                         if let id3 = index.value["Profile_Name"] as! String?{
+                            if(id3 != login_user.Profile_Name){
                             frienduser.profilenamearray.append(id3);
+                            }
+                                if let id4 = index.value["phoneid"] as! String?{
+                                    if(id4 != login_user.phoneid){
+                                        frienduser.phoneidarray.append(id4);
+                                    }
+                                    if let id5 = index.value["Photo"] as! String?{
+                                        if(id5 != login_user.phoneid){
+                                            frienduser.photoarray.append(id5);
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
-            }
         })
         }
+        
+        
+        print(login.chatid)
         
 //        if(frienduser.useridarray.count == 0){
 //        friendemail.queryOrderedByChild("username").observeEventType(.Value, withBlock:{friendsnapshot in

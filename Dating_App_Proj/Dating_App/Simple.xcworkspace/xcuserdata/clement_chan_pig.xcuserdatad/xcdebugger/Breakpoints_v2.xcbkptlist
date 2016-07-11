@@ -22,33 +22,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Dating_App/ViewControllerRegister.swift"
-            timestampString = "487897184.123951"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
-            landmarkName = "register_info"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dating_App/Meet_Profile.swift"
-            timestampString = "487446154.415288"
+            timestampString = "489811440.029729"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "355"
-            endingLineNumber = "355"
+            startingLineNumber = "379"
+            endingLineNumber = "379"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Simple.Profile_Meet_Main.(viewDidLoad () -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Simple"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clement_chan_pig/Documents/Dating_App_Folder/Dating_App_Proj/Dating_App/Dating_App/Meet_Profile.swift"
+                  timestampString = "489907129.709053"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "379"
+                  endingLineNumber = "379"
+                  offsetFromSymbolStart = "7016">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Simple.Profile_Meet_Main.(viewDidLoad () -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Simple"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clement_chan_pig/Documents/Dating_App_Folder/Dating_App_Proj/Dating_App/Dating_App/Meet_Profile.swift"
+                  timestampString = "489907129.709365"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "379"
+                  endingLineNumber = "379"
+                  offsetFromSymbolStart = "37812">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chat_Detail.swift"
-            timestampString = "488451145.225412"
+            timestampString = "489804151.254575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -160,6 +176,22 @@
             startingLineNumber = "94"
             endingLineNumber = "94"
             landmarkName = "UploadButtons(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chat_Detail.swift"
+            timestampString = "489851307.437601"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "didPressSendButton(_:withMessageText:senderId:senderDisplayName:date:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

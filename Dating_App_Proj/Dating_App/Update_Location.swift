@@ -25,7 +25,7 @@ class Google_ViewController_Update: UIViewController, CLLocationManagerDelegate,
         
         let coordinate = CLLocationCoordinate2D(latitude: self.mapTasks.fetchedAddressLatitude, longitude: self.mapTasks.fetchedAddressLongitude)
 
-        var NameRef = Firebase(url: "https://simpleplus.firebaseio.com/users/" + login_user.user_name)
+        var NameRef = Firebase(url: "https://simpleplus.firebaseio.com/users/" + login_user.uid)
                 
         var location = [
             "longitude": self.mapTasks.fetchedAddressLongitude,

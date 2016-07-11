@@ -2686,7 +2686,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y04-Uy-0wE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10503" y="-497"/>
+            <point key="canvasLocation" x="14563" y="-497"/>
         </scene>
         <!--Friends Profile View-->
         <scene sceneID="IFZ-D7-vBo">
@@ -3100,7 +3100,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="ZtK-l2-YRt" kind="show" id="Red-Wm-VN8"/>
+                                            <segue destination="nbF-Iv-jhl" kind="show" id="7RM-4c-dPc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -3130,30 +3130,36 @@
             </objects>
             <point key="canvasLocation" x="2344" y="-961"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="VzW-96-Spt">
+        <!--Title-->
+        <scene sceneID="GuS-4y-utL">
             <objects>
-                <viewController id="eGc-ew-PRy" sceneMemberID="viewController">
+                <viewController id="dup-bv-0N0" customClass="ChatDetail" customModule="Simple" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yxs-kd-mRt"/>
-                        <viewControllerLayoutGuide type="bottom" id="kIQ-J0-bEi"/>
+                        <viewControllerLayoutGuide type="top" id="eZc-Gn-NR1"/>
+                        <viewControllerLayoutGuide type="bottom" id="vAd-md-MDT"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jkc-9z-M3C">
+                    <view key="view" contentMode="scaleToFill" id="2ty-bp-Inv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Fhm-da-cvr">
-                        <barButtonItem key="leftBarButtonItem" title="Friends List" id="R5v-Kd-sne">
-                            <connections>
-                                <segue destination="BNr-Kn-FC1" kind="show" id="TkL-cG-rWp"/>
-                            </connections>
+                    <navigationItem key="navigationItem" title="Title" id="37F-wy-PjQ">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="8aV-CR-lK6">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Z1e-cd-kbG">
+                                <rect key="frame" x="20" y="7" width="37" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="BNr-Kn-FC1" kind="show" id="XSd-l0-pp8"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4h2-Dd-oaR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YOe-Nt-krD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationItem title="Title" id="0HN-cN-Mna"/>
             </objects>
-            <point key="canvasLocation" x="3878" y="-961"/>
+            <point key="canvasLocation" x="3695" y="-961"/>
         </scene>
         <!--Contactus-->
         <scene sceneID="kcB-yK-xSj">
@@ -3769,22 +3775,22 @@
             <point key="canvasLocation" x="1639" y="-961"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="KZk-8s-JQl">
+        <scene sceneID="KlK-vc-a1t">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZtK-l2-YRt" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nbF-Iv-jhl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JYo-e6-nyL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="h71-fy-qxi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="eGc-ew-PRy" kind="relationship" relationship="rootViewController" id="Iif-3q-Smp"/>
+                        <segue destination="dup-bv-0N0" kind="relationship" relationship="rootViewController" id="9t6-tZ-SMX"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vh9-Ux-nR1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="473-Yn-X3B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3146" y="-961"/>
+            <point key="canvasLocation" x="2997" y="-961"/>
         </scene>
     </scenes>
     <resources>
@@ -3795,21 +3801,21 @@
         <image name="cloud-horizon.jpg" width="620" height="465"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uhY-HV-w9W"/>
+        <segue reference="PpB-Pu-aBD"/>
+        <segue reference="RYN-la-auh"/>
+        <segue reference="XSd-l0-pp8"/>
+        <segue reference="oiC-hM-ShA"/>
+        <segue reference="qKX-MI-0nm"/>
+        <segue reference="ekB-3V-pnZ"/>
+        <segue reference="eZd-JO-exV"/>
+        <segue reference="w7k-32-K2a"/>
+        <segue reference="hLD-FZ-jQI"/>
+        <segue reference="DUB-xm-YOM"/>
+        <segue reference="L7q-dC-TAE"/>
+        <segue reference="Ccm-cV-i5q"/>
         <segue reference="Pvq-MF-HCu"/>
         <segue reference="ny4-sU-M0o"/>
         <segue reference="fTe-SU-cnY"/>
-        <segue reference="L7q-dC-TAE"/>
-        <segue reference="Ccm-cV-i5q"/>
-        <segue reference="cqz-GP-iva"/>
-        <segue reference="PpB-Pu-aBD"/>
-        <segue reference="qKX-MI-0nm"/>
-        <segue reference="ekB-3V-pnZ"/>
-        <segue reference="oiC-hM-ShA"/>
-        <segue reference="w7k-32-K2a"/>
-        <segue reference="eZd-JO-exV"/>
-        <segue reference="hLD-FZ-jQI"/>
         <segue reference="cD3-NL-LSF"/>
-        <segue reference="TkL-cG-rWp"/>
     </inferredMetricsTieBreakers>
 </document>

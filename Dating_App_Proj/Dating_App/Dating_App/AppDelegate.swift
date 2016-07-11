@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import JSQMessagesViewController
+import Batch
 
 
 @UIApplicationMain
@@ -22,6 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
     var password = login.password
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        //Include Batch
+        Batch.startWithAPIKey("DEV577F39F560C20E0DCE06C1229D7")
+        
+        // Register for push notifications
+        BatchPush.registerForRemoteNotifications()
         
         //Google Map API
         GMSServices.provideAPIKey("AIzaSyCDpeX5sgpfZFhhXyzCcU57drXp--q6PBw")
@@ -146,6 +153,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         print("Failed to register:", error)
     }
+    
     
     func registerForPushNotifications(application: UIApplication) {
         let notificationSettings = UIUserNotificationSettings(

@@ -56,7 +56,9 @@ class FinalSend_Final: UIViewController{
             "Cooking_DineOut": register_info.Cooking_Dineout,
             "University_Rank": register_info.URank,
             "Email": register_info.email,
-            "Photo": register_info.Photo
+            "Photo": register_info.Photo,
+            "uid": register_info.uid,
+            "phoneid": register_info.phoneid
         ];
         
         var friend = [
@@ -64,14 +66,16 @@ class FinalSend_Final: UIViewController{
             "location" : register_info.location,
             "Education": register_info.education,
             "Major": register_info.Major,
-            "Email": register_info.email
+            "Email": register_info.email,
+            "uid": register_info.uid,
+            "phoneid": register_info.phoneid
         ];
         
         var usersRef = ref.childByAppendingPath("users");
-        var usernamefriend = register_info.username + "_fd";
-        usersRef.childByAppendingPath(register_info.username).setValue(profile);
+        var usernamefriend = register_info.uid as String + "_fd";
+        usersRef.childByAppendingPath(register_info.uid as String).setValue(profile);
         var userfd = userref.childByAppendingPath(usernamefriend);
-        userfd.childByAppendingPath(register_info.username).setValue(friend);
+        userfd.childByAppendingPath(register_info.uid as String).setValue(friend);
         login.registered = 1;
         
         loadDestinationVC();

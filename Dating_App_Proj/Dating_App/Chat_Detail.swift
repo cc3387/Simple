@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 import JSQMessagesViewController
+import Batch
 
 class ChatDetail: JSQMessagesViewController{
     
@@ -24,11 +25,11 @@ class ChatDetail: JSQMessagesViewController{
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        self.navigationController!.navigationBar.hidden = true
-        self.navigationController!.interactivePopGestureRecognizer!.enabled = false
+//        self.navigationController!.navigationBar.hidden = true
+//        self.navigationController!.interactivePopGestureRecognizer!.enabled = false
         self.senderDisplayName = ""
-        self.senderId = login_user.user_name
-        title = "Chat - " + convo_final.friend_id_final
+        self.senderId = login_user.uid
+        title = "Chat - " + convo_final.friend_Profile_final 
         setupBubbles()
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
@@ -73,10 +74,10 @@ class ChatDetail: JSQMessagesViewController{
             
             //Define the server hosting name
             if(convo_final.chat_check_final == 1){
-            messageRef = rootRef.childByAppendingPath(login_user.user_name + convo_final.friend_id_final + "msg")
+            messageRef = rootRef.childByAppendingPath(login_user.uid + convo_final.friend_id_final + "msg")
             }
             else if (convo_final.chat_check_final == 2){
-            messageRef = rootRef.childByAppendingPath(convo_final.friend_id_final + login_user.user_name + "msg")
+            messageRef = rootRef.childByAppendingPath(convo_final.friend_id_final + login_user.uid + "msg")
             }
         
             var Timestamp = "\(NSDate().timeIntervalSince1970*1000)"
@@ -93,13 +94,37 @@ class ChatDetail: JSQMessagesViewController{
             
             // 4
             JSQSystemSoundPlayer.jsq_playMessageSentSound()
-            
-            // 5
+        
+            //5 Sending notification to your friend's phone
+            let manager = AFHTTPRequestOperationManager()
+        manager.requestSerializer.setValue("6163b0d91c3457c4616e37d1f4a11cc5cfac67aeb115e988059f058ccf5655cb", forHTTPHeaderField: "a524aa85f96b3bc103188428b026bd5b")
+        
+            var param = [
+            "group_id": "welcome",
+            "recipients": [
+                "tokens": ["6163b0d91c3457c4616e37d1f4a11cc5cfac67aeb115e988059f058ccf5655cb"]
+            ],
+            "message": [
+                "title": "New Messages",
+                "body": "You got new messages!"
+            ],
+            "custom_payload": "{\"tag\":\"wake up push\", \"landing_screen\":\"greeting\"}",
+            "sandbox":true
+            ]
+
+            manager.POST( "https://api.batch.com/1.0/DEV577F39F560C20E0DCE06C1229D7/transactional/send",
+            parameters: param,
+            success: { (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
+            print("JSON:" + responseObject.description)
+            },
+            failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
+            print("Error:" + error.localizedDescription)
+            })
+        
+        
+            // 6
             finishSendingMessage()
         
-            if(Chat_notification == 0){
-            Chat_notification = 1
-            }
     }
     
     override func collectionView(collectionView: UICollectionView,
@@ -132,10 +157,10 @@ class ChatDetail: JSQMessagesViewController{
         
         let rootRef = Firebase(url: "https://simpleplus.firebaseio.com/messages/")
         if(convo_final.chat_check_final == 1){
-            messageRef = rootRef.childByAppendingPath(login_user.user_name + convo_final.friend_id_final + "msg")
+            messageRef = rootRef.childByAppendingPath(login_user.uid + convo_final.friend_id_final + "msg")
         }
         else if (convo_final.chat_check_final == 2){
-            messageRef = rootRef.childByAppendingPath(convo_final.friend_id_final + login_user.user_name + "msg")
+            messageRef = rootRef.childByAppendingPath(convo_final.friend_id_final + login_user.uid + "msg")
         }
 
         //Define the messageQuery
@@ -172,4 +197,5 @@ class ChatDetail: JSQMessagesViewController{
         let message = JSQMessage(senderId: id, displayName: "", text: text)
         messages.append(message)
     }
+    
 };

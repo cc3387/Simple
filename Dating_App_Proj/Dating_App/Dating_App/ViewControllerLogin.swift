@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Batch
 
 var indication = 0;
 
@@ -68,6 +69,10 @@ class ViewControllerLogin: UIViewController{
                 NSUserDefaults.standardUserDefaults().setObject(login.password, forKey: "keepPassword")
                 NSUserDefaults.standardUserDefaults().synchronize()
                 indication = 1;
+                frienduser.emailarray.removeAll();
+                frienduser.useridarray.removeAll();
+                frienduser.phoneidarray.removeAll();
+                frienduser.profilenamearray.removeAll();
                 self.loadDestinationVC();
             };
         }

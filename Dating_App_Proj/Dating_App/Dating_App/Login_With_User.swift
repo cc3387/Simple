@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import Batch
 
 var global_observe:Int = 0;
 
@@ -33,7 +34,6 @@ class Login_With_User: UIViewController{
         NSUserDefaults.standardUserDefaults().setObject(login.password, forKey: "keepPassword")
         frienduser.emailarray.removeAll();
         frienduser.useridarray.removeAll();
-        frienduser.timestamparray.removeAll();
     }
     
     @IBAction func Login(sender: AnyObject) {
@@ -50,12 +50,16 @@ class Login_With_User: UIViewController{
                 login.password = self.Password.text!;
                 self.Password.text = "**********";
                 login.chatid = ref.authData.uid
+                let editor = BatchUser.editor()
+                editor.setIdentifier(ref.authData.uid)
+                editor.save()
                 NSUserDefaults.standardUserDefaults().setObject(login.loginid, forKey: "keepUsername")
                 NSUserDefaults.standardUserDefaults().setObject(login.password, forKey: "keepPassword")
                 NSUserDefaults.standardUserDefaults().synchronize()
                 frienduser.emailarray.removeAll();
                 frienduser.useridarray.removeAll();
-                frienduser.timestamparray.removeAll();
+                frienduser.phoneidarray.removeAll();
+                frienduser.profilenamearray.removeAll();
                 self.loadDestinationVC();
             };
         }

@@ -42,7 +42,7 @@ class UpdatePhoto: UIViewController, UIImagePickerControllerDelegate, UINavigati
         //Using base64StringFromData method, we are able to convert data to string
         self.base64String = imageData.base64EncodedStringWithOptions([])
         
-        var NameRef = Firebase(url: "https://simpleplus.firebaseio.com/users/" + login_user.user_name)
+        var NameRef = Firebase(url: "https://simpleplus.firebaseio.com/users/" + login_user.uid)
         
         var Photo = [
             "Photo": self.base64String
@@ -54,7 +54,7 @@ class UpdatePhoto: UIViewController, UIImagePickerControllerDelegate, UINavigati
         
         for index in frienduser.useridarray{
         
-        let friend1 = friend + index + "_fd/" + login_user.user_name;
+        let friend1 = friend + index + "_fd/" + login_user.uid;
             
         var NameRef1 = Firebase(url: friend1)
             

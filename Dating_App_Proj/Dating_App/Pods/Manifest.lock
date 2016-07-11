@@ -1,18 +1,21 @@
 PODS:
+  - Batch (1.5.4)
   - Firebase (2.5.1)
   - JSQMessagesViewController (7.2.0):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
 
 DEPENDENCIES:
+  - Batch (~> 1.5.4)
   - Firebase
   - JSQMessagesViewController
 
 SPEC CHECKSUMS:
+  Batch: 13083f81837fe1da9ea84b0533a2965c73ff74c6
   Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
   JSQMessagesViewController: 73cab48aa92fc2d512f3b6724f3425cc47a19eb5
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
 
-PODFILE CHECKSUM: 84f617b96b3dd9bec663cf079810fd7f1b875868
+PODFILE CHECKSUM: d83d2cc00d482ac10ca620a692923aaeb8984cd1
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1

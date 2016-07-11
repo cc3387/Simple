@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Batch
 
 class ViewControllerRegister: UIViewController, UITextFieldDelegate,UIPickerViewDataSource, UIPickerViewDelegate{
     
@@ -39,6 +40,8 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate,UIPickerView
         myPicker.dataSource = self;
         //LocPicker.delegate = self;
         //LocPicker.dataSource = self;
+        register_info.phoneid = BatchPush.lastKnownPushToken()
+        print(register_info.phoneid)
         updateAge();
         
         if(login.registered == 1){
@@ -111,7 +114,8 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate,UIPickerView
                     if error != nil {
                         // There was an error creating the account
                     } else {
-                        let uid = result["uid"] as? String
+                       let uid = result["uid"] as? String
+                       register_info.uid = uid!;
                        print("Successfully created user account with uid: \(uid)")
                     }
         })
@@ -245,26 +249,3 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate,UIPickerView
     }
 }
 
-//Storing the userid as global variable in the ios app machine
-struct register_info{
-    static var username: String = "";
-    static var password: String = "";
-    static var email: String = "";
-    static var user_id: String = "";
-    static var age_range: String = "";
-    static var Profile_name: String = "";
-    static var location: String = "";
-    static var address: String = "";
-    static var location_lat: Double = 0;
-    static var location_lng: Double = 0;
-    static var Gender: String = "";
-    static var education: String = "";
-    static var Major: String = "";
-    static var beer_or_wine: String = "";
-    static var sports_or_art: String = "";
-    static var EDC_or_Classic: String = "";
-    static var Ethnicity: String = "";
-    static var Cooking_Dineout: String = "";
-    static var URank: String = "";
-    static var Photo: NSString = "";
-}

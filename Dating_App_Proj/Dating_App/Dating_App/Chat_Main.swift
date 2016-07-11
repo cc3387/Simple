@@ -692,11 +692,11 @@ class Chat_Main : UIViewController{
             let random = arc4random_uniform(2);
             
             if(random == 0){
-                Bkground_Image.image = UIImage(named: "Dawn_City.jpg");
+                Bkground_Image.image = UIImage(named: "night_sky.jpg");
             }
             
             if(random == 1){
-                Bkground_Image.image = UIImage(named: "Dawn_City.jpg");
+                Bkground_Image.image = UIImage(named: "night_sky.jpg");
             }
             
             //Setting the User ID to login user id
@@ -730,7 +730,7 @@ class Chat_Main : UIViewController{
             self.User_ID.textColor = UIColor.whiteColor();
         }
         
-        let loginid = "https://simpleplus.firebaseio.com/friends/" + login_user.user_name + "_fd";
+        let loginid = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd";
         let rref = Firebase(url:loginid);
 
         rref.observeEventType(.Value, withBlock: { snapshot in
@@ -1035,32 +1035,5 @@ class Chat_Main : UIViewController{
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true
     }
-};
-
-struct friend_profile{
-    static var Profile_Name: String? = "";
-    static var Location: String? = "";
-    static var Major: String? = "";
-    static var University: String? = "";
-    static var Photo: UIImage?;
-};
-
-
-
-struct conversation_info{
-    static var friend_id1: String? = "";
-    static var friend_id2: String? = "";
-    static var friend_id3: String? = "";
-    static var friend_id4: String? = "";
-    static var chat_check1: Int?;
-    static var chat_check2: Int?;
-    static var chat_check3: Int?;
-    static var chat_check4: Int?;
-};
-
-struct convo_final{
-    static var friend_id_final: String = "";
-    static var chat_check_bool: String = "";
-    static var chat_check_final: Int?;
 };
 

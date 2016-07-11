@@ -37,6 +37,8 @@ class Profile_Meet_Main : UIViewController{
     var first_uni: String = "";
     var first_major: String = "";
     var first_photo_string: String = "";
+    var uid1: String = "";
+    var phoneid1: String = "";
     
     @IBOutlet weak var Second_Match: UILabel!
     @IBOutlet weak var Second_Loc: UILabel!
@@ -48,6 +50,8 @@ class Profile_Meet_Main : UIViewController{
     var second_uni: String = "";
     var second_major: String = "";
     var second_photo_string: String = "";
+    var uid2: String = "";
+    var phoneid2: String = "";
     
     @IBOutlet weak var Third_Match: UILabel!
     @IBOutlet weak var Third_Loc: UILabel!
@@ -59,6 +63,8 @@ class Profile_Meet_Main : UIViewController{
     var third_uni:String = "";
     var third_major: String = "";
     var third_photo_string: String = "";
+    var uid3: String = "";
+    var phoneid3: String = "";
     
     @IBOutlet weak var Fourth_Match: UILabel!
     @IBOutlet weak var Fourth_Loc: UILabel!
@@ -70,6 +76,8 @@ class Profile_Meet_Main : UIViewController{
     var fourth_uni: String = "";
     var fourth_major: String = "";
     var fourth_photo_string: String = "";
+    var uid4: String = "";
+    var phoneid4: String = "";
     
     @IBOutlet weak var Fifth_Match: UILabel!
     
@@ -79,8 +87,8 @@ class Profile_Meet_Main : UIViewController{
     @IBAction func Load_Chat_1(sender: AnyObject) {
         
         if(self.first_match != ""){
-        var usernamefriend = login_user.user_name + "_fd";
-        var friendusername = self.first_id + "_fd";
+        var usernamefriend = login_user.uid + "_fd";
+        var friendusername = self.uid1 + "_fd";
         var ref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
         let fdref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
         
@@ -92,6 +100,8 @@ class Profile_Meet_Main : UIViewController{
             "username": self.first_id,
             "Email": self.first_match,
             "Photo": self.first_photo_string,
+            "uid": self.uid1,
+            "phoneid": self.phoneid1,
             "Chatid": 1
         ];
             
@@ -103,13 +113,15 @@ class Profile_Meet_Main : UIViewController{
             "username": login_user.user_name,
             "Email": login.loginid,
             "Photo": login_user.photo,
+            "uid": login_user.uid,
+            "phoneid": login_user.phoneid,
             "Chatid": 2
         ];
         
         var usernamefd = ref.childByAppendingPath(usernamefriend);
         var fdusername = fdref.childByAppendingPath(friendusername);
-        usernamefd.childByAppendingPath(self.first_id).setValue(friendinfo);
-        fdusername.childByAppendingPath(login_user.user_name).setValue(infofriend);
+        usernamefd.childByAppendingPath(self.uid1).setValue(friendinfo);
+        fdusername.childByAppendingPath(login_user.uid).setValue(infofriend);
         
         //Load to the next destination
         loadDestinationVC();
@@ -122,8 +134,8 @@ class Profile_Meet_Main : UIViewController{
     @IBAction func Load_Chat_2(sender: AnyObject) {
         
         if(self.second_match != ""){
-        var usernamefriend = login_user.user_name + "_fd";
-        var friendusername = self.second_id + "_fd";
+        var usernamefriend = login_user.uid + "_fd";
+        var friendusername = self.uid2 + "_fd";
             var ref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
             let fdref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
         
@@ -135,6 +147,8 @@ class Profile_Meet_Main : UIViewController{
             "username": self.second_id,
             "Email": self.second_match,
             "Photo": self.second_photo_string,
+            "uid": self.uid2,
+            "phoneid": self.phoneid2,
             "Chatid": 1
         ];
             
@@ -146,13 +160,15 @@ class Profile_Meet_Main : UIViewController{
             "username": login_user.user_name,
             "Email": login.loginid,
             "Photo": login_user.photo,
+            "uid": login_user.uid,
+            "phoneid": login_user.phoneid,
             "Chatid": 2
         ];
         
         var usernamefd = ref.childByAppendingPath(usernamefriend);
         var fdusername = fdref.childByAppendingPath(friendusername);
-        usernamefd.childByAppendingPath(self.second_id).setValue(friendinfo);
-        fdusername.childByAppendingPath(login_user.user_name).setValue(infofriend);
+        usernamefd.childByAppendingPath(self.uid2).setValue(friendinfo);
+        fdusername.childByAppendingPath(login_user.uid).setValue(infofriend);
             
         //Load to the next destination
         loadDestinationVC();
@@ -165,8 +181,8 @@ class Profile_Meet_Main : UIViewController{
     @IBAction func Load_Chat_3(sender: AnyObject) {
         
         if(self.third_match != ""){
-        var usernamefriend = login_user.user_name + "_fd";
-        var friendusername = self.second_id + "_fd";
+        var usernamefriend = login_user.uid  + "_fd";
+        var friendusername = self.uid3 + "_fd";
             var ref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
             let fdref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
         
@@ -178,6 +194,8 @@ class Profile_Meet_Main : UIViewController{
             "username": self.third_id,
             "Email": self.third_match,
             "Photo": self.third_photo_string,
+            "uid": self.uid3,
+            "phoneid": self.phoneid3,
             "Chatid": 1
         ];
             
@@ -189,13 +207,15 @@ class Profile_Meet_Main : UIViewController{
             "username": login_user.user_name,
             "Email": login.loginid,
             "Photo": login_user.photo,
+            "uid": login_user.uid,
+            "phoneid": login_user.phoneid,
             "Chatid": 2
         ];
         
         var usernamefd = ref.childByAppendingPath(usernamefriend);
         var fdusername = fdref.childByAppendingPath(friendusername);
-        usernamefd.childByAppendingPath(self.second_id).setValue(friendinfo);
-        fdusername.childByAppendingPath(login_user.user_name).setValue(infofriend);
+        usernamefd.childByAppendingPath(self.uid3).setValue(friendinfo);
+        fdusername.childByAppendingPath(login_user.uid).setValue(infofriend);
             
         //Load to the next destination
         loadDestinationVC();
@@ -208,8 +228,8 @@ class Profile_Meet_Main : UIViewController{
     @IBAction func Load_Chat_4(sender: UIButton) {
         
         if(self.fourth_match != ""){
-            var usernamefriend = login_user.user_name + "_fd";
-            var friendusername = self.second_id + "_fd";
+            var usernamefriend = login_user.uid + "_fd";
+            var friendusername = self.uid4 + "_fd";
             var ref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
             let fdref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
             
@@ -221,6 +241,8 @@ class Profile_Meet_Main : UIViewController{
                 "username": self.fourth_id,
                 "Email": self.fourth_match,
                 "Photo": self.fourth_photo_string,
+                "uid": self.uid4,
+                "phoneid": self.phoneid4,
                 "Chatid": 1
             ];
             
@@ -232,13 +254,15 @@ class Profile_Meet_Main : UIViewController{
                 "username": login_user.user_name,
                 "Email": login.loginid,
                 "Photo": login_user.photo,
+                "uid": login_user.uid,
+                "phoneid": login_user.phoneid,
                 "Chatid": 2
             ];
             
             var usernamefd = ref.childByAppendingPath(usernamefriend);
             var fdusername = fdref.childByAppendingPath(friendusername);
-            usernamefd.childByAppendingPath(self.second_id).setValue(friendinfo);
-            fdusername.childByAppendingPath(login_user.user_name).setValue(infofriend);
+            usernamefd.childByAppendingPath(self.uid4).setValue(friendinfo);
+            fdusername.childByAppendingPath(login_user.uid).setValue(infofriend);
             
             //Load to the next destination
             loadDestinationVC();
@@ -357,6 +381,8 @@ class Profile_Meet_Main : UIViewController{
                         var decodedImage = UIImage(data: decodedData!)!
                         self.Image_1.image = decodedImage
                         self.Image_1.contentMode = .ScaleAspectFit
+                        self.uid1 = (index.value["uid"] as! String?)!;
+                        self.phoneid1 = (index.value["phoneid"] as! String?)!;
                         self.First_Match.textColor = UIColor.whiteColor();
                         self.First_Loc.textColor = UIColor.whiteColor();
                         self.First_Uni.textColor = UIColor.whiteColor();
@@ -375,6 +401,8 @@ class Profile_Meet_Main : UIViewController{
                         var decodedImage = UIImage(data: decodedData!)!
                         self.Image_2.image = decodedImage
                         self.Image_2.contentMode = .ScaleAspectFit
+                        self.uid2 = (index.value["uid"] as! String?)!;
+                        self.phoneid2 = (index.value["phoneid"] as! String?)!;
                         self.Second_Match.textColor = UIColor.whiteColor();
                         self.Second_Loc.textColor = UIColor.whiteColor();
                         self.Second_Uni.textColor = UIColor.whiteColor();
@@ -393,6 +421,8 @@ class Profile_Meet_Main : UIViewController{
                         var decodedImage = UIImage(data: decodedData!)!
                         self.Image_3.image = decodedImage
                         self.Image_3.contentMode = .ScaleAspectFit
+                        self.uid3 = (index.value["uid"] as! String?)!;
+                        self.phoneid3 = (index.value["phoneid"] as! String?)!;
                         self.Third_Match.textColor = UIColor.whiteColor();
                         self.Third_Loc.textColor = UIColor.whiteColor();
                         self.Third_Uni.textColor = UIColor.whiteColor();
@@ -411,6 +441,8 @@ class Profile_Meet_Main : UIViewController{
                         var decodedImage = UIImage(data: decodedData!)!
                         self.Image_4.image = decodedImage
                         self.Image_4.contentMode = .ScaleAspectFit
+                        self.uid4 = (index.value["uid"] as! String?)!;
+                        self.phoneid4 = (index.value["phoneid"] as! String?)!;
                         self.Fourth_Match.textColor = UIColor.whiteColor();
                         self.Fourth_Loc.textColor = UIColor.whiteColor();
                         self.Fourth_Uni.textColor = UIColor.whiteColor();
