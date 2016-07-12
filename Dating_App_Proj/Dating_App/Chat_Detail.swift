@@ -12,6 +12,7 @@ import Firebase
 import JSQMessagesViewController
 import Batch
 
+
 class ChatDetail: JSQMessagesViewController{
     
     var messageRef: Firebase!
@@ -97,34 +98,34 @@ class ChatDetail: JSQMessagesViewController{
         
             //5 Sending notification to your friend's phone
             let manager = AFHTTPRequestOperationManager()
-        manager.requestSerializer.setValue("6163b0d91c3457c4616e37d1f4a11cc5cfac67aeb115e988059f058ccf5655cb", forHTTPHeaderField: "a524aa85f96b3bc103188428b026bd5b")
-        
-            var param = [
-            "group_id": "welcome",
-            "recipients": [
-                "tokens": ["6163b0d91c3457c4616e37d1f4a11cc5cfac67aeb115e988059f058ccf5655cb"]
-            ],
-            "message": [
-                "title": "New Messages",
-                "body": "You got new messages!"
-            ],
-            "custom_payload": "{\"tag\":\"wake up push\", \"landing_screen\":\"greeting\"}",
-            "sandbox":true
+            manager.requestSerializer.setValue("a524aa85f96b3bc103188428b026bd5b", forHTTPHeaderField: "X-Authorization")
+            manager.requestSerializer.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+            var param: [String:AnyObject] = [
+                    "group_id": "welcome",
+                    "recipients": [
+                        "tokens": ["6163b0d91c3457c4616e37d1f4a11cc5cfac67aeb115e988059f058ccf5655cb","e88a682f5895cd0780eb3e252768991fbd39ed0bdfcc00ac24f9a9eba2924567"]
+                    ],
+                    "message": [
+                        "title": "New Messages",
+                        "body": "You got new messages!"
+                    ],
+                    "custom_payload": "{\"tag\":\"wake up push\", \"landing_screen\":\"greeting\"}",
+                    "sandbox":true
             ]
 
             manager.POST( "https://api.batch.com/1.0/DEV577F39F560C20E0DCE06C1229D7/transactional/send",
             parameters: param,
             success: { (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
+            print("Push Notification Successfully sent!")
             print("JSON:" + responseObject.description)
             },
             failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
             print("Error:" + error.localizedDescription)
             })
         
-        
             // 6
             finishSendingMessage()
-        
     }
     
     override func collectionView(collectionView: UICollectionView,
@@ -197,5 +198,7 @@ class ChatDetail: JSQMessagesViewController{
         let message = JSQMessage(senderId: id, displayName: "", text: text)
         messages.append(message)
     }
-    
 };
+
+
+
