@@ -34,6 +34,14 @@ class Edu_PickerView_HK: UIViewController,UIPickerViewDataSource, UIPickerViewDe
         // Dispose of any resources that can be recreated.
     }
     
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+    
     enum PickerComponent:Int{
         case loc = 0
     }

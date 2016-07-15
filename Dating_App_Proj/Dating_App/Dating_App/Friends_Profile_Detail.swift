@@ -65,7 +65,7 @@ class Friends_Profile_View : UIViewController{
             
             //Setting the User ID to login user id
             self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
-            self.User_ID.textColor = UIColor.blackColor();
+            self.User_ID.textColor = UIColor.whiteColor();
         }
         else{
             
@@ -97,10 +97,25 @@ class Friends_Profile_View : UIViewController{
         self.Profile_Pic.image = friend_profile.Photo;
         self.Profile_Pic.contentMode = .ScaleAspectFit
         self.Profile_Name.text = "Name: " + friend_profile.Profile_Name!
+        self.Profile_Name.sizeToFit()
+        self.Profile_Name.adjustsFontSizeToFitWidth = true
         self.Location.text = "Location: " + friend_profile.Location!
+        self.Location.sizeToFit()
+        self.Location.adjustsFontSizeToFitWidth = true
         self.University.text = "University: " + friend_profile.University!
+        self.University.sizeToFit()
+        self.University.adjustsFontSizeToFitWidth = true
         self.Major.text = "Major: " + friend_profile.Major!
-        
+        self.Major.sizeToFit()
+        self.Major.adjustsFontSizeToFitWidth = true
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
     }
     
     //Functions that will be used to display the time
@@ -156,4 +171,5 @@ class Friends_Profile_View : UIViewController{
         //Return Minute
         return minute
     }
+
 };

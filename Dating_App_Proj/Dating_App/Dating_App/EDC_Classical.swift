@@ -48,4 +48,12 @@ class EDCClassical: UIViewController{
         self.performSegueWithIdentifier("Cooking", sender: nil)
     }
     
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+    
 }

@@ -91,6 +91,14 @@ class Edu_PickerView_AUS: UIViewController,UIPickerViewDataSource, UIPickerViewD
         ]
     ]
     
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+    
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData[component].count
     }

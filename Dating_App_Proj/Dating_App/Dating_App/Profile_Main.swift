@@ -84,7 +84,7 @@ class Profile_Main : UIViewController{
             
             let random = arc4random_uniform(3);
             
-            Time_Greetings.textColor = UIColor.blackColor();
+            Time_Greetings.textColor = UIColor.whiteColor();
             
             if(random == 0){
             Bkground_Image.image = UIImage(named: "malaysia_morning.jpg");
@@ -119,6 +119,7 @@ class Profile_Main : UIViewController{
             //Setting the User ID to login user id
             //self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
             //self.User_ID.textColor = UIColor.blackColor();
+            Time_Greetings.textColor = UIColor.whiteColor();
         }
         else{
             
@@ -150,7 +151,8 @@ class Profile_Main : UIViewController{
             
             //Setting the User ID to login user id
             //self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
-            //self.User_ID.textColor = UIColor.whiteColor();
+            self.User_ID.textColor = UIColor.whiteColor();
+            Time_Greetings.textColor = UIColor.whiteColor();
         }
         
         let ref = Firebase(url:"https://simpleplus.firebaseio.com/users")
@@ -203,7 +205,14 @@ class Profile_Main : UIViewController{
             })
         
         
-        if(frienduser.useridarray.count == 0){
+        frienduser.emailarray.removeAll()
+        frienduser.phoneidarray.removeAll()
+        frienduser.photoarray.removeAll()
+        frienduser.profilenamearray.removeAll()
+        frienduser.useridarray.removeAll()
+        
+        
+//        if(frienduser.useridarray.count == 0){
         //Download all the Friends' emails
         var friend = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd";
         let friendemail = Firebase(url:friend)
@@ -237,7 +246,7 @@ class Profile_Main : UIViewController{
                     }
                 }
         })
-        }
+//        }
         
         
         print(login.chatid)
@@ -472,6 +481,15 @@ class Profile_Main : UIViewController{
 //          }
 //        }
 //    }
+    
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+    
     
     func send_reminder(){
             let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)

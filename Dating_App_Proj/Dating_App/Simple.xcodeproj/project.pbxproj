@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4837698C73D36AAFBAEBF9FF /* Pods_Simple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0540E9DC01193D4EBFE0BBD2 /* Pods_Simple.framework */; };
+		AA0E41B21D371D1D00657C3C /* Transfer_Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0E41B11D371D1D00657C3C /* Transfer_Page.swift */; };
+		AA0E41B41D38878E00657C3C /* BatchClientPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0E41B31D38878D00657C3C /* BatchClientPush.swift */; };
 		AA0E68B81B8EC9F9000941C4 /* Male_Cloud.tif in Resources */ = {isa = PBXBuildFile; fileRef = AA0E68B71B8EC9F9000941C4 /* Male_Cloud.tif */; };
 		AA0E68BC1B8ECC53000941C4 /* Female_Cloud.tif in Resources */ = {isa = PBXBuildFile; fileRef = AA0E68BB1B8ECC53000941C4 /* Female_Cloud.tif */; };
 		AA10153A1B5170A7007F77B8 /* ViewControllerLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1015391B5170A7007F77B8 /* ViewControllerLogin.swift */; };
@@ -128,6 +130,8 @@
 
 /* Begin PBXFileReference section */
 		0540E9DC01193D4EBFE0BBD2 /* Pods_Simple.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0E41B11D371D1D00657C3C /* Transfer_Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transfer_Page.swift; sourceTree = "<group>"; };
+		AA0E41B31D38878D00657C3C /* BatchClientPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchClientPush.swift; sourceTree = "<group>"; };
 		AA0E68B71B8EC9F9000941C4 /* Male_Cloud.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Male_Cloud.tif; sourceTree = "<group>"; };
 		AA0E68BB1B8ECC53000941C4 /* Female_Cloud.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Female_Cloud.tif; sourceTree = "<group>"; };
 		AA1015391B5170A7007F77B8 /* ViewControllerLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerLogin.swift; sourceTree = "<group>"; };
@@ -345,6 +349,7 @@
 				AA39FCB81D2DEB84000DB554 /* Chat_Search.swift */,
 				AA39FCBA1D2E1C24000DB554 /* Ask_Question.swift */,
 				AAA36DD01C102C5F0073F6B0 /* UIImageView+AFNetworking.swift */,
+				AA0E41B11D371D1D00657C3C /* Transfer_Page.swift */,
 				AAD2047C1C1A99CB008E1770 /* Main.storyboard */,
 				AA239AD61BAD9CCD00192AE0 /* Images.xcassets */,
 				AAF3ACAA1BCB346E0097C47D /* Background_Color.tif */,
@@ -368,6 +373,7 @@
 				AADFA1841B67A23000491DBF /* Male_Female */,
 				AA239ADC1BAD9D4A00192AE0 /* LaunchScreen.xib */,
 				AA271D781B4DF4CC00EA5BA6 /* Supporting Files */,
+				AA0E41B31D38878D00657C3C /* BatchClientPush.swift */,
 			);
 			path = Dating_App;
 			sourceTree = "<group>";
@@ -751,6 +757,7 @@
 				AA10153A1B5170A7007F77B8 /* ViewControllerLogin.swift in Sources */,
 				AA239AEF1BAD9FCF00192AE0 /* ViewControllerRegister.swift in Sources */,
 				AAAA0FDA1BC6D210004F2474 /* User.swift in Sources */,
+				AA0E41B41D38878E00657C3C /* BatchClientPush.swift in Sources */,
 				AA4020101BBCA9E800ABA237 /* Ethnicity_PickerView.swift in Sources */,
 				AA6550AC1D0DE4B4007DD200 /* Update_Location.swift in Sources */,
 				AADFA2311B6D74E600491DBF /* AFNetworkReachabilityManager.m in Sources */,
@@ -758,6 +765,7 @@
 				AA239AF31BADA15200192AE0 /* Distance_Calculation.swift in Sources */,
 				AADFA2351B6D74E600491DBF /* AFURLConnectionOperation.m in Sources */,
 				AA3527931BDB629100679464 /* Edu_PickerView_HK.swift in Sources */,
+				AA0E41B21D371D1D00657C3C /* Transfer_Page.swift in Sources */,
 				AADFA22B1B6D74E600491DBF /* AFHTTPRequestOperation.m in Sources */,
 				AADFA22F1B6D74E600491DBF /* AFHTTPSessionManager.m in Sources */,
 				AA239AF91BADA4D300192AE0 /* Major.swift in Sources */,

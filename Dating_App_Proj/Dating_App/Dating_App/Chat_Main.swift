@@ -305,18 +305,50 @@ class Chat_Main : UIViewController{
                         self.Friend_1_Loc.textColor = UIColor.whiteColor();
                         self.Friend_1_Uni.textColor = UIColor.whiteColor();
                         self.Friend_1_Major.textColor = UIColor.whiteColor();
+                        self.Friend_1.sizeToFit()
+                        self.Friend_1_Loc.sizeToFit()
+                        self.Friend_1_Uni.sizeToFit()
+                        self.Friend_1_Major.sizeToFit()
+                        self.Friend_1.adjustsFontSizeToFitWidth = true
+                        self.Friend_1_Loc.adjustsFontSizeToFitWidth = true
+                        self.Friend_1_Uni.adjustsFontSizeToFitWidth = true
+                        self.Friend_1_Major.adjustsFontSizeToFitWidth = true
                         self.Friend_2.textColor = UIColor.whiteColor();
                         self.Friend_2_Loc.textColor = UIColor.whiteColor();
                         self.Friend_2_Uni.textColor = UIColor.whiteColor();
                         self.Friend_2_Major.textColor = UIColor.whiteColor();
+                        self.Friend_2.sizeToFit()
+                        self.Friend_2_Loc.sizeToFit()
+                        self.Friend_2_Uni.sizeToFit()
+                        self.Friend_2_Major.sizeToFit()
+                        self.Friend_2.adjustsFontSizeToFitWidth = true
+                        self.Friend_2_Loc.adjustsFontSizeToFitWidth = true
+                        self.Friend_2_Uni.adjustsFontSizeToFitWidth = true
+                        self.Friend_2_Major.adjustsFontSizeToFitWidth = true
                         self.Friend_3.textColor = UIColor.whiteColor();
                         self.Friend_3_Loc.textColor = UIColor.whiteColor();
                         self.Friend_3_Uni.textColor = UIColor.whiteColor();
                         self.Friend_3_Major.textColor = UIColor.whiteColor();
+                        self.Friend_3.sizeToFit()
+                        self.Friend_3_Loc.sizeToFit()
+                        self.Friend_3_Uni.sizeToFit()
+                        self.Friend_3_Major.sizeToFit()
+                        self.Friend_3.adjustsFontSizeToFitWidth = true
+                        self.Friend_3_Loc.adjustsFontSizeToFitWidth = true
+                        self.Friend_3_Uni.adjustsFontSizeToFitWidth = true
+                        self.Friend_3_Major.adjustsFontSizeToFitWidth = true
                         self.Friend_4.textColor = UIColor.whiteColor();
                         self.Friend_4_Loc.textColor = UIColor.whiteColor();
                         self.Friend_4_Uni.textColor = UIColor.whiteColor();
                         self.Friend_4_Major.textColor = UIColor.whiteColor();
+                        self.Friend_4.sizeToFit()
+                        self.Friend_4_Loc.sizeToFit()
+                        self.Friend_4_Uni.sizeToFit()
+                        self.Friend_4_Major.sizeToFit()
+                        self.Friend_4.adjustsFontSizeToFitWidth = true
+                        self.Friend_4_Loc.adjustsFontSizeToFitWidth = true
+                        self.Friend_4_Uni.adjustsFontSizeToFitWidth = true
+                        self.Friend_4_Major.adjustsFontSizeToFitWidth = true
                     }
 
                     if(self.multi_count_add == 0){
@@ -416,6 +448,38 @@ class Chat_Main : UIViewController{
             self.Friend_4_Loc.textColor = UIColor.whiteColor();
             self.Friend_4_Major.textColor = UIColor.whiteColor();
             self.Friend_4_Uni.textColor = UIColor.whiteColor();
+            self.Friend_1.sizeToFit()
+            self.Friend_1_Loc.sizeToFit()
+            self.Friend_1_Uni.sizeToFit()
+            self.Friend_1_Major.sizeToFit()
+            self.Friend_1.adjustsFontSizeToFitWidth = true
+            self.Friend_1_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_1_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_1_Major.adjustsFontSizeToFitWidth = true
+            self.Friend_2.sizeToFit()
+            self.Friend_2_Loc.sizeToFit()
+            self.Friend_2_Uni.sizeToFit()
+            self.Friend_2_Major.sizeToFit()
+            self.Friend_2.adjustsFontSizeToFitWidth = true
+            self.Friend_2_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_2_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_2_Major.adjustsFontSizeToFitWidth = true
+            self.Friend_3.sizeToFit()
+            self.Friend_3_Loc.sizeToFit()
+            self.Friend_3_Uni.sizeToFit()
+            self.Friend_3_Major.sizeToFit()
+            self.Friend_3.adjustsFontSizeToFitWidth = true
+            self.Friend_3_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_3_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_3_Major.adjustsFontSizeToFitWidth = true
+            self.Friend_4.sizeToFit()
+            self.Friend_4_Loc.sizeToFit()
+            self.Friend_4_Uni.sizeToFit()
+            self.Friend_4_Major.sizeToFit()
+            self.Friend_4.adjustsFontSizeToFitWidth = true
+            self.Friend_4_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_4_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_4_Major.adjustsFontSizeToFitWidth = true
             self.multi_count_add+=1;
         }
         else if(self.multi_count_add > b){
@@ -462,8 +526,38 @@ class Chat_Main : UIViewController{
             self.Friend_4_Loc.text = "";
             self.Friend_4_Major.text = "";
             self.Friend_4_Uni.text = "";
-            
-            
+            self.Friend_1.sizeToFit()
+            self.Friend_1_Loc.sizeToFit()
+            self.Friend_1_Uni.sizeToFit()
+            self.Friend_1_Major.sizeToFit()
+            self.Friend_1.adjustsFontSizeToFitWidth = true
+            self.Friend_1_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_1_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_1_Major.adjustsFontSizeToFitWidth = true
+            self.Friend_2.sizeToFit()
+            self.Friend_2_Loc.sizeToFit()
+            self.Friend_2_Uni.sizeToFit()
+            self.Friend_2_Major.sizeToFit()
+            self.Friend_2.adjustsFontSizeToFitWidth = true
+            self.Friend_2_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_2_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_2_Major.adjustsFontSizeToFitWidth = true
+            self.Friend_3.sizeToFit()
+            self.Friend_3_Loc.sizeToFit()
+            self.Friend_3_Uni.sizeToFit()
+            self.Friend_3_Major.sizeToFit()
+            self.Friend_3.adjustsFontSizeToFitWidth = true
+            self.Friend_3_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_3_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_3_Major.adjustsFontSizeToFitWidth = true
+            self.Friend_4.sizeToFit()
+            self.Friend_4_Loc.sizeToFit()
+            self.Friend_4_Uni.sizeToFit()
+            self.Friend_4_Major.sizeToFit()
+            self.Friend_4.adjustsFontSizeToFitWidth = true
+            self.Friend_4_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_4_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_4_Major.adjustsFontSizeToFitWidth = true
             //self.multi_count -= (b-1);
         }
         else if(remainder == 2 && b > 0){
@@ -515,6 +609,39 @@ class Chat_Main : UIViewController{
             self.Friend_4_Loc.text = "";
             self.Friend_4_Major.text = "";
             self.Friend_4_Uni.text = "";
+            self.Friend_1.sizeToFit()
+            self.Friend_1_Loc.sizeToFit()
+            self.Friend_1_Uni.sizeToFit()
+            self.Friend_1_Major.sizeToFit()
+            self.Friend_1.adjustsFontSizeToFitWidth = true
+            self.Friend_1_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_1_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_1_Major.adjustsFontSizeToFitWidth = true
+            self.Friend_2.sizeToFit()
+            self.Friend_2_Loc.sizeToFit()
+            self.Friend_2_Uni.sizeToFit()
+            self.Friend_2_Major.sizeToFit()
+            self.Friend_2.adjustsFontSizeToFitWidth = true
+            self.Friend_2_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_2_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_2_Major.adjustsFontSizeToFitWidth = true
+            self.Friend_3.sizeToFit()
+            self.Friend_3_Loc.sizeToFit()
+            self.Friend_3_Uni.sizeToFit()
+            self.Friend_3_Major.sizeToFit()
+            self.Friend_3.adjustsFontSizeToFitWidth = true
+            self.Friend_3_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_3_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_3_Major.adjustsFontSizeToFitWidth = true
+            self.Friend_4.sizeToFit()
+            self.Friend_4_Loc.sizeToFit()
+            self.Friend_4_Uni.sizeToFit()
+            self.Friend_4_Major.sizeToFit()
+            self.Friend_4.adjustsFontSizeToFitWidth = true
+            self.Friend_4_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_4_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_4_Major.adjustsFontSizeToFitWidth = true
+
         }
         else if(remainder == 3 && b > 0){
             self.Friend_1.text = self.friendsArray[0 + b*4];
@@ -571,6 +698,39 @@ class Chat_Main : UIViewController{
             self.Friend_4_Loc.text = "";
             self.Friend_4_Major.text = "";
             self.Friend_4_Uni.text = "";
+            self.Friend_1.sizeToFit()
+            self.Friend_1_Loc.sizeToFit()
+            self.Friend_1_Uni.sizeToFit()
+            self.Friend_1_Major.sizeToFit()
+            self.Friend_1.adjustsFontSizeToFitWidth = true
+            self.Friend_1_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_1_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_1_Major.adjustsFontSizeToFitWidth = true
+            self.Friend_2.sizeToFit()
+            self.Friend_2_Loc.sizeToFit()
+            self.Friend_2_Uni.sizeToFit()
+            self.Friend_2_Major.sizeToFit()
+            self.Friend_2.adjustsFontSizeToFitWidth = true
+            self.Friend_2_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_2_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_2_Major.adjustsFontSizeToFitWidth = true
+            self.Friend_3.sizeToFit()
+            self.Friend_3_Loc.sizeToFit()
+            self.Friend_3_Uni.sizeToFit()
+            self.Friend_3_Major.sizeToFit()
+            self.Friend_3.adjustsFontSizeToFitWidth = true
+            self.Friend_3_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_3_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_3_Major.adjustsFontSizeToFitWidth = true
+            self.Friend_4.sizeToFit()
+            self.Friend_4_Loc.sizeToFit()
+            self.Friend_4_Uni.sizeToFit()
+            self.Friend_4_Major.sizeToFit()
+            self.Friend_4.adjustsFontSizeToFitWidth = true
+            self.Friend_4_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_4_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_4_Major.adjustsFontSizeToFitWidth = true
+
         }
         else if(remainder == 0 && b > 0){
             self.Friend_1.text = self.friendsArray[0 + b*4 - 4];
@@ -633,6 +793,39 @@ class Chat_Main : UIViewController{
             self.Friend_4_Loc.textColor = UIColor.whiteColor();
             self.Friend_4_Major.textColor = UIColor.whiteColor();
             self.Friend_4_Uni.textColor = UIColor.whiteColor();
+            self.Friend_1.sizeToFit()
+            self.Friend_1_Loc.sizeToFit()
+            self.Friend_1_Uni.sizeToFit()
+            self.Friend_1_Major.sizeToFit()
+            self.Friend_1.adjustsFontSizeToFitWidth = true
+            self.Friend_1_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_1_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_1_Major.adjustsFontSizeToFitWidth = true
+            self.Friend_2.sizeToFit()
+            self.Friend_2_Loc.sizeToFit()
+            self.Friend_2_Uni.sizeToFit()
+            self.Friend_2_Major.sizeToFit()
+            self.Friend_2.adjustsFontSizeToFitWidth = true
+            self.Friend_2_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_2_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_2_Major.adjustsFontSizeToFitWidth = true
+            self.Friend_3.sizeToFit()
+            self.Friend_3_Loc.sizeToFit()
+            self.Friend_3_Uni.sizeToFit()
+            self.Friend_3_Major.sizeToFit()
+            self.Friend_3.adjustsFontSizeToFitWidth = true
+            self.Friend_3_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_3_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_3_Major.adjustsFontSizeToFitWidth = true
+            self.Friend_4.sizeToFit()
+            self.Friend_4_Loc.sizeToFit()
+            self.Friend_4_Uni.sizeToFit()
+            self.Friend_4_Major.sizeToFit()
+            self.Friend_4.adjustsFontSizeToFitWidth = true
+            self.Friend_4_Loc.adjustsFontSizeToFitWidth = true
+            self.Friend_4_Uni.adjustsFontSizeToFitWidth = true
+            self.Friend_4_Major.adjustsFontSizeToFitWidth = true
+
         }
       }
         
@@ -767,7 +960,7 @@ class Chat_Main : UIViewController{
             self.Friend_3_Loc.textColor = UIColor.clearColor();
             self.Friend_4.textColor = UIColor.clearColor();
             self.Friend_4_Loc.textColor = UIColor.clearColor();
-            
+
             //Assigining friend's name
             let a = self.friendsArray.count;
             let remainder = a % 4;
@@ -962,6 +1155,40 @@ class Chat_Main : UIViewController{
             self.Friend_2_Image.setImageWithUrl(url1!, placeHolderImage: nil);
             self.Friend_3_Image.setImageWithUrl(url2!, placeHolderImage: nil);
             self.Friend_4_Image.setImageWithUrl(url3!, placeHolderImage: nil);*/
+        
+        self.Friend_1.sizeToFit()
+        self.Friend_1_Loc.sizeToFit()
+        self.Friend_1_Uni.sizeToFit()
+        self.Friend_1_Major.sizeToFit()
+        self.Friend_1.adjustsFontSizeToFitWidth = true
+        self.Friend_1_Loc.adjustsFontSizeToFitWidth = true
+        self.Friend_1_Uni.adjustsFontSizeToFitWidth = true
+        self.Friend_1_Major.adjustsFontSizeToFitWidth = true
+        self.Friend_2.sizeToFit()
+        self.Friend_2_Loc.sizeToFit()
+        self.Friend_2_Uni.sizeToFit()
+        self.Friend_2_Major.sizeToFit()
+        self.Friend_2.adjustsFontSizeToFitWidth = true
+        self.Friend_2_Loc.adjustsFontSizeToFitWidth = true
+        self.Friend_2_Uni.adjustsFontSizeToFitWidth = true
+        self.Friend_2_Major.adjustsFontSizeToFitWidth = true
+        self.Friend_3.sizeToFit()
+        self.Friend_3_Loc.sizeToFit()
+        self.Friend_3_Uni.sizeToFit()
+        self.Friend_3_Major.sizeToFit()
+        self.Friend_3.adjustsFontSizeToFitWidth = true
+        self.Friend_3_Loc.adjustsFontSizeToFitWidth = true
+        self.Friend_3_Uni.adjustsFontSizeToFitWidth = true
+        self.Friend_3_Major.adjustsFontSizeToFitWidth = true
+        self.Friend_4.sizeToFit()
+        self.Friend_4_Loc.sizeToFit()
+        self.Friend_4_Uni.sizeToFit()
+        self.Friend_4_Major.sizeToFit()
+        self.Friend_4.adjustsFontSizeToFitWidth = true
+        self.Friend_4_Loc.adjustsFontSizeToFitWidth = true
+        self.Friend_4_Uni.adjustsFontSizeToFitWidth = true
+        self.Friend_4_Major.adjustsFontSizeToFitWidth = true
+        
         
     }
 

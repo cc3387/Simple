@@ -237,6 +237,14 @@ class Loc_PickerView: UIViewController,UIPickerViewDataSource, UIPickerViewDeleg
         return location!;
     }
     
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+    
 }
 
 

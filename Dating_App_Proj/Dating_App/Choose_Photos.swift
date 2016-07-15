@@ -113,4 +113,12 @@ class ChoosePhoto: UIViewController, UIImagePickerControllerDelegate, UINavigati
     func loadDestinationVC(){
         self.performSegueWithIdentifier("Final_Send", sender: nil)
     }
+    
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
 }

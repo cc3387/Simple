@@ -206,5 +206,13 @@ class Major: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource{
         self.performSegueWithIdentifier("Beer_Wine", sender: nil)
     }
     
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+    
 }
 

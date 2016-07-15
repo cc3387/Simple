@@ -49,4 +49,12 @@ class Cooking_DineOut: UIViewController{
         self.performSegueWithIdentifier("Profile_Upload", sender: nil)
     }
     
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+    
 }

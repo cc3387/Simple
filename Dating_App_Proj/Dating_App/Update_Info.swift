@@ -50,6 +50,14 @@ class Update_Info: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+    
     
 //    func loadDestinationVC(){
 //        self.performSegueWithIdentifier("Update_Main_Page", sender: nil)

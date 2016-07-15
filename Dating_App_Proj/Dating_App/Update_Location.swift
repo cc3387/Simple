@@ -53,4 +53,12 @@ class Google_ViewController_Update: UIViewController, CLLocationManagerDelegate,
         self.performSegueWithIdentifier("Update_Main_Page", sender: nil)
     }
     
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+    
 }

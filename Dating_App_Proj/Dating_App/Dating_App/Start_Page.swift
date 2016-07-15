@@ -29,7 +29,16 @@ class Start_Page : UIViewController{
 //            loadDestinationVC1()
 //        }
     }
-
+    
+    
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+    
 
     func loadDestinationVC1(){
         self.performSegueWithIdentifier("Yes_Login", sender: nil)
@@ -98,6 +107,15 @@ struct friend_profile{
     static var Major: String? = "";
     static var University: String? = "";
     static var Photo: UIImage?;
+    static var username: String? = "";
+    static var Email: String? = "";
+    static var Photostring: String? = "";
+    static var uid: String? = "";
+    static var phoneid: String? = "";
+    static var Chatid: Int?;
+    static var q1: String? = "";
+    static var q2: String? = "";
+    static var q3: String? = "";
 };
 
 struct conversation_info{

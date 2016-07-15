@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dating_App/Meet_Profile.swift"
-            timestampString = "489811440.029729"
+            timestampString = "490240188.988586"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "379"
-            endingLineNumber = "379"
+            startingLineNumber = "390"
+            endingLineNumber = "390"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
             <Locations>
@@ -42,11 +42,11 @@
                   moduleName = "Simple"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/clement_chan_pig/Documents/Dating_App_Folder/Dating_App_Proj/Dating_App/Dating_App/Meet_Profile.swift"
-                  timestampString = "489983510.105643"
+                  timestampString = "490150653.462924"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "379"
-                  endingLineNumber = "379"
+                  startingLineNumber = "387"
+                  endingLineNumber = "387"
                   offsetFromSymbolStart = "7016">
                </Location>
                <Location
@@ -57,12 +57,12 @@
                   moduleName = "Simple"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/clement_chan_pig/Documents/Dating_App_Folder/Dating_App_Proj/Dating_App/Dating_App/Meet_Profile.swift"
-                  timestampString = "489983510.106022"
+                  timestampString = "490150653.463201"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "379"
-                  endingLineNumber = "379"
-                  offsetFromSymbolStart = "37812">
+                  startingLineNumber = "387"
+                  endingLineNumber = "387"
+                  offsetFromSymbolStart = "42680">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dating_App/Chat_Main.swift"
-            timestampString = "489348983.078275"
+            timestampString = "490083393.101982"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1001"
-            endingLineNumber = "1001"
+            startingLineNumber = "1228"
+            endingLineNumber = "1228"
             landmarkName = "hour_int()"
             landmarkType = "5">
          </BreakpointContent>
@@ -185,14 +185,76 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Chat_Detail.swift"
-            timestampString = "489987160.451514"
+            filePath = "Dating_App/Meet_Profile.swift"
+            timestampString = "490148523.305934"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "didPressSendButton(_:withMessageText:senderId:senderDisplayName:date:)"
-            landmarkType = "5">
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "Profile_Meet_Main"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Simple.Profile_Meet_Main.q11.getter : Swift.String"
+                  moduleName = "Simple"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clement_chan_pig/Documents/Dating_App_Folder/Dating_App_Proj/Dating_App/Dating_App/Meet_Profile.swift"
+                  timestampString = "490150653.469819"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Simple.Profile_Meet_Main.q11.setter : Swift.String"
+                  moduleName = "Simple"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clement_chan_pig/Documents/Dating_App_Folder/Dating_App_Proj/Dating_App/Dating_App/Meet_Profile.swift"
+                  timestampString = "490150653.469979"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Simple.Profile_Meet_Main.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Simple.Profile_Meet_Main"
+                  moduleName = "Simple"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clement_chan_pig/Documents/Dating_App_Folder/Dating_App_Proj/Dating_App/Dating_App/Meet_Profile.swift"
+                  timestampString = "490150653.470179"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "1184">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Simple.Profile_Meet_Main.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Simple.Profile_Meet_Main&gt;"
+                  moduleName = "Simple"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clement_chan_pig/Documents/Dating_App_Folder/Dating_App_Proj/Dating_App/Dating_App/Meet_Profile.swift"
+                  timestampString = "490150653.470328"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "1124">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

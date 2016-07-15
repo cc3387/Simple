@@ -36,7 +36,7 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
     }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        searchActive = true;
+        searchActive = false;
     }
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
@@ -134,6 +134,8 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
             var count = 0;
             let selectedname = filtered[indexPath.row]
             var selectednames = [String]();
+            
+            
             for index in data1{
                 if(index == selectedname){
                     selectednames.append(data[count]);
@@ -162,6 +164,16 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
                         convo_final.friend_phoneid_final = phoneid!;
                         convo_final.friend_id_final = uid!;
                         convo_final.friend_Profile_final = friends_name!;
+                        
+                        friend_profile.Profile_Name = friends_name;
+                        friend_profile.Location = friends_loc;
+                        friend_profile.University = friends_uni;
+                        friend_profile.Major = friends_major;
+                        let base64String = friends_photo
+                        var decodedData = NSData(base64EncodedString: base64String!, options: NSDataBase64DecodingOptions())
+                        var decodedImage = UIImage(data: decodedData!)!
+                        friend_profile.Photo = decodedImage
+                        
                     }
                 })
             }
@@ -187,6 +199,15 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
                     convo_final.friend_phoneid_final = phoneid!;
                     convo_final.friend_id_final = uid!;
                     convo_final.friend_Profile_final = friends_name!;
+                    
+                    friend_profile.Profile_Name = friends_name;
+                    friend_profile.Location = friends_loc;
+                    friend_profile.University = friends_uni;
+                    friend_profile.Major = friends_major;
+                    let base64String = friends_photo
+                    var decodedData = NSData(base64EncodedString: base64String!, options: NSDataBase64DecodingOptions())
+                    var decodedImage = UIImage(data: decodedData!)!
+                    friend_profile.Photo = decodedImage
                 }
                 })
             }
@@ -212,6 +233,14 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
                     convo_final.friend_phoneid_final = phoneid!;
                     convo_final.friend_id_final = uid!;
                     convo_final.friend_Profile_final = friends_name!;
+                    friend_profile.Profile_Name = friends_name;
+                    friend_profile.Location = friends_loc;
+                    friend_profile.University = friends_uni;
+                    friend_profile.Major = friends_major;
+                    let base64String = friends_photo
+                    var decodedData = NSData(base64EncodedString: base64String!, options: NSDataBase64DecodingOptions())
+                    var decodedImage = UIImage(data: decodedData!)!
+                    friend_profile.Photo = decodedImage
                 }
             })
         }

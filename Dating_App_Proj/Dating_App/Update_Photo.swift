@@ -86,4 +86,12 @@ class UpdatePhoto: UIViewController, UIImagePickerControllerDelegate, UINavigati
     func loadDestinationVC(){
         self.performSegueWithIdentifier("Update_Photo", sender: nil)
     }
+    
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
 }

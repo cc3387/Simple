@@ -51,9 +51,9 @@ class FinalSend_Final: UIViewController{
             "Education":register_info.education,
             "Major":register_info.Major,
             "Address": register_info.address,
-            "Beer_Wine": register_info.beer_or_wine,
-            "Sports_Art": register_info.sports_or_art,
-            "Cooking_DineOut": register_info.Cooking_Dineout,
+            "Qone": register_info.beer_or_wine,
+            "Qtwo": register_info.sports_or_art,
+            "Qthree": register_info.Cooking_Dineout,
             "University_Rank": register_info.URank,
             "Email": register_info.email,
             "Photo": register_info.Photo,
@@ -104,6 +104,14 @@ class FinalSend_Final: UIViewController{
     
     func loadDestinationVC(){
         self.performSegueWithIdentifier("Start", sender: nil)
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
     }
     
 }

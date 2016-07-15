@@ -97,32 +97,28 @@ class ChatDetail: JSQMessagesViewController{
             JSQSystemSoundPlayer.jsq_playMessageSentSound()
         
             //5 Sending notification to your friend's phone
-            let manager = AFHTTPRequestOperationManager()
-            manager.requestSerializer.setValue("a524aa85f96b3bc103188428b026bd5b", forHTTPHeaderField: "X-Authorization")
-            manager.requestSerializer.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
-            var param: [String:AnyObject] = [
-                    "group_id": "welcome",
-                    "recipients": [
-                        "tokens": ["6163b0d91c3457c4616e37d1f4a11cc5cfac67aeb115e988059f058ccf5655cb","e88a682f5895cd0780eb3e252768991fbd39ed0bdfcc00ac24f9a9eba2924567"]
-                    ],
-                    "message": [
-                        "title": "New Messages",
-                        "body": "You got new messages!"
-                    ],
-                    "custom_payload": "{\"tag\":\"wake up push\", \"landing_screen\":\"greeting\"}",
-                    "sandbox":true
-            ]
-
-            manager.POST( "https://api.batch.com/1.0/DEV577F39F560C20E0DCE06C1229D7/transactional/send",
-            parameters: param,
-            success: { (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
-            print("Push Notification Successfully sent!")
-            print("JSON:" + responseObject.description)
-            },
-            failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
-            print("Error:" + error.localizedDescription)
-            })
+            let devDeviceToken = "e88a682f5895cd0780eb3e252768991fbd39ed0bdfcc00ac24f9a9eba2924567"
+            if let pushClient = BatchClientPush(apiKey: "DEV577F39F560C20E0DCE06C1229D7", restKey: "a524aa85f96b3bc103188428b026bd5b") {
+            
+            pushClient.sandbox = true
+            pushClient.customPayload = ["aps": ["badge": 7]]
+            pushClient.groupId = "tests"
+            pushClient.message.title = "iOS Push"
+            pushClient.message.body = "Batch's working!"
+            pushClient.recipients.customIds = ["foo"]
+            pushClient.recipients.tokens.append(devDeviceToken)
+            
+            pushClient.send { (response, error) in
+                if let error = error {
+                    print("Something happened while sending the push: \(response) \(error.localizedDescription)")
+                } else {
+                    print("Push sent \(response)")
+                }
+            }
+            
+        } else {
+            print("Error while initializing BatchClientPush")
+        }
         
             // 6
             finishSendingMessage()
@@ -191,6 +187,14 @@ class ChatDetail: JSQMessagesViewController{
 //            }
         }
         
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
     }
     
     //Function to add messages and send to the server

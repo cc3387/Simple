@@ -29,6 +29,14 @@ class Edu_PickerView_UK: UIViewController,UIPickerViewDataSource, UIPickerViewDe
         // Dispose of any resources that can be recreated.
     }
     
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+    
     
     @IBAction func Nextquest(sender: AnyObject) {
         updateLoc();
