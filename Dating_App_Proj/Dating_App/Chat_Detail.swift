@@ -103,9 +103,9 @@ class ChatDetail: JSQMessagesViewController{
             pushClient.sandbox = true
             pushClient.customPayload = ["aps": ["badge": 7]]
             pushClient.groupId = "tests"
-            pushClient.message.title = "iOS Push"
-            pushClient.message.body = "Batch's working!"
-            pushClient.recipients.customIds = ["foo"]
+            pushClient.message.title = "Simple"
+            pushClient.message.body = "Clement Sent you a message!"
+            pushClient.recipients.customIds = ["c657587b-969c-483e-89cb-7c5105af4c55"]
             pushClient.recipients.tokens.append(devDeviceToken)
             
             pushClient.send { (response, error) in
