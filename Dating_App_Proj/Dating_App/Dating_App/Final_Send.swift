@@ -34,6 +34,7 @@ class FinalSend_Final: UIViewController{
         //var loc_lat:String = String(format:"%f",loc_lat_int);
         
         var ref = Firebase(url:"https://simpleplus.firebaseio.com/")
+        var refauto = Firebase(url:"https://simpleplus.firebaseio.com/autologin")
         var userref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
         
         var profile = [
@@ -71,13 +72,22 @@ class FinalSend_Final: UIViewController{
             "phoneid": register_info.phoneid
         ];
         
+        var autologin = [
+            "username": register_info.email,
+            "password": register_info.password,
+            "phoneid" : register_info.phoneid
+        ];
+        
+        let phonelogin = register_info.phoneid
+        let phoneloginfinal = (phonelogin as String) + "login"
+        
         var usersRef = ref.childByAppendingPath("users");
         var usernamefriend = register_info.uid as String + "_fd";
         usersRef.childByAppendingPath(register_info.uid as String).setValue(profile);
         var userfd = userref.childByAppendingPath(usernamefriend);
         userfd.childByAppendingPath(register_info.uid as String).setValue(friend);
+        refauto.childByAppendingPath(phoneloginfinal).setValue(autologin);
         login.registered = 1;
-        
         loadDestinationVC();
     }
     

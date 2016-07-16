@@ -13,15 +13,57 @@ var loginid: String = "";
 
 class Start_Page : UIViewController{
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.navigationController?.navigationBarHidden = true
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        self.view.endEditing(true)
+        
+        self.activityIndicator.startAnimating()
+        self.activityIndicator.hidden = false
+        var ref = Firebase(url:"https://simpleplus.firebaseio.com/autologin")
+        var reflogin = Firebase(url:"https://simpleplus.firebaseio.com")
+        let phoneid = BatchPush.lastKnownPushToken()
+        ref.queryOrderedByChild("phoneid").queryEqualToValue(phoneid)
+            .observeEventType(.ChildAdded, withBlock: { snapshot in
+                if let username = snapshot.value["username"] as? String {
+                    login.loginid = username
+                    print(login.loginid)
+                    if let password = snapshot.value["password"] as? String {
+                        login.password = password
+                        print(login.password)
+                        if(username != "" && password != ""){
+                        reflogin.authUser(login.loginid, password: login.password) {
+                            error, authData in
+                            if error != nil {
+                                // an error occured while attempting login
+                                print("Login info is wrong");
+                            } else {
+                                login.chatid = ref.authData.uid
+                                indication = 1;
+                                frienduser.emailarray.removeAll();
+                                frienduser.useridarray.removeAll();
+                                frienduser.phoneidarray.removeAll();
+                                frienduser.profilenamearray.removeAll();
+                                self.loadDestinationVC1();
+                            };
+                           }
+                    }
+                        else{
+
+                    }
+                }
+            }
+        })
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(5 * NSEC_PER_SEC)), dispatch_get_main_queue()){
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.hidden = true
+        };
+        
     }
     
     @IBAction func Login(sender: AnyObject) {
-        
 //        if(loginid == ""){
             loadDestinationVC()
 //        }
@@ -41,7 +83,7 @@ class Start_Page : UIViewController{
     
 
     func loadDestinationVC1(){
-        self.performSegueWithIdentifier("Yes_Login", sender: nil)
+        self.performSegueWithIdentifier("openProfile", sender: nil)
     }
     
     

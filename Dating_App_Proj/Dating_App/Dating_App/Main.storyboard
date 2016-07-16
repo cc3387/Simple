@@ -627,6 +627,9 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wCP-7H-DiN">
+                                <rect key="frame" x="150" y="271" width="20" height="20"/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Greet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLe-1u-uFR">
                                 <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -679,6 +682,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Byt-bb-42B"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="wCP-7H-DiN" id="ruA-Ko-r4r"/>
                         <segue destination="f9m-1M-zoV" kind="show" identifier="openProfile" id="cqz-GP-iva"/>
                         <segue destination="vXZ-lx-hvc" kind="show" identifier="No_Login" id="n6A-hd-dhQ"/>
                         <segue destination="jEb-cA-e3R" kind="show" identifier="Yes_Login" id="fh3-p9-GzH"/>
@@ -686,7 +690,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RUJ-2a-Ixd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6" y="-59"/>
+            <point key="canvasLocation" x="-133" y="-143"/>
         </scene>
         <!--View Controller Register-->
         <scene sceneID="oFw-XZ-lYg">
@@ -3109,13 +3113,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" text="" id="6ON-dR-tPL">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Xcr-ab-cOj">
-                                        <rect key="frame" x="0.0" y="72" width="600" height="30"/>
+                                        <rect key="frame" x="0.0" y="136" width="600" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xcr-ab-cOj" id="0mS-F5-ftK">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="29"/>
@@ -3150,12 +3154,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6U-Zx-8Dy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2344" y="-961"/>
+            <point key="canvasLocation" x="2302" y="-1054"/>
         </scene>
         <!--Title-->
         <scene sceneID="GuS-4y-utL">
             <objects>
-                <viewController id="dup-bv-0N0" customClass="ChatDetail" customModule="Simple" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Chatroom" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dup-bv-0N0" customClass="ChatDetail" customModule="Simple" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eZc-Gn-NR1"/>
                         <viewControllerLayoutGuide type="bottom" id="vAd-md-MDT"/>
@@ -3260,7 +3264,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aoz-gg-FKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="253" y="-1054"/>
+            <point key="canvasLocation" x="-33" y="-1082"/>
         </scene>
         <!--Choose Photo-->
         <scene sceneID="Bw1-Yo-cB4">
@@ -3799,7 +3803,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hg4-g9-WgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1639" y="-1068"/>
+            <point key="canvasLocation" x="1639" y="-1038"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KlK-vc-a1t">
@@ -3916,22 +3920,22 @@
         <image name="cloud-horizon.jpg" width="620" height="465"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="74n-tz-374"/>
-        <segue reference="Pvq-MF-HCu"/>
-        <segue reference="ny4-sU-M0o"/>
-        <segue reference="fTe-SU-cnY"/>
-        <segue reference="PpB-Pu-aBD"/>
-        <segue reference="qdL-77-IId"/>
-        <segue reference="oiC-hM-ShA"/>
-        <segue reference="lp7-Dm-2mL"/>
+        <segue reference="cD3-NL-LSF"/>
+        <segue reference="7RM-4c-dPc"/>
+        <segue reference="XSd-l0-pp8"/>
+        <segue reference="cqz-GP-iva"/>
+        <segue reference="Am7-a8-KE0"/>
+        <segue reference="w7k-32-K2a"/>
+        <segue reference="eZd-JO-exV"/>
+        <segue reference="hLD-FZ-jQI"/>
         <segue reference="qKX-MI-0nm"/>
         <segue reference="ekB-3V-pnZ"/>
+        <segue reference="oiC-hM-ShA"/>
+        <segue reference="fTe-SU-cnY"/>
+        <segue reference="ny4-sU-M0o"/>
+        <segue reference="Pvq-MF-HCu"/>
         <segue reference="DUB-xm-YOM"/>
         <segue reference="L7q-dC-TAE"/>
         <segue reference="Ccm-cV-i5q"/>
-        <segue reference="cD3-NL-LSF"/>
-        <segue reference="eZd-JO-exV"/>
-        <segue reference="w7k-32-K2a"/>
-        <segue reference="hLD-FZ-jQI"/>
     </inferredMetricsTieBreakers>
 </document>

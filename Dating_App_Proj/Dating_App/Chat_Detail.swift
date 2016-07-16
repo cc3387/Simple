@@ -97,14 +97,14 @@ class ChatDetail: JSQMessagesViewController{
             JSQSystemSoundPlayer.jsq_playMessageSentSound()
         
             //5 Sending notification to your friend's phone
-            let devDeviceToken = "e88a682f5895cd0780eb3e252768991fbd39ed0bdfcc00ac24f9a9eba2924567"
+            let devDeviceToken = convo_final.friend_phoneid_final
             if let pushClient = BatchClientPush(apiKey: "DEV577F39F560C20E0DCE06C1229D7", restKey: "a524aa85f96b3bc103188428b026bd5b") {
             
             pushClient.sandbox = true
-            pushClient.customPayload = ["aps": ["badge": 7]]
+            pushClient.customPayload = ["aps": ["badge": 1]]
             pushClient.groupId = "tests"
             pushClient.message.title = "Simple"
-            pushClient.message.body = "Clement Sent you a message!"
+            pushClient.message.body = login_user.Profile_Name + " sent you a message!"
             pushClient.recipients.customIds = ["c657587b-969c-483e-89cb-7c5105af4c55"]
             pushClient.recipients.tokens.append(devDeviceToken)
             

@@ -84,6 +84,7 @@ class Profile_Main : UIViewController{
             
             let random = arc4random_uniform(3);
             
+            self.User_ID.textColor = UIColor.whiteColor();
             Time_Greetings.textColor = UIColor.whiteColor();
             
             if(random == 0){

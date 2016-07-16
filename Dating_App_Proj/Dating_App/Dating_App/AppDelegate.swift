@@ -36,11 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
         //Register for push notifications
         registerForPushNotifications(application)
         
-        var timer: NSTimer!
-        var refresher: UIRefreshControl!
-        refresher = UIRefreshControl()
-        refresher.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
-        timer = NSTimer.scheduledTimerWithTimeInterval(3600.0, target: self, selector:"send_reminder", userInfo: nil, repeats: true)
+//        var timer: NSTimer!
+//        var refresher: UIRefreshControl!
+//        refresher = UIRefreshControl()
+//        refresher.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+//        timer = NSTimer.scheduledTimerWithTimeInterval(3600.0, target: self, selector:"send_reminder", userInfo: nil, repeats: true)
         
         
         // Override point for customization after application launch.
@@ -65,13 +65,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
                 }
                 self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
                 var storyboard = UIStoryboard(name: "Main", bundle: nil)
-                var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Chat_Detail") as! UIViewController
+                var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Chatroom") as! UIViewController
                 self.window?.rootViewController = initialViewController
                 self.window?.makeKeyAndVisible()
             }
         }
         
-        autologin();
+        //autologin();
         
     }
 
