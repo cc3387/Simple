@@ -9,44 +9,50 @@
 import Foundation
 
 import UIKit
+import Firebase
 
 class Ask_Questions: UIViewController{
     
+    @IBOutlet weak var Welcome: UILabel!
+    
+    @IBOutlet weak var QuestionField: UITextField!
+    
+    @IBOutlet weak var MessageSent: UILabel!
+    
+    @IBAction func SendQuestion(sender: AnyObject) {
+        if(!self.QuestionField.text!.isEmpty){
+            
+            let rootRef = Firebase(url: "https://simpleplus.firebaseio.com/qa/question/")
+            
+            let messageItem = [
+                "Question": self.QuestionField.text!,
+                "SenderID": login_user.uid
+            ]
+            
+            rootRef.childByAppendingPath(login_user.uid + convo_final.friend_id_final + "q").setValue(messageItem)
+            self.MessageSent.text = "Question Sent! "
+            self.MessageSent.textColor = UIColor.greenColor()
+            loadDestinationVC()
+        }
+    }
+    
     override func viewDidLoad() {
-        
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: ("BeerWineSwipes:"))
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: ("BeerWineSwipes:"))
-        
-        leftSwipe.direction = .Left
-        rightSwipe.direction = .Right
-        
-        view.addGestureRecognizer(leftSwipe)
-        view.addGestureRecognizer(rightSwipe)
-        
-        // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.Welcome.text = "Ask "+convo_final.friend_Profile_final + " a question"
     }
     
     override func didReceiveMemoryWarning() {
         // Dispose of any resources that can be recreated.
     }
     
-    func BeerWineSwipes(sender:UISwipeGestureRecognizer){
-        
-        if(sender.direction == .Right){
-            register_info.beer_or_wine = "Wine"
-            print(register_info.beer_or_wine)
-            loadDestinationVC()
-            
-        }
-        else if(sender.direction == .Left){
-            register_info.beer_or_wine = "Beer"
-            print(register_info.beer_or_wine)
-            loadDestinationVC()
-        }
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Ask_Main", sender: nil)
+        self.performSegueWithIdentifier("Back_To_Friend", sender: nil)
     }
     
 }

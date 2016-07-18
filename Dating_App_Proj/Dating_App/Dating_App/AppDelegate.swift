@@ -108,6 +108,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
         }
         }
         
+        let devDeviceToken = login_user.phoneid
+        if let pushClient = BatchClientPush(apiKey: "DEV577F39F560C20E0DCE06C1229D7", restKey: "a524aa85f96b3bc103188428b026bd5b") {
+            
+            pushClient.sandbox = true
+            pushClient.customPayload = ["aps": ["badge": 0]]
+            pushClient.recipients.tokens.append(devDeviceToken)
+            pushClient.send { (response, error) in
+                if let error = error {
+                    print("Something happened while sending the push: \(response) \(error.localizedDescription)")
+                } else {
+                    print("Push sent \(response)")
+                }
+            }
+        }
+        
         autologin();
     }
 

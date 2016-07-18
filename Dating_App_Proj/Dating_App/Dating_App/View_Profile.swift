@@ -67,7 +67,7 @@ class Profile_View : UIViewController{
             
             //Setting the User ID to login user id
             self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
-            self.User_ID.textColor = UIColor.blackColor();
+            self.User_ID.textColor = UIColor.whiteColor();
         }
         else{
             

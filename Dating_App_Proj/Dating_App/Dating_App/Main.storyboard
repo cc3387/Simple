@@ -628,7 +628,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wCP-7H-DiN">
-                                <rect key="frame" x="150" y="271" width="20" height="20"/>
+                                <rect key="frame" x="154" y="271" width="20" height="20"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Greet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLe-1u-uFR">
                                 <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="17"/>
@@ -2144,7 +2144,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXz-gy-oIc">
-                                <rect key="frame" x="19" y="110" width="227" height="21"/>
+                                <rect key="frame" x="19" y="116" width="227" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -2706,7 +2706,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y04-Uy-0wE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="14563" y="-497"/>
+            <point key="canvasLocation" x="15375" y="-497"/>
         </scene>
         <!--Friends Profile View-->
         <scene sceneID="IFZ-D7-vBo">
@@ -3264,7 +3264,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aoz-gg-FKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-33" y="-1082"/>
+            <point key="canvasLocation" x="155" y="-1054"/>
         </scene>
         <!--Choose Photo-->
         <scene sceneID="Bw1-Yo-cB4">
@@ -3893,6 +3893,30 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udJ-ef-46R">
+                                <rect key="frame" x="43" y="569" width="45" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Ask" backgroundImage="Background_Color.tif">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="GDJ-GA-x0w" kind="show" id="ygk-5h-Uix"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBY-U4-iNt">
+                                <rect key="frame" x="211" y="569" width="52" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="History" backgroundImage="Background_Color.tif">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35I-Am-J3j">
+                                <rect key="frame" x="120" y="569" width="59" height="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Answers" backgroundImage="Background_Color.tif">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -3911,31 +3935,111 @@
             </objects>
             <point key="canvasLocation" x="4374" y="-961"/>
         </scene>
+        <!--Ask Questions-->
+        <scene sceneID="nr6-LI-tDx">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DDo-TK-2TX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="GDJ-GA-x0w" customClass="Ask_Questions" customModule="Simple" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bwh-6Q-hLj"/>
+                        <viewControllerLayoutGuide type="bottom" id="nWK-eg-zWG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="17P-h0-01p">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Switzerland_Bridge.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="XK2-6g-tpU">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zM-nR-FrZ">
+                                <rect key="frame" x="20" y="126" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwr-lq-8b2">
+                                <rect key="frame" x="20" y="20" width="40" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="E1a-Bv-WvL" kind="show" id="p5e-BF-9R3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Hr-VP-Pef">
+                                <rect key="frame" x="20" y="74" width="261" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yS7-ul-kJj">
+                                <rect key="frame" x="110" y="225" width="228" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KC5-6M-Bdo">
+                                <rect key="frame" x="99" y="122" width="182" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJ2-dl-ysZ">
+                                <rect key="frame" x="167" y="175" width="46" height="30"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="SendQuestion:" destination="GDJ-GA-x0w" eventType="touchUpInside" id="Zzc-1M-cl3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XK2-6g-tpU" firstAttribute="leading" secondItem="17P-h0-01p" secondAttribute="leadingMargin" constant="-20" id="Mb2-ho-Xp5"/>
+                            <constraint firstItem="nWK-eg-zWG" firstAttribute="top" secondItem="XK2-6g-tpU" secondAttribute="bottom" id="Pjd-ZS-DKc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XK2-6g-tpU" secondAttribute="trailing" constant="-20" id="gdn-za-gPA"/>
+                            <constraint firstItem="XK2-6g-tpU" firstAttribute="top" secondItem="17P-h0-01p" secondAttribute="topMargin" id="mHC-ll-tha"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="63W-je-0Hg"/>
+                    <connections>
+                        <outlet property="MessageSent" destination="yS7-ul-kJj" id="PmT-iG-CCH"/>
+                        <outlet property="QuestionField" destination="KC5-6M-Bdo" id="iAk-ED-H8h"/>
+                        <outlet property="Welcome" destination="4Hr-VP-Pef" id="2RN-cR-QcL"/>
+                        <segue destination="E1a-Bv-WvL" kind="show" identifier="Back_To_Friend" id="Mz5-vu-2dS"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="5114" y="-961"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Background_Color.tif" width="1280" height="692"/>
         <image name="Dawn_City.jpg" width="2560" height="1600"/>
         <image name="Female_Cloud.tif" width="740" height="370"/>
         <image name="Sunset.jpg" width="3648" height="2736"/>
+        <image name="Switzerland_Bridge.jpg" width="1920" height="1280"/>
         <image name="cloud-horizon.jpg" width="620" height="465"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cD3-NL-LSF"/>
-        <segue reference="7RM-4c-dPc"/>
-        <segue reference="XSd-l0-pp8"/>
-        <segue reference="cqz-GP-iva"/>
+        <segue reference="uXb-RQ-BLc"/>
+        <segue reference="oiC-hM-ShA"/>
+        <segue reference="lp7-Dm-2mL"/>
+        <segue reference="qKX-MI-0nm"/>
         <segue reference="Am7-a8-KE0"/>
         <segue reference="w7k-32-K2a"/>
         <segue reference="eZd-JO-exV"/>
         <segue reference="hLD-FZ-jQI"/>
-        <segue reference="qKX-MI-0nm"/>
         <segue reference="ekB-3V-pnZ"/>
-        <segue reference="oiC-hM-ShA"/>
-        <segue reference="fTe-SU-cnY"/>
-        <segue reference="ny4-sU-M0o"/>
-        <segue reference="Pvq-MF-HCu"/>
         <segue reference="DUB-xm-YOM"/>
         <segue reference="L7q-dC-TAE"/>
         <segue reference="Ccm-cV-i5q"/>
+        <segue reference="Pvq-MF-HCu"/>
+        <segue reference="ny4-sU-M0o"/>
+        <segue reference="fTe-SU-cnY"/>
+        <segue reference="p5e-BF-9R3"/>
+        <segue reference="74n-tz-374"/>
     </inferredMetricsTieBreakers>
 </document>
