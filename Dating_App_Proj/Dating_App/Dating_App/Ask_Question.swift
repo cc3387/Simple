@@ -28,7 +28,7 @@ class Ask_Questions: UIViewController{
                 "Question": self.QuestionField.text!,
                 "SenderID": login_user.uid
             ]
-            
+        
             rootRef.childByAppendingPath(login_user.uid + convo_final.friend_id_final + "q").setValue(messageItem)
             self.MessageSent.text = "Question Sent! "
             self.MessageSent.textColor = UIColor.greenColor()

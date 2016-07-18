@@ -117,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="788" y="-59"/>
+            <point key="canvasLocation" x="740" y="-114"/>
         </scene>
         <!--Update Info-->
         <scene sceneID="aZq-em-TSY">
@@ -3154,7 +3154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6U-Zx-8Dy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2302" y="-1054"/>
+            <point key="canvasLocation" x="2306" y="-1038"/>
         </scene>
         <!--Title-->
         <scene sceneID="GuS-4y-utL">
@@ -3938,7 +3938,6 @@
         <!--Ask Questions-->
         <scene sceneID="nr6-LI-tDx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DDo-TK-2TX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="GDJ-GA-x0w" customClass="Ask_Questions" customModule="Simple" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bwh-6Q-hLj"/>
@@ -3953,23 +3952,13 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zM-nR-FrZ">
                                 <rect key="frame" x="20" y="126" width="71" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwr-lq-8b2">
-                                <rect key="frame" x="20" y="20" width="40" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="E1a-Bv-WvL" kind="show" id="p5e-BF-9R3"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Hr-VP-Pef">
                                 <rect key="frame" x="20" y="74" width="261" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -3993,6 +3982,22 @@
                                     <action selector="SendQuestion:" destination="GDJ-GA-x0w" eventType="touchUpInside" id="Zzc-1M-cl3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Simple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDu-j1-lcq">
+                                <rect key="frame" x="169" y="24" width="62" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwr-lq-8b2">
+                                <rect key="frame" x="15" y="20" width="40" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="E1a-Bv-WvL" kind="show" id="p5e-BF-9R3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -4010,6 +4015,7 @@
                         <segue destination="E1a-Bv-WvL" kind="show" identifier="Back_To_Friend" id="Mz5-vu-2dS"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DDo-TK-2TX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5114" y="-961"/>
         </scene>
@@ -4023,23 +4029,23 @@
         <image name="cloud-horizon.jpg" width="620" height="465"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cD3-NL-LSF"/>
-        <segue reference="uXb-RQ-BLc"/>
+        <segue reference="74n-tz-374"/>
+        <segue reference="p5e-BF-9R3"/>
+        <segue reference="XSd-l0-pp8"/>
+        <segue reference="RYN-la-auh"/>
+        <segue reference="PpB-Pu-aBD"/>
         <segue reference="oiC-hM-ShA"/>
-        <segue reference="lp7-Dm-2mL"/>
         <segue reference="qKX-MI-0nm"/>
-        <segue reference="Am7-a8-KE0"/>
-        <segue reference="w7k-32-K2a"/>
-        <segue reference="eZd-JO-exV"/>
-        <segue reference="hLD-FZ-jQI"/>
         <segue reference="ekB-3V-pnZ"/>
+        <segue reference="hLD-FZ-jQI"/>
+        <segue reference="eZd-JO-exV"/>
+        <segue reference="w7k-32-K2a"/>
+        <segue reference="cD3-NL-LSF"/>
+        <segue reference="fTe-SU-cnY"/>
+        <segue reference="ny4-sU-M0o"/>
+        <segue reference="Pvq-MF-HCu"/>
         <segue reference="DUB-xm-YOM"/>
         <segue reference="L7q-dC-TAE"/>
         <segue reference="Ccm-cV-i5q"/>
-        <segue reference="Pvq-MF-HCu"/>
-        <segue reference="ny4-sU-M0o"/>
-        <segue reference="fTe-SU-cnY"/>
-        <segue reference="p5e-BF-9R3"/>
-        <segue reference="74n-tz-374"/>
     </inferredMetricsTieBreakers>
 </document>

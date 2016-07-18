@@ -65,9 +65,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
                 }
                 self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
                 var storyboard = UIStoryboard(name: "Main", bundle: nil)
-                var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Chatroom") as! UIViewController
+                var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Profile_Main") as! UIViewController
                 self.window?.rootViewController = initialViewController
-                self.window?.makeKeyAndVisible()
+//              self.window?.makeKeyAndVisible()
             }
         }
         
@@ -102,9 +102,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
             }
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
             var storyboard = UIStoryboard(name: "Main", bundle: nil)
-            var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Profile_Main") as! UIViewController
+            var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Chatroom") as! UIViewController
             self.window?.rootViewController = initialViewController
-            self.window?.makeKeyAndVisible()
+//          self.window?.makeKeyAndVisible()
         }
         }
         
@@ -122,7 +122,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
                 }
             }
         }
-        
+
+        //Calling the function
         autologin();
     }
 
