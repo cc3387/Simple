@@ -13,6 +13,9 @@ import Firebase
 
 class Ask_Questions: UIViewController{
     
+    
+    let randomIndex = Int(arc4random_uniform(UInt32(Questions.count)))
+    
     @IBOutlet weak var Welcome: UILabel!
     
     @IBOutlet weak var QuestionField: UITextField!
@@ -20,20 +23,24 @@ class Ask_Questions: UIViewController{
     @IBOutlet weak var MessageSent: UILabel!
     
     @IBAction func SendQuestion(sender: AnyObject) {
-        if(!self.QuestionField.text!.isEmpty){
             
-            let rootRef = Firebase(url: "https://simpleplus.firebaseio.com/qa/question/")
+            let starturl = "https://simpleplus.firebaseio.com/question/" + login_user.uid + convo_final.friend_id_final + "q"
+            
+            let rootRef = Firebase(url: starturl)
             
             let messageItem = [
-                "Question": self.QuestionField.text!,
-                "SenderID": login_user.uid
+                "Question": Questions[randomIndex],
+                "Answer1": Answer1[randomIndex],
+                "Answer2": Answer2[randomIndex],
+                "Chatone": "",
+                "Chattwo": ""
             ]
         
-            rootRef.childByAppendingPath(login_user.uid + convo_final.friend_id_final + "q").setValue(messageItem)
+            rootRef.setValue(messageItem)
             self.MessageSent.text = "Question Sent! "
             self.MessageSent.textColor = UIColor.greenColor()
             loadDestinationVC()
-        }
+        
     }
     
     override func viewDidLoad() {

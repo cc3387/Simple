@@ -1395,7 +1395,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PtC-gJ-Hz3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4819" y="292"/>
+            <point key="canvasLocation" x="4819" y="336"/>
         </scene>
         <!--Major-->
         <scene sceneID="wXF-Ft-CSs">
@@ -3894,26 +3894,26 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udJ-ef-46R">
-                                <rect key="frame" x="43" y="569" width="45" height="18"/>
+                                <rect key="frame" x="43" y="569" width="69" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Ask" backgroundImage="Background_Color.tif">
+                                <state key="normal" title="Questions" backgroundImage="Background_Color.tif">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="GDJ-GA-x0w" kind="show" id="ygk-5h-Uix"/>
+                                    <action selector="Question:" destination="E1a-Bv-WvL" eventType="touchUpInside" id="dIf-gA-zxr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBY-U4-iNt">
-                                <rect key="frame" x="211" y="569" width="52" height="18"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35I-Am-J3j">
+                                <rect key="frame" x="134" y="568" width="79" height="19"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="History" backgroundImage="Background_Color.tif">
+                                <state key="normal" title="What to do?" backgroundImage="Background_Color.tif">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35I-Am-J3j">
-                                <rect key="frame" x="120" y="569" width="59" height="19"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBY-U4-iNt">
+                                <rect key="frame" x="232" y="569" width="52" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Answers" backgroundImage="Background_Color.tif">
+                                <state key="normal" title="History" backgroundImage="Background_Color.tif">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
@@ -3929,11 +3929,60 @@
                         <outlet property="Time_Greetings" destination="PNQ-bf-GKR" id="Dyi-65-rUw"/>
                         <outlet property="University" destination="NNp-FZ-Qd0" id="Isq-b9-OTt"/>
                         <outlet property="User_ID" destination="G6N-na-yia" id="rh9-Rg-CTT"/>
+                        <segue destination="8Qf-6s-Unb" kind="show" identifier="AnswerQuestion" id="weu-OW-1SU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JcS-XA-Zt8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4374" y="-961"/>
+        </scene>
+        <!--Answer-->
+        <scene sceneID="Soc-SY-jbM">
+            <objects>
+                <viewController id="8Qf-6s-Unb" customClass="Answer" customModule="Simple" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nbt-FD-I3g"/>
+                        <viewControllerLayoutGuide type="bottom" id="mDL-0A-CZt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qfv-P9-of8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dawn_City.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="o1F-13-aNz">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOi-YM-s5x">
+                                <rect key="frame" x="20" y="20" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="E1a-Bv-WvL" kind="show" id="KRJ-3b-nTE"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Simple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyW-Nd-TbU">
+                                <rect key="frame" x="158" y="24" width="59" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mDL-0A-CZt" firstAttribute="top" secondItem="o1F-13-aNz" secondAttribute="bottom" id="46S-6F-i1T"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="o1F-13-aNz" secondAttribute="trailing" constant="-20" id="O0A-gq-iwy"/>
+                            <constraint firstItem="o1F-13-aNz" firstAttribute="leading" secondItem="Qfv-P9-of8" secondAttribute="leadingMargin" constant="-20" id="kwf-b1-QJw"/>
+                            <constraint firstItem="o1F-13-aNz" firstAttribute="top" secondItem="Qfv-P9-of8" secondAttribute="topMargin" id="oRZ-Yd-HTk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="E1a-Bv-WvL" kind="show" identifier="BacktoProfile" id="2KA-87-hMf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iAg-yB-Iqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5112" y="-924"/>
         </scene>
         <!--Ask Questions-->
         <scene sceneID="nr6-LI-tDx">
@@ -3982,12 +4031,6 @@
                                     <action selector="SendQuestion:" destination="GDJ-GA-x0w" eventType="touchUpInside" id="Zzc-1M-cl3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Simple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDu-j1-lcq">
-                                <rect key="frame" x="169" y="24" width="62" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwr-lq-8b2">
                                 <rect key="frame" x="15" y="20" width="40" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
@@ -3998,6 +4041,12 @@
                                     <segue destination="E1a-Bv-WvL" kind="show" id="p5e-BF-9R3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Simple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDu-j1-lcq">
+                                <rect key="frame" x="159" y="24" width="62" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -4017,7 +4066,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDo-TK-2TX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5114" y="-961"/>
+            <point key="canvasLocation" x="5112" y="-1599"/>
         </scene>
     </scenes>
     <resources>
@@ -4029,23 +4078,23 @@
         <image name="cloud-horizon.jpg" width="620" height="465"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="74n-tz-374"/>
-        <segue reference="p5e-BF-9R3"/>
-        <segue reference="XSd-l0-pp8"/>
+        <segue reference="koq-jY-IDo"/>
+        <segue reference="uAq-hg-nYX"/>
+        <segue reference="ny4-sU-M0o"/>
+        <segue reference="fTe-SU-cnY"/>
+        <segue reference="L7q-dC-TAE"/>
+        <segue reference="Ccm-cV-i5q"/>
         <segue reference="RYN-la-auh"/>
+        <segue reference="XSd-l0-pp8"/>
+        <segue reference="74n-tz-374"/>
+        <segue reference="2KA-87-hMf"/>
         <segue reference="PpB-Pu-aBD"/>
         <segue reference="oiC-hM-ShA"/>
         <segue reference="qKX-MI-0nm"/>
         <segue reference="ekB-3V-pnZ"/>
-        <segue reference="hLD-FZ-jQI"/>
-        <segue reference="eZd-JO-exV"/>
-        <segue reference="w7k-32-K2a"/>
         <segue reference="cD3-NL-LSF"/>
-        <segue reference="fTe-SU-cnY"/>
-        <segue reference="ny4-sU-M0o"/>
-        <segue reference="Pvq-MF-HCu"/>
-        <segue reference="DUB-xm-YOM"/>
-        <segue reference="L7q-dC-TAE"/>
-        <segue reference="Ccm-cV-i5q"/>
+        <segue reference="w7k-32-K2a"/>
+        <segue reference="eZd-JO-exV"/>
+        <segue reference="hLD-FZ-jQI"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -177,3 +177,11 @@ struct convo_final{
     static var friend_Profile_final: String = "";
     static var chat_check_final: Int?;
 };
+
+
+//Define the question array
+var Question_array = 0
+var Questions = [String]()
+var Answer1 = [String]()
+var Answer2 = [String]()
+

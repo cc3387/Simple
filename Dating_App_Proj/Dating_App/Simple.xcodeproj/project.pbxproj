@@ -82,6 +82,7 @@
 		AA6C581A1D18D2D1008F9932 /* Start_Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6C58191D18D2D1008F9932 /* Start_Page.swift */; };
 		AA6C581C1D18D487008F9932 /* Login_With_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6C581B1D18D487008F9932 /* Login_With_User.swift */; };
 		AA6C581E1D1A09F6008F9932 /* View_Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6C581D1D1A09F6008F9932 /* View_Profile.swift */; };
+		AA73199C1D3F44A8000675EE /* Answer_Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA73199B1D3F44A8000675EE /* Answer_Question.swift */; };
 		AA7EF40B1BAE2DCE00C8A305 /* Profile_Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7EF40A1BAE2DCE00C8A305 /* Profile_Main.swift */; };
 		AA7EF40D1BAE2FAC00C8A305 /* night_sky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA7EF40C1BAE2FAC00C8A305 /* night_sky.jpg */; };
 		AA7EF40F1BAE46C500C8A305 /* malaysia_morning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA7EF40E1BAE46C500C8A305 /* malaysia_morning.jpg */; };
@@ -211,6 +212,7 @@
 		AA6C58191D18D2D1008F9932 /* Start_Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Start_Page.swift; sourceTree = "<group>"; };
 		AA6C581B1D18D487008F9932 /* Login_With_User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login_With_User.swift; sourceTree = "<group>"; };
 		AA6C581D1D1A09F6008F9932 /* View_Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View_Profile.swift; sourceTree = "<group>"; };
+		AA73199B1D3F44A8000675EE /* Answer_Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer_Question.swift; sourceTree = "<group>"; };
 		AA7EF40A1BAE2DCE00C8A305 /* Profile_Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_Main.swift; sourceTree = "<group>"; };
 		AA7EF40C1BAE2FAC00C8A305 /* night_sky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = night_sky.jpg; sourceTree = "<group>"; };
 		AA7EF40E1BAE46C500C8A305 /* malaysia_morning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = malaysia_morning.jpg; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 			isa = PBXGroup;
 			children = (
 				AA39FCBA1D2E1C24000DB554 /* Ask_Question.swift */,
+				AA73199B1D3F44A8000675EE /* Answer_Question.swift */,
 			);
 			name = Questions;
 			sourceTree = "<group>";
@@ -784,6 +787,7 @@
 				AADFA23B1B6D74E600491DBF /* AFURLSessionManager.m in Sources */,
 				AA3527911BDB007F00679464 /* Edu_PickerView_UK.swift in Sources */,
 				AAE3F6E01C03901E00B27ABA /* Meet_Profile.swift in Sources */,
+				AA73199C1D3F44A8000675EE /* Answer_Question.swift in Sources */,
 				AAE65CFB1C835473008C4416 /* Final_Send_Final.swift in Sources */,
 				AA239B011BADB0E000192AE0 /* Final_Send.swift in Sources */,
 				AA6C581A1D18D2D1008F9932 /* Start_Page.swift in Sources */,
