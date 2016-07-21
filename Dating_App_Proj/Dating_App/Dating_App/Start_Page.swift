@@ -182,6 +182,6 @@ struct convo_final{
 //Define the question array
 var Question_array = 0
 var Questions = [String]()
-var Answer1 = [String]()
-var Answer2 = [String]()
+var Answerone = [String]()
+var Answertwo = [String]()
 

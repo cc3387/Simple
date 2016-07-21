@@ -24,22 +24,22 @@ class Ask_Questions: UIViewController{
     
     @IBAction func SendQuestion(sender: AnyObject) {
             
-            let starturl = "https://simpleplus.firebaseio.com/question/" + login_user.uid + convo_final.friend_id_final + "q"
-            
-            let rootRef = Firebase(url: starturl)
-            
-            let messageItem = [
-                "Question": Questions[randomIndex],
-                "Answer1": Answer1[randomIndex],
-                "Answer2": Answer2[randomIndex],
-                "Chatone": "",
-                "Chattwo": ""
-            ]
-        
-            rootRef.setValue(messageItem)
-            self.MessageSent.text = "Question Sent! "
-            self.MessageSent.textColor = UIColor.greenColor()
-            loadDestinationVC()
+//            let starturl = "https://simpleplus.firebaseio.com/question/" + login_user.uid + convo_final.friend_id_final + "q"
+//            
+//            let rootRef = Firebase(url: starturl)
+//            
+//            let messageItem = [
+//                "Question": Questions[randomIndex],
+//                "Answer1": Answer1[randomIndex],
+//                "Answer2": Answer2[randomIndex],
+//                "Chatone": "",
+//                "Chattwo": ""
+//            ]
+//        
+//            rootRef.setValue(messageItem)
+//            self.MessageSent.text = "Question Sent! "
+//            self.MessageSent.textColor = UIColor.greenColor()
+//            loadDestinationVC()
         
     }
     

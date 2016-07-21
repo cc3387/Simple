@@ -1,5 +1,5 @@
 //
-//  Answer_Question.swift
+//  Answertwo.swift
 //  Simple
 //
 //  Created by Clement Chan on 7/20/16.
@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class Answer: UIViewController{
+class Ansone: UIViewController{
     
     var Answer1: String = "";
     var Answer2: String = "";
@@ -27,9 +27,14 @@ class Answer: UIViewController{
     
     override func viewDidLoad() {
         
-        self.questionlabel.text = "PC or Mac?";
-        self.answeronelabel.text = "PC";
-        self.answertwolabel.text = "Mac";
+        Questions.append("Rural or Urban?")
+        Answerone.append("Rural")
+        Answertwo.append("Urban")
+        
+        
+        self.questionlabel.text = "Rural or Urban?";
+        self.answeronelabel.text = "Rural";
+        self.answertwolabel.text = "Urban";
         
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: ("Swipes:"))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: ("Swipes:"))
@@ -50,26 +55,26 @@ class Answer: UIViewController{
     func Swipes(sender:UISwipeGestureRecognizer){
         
         if(sender.direction == .Right){
-                
-            let param = ["q1": "Mac"]
+            
+            let param = ["q2": "Urban"]
             
             ref.updateChildValues(param)
-                
+            
             loadDestinationVC()
             
         }
         else if(sender.direction == .Left){
             
-            let param = ["q1": "PC"]
+            let param = ["q2": "Rural"]
             
             ref.updateChildValues(param)
-        
+            
             loadDestinationVC()
         }
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Toansone", sender: nil)
+        self.performSegueWithIdentifier("ReturnToProfile", sender: nil)
     }
     
     override func shouldAutorotate() -> Bool {
@@ -79,5 +84,5 @@ class Answer: UIViewController{
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.Portrait
     }
-
+    
 };

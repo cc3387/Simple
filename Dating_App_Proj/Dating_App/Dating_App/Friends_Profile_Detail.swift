@@ -11,38 +11,6 @@ import Firebase
 
 class Friends_Profile_View : UIViewController{
 
-    @IBAction func Question(sender: AnyObject) {
-        
-        let randomIndex = Int(arc4random_uniform(UInt32(Questions.count)))
-        
-        let starturl = "https://simpleplus.firebaseio.com/question/" + login_user.uid + convo_final.friend_id_final + "q"
-        
-        let rootRef = Firebase(url: starturl)
-        
-        let messageItem = [
-            "Question": Questions[randomIndex],
-            "Answer1": Answer1[randomIndex],
-            "Answer2": Answer2[randomIndex],
-            "Chatidone": "",
-            "Chatidtwo": ""
-        ]
-        
-        
-        rootRef.setValue(messageItem)
-        
-//        rootRef.observeEventType(.Value, withBlock: { snapshot in
-//        
-//        let chatid1 = snapshot.value["Chatidone"] as! String
-//        let chatid2 = snapshot.value["Chatidtwo"] as! String
-//            
-//        if(chatid1 != "" && chatid2 != ""){
-//        rootRef.setValue(messageItem)
-//        }
-//            
-//        })
-        
-        self.loadDestinationVC()
-    }
     
     @IBOutlet weak var Bkground_Image: UIImageView!
     @IBOutlet weak var User_ID: UILabel!
@@ -142,37 +110,6 @@ class Friends_Profile_View : UIViewController{
         self.Major.text = "Major: " + friend_profile.Major!
         self.Major.sizeToFit()
         self.Major.adjustsFontSizeToFitWidth = true
-
-        
-    
-        //Start appending questions that will be used for communication
-        if(Question_array == 0){
-        Questions.append("Coffee or tea?");
-        Answer1.append("Coffee");
-        Answer2.append("Tea");
-        
-        Questions.append("Black and white or color?");
-        Answer1.append("Black and white");
-        Answer2.append("Color");
-        
-        Questions.append("Drawings or paintings?");
-        Answer1.append("Drawings");
-        Answer2.append("Paintings");
-        
-        Questions.append("Dresses or skirts?");
-        Answer1.append("Dresses");
-        Answer2.append("Skirts");
-        
-        Questions.append("Books or movies?");
-        Answer1.append("Books");
-        Answer2.append("Movies");
-            
-        Questions.append("Pepsi or Coke?");
-        Answer1.append("Pepsi");
-        Answer2.append("Coke");
-            
-        Question_array = 1
-        }
     }
     
     override func shouldAutorotate() -> Bool {
