@@ -1,15 +1,15 @@
 //
-//  Answertwo.swift
+//  Answereight.swift
 //  Simple
 //
-//  Created by Clement Chan on 7/20/16.
+//  Created by Clement Chan on 7/21/16.
 //  Copyright © 2016 Clement Chan. All rights reserved.
 //
 
 import Foundation
 import Firebase
 
-class Ansone: UIViewController{
+class Anseight: UIViewController{
     
     var Answer1: String = "";
     var Answer2: String = "";
@@ -21,16 +21,16 @@ class Ansone: UIViewController{
     
     @IBOutlet weak var answeronelabel: UILabel!
     
+    
     @IBOutlet weak var answertwolabel: UILabel!
     
     let ref = Firebase(url:"https://simpleplus.firebaseio.com/pref/" + login_user.uid)
     
     override func viewDidLoad() {
         
-        
-        self.questionlabel.text = "Rural or Urban?";
-        self.answeronelabel.text = "Rural";
-        self.answertwolabel.text = "Urban";
+        self.questionlabel.text = "Fiction or Non-Fiction?";
+        self.answeronelabel.text = "Fiction";
+        self.answertwolabel.text = "Non-Fiction";
         
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: ("Swipes:"))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: ("Swipes:"))
@@ -52,7 +52,7 @@ class Ansone: UIViewController{
         
         if(sender.direction == .Right){
             
-            let param = ["q2": "Urban"]
+            let param = ["q8": "Fiction"]
             
             ref.updateChildValues(param)
             
@@ -61,7 +61,7 @@ class Ansone: UIViewController{
         }
         else if(sender.direction == .Left){
             
-            let param = ["q2": "Rural"]
+            let param = ["q8": "Non-Fiction"]
             
             ref.updateChildValues(param)
             
@@ -70,7 +70,7 @@ class Ansone: UIViewController{
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Toansthree", sender: nil)
+        self.performSegueWithIdentifier("Toansnine", sender: nil)
     }
     
     override func shouldAutorotate() -> Bool {

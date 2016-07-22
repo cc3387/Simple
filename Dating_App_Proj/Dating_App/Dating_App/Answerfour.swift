@@ -1,15 +1,15 @@
 //
-//  Answertwo.swift
+//  Answerfour.swift
 //  Simple
 //
-//  Created by Clement Chan on 7/20/16.
+//  Created by Clement Chan on 7/21/16.
 //  Copyright © 2016 Clement Chan. All rights reserved.
 //
 
 import Foundation
 import Firebase
 
-class Ansone: UIViewController{
+class Ansfour: UIViewController{
     
     var Answer1: String = "";
     var Answer2: String = "";
@@ -27,10 +27,9 @@ class Ansone: UIViewController{
     
     override func viewDidLoad() {
         
-        
-        self.questionlabel.text = "Rural or Urban?";
-        self.answeronelabel.text = "Rural";
-        self.answertwolabel.text = "Urban";
+        self.questionlabel.text = "Glasses or Contacts?";
+        self.answeronelabel.text = "Glasses";
+        self.answertwolabel.text = "Contacts";
         
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: ("Swipes:"))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: ("Swipes:"))
@@ -52,7 +51,7 @@ class Ansone: UIViewController{
         
         if(sender.direction == .Right){
             
-            let param = ["q2": "Urban"]
+            let param = ["q4": "Glasses"]
             
             ref.updateChildValues(param)
             
@@ -61,7 +60,7 @@ class Ansone: UIViewController{
         }
         else if(sender.direction == .Left){
             
-            let param = ["q2": "Rural"]
+            let param = ["q4": "Contacts"]
             
             ref.updateChildValues(param)
             
@@ -70,7 +69,7 @@ class Ansone: UIViewController{
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Toansthree", sender: nil)
+        self.performSegueWithIdentifier("Toansfive", sender: nil)
     }
     
     override func shouldAutorotate() -> Bool {
