@@ -51,7 +51,7 @@ class Anssix: UIViewController{
         
         if(sender.direction == .Right){
             
-            let param = ["q6": "Call"]
+            let param = ["q6": "Text"]
             
             ref.updateChildValues(param)
             
@@ -60,7 +60,7 @@ class Anssix: UIViewController{
         }
         else if(sender.direction == .Left){
             
-            let param = ["q6": "Text"]
+            let param = ["q6": "Call"]
             
             ref.updateChildValues(param)
             

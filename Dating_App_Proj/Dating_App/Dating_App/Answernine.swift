@@ -51,7 +51,7 @@ class Ansnine: UIViewController{
         
         if(sender.direction == .Right){
             
-            let param = ["q9": "Early bird"]
+            let param = ["q9": "Night owl"]
             
             ref.updateChildValues(param)
             
@@ -60,7 +60,7 @@ class Ansnine: UIViewController{
         }
         else if(sender.direction == .Left){
             
-            let param = ["q9": "Night owl"]
+            let param = ["q9": "Early bird"]
             
             ref.updateChildValues(param)
             

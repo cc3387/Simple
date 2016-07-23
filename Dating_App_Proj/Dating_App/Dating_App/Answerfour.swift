@@ -51,7 +51,7 @@ class Ansfour: UIViewController{
         
         if(sender.direction == .Right){
             
-            let param = ["q4": "Glasses"]
+            let param = ["q4": "Contacts"]
             
             ref.updateChildValues(param)
             
@@ -60,7 +60,7 @@ class Ansfour: UIViewController{
         }
         else if(sender.direction == .Left){
             
-            let param = ["q4": "Contacts"]
+            let param = ["q4": "Glasses"]
             
             ref.updateChildValues(param)
             

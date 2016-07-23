@@ -83,7 +83,7 @@ class Start_Page : UIViewController{
     
 
     func loadDestinationVC1(){
-        self.performSegueWithIdentifier("openProfile", sender: nil)
+        self.performSegueWithIdentifier("ToProfile", sender: nil)
     }
     
     

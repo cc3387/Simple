@@ -51,7 +51,7 @@ class Ansfive: UIViewController{
         
         if(sender.direction == .Right){
             
-            let param = ["q5": "Marvel"]
+            let param = ["q5": "DC"]
             
             ref.updateChildValues(param)
             
@@ -60,7 +60,7 @@ class Ansfive: UIViewController{
         }
         else if(sender.direction == .Left){
             
-            let param = ["q5": "DC"]
+            let param = ["q5": "Marvel"]
             
             ref.updateChildValues(param)
             

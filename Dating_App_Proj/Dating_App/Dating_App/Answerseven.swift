@@ -51,7 +51,7 @@ class Ansseven: UIViewController{
         
         if(sender.direction == .Right){
             
-            let param = ["q7": "Pancakes"]
+            let param = ["q7": "Waffles"]
             
             ref.updateChildValues(param)
             
@@ -60,7 +60,7 @@ class Ansseven: UIViewController{
         }
         else if(sender.direction == .Left){
             
-            let param = ["q7": "Waffles"]
+            let param = ["q7": "Pancakes"]
             
             ref.updateChildValues(param)
             

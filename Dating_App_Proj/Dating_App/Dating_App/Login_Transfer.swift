@@ -1,4 +1,12 @@
 //
+//  Login_Transfer.swift
+//  Simple
+//
+//  Created by Clement Chan on 7/22/16.
+//  Copyright © 2016 Clement Chan. All rights reserved.
+//
+
+//
 //  Transfer_Page.swift
 //  Simple
 //
@@ -10,10 +18,9 @@ import Foundation
 import Firebase
 
 
-class Transfer : UIViewController{
-
+class LoginTransfer : UIViewController{
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.activityIndicator.startAnimating()
@@ -25,7 +32,7 @@ class Transfer : UIViewController{
         };
         self.loadDestinationVC()
     }
-
+    
     
     override func shouldAutorotate() -> Bool {
         return true
@@ -36,6 +43,6 @@ class Transfer : UIViewController{
     }
     
     func loadDestinationVC(){
-    self.performSegueWithIdentifier("To_Main", sender: nil)
+        self.performSegueWithIdentifier("openProfile", sender: nil)
     }
 };

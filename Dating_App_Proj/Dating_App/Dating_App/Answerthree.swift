@@ -51,7 +51,7 @@ class Ansthree: UIViewController{
         
         if(sender.direction == .Right){
             
-            let param = ["q3": "Cats"]
+            let param = ["q3": "Dogs"]
             
             ref.updateChildValues(param)
             
@@ -60,7 +60,7 @@ class Ansthree: UIViewController{
         }
         else if(sender.direction == .Left){
             
-            let param = ["q3": "Dogs"]
+            let param = ["q3": "Cats"]
             
             ref.updateChildValues(param)
             

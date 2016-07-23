@@ -52,7 +52,7 @@ class Anseight: UIViewController{
         
         if(sender.direction == .Right){
             
-            let param = ["q8": "Fiction"]
+            let param = ["q8": "Non-Fiction"]
             
             ref.updateChildValues(param)
             
@@ -61,7 +61,7 @@ class Anseight: UIViewController{
         }
         else if(sender.direction == .Left){
             
-            let param = ["q8": "Non-Fiction"]
+            let param = ["q8": "Fiction"]
             
             ref.updateChildValues(param)
             

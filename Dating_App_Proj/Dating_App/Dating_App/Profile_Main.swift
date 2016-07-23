@@ -206,15 +206,15 @@ class Profile_Main : UIViewController{
             })
         
         
-        frienduser.emailarray.removeAll()
-        frienduser.phoneidarray.removeAll()
-        frienduser.photoarray.removeAll()
-        frienduser.profilenamearray.removeAll()
-        frienduser.useridarray.removeAll()
-        
-        
-//        if(frienduser.useridarray.count == 0){
-        //Download all the Friends' emails
+//        frienduser.emailarray.removeAll()
+//        frienduser.phoneidarray.removeAll()
+//        frienduser.photoarray.removeAll()
+//        frienduser.profilenamearray.removeAll()
+//        frienduser.useridarray.removeAll()
+//        
+//        
+////        if(frienduser.useridarray.count == 0){
+//        //Download all the Friends' emails
         var friend = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd";
         let friendemail = Firebase(url:friend)
         

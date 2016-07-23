@@ -15,6 +15,7 @@
 		AA0875FD1D41B30300775DC7 /* Answereight.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0875FC1D41B30300775DC7 /* Answereight.swift */; };
 		AA0875FF1D41B44200775DC7 /* Answernine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0875FE1D41B44200775DC7 /* Answernine.swift */; };
 		AA0876021D41CE3100775DC7 /* Question_Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0876011D41CE3100775DC7 /* Question_Match.swift */; };
+		AA0876041D431D0500775DC7 /* Login_Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0876031D431D0500775DC7 /* Login_Transfer.swift */; };
 		AA0E41B21D371D1D00657C3C /* Transfer_Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0E41B11D371D1D00657C3C /* Transfer_Page.swift */; };
 		AA0E41B41D38878E00657C3C /* BatchClientPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0E41B31D38878D00657C3C /* BatchClientPush.swift */; };
 		AA0E68B81B8EC9F9000941C4 /* Male_Cloud.tif in Resources */ = {isa = PBXBuildFile; fileRef = AA0E68B71B8EC9F9000941C4 /* Male_Cloud.tif */; };
@@ -147,6 +148,7 @@
 		AA0875FC1D41B30300775DC7 /* Answereight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answereight.swift; sourceTree = "<group>"; };
 		AA0875FE1D41B44200775DC7 /* Answernine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answernine.swift; sourceTree = "<group>"; };
 		AA0876011D41CE3100775DC7 /* Question_Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question_Match.swift; sourceTree = "<group>"; };
+		AA0876031D431D0500775DC7 /* Login_Transfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login_Transfer.swift; sourceTree = "<group>"; };
 		AA0E41B11D371D1D00657C3C /* Transfer_Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transfer_Page.swift; sourceTree = "<group>"; };
 		AA0E41B31D38878D00657C3C /* BatchClientPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchClientPush.swift; sourceTree = "<group>"; };
 		AA0E68B71B8EC9F9000941C4 /* Male_Cloud.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Male_Cloud.tif; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 				AA25DDFD1CFFEF1B00E57068 /* Chat_Detail.swift */,
 				AA39FCB81D2DEB84000DB554 /* Chat_Search.swift */,
 				AAA36DD01C102C5F0073F6B0 /* UIImageView+AFNetworking.swift */,
+				AA0876031D431D0500775DC7 /* Login_Transfer.swift */,
 				AA0E41B11D371D1D00657C3C /* Transfer_Page.swift */,
 				AAD2047C1C1A99CB008E1770 /* Main.storyboard */,
 				AA239AD61BAD9CCD00192AE0 /* Images.xcassets */,
@@ -799,6 +802,7 @@
 				AA0875F91D41B02E00775DC7 /* Answersix.swift in Sources */,
 				AA6C581C1D18D487008F9932 /* Login_With_User.swift in Sources */,
 				AA1EB5B41D2046BA00760CA6 /* Update_Photo.swift in Sources */,
+				AA0876041D431D0500775DC7 /* Login_Transfer.swift in Sources */,
 				AA3527951BDB683400679464 /* Edu_PickerView_Aus.swift in Sources */,
 				AA0875FB1D41B19100775DC7 /* Answerseven.swift in Sources */,
 				AA6C581E1D1A09F6008F9932 /* View_Profile.swift in Sources */,
