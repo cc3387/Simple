@@ -52,7 +52,7 @@ class Ansone: UIViewController{
         
         if(sender.direction == .Right){
             
-            let param = ["q2": "Rural"]
+            let param = ["q2": "Urban"]
             
             ref.updateChildValues(param)
             
@@ -61,7 +61,7 @@ class Ansone: UIViewController{
         }
         else if(sender.direction == .Left){
             
-            let param = ["q2": "Urban"]
+            let param = ["q2": "Rural"]
             
             ref.updateChildValues(param)
             

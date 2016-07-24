@@ -160,10 +160,12 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
                         let uid:String? = snapshot.value["uid"] as? String
                         let phoneid:String? = snapshot.value["phoneid"] as? String
                         let chat_id:Int? = snapshot.value["Chatid"] as? Int
+                        let notification:Int? = snapshot.value["Notification"] as? Int
                         convo_final.chat_check_final = chat_id;
                         convo_final.friend_phoneid_final = phoneid!;
                         convo_final.friend_id_final = uid!;
                         convo_final.friend_Profile_final = friends_name!;
+                        convo_final.notification = notification!;
                         print(convo_final.chat_check_final)
                         friend_profile.Profile_Name = friends_name;
                         friend_profile.Location = friends_loc;
@@ -195,12 +197,13 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
                     let uid:String? = snapshot.value["uid"] as? String
                     let phoneid:String? = snapshot.value["phoneid"] as? String
                     let chat_id:Int? = snapshot.value["Chatid"] as? Int
+                    let notification:Int? = snapshot.value["Notification"] as? Int
                     convo_final.chat_check_final = chat_id;
                     print(convo_final.chat_check_final)
                     convo_final.friend_phoneid_final = phoneid!;
                     convo_final.friend_id_final = uid!;
                     convo_final.friend_Profile_final = friends_name!;
-                    
+                    convo_final.notification = notification!;
                     friend_profile.Profile_Name = friends_name;
                     friend_profile.Location = friends_loc;
                     friend_profile.University = friends_uni;
@@ -230,11 +233,13 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
                     let uid:String? = snapshot.value["uid"] as? String
                     let phoneid:String? = snapshot.value["phoneid"] as? String
                     let chat_id:Int? = snapshot.value["Chatid"] as? Int
+                    let notification:Int? = snapshot.value["Notification"] as? Int
                     convo_final.chat_check_final = chat_id;
                     print(convo_final.chat_check_final)
                     convo_final.friend_phoneid_final = phoneid!;
                     convo_final.friend_id_final = uid!;
                     convo_final.friend_Profile_final = friends_name!;
+                    convo_final.notification = notification!;
                     friend_profile.Profile_Name = friends_name;
                     friend_profile.Location = friends_loc;
                     friend_profile.University = friends_uni;

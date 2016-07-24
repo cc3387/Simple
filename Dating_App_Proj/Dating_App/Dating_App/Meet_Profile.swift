@@ -112,6 +112,7 @@ class Profile_Meet_Main : UIViewController{
                 "Photo": self.first_photo_string,
                 "uid": self.uid1,
                 "phoneid": self.phoneid1,
+                "Notification": 0,
                 "Chatid": 1
             ];
             
@@ -125,6 +126,7 @@ class Profile_Meet_Main : UIViewController{
                 "Photo": login_user.photo,
                 "uid": login_user.uid,
                 "phoneid": login_user.phoneid,
+                "Notification": 0,
                 "Chatid": 2
             ];
             
@@ -159,6 +161,7 @@ class Profile_Meet_Main : UIViewController{
                 "Photo": self.second_photo_string,
                 "uid": self.uid2,
                 "phoneid": self.phoneid2,
+                "Notification": 0,
                 "Chatid": 1
             ];
             
@@ -172,6 +175,7 @@ class Profile_Meet_Main : UIViewController{
                 "Photo": login_user.photo,
                 "uid": login_user.uid,
                 "phoneid": login_user.phoneid,
+                "Notification": 0,
                 "Chatid": 2
             ];
             
@@ -205,6 +209,7 @@ class Profile_Meet_Main : UIViewController{
                 "Photo": self.third_photo_string,
                 "uid": self.uid3,
                 "phoneid": self.phoneid3,
+                "Notification": 0,
                 "Chatid": 1
             ];
             
@@ -218,6 +223,7 @@ class Profile_Meet_Main : UIViewController{
                 "Photo": login_user.photo,
                 "uid": login_user.uid,
                 "phoneid": login_user.phoneid,
+                "Notification": 0,
                 "Chatid": 2
             ];
             
@@ -252,6 +258,7 @@ class Profile_Meet_Main : UIViewController{
                 "Photo": self.fourth_photo_string,
                 "uid": self.uid4,
                 "phoneid": self.phoneid4,
+                "Notification": 0,
                 "Chatid": 1
             ];
             
@@ -265,6 +272,7 @@ class Profile_Meet_Main : UIViewController{
                 "Photo": login_user.photo,
                 "uid": login_user.uid,
                 "phoneid": login_user.phoneid,
+                "Notification": 0,
                 "Chatid": 2
             ];
             

@@ -27,9 +27,9 @@ class Ansseven: UIViewController{
     
     override func viewDidLoad() {
         
-        self.questionlabel.text = "Pancakes or Waffles?";
-        self.answeronelabel.text = "Pancakes";
-        self.answertwolabel.text = "Waffles";
+        self.questionlabel.text = "Smoke or Non-Smoke?";
+        self.answeronelabel.text = "Smoke";
+        self.answertwolabel.text = "Non-Smoke";
         
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: ("Swipes:"))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: ("Swipes:"))
@@ -51,7 +51,7 @@ class Ansseven: UIViewController{
         
         if(sender.direction == .Right){
             
-            let param = ["q7": "Waffles"]
+            let param = ["q7": "Non-Smoke"]
             
             ref.updateChildValues(param)
             
@@ -60,7 +60,7 @@ class Ansseven: UIViewController{
         }
         else if(sender.direction == .Left){
             
-            let param = ["q7": "Pancakes"]
+            let param = ["q7": "Smoke"]
             
             ref.updateChildValues(param)
             

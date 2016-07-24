@@ -176,6 +176,7 @@ struct convo_final{
     static var friend_phoneid_final: String = "";
     static var friend_Profile_final: String = "";
     static var chat_check_final: Int?;
+    static var notification: Int?;
 };
 
 

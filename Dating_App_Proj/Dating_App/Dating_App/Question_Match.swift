@@ -40,13 +40,35 @@ class Question_Answer: UIViewController{
     @IBOutlet weak var Matchnine: UILabel!
     @IBOutlet weak var User: UILabel!
     @IBOutlet weak var Friend: UILabel!
-    
+    @IBOutlet weak var Answercorrect: UILabel!
+    @IBOutlet weak var Turnonnotification: UILabel!
     let ref = Firebase(url:"https://simpleplus.firebaseio.com/pref/" + login_user.uid)
     let reffd = Firebase(url:"https://simpleplus.firebaseio.com/pref/" + convo_final.friend_id_final)
     var count = 0;
+
+    @IBAction func Yes(sender: AnyObject) {
+    
+        let loginid = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd/" + convo_final.friend_id_final;
+        let rref = Firebase(url:loginid);
+
+        let param = ["Notification": 1]
+    
+        rref.updateChildValues(param);
+        
+    }
+    
+    @IBAction func No(sender: AnyObject) {
+        let loginid = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd/" + convo_final.friend_id_final;
+        let rref = Firebase(url:loginid);
+        
+        let param = ["Notification": 0]
+        
+        rref.updateChildValues(param);
+    }
+    
+    
     
     override func viewDidLoad() {
-        
         self.count = 0
         self.User.text = login_user.Profile_Name
         self.Friend.text = convo_final.friend_Profile_final
@@ -198,11 +220,15 @@ class Question_Answer: UIViewController{
                     self.Matchnine.text = "Not Match"
                     self.Matchnine.textColor = UIColor.redColor()
                 }
+                
+                self.Answercorrect.text = "Number of questions matched : \(self.count) "
+                self.Answercorrect.adjustsFontSizeToFitWidth = true
             })
             
             
         })
-        
+            
+        self.Turnonnotification.text = "Turn on notification from this friend?"
     }
     
     override func didReceiveMemoryWarning() {

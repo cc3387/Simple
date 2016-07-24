@@ -43,6 +43,6 @@ class LoginTransfer : UIViewController{
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("openProfile", sender: nil)
+        self.performSegueWithIdentifier("Load_Friend_List", sender: nil)
     }
 };

@@ -58,11 +58,11 @@ class Friends_Profile_View : UIViewController{
             let random = arc4random_uniform(2);
             
             if(random == 0){
-                Bkground_Image.image = UIImage(named: "Dawn_City.jpg");
+                Bkground_Image.image = UIImage(named: "night_sky.jpg");
             }
             
             if(random == 1){
-                Bkground_Image.image = UIImage(named: "Dawn_City.jpg");
+                Bkground_Image.image = UIImage(named: "night_sky.jpg");
             }
             
             //Setting the User ID to login user id
