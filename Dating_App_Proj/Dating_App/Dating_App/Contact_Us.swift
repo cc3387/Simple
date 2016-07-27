@@ -19,7 +19,7 @@ class contactus: UIViewController, MFMailComposeViewControllerDelegate {
         self.navigationController?.navigationBarHidden = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.view.endEditing(true)
-        self.Admin_email.text = "cccyh123@gmail.com"
+        self.Admin_email.text = "simplethemeetingsite@gmail.com"
     }
 
     

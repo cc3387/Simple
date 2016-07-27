@@ -29,10 +29,11 @@ class Google_ViewController_Update: UIViewController, CLLocationManagerDelegate,
                 
         var location = [
             "longitude": self.mapTasks.fetchedAddressLongitude,
-            "latitude": self.mapTasks.fetchedAddressLatitude
+            "latitude": self.mapTasks.fetchedAddressLatitude,
+            "Address": register_info.address
         ];
                 
-        NameRef.updateChildValues(location);
+        NameRef.updateChildValues(location as [NSObject : AnyObject]);
 
         
         self.loadDestinationVC();

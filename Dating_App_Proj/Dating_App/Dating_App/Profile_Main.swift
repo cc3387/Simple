@@ -29,20 +29,48 @@ class Profile_Main : UIViewController{
     var lstmessage:String = "";
     var lstmessage1:String = "";
     var indication:Int = 0;
+    var count:Int = 0;
     
     //Getting Profile name from the server
-    
     @IBOutlet weak var Profile_Name: UILabel!
     
+    
+    @IBAction func ProfileLoad(sender: AnyObject) {
+        if(login_user.user_name != ""){
+        loadusermeet()
+        }
+    }
+    
     @IBAction func Single_Meet(sender: AnyObject) {
+        if(login_user.user_name != ""){
         loadDestinationVC();
+        }
     }
     
     @IBAction func To_Chat(sender: AnyObject) {
+        if(login_user.user_name != ""){
         loadtoChat();
+        }
     }
     
+    @IBAction func To_Choice(sender: AnyObject) {
+        if(login_user.user_name != ""){
+        loadchoice()
+        }
+    }
     
+    @IBAction func ToUpdate(sender: AnyObject) {
+        if(login_user.user_name != ""){
+        loadupdateprofile()
+        }
+    }
+    
+    @IBAction func ToContactUs(sender: AnyObject) {
+        if(login_user.user_name != ""){
+        loadcontactus()
+        }
+    }
+ 
     //Getting the login_user id that is collected from the login page
     var loginuser: String = "";
     var user1: String = "";
@@ -180,7 +208,7 @@ class Profile_Main : UIViewController{
                                     if let university = snapshot.value["Education"] as? String{
                                         login_user.university = university;
                                         print(login_user.university);
-                                        if let location = snapshot.value["location"] as? String{
+                                        if let location = snapshot.value["Address"] as? String{
                                             login_user.location = location;
                                             print(login_user.location);
                                             if let ProfileName = snapshot.value["Profile_Name"] as? String{
@@ -217,7 +245,7 @@ class Profile_Main : UIViewController{
 //        //Download all the Friends' emails
         var friend = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd";
         let friendemail = Firebase(url:friend)
-        
+            
         friendemail.queryOrderedByChild("Email").observeEventType(.Value, withBlock:{friendsnapshot in
             for index in friendsnapshot.children.allObjects as! [FDataSnapshot]{
                 if let id = index.value["Email"] as! String?{
@@ -246,7 +274,7 @@ class Profile_Main : UIViewController{
                         }
                     }
                 }
-        })
+          })
 //        }
         
         
@@ -405,11 +433,28 @@ class Profile_Main : UIViewController{
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("To_Meet", sender: nil)
+    self.performSegueWithIdentifier("To_Meet", sender: nil)
     }
     
     func loadtoChat(){
-        self.performSegueWithIdentifier("Chat", sender: nil)
+    self.performSegueWithIdentifier("Chat", sender: nil)
+    }
+    
+    func loadusermeet(){
+        self.performSegueWithIdentifier("Touserprofile", sender: nil)
+    }
+    
+    func loadchoice(){
+        self.performSegueWithIdentifier("ToChoice", sender: nil)
+    }
+    
+    
+    func loadupdateprofile(){
+        self.performSegueWithIdentifier("ToUpdateProfile", sender: nil)
+    }
+    
+    func loadcontactus(){
+        self.performSegueWithIdentifier("Tocontactus", sender: nil)
     }
     
     func refreshEvery30Secs(){

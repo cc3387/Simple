@@ -48,22 +48,23 @@ class Question_Answer: UIViewController{
 
     @IBAction func Yes(sender: AnyObject) {
     
-        let loginid = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd/" + convo_final.friend_id_final;
+        let loginid = "https://simpleplus.firebaseio.com/friends/" + convo_final.friend_id_final + "_fd/" + login_user.uid;
         let rref = Firebase(url:loginid);
 
         let param = ["Notification": 1]
     
         rref.updateChildValues(param);
-        
+        loadDestinationVC()
     }
     
     @IBAction func No(sender: AnyObject) {
-        let loginid = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd/" + convo_final.friend_id_final;
+        let loginid = "https://simpleplus.firebaseio.com/friends/" + convo_final.friend_id_final + "_fd/" + login_user.uid;
         let rref = Firebase(url:loginid);
         
         let param = ["Notification": 0]
         
         rref.updateChildValues(param);
+        loadDestinationVC()
     }
     
     
@@ -241,6 +242,10 @@ class Question_Answer: UIViewController{
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.Portrait
+    }
+    
+    func loadDestinationVC(){
+        self.performSegueWithIdentifier("Back_To_Menu", sender: nil)
     }
     
 };

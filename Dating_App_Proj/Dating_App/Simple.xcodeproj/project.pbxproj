@@ -80,6 +80,7 @@
 		AA4020221BBE265D00ABA237 /* hongkongnight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA4020211BBE265D00ABA237 /* hongkongnight.jpg */; };
 		AA4020241BBE272400ABA237 /* Paris_Night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA4020231BBE272400ABA237 /* Paris_Night.jpg */; };
 		AA5AC2011B651A8100158156 /* Male_Female.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5AC2001B651A8100158156 /* Male_Female.swift */; };
+		AA642B131D4838020033EEA3 /* Todolist.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA642B121D4838020033EEA3 /* Todolist.swift */; };
 		AA6550651D03AD9D007DD200 /* Choose_Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6550641D03AD9D007DD200 /* Choose_Photos.swift */; };
 		AA65508F1D0BBC04007DD200 /* seattle_night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA65508E1D0BBC04007DD200 /* seattle_night.jpg */; };
 		AA6550911D0BBCE8007DD200 /* New_York_Night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA6550901D0BBCE8007DD200 /* New_York_Night.jpg */; };
@@ -220,6 +221,7 @@
 		AA505FEB9877389876F11326 /* Pods-Simple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple.release.xcconfig"; path = "Pods/Target Support Files/Pods-Simple/Pods-Simple.release.xcconfig"; sourceTree = "<group>"; };
 		AA5648491C75813C006F36F7 /* Dating_App-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Dating_App-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA5AC2001B651A8100158156 /* Male_Female.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Male_Female.swift; sourceTree = "<group>"; };
+		AA642B121D4838020033EEA3 /* Todolist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Todolist.swift; sourceTree = "<group>"; };
 		AA6550641D03AD9D007DD200 /* Choose_Photos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Choose_Photos.swift; path = ../Choose_Photos.swift; sourceTree = "<group>"; };
 		AA65508E1D0BBC04007DD200 /* seattle_night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = seattle_night.jpg; sourceTree = "<group>"; };
 		AA6550901D0BBCE8007DD200 /* New_York_Night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = New_York_Night.jpg; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 		AA271D771B4DF4CC00EA5BA6 /* Dating_App */ = {
 			isa = PBXGroup;
 			children = (
+				AA642B111D477E3D0033EEA3 /* WhatToDo */,
 				AA0876001D41CDFB00775DC7 /* Match */,
 				AAD18BED1D3BD90300237ACB /* Questions */,
 				AA7F86B71D2AB26B00329B84 /* Contact_Us_Terms_and_Conditions */,
@@ -499,6 +502,14 @@
 				AA239B001BADB0E000192AE0 /* Final_Send.swift */,
 			);
 			name = Preferences;
+			sourceTree = "<group>";
+		};
+		AA642B111D477E3D0033EEA3 /* WhatToDo */ = {
+			isa = PBXGroup;
+			children = (
+				AA642B121D4838020033EEA3 /* Todolist.swift */,
+			);
+			name = WhatToDo;
 			sourceTree = "<group>";
 		};
 		AA6550AA1D0DE43E007DD200 /* Update_Profile */ = {
@@ -853,6 +864,7 @@
 				AA5AC2011B651A8100158156 /* Male_Female.swift in Sources */,
 				AA0875FF1D41B44200775DC7 /* Answernine.swift in Sources */,
 				AA239AFB1BADA58A00192AE0 /* Google_Location.swift in Sources */,
+				AA642B131D4838020033EEA3 /* Todolist.swift in Sources */,
 				AAA36DD11C102C5F0073F6B0 /* UIImageView+AFNetworking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
