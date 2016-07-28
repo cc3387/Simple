@@ -11,33 +11,118 @@ class Todolist: UIViewController{
     
     @IBAction func ChillButton(sender: AnyObject) {
         
-        let location = login_user.location.stringByReplacingOccurrencesOfString(" ", withString: "+")
-        
-        let address = "https://www.google.com/#q=" + location + "+chill+activities"
-        if let url = NSURL(string: address) {
-            UIApplication.sharedApplication().openURL(url)
+        //New York
+        if(login_user.latitude >= 40 && login_user.latitude <= 41 &&
+            login_user.longitude <= -73.5 && login_user.longitude > -74.5){
+            
+            let random = arc4random_uniform(5);
+            
+            if(random == 0){
+                if let url = NSURL(string: "http://www.10best.com/destinations/new-york/new-york/near-me/") {
+                UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            else if(random == 1){
+                if let url = NSURL(string: "http://www.rownyc.com/blog/") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            else if(random == 2){
+                if let url = NSURL(string: "http://www.10best.com/destinations/new-york/new-york/near-me/") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            else if(random == 3){
+                if let url = NSURL(string: "http://www.eggcanvas.me/nyc-guide/") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            else if(random == 4){
+                if let url = NSURL(string: "http://lovetaza.com/category/nyc-guide-series/") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            
+            
         }
         
     }
     
     @IBAction func MovieButton(sender: AnyObject) {
         
-        if(login_user.latitude >= 5.87 && login_user.latitude <= 71.39 &&
-            login_user.longitude <= -66.9 && login_user.longitude > -180){
+        let random = arc4random_uniform(5);
         
-        if let url = NSURL(string: "http://www.fandango.com") {
-            UIApplication.sharedApplication().openURL(url)
-        }
-        }
-        else if(login_user.latitude >= 22.15 && login_user.latitude <= 22.557 &&
-            login_user.longitude >= 113.83 && login_user.longitude < 114.407){
-            if let url = NSURL(string: "http://www.uacinemas.com.hk") {
+        if(random == 0){
+            if let url = NSURL(string: "http://www.movie-blogger.com") {
                 UIApplication.sharedApplication().openURL(url)
             }
         }
-    
+        else if(random == 1){
+            if let url = NSURL(string: "http://www.rogerebert.com") {
+                UIApplication.sharedApplication().openURL(url)
+            }
+        }
+        else if(random == 2){
+            if let url = NSURL(string: "http://www.themovieblog.com/category/features/reviews/") {
+                UIApplication.sharedApplication().openURL(url)
+            }
+        }
+        else if(random == 3){
+            if let url = NSURL(string: "http://www.themovieblog.com/category/trailers/") {
+                UIApplication.sharedApplication().openURL(url)
+            }
+        }
+        else if(random == 4){
+            if let url = NSURL(string: "http://www.rollingstone.com/movies/reviews") {
+                UIApplication.sharedApplication().openURL(url)
+            }
+        }
         
     }
+    
+    
+    @IBAction func EatButton(sender: AnyObject) {
+        
+        //New York
+        if(login_user.latitude >= 40 && login_user.latitude <= 41 &&
+            login_user.longitude <= -73.5 && login_user.longitude > -74.5){
+        
+        let random = arc4random_uniform(2);
+        if(random == 0){
+            if let url = NSURL(string: "http://www.foodandnewyorkcity.com/p/where-to-eat-in-nyc.html") {
+                UIApplication.sharedApplication().openURL(url)
+            }
+        }
+        else if(random == 1){
+            if let url = NSURL(string: "http://www.timeout.com/newyork/restaurants") {
+                UIApplication.sharedApplication().openURL(url)
+            }
+        }
+        }
+    }
+    
+    
+    @IBAction func SummerButton(sender: AnyObject) {
+        
+        //New York
+        if(login_user.latitude >= 40 && login_user.latitude <= 41 &&
+            login_user.longitude <= -73.5 && login_user.longitude > -74.5){
+            
+            let random = arc4random_uniform(2);
+            if(random == 0){
+                if let url = NSURL(string: "http://www.nycinsiderguide.com/things-to-do-in-new-york-in-summer.html#.V5nmD1cydFI") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            else if(random == 1){
+                if let url = NSURL(string: "http://www.nycgo.com/articles/summer-guide-2016-slideshow") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+        }
+        
+    }
+    
     override func viewDidLoad() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         super.viewDidLoad()
