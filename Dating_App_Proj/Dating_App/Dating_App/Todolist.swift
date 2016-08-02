@@ -18,7 +18,7 @@ class Todolist: UIViewController{
             let random = arc4random_uniform(5);
             
             if(random == 0){
-                if let url = NSURL(string: "http://www.10best.com/destinations/new-york/new-york/near-me/") {
+                if let url = NSURL(string: "http://www.10best.com/destinations/") {
                 UIApplication.sharedApplication().openURL(url)
                 }
             }
@@ -28,7 +28,7 @@ class Todolist: UIViewController{
                 }
             }
             else if(random == 2){
-                if let url = NSURL(string: "http://www.10best.com/destinations/new-york/new-york/near-me/") {
+                if let url = NSURL(string: "http://www.10best.com/destinations/") {
                     UIApplication.sharedApplication().openURL(url)
                 }
             }
@@ -38,13 +38,47 @@ class Todolist: UIViewController{
                 }
             }
             else if(random == 4){
-                if let url = NSURL(string: "http://lovetaza.com/category/nyc-guide-series/") {
+                if let url = NSURL(string: "http://www.fodors.com/world/north-america/usa/new-york/new-york-city/neighborhoods") {
                     UIApplication.sharedApplication().openURL(url)
                 }
             }
-            
-            
         }
+        
+        //Hong Kong
+        if(login_user.latitude >= 22.2 && login_user.latitude <= 22.5 &&
+            login_user.longitude <= 114.2 && login_user.longitude > 114.1){
+            
+            let random = arc4random_uniform(5);
+            
+            if(random == 0){
+                if let url = NSURL(string: "http://www.discoverhongkong.com/us/index.jsp") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            else if(random == 1){
+                if let url = NSURL(string: "http://travel.qunar.com/p-cs300027-xianggang-jingdian") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            else if(random == 2){
+                if let url = NSURL(string: "http://www.discoverhongkong.com/tc/see-do/highlight-attractions/index.jsp") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            else if(random == 3){
+                if let url = NSURL(string: "http://www.tommyooi.com/hongkong-attractions/") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            else if(random == 4){
+                if let url = NSURL(string: "http://www.discoverhongkong.com/us/see-do/highlight-attractions/top-10/index.jsp") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+        }
+        
+        
+        
         
     }
     
@@ -89,7 +123,7 @@ class Todolist: UIViewController{
         
         let random = arc4random_uniform(2);
         if(random == 0){
-            if let url = NSURL(string: "http://www.foodandnewyorkcity.com/p/where-to-eat-in-nyc.html") {
+            if let url = NSURL(string: "http://ny.eater.com/maps/best-new-new-york-restaurants-heatmap") {
                 UIApplication.sharedApplication().openURL(url)
             }
         }
@@ -121,7 +155,83 @@ class Todolist: UIViewController{
             }
         }
         
+        //Hong Kong
+        if(login_user.latitude >= 22.2 && login_user.latitude <= 22.5 &&
+            login_user.longitude <= 114.2 && login_user.longitude > 114.1){
+            
+            let random = arc4random_uniform(1);
+            
+            if(random == 0){
+                if let url = NSURL(string: "http://www.fodors.com/world/asia/china/hong-kong/experiences/news/photos/15-incredible-rooftop-bars-in-hong-kong") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+        }
+        
     }
+    
+    @IBAction func HikingButton(sender: AnyObject) {
+        
+        //New York
+        if(login_user.latitude >= 40 && login_user.latitude <= 41 &&
+            login_user.longitude <= -73.5 && login_user.longitude > -74.5){
+            
+            let random = arc4random_uniform(1);
+            if(random == 0){
+                if let url = NSURL(string: "https://www.trails.com") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            
+        }
+    }
+    
+    @IBAction func Rooftop(sender: AnyObject) {
+        
+        //New York
+        if(login_user.latitude >= 40 && login_user.latitude <= 41 &&
+            login_user.longitude <= -73.5 && login_user.longitude > -74.5){
+            
+            let random = arc4random_uniform(4);
+            if(random == 0){
+                if let url = NSURL(string: "http://www.timeout.com/newyork/bars/rooftop-bars-in-nyc") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            else if(random == 1){
+                if let url = NSURL(string: "http://gothamist.com/2016/04/27/best_rooftop_bars_nyc.php") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            else if(random == 2){
+                if let url = NSURL(string: "http://www.amny.com/eat-and-drink/nyc-rooftop-bars-and-restaurants-to-visit-now-1.10394553") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            else if(random == 3){
+                if let url = NSURL(string: "http://www.cntraveler.com/galleries/2016-06-08/10-best-rooftop-bars-in-new-york-city/4") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            
+        }
+        
+        //Hong Kong
+        if(login_user.latitude >= 22.2 && login_user.latitude <= 22.5 &&
+            login_user.longitude <= 114.2 && login_user.longitude > 114.1){
+            
+            let random = arc4random_uniform(1);
+            
+            if(random == 0){
+                if let url = NSURL(string: "http://punchdrink.com/articles/the-best-bars-with-a-view-in-hong-kong/") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+        }
+        
+    }
+    
+    
     
     override func viewDidLoad() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)

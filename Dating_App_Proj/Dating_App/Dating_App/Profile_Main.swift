@@ -70,6 +70,13 @@ class Profile_Main : UIViewController{
         loadcontactus()
         }
     }
+    
+    
+    @IBAction func ToTermsandConditions(sender: AnyObject) {
+        if(login_user.user_name != ""){
+        loadtermsandcondition()
+        }
+    }
  
     //Getting the login_user id that is collected from the login page
     var loginuser: String = "";
@@ -455,6 +462,10 @@ class Profile_Main : UIViewController{
     
     func loadcontactus(){
         self.performSegueWithIdentifier("Tocontactus", sender: nil)
+    }
+    
+    func loadtermsandcondition(){
+        self.performSegueWithIdentifier("totermsandconditions", sender: nil)
     }
     
     func refreshEvery30Secs(){

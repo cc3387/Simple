@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4837698C73D36AAFBAEBF9FF /* Pods_Simple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0540E9DC01193D4EBFE0BBD2 /* Pods_Simple.framework */; };
+		AA04E8BC1D4E808E0077AB48 /* NY_Building_Sunset.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA04E8BB1D4E808E0077AB48 /* NY_Building_Sunset.jpg */; };
+		AA04E8BE1D4E8C1A0077AB48 /* Terms_and_Conditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA04E8BD1D4E8C1A0077AB48 /* Terms_and_Conditions.swift */; };
 		AA0875F51D41AB6E00775DC7 /* Answerfour.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0875F41D41AB6E00775DC7 /* Answerfour.swift */; };
 		AA0875F71D41AC9A00775DC7 /* Answerfive.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0875F61D41AC9A00775DC7 /* Answerfive.swift */; };
 		AA0875F91D41B02E00775DC7 /* Answersix.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0875F81D41B02E00775DC7 /* Answersix.swift */; };
@@ -142,6 +144,8 @@
 
 /* Begin PBXFileReference section */
 		0540E9DC01193D4EBFE0BBD2 /* Pods_Simple.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA04E8BB1D4E808E0077AB48 /* NY_Building_Sunset.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NY_Building_Sunset.jpg; sourceTree = "<group>"; };
+		AA04E8BD1D4E8C1A0077AB48 /* Terms_and_Conditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Terms_and_Conditions.swift; sourceTree = "<group>"; };
 		AA0875F41D41AB6E00775DC7 /* Answerfour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answerfour.swift; sourceTree = "<group>"; };
 		AA0875F61D41AC9A00775DC7 /* Answerfive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answerfive.swift; sourceTree = "<group>"; };
 		AA0875F81D41B02E00775DC7 /* Answersix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answersix.swift; sourceTree = "<group>"; };
@@ -394,6 +398,7 @@
 				AA6550A41D0C4EC1007DD200 /* Dawn_City.jpg */,
 				AA6550901D0BBCE8007DD200 /* New_York_Night.jpg */,
 				AA6550981D0C45D4007DD200 /* Switzerland_Bridge.jpg */,
+				AA04E8BB1D4E808E0077AB48 /* NY_Building_Sunset.jpg */,
 				AA7EF40C1BAE2FAC00C8A305 /* night_sky.jpg */,
 				AA65508E1D0BBC04007DD200 /* seattle_night.jpg */,
 				AA239AE81BAD9F1F00192AE0 /* Art_Gallery.jpg */,
@@ -527,6 +532,7 @@
 			isa = PBXGroup;
 			children = (
 				AA7F86B81D2AB4D500329B84 /* Contact_Us.swift */,
+				AA04E8BD1D4E8C1A0077AB48 /* Terms_and_Conditions.swift */,
 			);
 			name = Contact_Us_Terms_and_Conditions;
 			sourceTree = "<group>";
@@ -715,6 +721,7 @@
 				AA25DDFC1CFFEE2300E57068 /* JSQMessagesAssets.bundle in Resources */,
 				AA3C847B1B770CF500C76304 /* GoogleMaps.bundle in Resources */,
 				AA65508F1D0BBC04007DD200 /* seattle_night.jpg in Resources */,
+				AA04E8BC1D4E808E0077AB48 /* NY_Building_Sunset.jpg in Resources */,
 				AA6550A71D0D0323007DD200 /* Night_Sky_Pond.jpg in Resources */,
 				AA6550911D0BBCE8007DD200 /* New_York_Night.jpg in Resources */,
 				AA7EF4111BAE479A00C8A305 /* chicago_afternoon.jpg in Resources */,
@@ -820,6 +827,7 @@
 				AA0875F51D41AB6E00775DC7 /* Answerfour.swift in Sources */,
 				AA10153A1B5170A7007F77B8 /* ViewControllerLogin.swift in Sources */,
 				AA239AEF1BAD9FCF00192AE0 /* ViewControllerRegister.swift in Sources */,
+				AA04E8BE1D4E8C1A0077AB48 /* Terms_and_Conditions.swift in Sources */,
 				AAAA0FDA1BC6D210004F2474 /* User.swift in Sources */,
 				AA0E41B41D38878E00657C3C /* BatchClientPush.swift in Sources */,
 				AA4020101BBCA9E800ABA237 /* Ethnicity_PickerView.swift in Sources */,
