@@ -24,6 +24,9 @@ class termsandconditions: UIViewController, MFMailComposeViewControllerDelegate 
     @IBOutlet weak var Linenine: UILabel!
     @IBOutlet weak var Lineten: UILabel!
     @IBOutlet weak var Lineeleven: UILabel!
+    @IBOutlet weak var Linetwelve: UILabel!
+    @IBOutlet weak var Linethirteen: UILabel!
+    @IBOutlet weak var LineFourteen: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +46,9 @@ class termsandconditions: UIViewController, MFMailComposeViewControllerDelegate 
         self.Linenine.text = "the Service."
         self.Lineten.text = "Our Service may contain links to third­ party web sites "
         self.Lineeleven.text = "that are not owned or controlled by Simple."
+        self.Linetwelve.text = "Simple has no control over, and assumes no "
+        self.Linethirteen.text = "responsibility for, the content, private policies,"
+        self.LineFourteen.text = "or practices of any third party websites or services."
         
         self.Terms.adjustsFontSizeToFitWidth = true
         self.Lineone.adjustsFontSizeToFitWidth = true
@@ -56,6 +62,9 @@ class termsandconditions: UIViewController, MFMailComposeViewControllerDelegate 
         self.Linenine.adjustsFontSizeToFitWidth = true
         self.Lineten.adjustsFontSizeToFitWidth = true
         self.Lineeleven.adjustsFontSizeToFitWidth = true
+        self.Linetwelve.adjustsFontSizeToFitWidth = true
+        self.Linethirteen.adjustsFontSizeToFitWidth = true
+        self.LineFourteen.adjustsFontSizeToFitWidth = true
     }
     
     override func shouldAutorotate() -> Bool {
