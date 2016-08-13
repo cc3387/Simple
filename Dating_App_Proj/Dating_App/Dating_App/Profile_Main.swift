@@ -344,37 +344,38 @@ class Profile_Main : UIViewController{
     
     
     //To Logout and delete token that is assigned
-    @IBAction func Logout(sender: AnyObject) {
+    @IBAction func Logoutbutton(sender: AnyObject) {
         
-//        //print(loginUsername.text)
-//        let manager = AFHTTPRequestOperationManager()
-//        
-//        var params = [
-//            
-//            "username":login.loginid,
-//            "password":login.password
-//            
-//        ]
-//        
-//        let defaults = NSUserDefaults.standardUserDefaults()
-//        defaults.setObject(nil, forKey: "token")
-//        //defaults.getObject(for
-//        defaults.synchronize()
-//        
-//        
-//        manager.POST("http://localhost:3000/logout",
-//            parameters: params,
-//            
-//            //what is needed for success to execute?
-//            success: { (AFHTTPRequestOperation, AnyObject) -> Void in
-//                print("successful logout")
-//            }) { (AFHTTPRequestOperation, NSError) -> Void in
-//                print("fail")
-//        }
-//        
+        
+        //        //print(loginUsername.text)
+        //        let manager = AFHTTPRequestOperationManager()
+        //
+        //        var params = [
+        //
+        //            "username":login.loginid,
+        //            "password":login.password
+        //
+        //        ]
+        //
+        //        let defaults = NSUserDefaults.standardUserDefaults()
+        //        defaults.setObject(nil, forKey: "token")
+        //        //defaults.getObject(for
+        //        defaults.synchronize()
+        //
+        //
+        //        manager.POST("http://localhost:3000/logout",
+        //            parameters: params,
+        //
+        //            //what is needed for success to execute?
+        //            success: { (AFHTTPRequestOperation, AnyObject) -> Void in
+        //                print("successful logout")
+        //            }) { (AFHTTPRequestOperation, NSError) -> Void in
+        //                print("fail")
+        //        }
+        //        
         let ref = Firebase(url:"https://simpleplus.firebaseio.com")
         ref.unauth();
-    
+        loadoriginal();
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -479,6 +480,10 @@ class Profile_Main : UIViewController{
     func refresh(sender: AnyObject){
         refreshEvery30Secs() // calls when ever button is pressed
         refreshEvery3600Secs()
+    }
+    
+    func loadoriginal(){
+        self.performSegueWithIdentifier("original", sender: nil)
     }
     
     //Function to observe the information

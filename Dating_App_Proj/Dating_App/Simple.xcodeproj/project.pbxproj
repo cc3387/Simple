@@ -11,6 +11,7 @@
 		AA04E8BC1D4E808E0077AB48 /* NY_Building_Sunset.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA04E8BB1D4E808E0077AB48 /* NY_Building_Sunset.jpg */; };
 		AA04E8BE1D4E8C1A0077AB48 /* Terms_and_Conditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA04E8BD1D4E8C1A0077AB48 /* Terms_and_Conditions.swift */; };
 		AA080ED61D570AE3002AFDE7 /* Terms_and_Conditions_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA080ED51D570AE3002AFDE7 /* Terms_and_Conditions_2.swift */; };
+		AA080EDA1D5839DF002AFDE7 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AA080ED91D5839DF002AFDE7 /* GoogleMaps.bundle */; };
 		AA0875F51D41AB6E00775DC7 /* Answerfour.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0875F41D41AB6E00775DC7 /* Answerfour.swift */; };
 		AA0875F71D41AC9A00775DC7 /* Answerfive.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0875F61D41AC9A00775DC7 /* Answerfive.swift */; };
 		AA0875F91D41B02E00775DC7 /* Answersix.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0875F81D41B02E00775DC7 /* Answersix.swift */; };
@@ -67,7 +68,6 @@
 		AA3527971BDB6C5F00679464 /* Edu_PickerView_Can.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3527961BDB6C5F00679464 /* Edu_PickerView_Can.swift */; };
 		AA39FCB91D2DEB84000DB554 /* Chat_Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA39FCB81D2DEB84000DB554 /* Chat_Search.swift */; };
 		AA39FCBB1D2E1C24000DB554 /* Ask_Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA39FCBA1D2E1C24000DB554 /* Ask_Question.swift */; };
-		AA3C847B1B770CF500C76304 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AA3C84791B770CF500C76304 /* GoogleMaps.bundle */; };
 		AA3C847C1B770CF500C76304 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3C847A1B770CF500C76304 /* GoogleMaps.framework */; };
 		AA3C847E1B770E0100C76304 /* Location_class.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3C847D1B770E0100C76304 /* Location_class.swift */; };
 		AA3C84801B770E5A00C76304 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3C847F1B770E5A00C76304 /* OpenGLES.framework */; };
@@ -148,6 +148,7 @@
 		AA04E8BB1D4E808E0077AB48 /* NY_Building_Sunset.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NY_Building_Sunset.jpg; sourceTree = "<group>"; };
 		AA04E8BD1D4E8C1A0077AB48 /* Terms_and_Conditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Terms_and_Conditions.swift; sourceTree = "<group>"; };
 		AA080ED51D570AE3002AFDE7 /* Terms_and_Conditions_2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Terms_and_Conditions_2.swift; sourceTree = "<group>"; };
+		AA080ED91D5839DF002AFDE7 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		AA0875F41D41AB6E00775DC7 /* Answerfour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answerfour.swift; sourceTree = "<group>"; };
 		AA0875F61D41AC9A00775DC7 /* Answerfive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answerfive.swift; sourceTree = "<group>"; };
 		AA0875F81D41B02E00775DC7 /* Answersix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answersix.swift; sourceTree = "<group>"; };
@@ -209,7 +210,6 @@
 		AA3527961BDB6C5F00679464 /* Edu_PickerView_Can.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edu_PickerView_Can.swift; sourceTree = "<group>"; };
 		AA39FCB81D2DEB84000DB554 /* Chat_Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat_Search.swift; sourceTree = "<group>"; };
 		AA39FCBA1D2E1C24000DB554 /* Ask_Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ask_Question.swift; sourceTree = "<group>"; };
-		AA3C84791B770CF500C76304 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		AA3C847A1B770CF500C76304 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		AA3C847D1B770E0100C76304 /* Location_class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location_class.swift; sourceTree = "<group>"; };
 		AA3C847F1B770E5A00C76304 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -339,9 +339,9 @@
 		AA271D6C1B4DF4CC00EA5BA6 = {
 			isa = PBXGroup;
 			children = (
+				AA080ED91D5839DF002AFDE7 /* GoogleMaps.bundle */,
 				AA25DDFB1CFFEE2300E57068 /* JSQMessagesAssets.bundle */,
 				AA271DC01B4E1B2B00EA5BA6 /* Frameworks */,
-				AA3C84791B770CF500C76304 /* GoogleMaps.bundle */,
 				AA3C847A1B770CF500C76304 /* GoogleMaps.framework */,
 				AADFA2171B6D74E600491DBF /* AFNetworking */,
 				AA271D771B4DF4CC00EA5BA6 /* Dating_App */,
@@ -722,7 +722,6 @@
 			files = (
 				AA6550991D0C45D4007DD200 /* Switzerland_Bridge.jpg in Resources */,
 				AA25DDFC1CFFEE2300E57068 /* JSQMessagesAssets.bundle in Resources */,
-				AA3C847B1B770CF500C76304 /* GoogleMaps.bundle in Resources */,
 				AA65508F1D0BBC04007DD200 /* seattle_night.jpg in Resources */,
 				AA04E8BC1D4E808E0077AB48 /* NY_Building_Sunset.jpg in Resources */,
 				AA6550A71D0D0323007DD200 /* Night_Sky_Pond.jpg in Resources */,
@@ -740,6 +739,7 @@
 				AA7EF40F1BAE46C500C8A305 /* malaysia_morning.jpg in Resources */,
 				AA0E68B81B8EC9F9000941C4 /* Male_Cloud.tif in Resources */,
 				AA239AE51BAD9EC600192AE0 /* Sports_Event.jpg in Resources */,
+				AA080EDA1D5839DF002AFDE7 /* GoogleMaps.bundle in Resources */,
 				AA239ADD1BAD9D4A00192AE0 /* LaunchScreen.xib in Resources */,
 				AA239AE91BAD9F1F00192AE0 /* Art_Gallery.jpg in Resources */,
 				AAF3ACAB1BCB346E0097C47D /* Background_Color.tif in Resources */,

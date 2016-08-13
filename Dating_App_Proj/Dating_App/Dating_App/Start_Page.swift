@@ -6,13 +6,14 @@
 //  Copyright © 2016 Clement Chan. All rights reserved.
 //
 
+
 import Foundation
 import Firebase
 import Batch
 var loginid: String = "";
 
 class Start_Page : UIViewController{
-
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -33,28 +34,28 @@ class Start_Page : UIViewController{
                         login.password = password
                         print(login.password)
                         if(username != "" && password != ""){
-                        reflogin.authUser(login.loginid, password: login.password) {
-                            error, authData in
-                            if error != nil {
-                                // an error occured while attempting login
-                                print("Login info is wrong");
-                            } else {
-                                login.chatid = ref.authData.uid
-                                indication = 1;
-                                frienduser.emailarray.removeAll();
-                                frienduser.useridarray.removeAll();
-                                frienduser.phoneidarray.removeAll();
-                                frienduser.profilenamearray.removeAll();
-                                self.loadDestinationVC1();
-                            };
-                           }
-                    }
+                            reflogin.authUser(login.loginid, password: login.password) {
+                                error, authData in
+                                if error != nil {
+                                    // an error occured while attempting login
+                                    print("Login info is wrong");
+                                } else {
+                                    login.chatid = ref.authData.uid
+                                    indication = 1;
+                                    frienduser.emailarray.removeAll();
+                                    frienduser.useridarray.removeAll();
+                                    frienduser.phoneidarray.removeAll();
+                                    frienduser.profilenamearray.removeAll();
+                                    self.loadDestinationVC1();
+                                };
+                            }
+                        }
                         else{
-
+                            
+                        }
                     }
                 }
-            }
-        })
+            })
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(5 * NSEC_PER_SEC)), dispatch_get_main_queue()){
             self.activityIndicator.stopAnimating()
@@ -64,12 +65,12 @@ class Start_Page : UIViewController{
     }
     
     @IBAction func Login(sender: AnyObject) {
-//        if(loginid == ""){
-            loadDestinationVC()
-//        }
-//        else if(loginid != ""){
-//            loadDestinationVC1()
-//        }
+        //        if(loginid == ""){
+        loadDestinationVC()
+        //        }
+        //        else if(loginid != ""){
+        //            loadDestinationVC1()
+        //        }
     }
     
     
@@ -81,7 +82,7 @@ class Start_Page : UIViewController{
         return UIInterfaceOrientationMask.Portrait
     }
     
-
+    
     func loadDestinationVC1(){
         self.performSegueWithIdentifier("ToProfile", sender: nil)
     }
@@ -90,7 +91,7 @@ class Start_Page : UIViewController{
     func loadDestinationVC(){
         self.performSegueWithIdentifier("No_Login", sender: nil)
     }
-
+    
 };
 
 
@@ -185,4 +186,3 @@ var Question_array = 0
 var Questions = [String]()
 var Answerone = [String]()
 var Answertwo = [String]()
-
