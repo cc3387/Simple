@@ -712,7 +712,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RUJ-2a-Ixd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-123" y="-370"/>
+            <point key="canvasLocation" x="13" y="-328"/>
         </scene>
         <!--View Controller Register-->
         <scene sceneID="oFw-XZ-lYg">
@@ -3497,7 +3497,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NY_Building_Sunset.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="LMn-mt-wXj">
-                                <rect key="frame" x="-200" y="-194" width="888" height="916"/>
+                                <rect key="frame" x="-300" y="-300" width="1200" height="1200"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="information,such as your name, username, password, email address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AN4-cr-9Tj">
                                 <rect key="frame" x="-129" y="-184" width="376" height="21"/>
@@ -4321,7 +4321,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hg4-g9-WgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1876" y="-1017"/>
+            <point key="canvasLocation" x="1936" y="-1017"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KlK-vc-a1t">
@@ -5504,33 +5504,33 @@
         <image name="night_sky.jpg" width="2000" height="1316"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="jx6-WT-nlb"/>
+        <segue reference="N9M-jQ-SPw"/>
+        <segue reference="qKX-MI-0nm"/>
+        <segue reference="ekB-3V-pnZ"/>
         <segue reference="Dph-us-7P6"/>
-        <segue reference="vtg-kn-7Ox"/>
-        <segue reference="x6J-nf-xdV"/>
         <segue reference="gt8-yC-oDn"/>
         <segue reference="Pxh-Dh-6Hw"/>
         <segue reference="8YH-Js-eKM"/>
         <segue reference="twk-5g-fpM"/>
         <segue reference="0Fc-Vv-gWJ"/>
-        <segue reference="L7q-dC-TAE"/>
+        <segue reference="lp7-Dm-2mL"/>
+        <segue reference="7RM-4c-dPc"/>
         <segue reference="koq-jY-IDo"/>
         <segue reference="uAq-hg-nYX"/>
         <segue reference="ny4-sU-M0o"/>
         <segue reference="fTe-SU-cnY"/>
+        <segue reference="L7q-dC-TAE"/>
         <segue reference="Ccm-cV-i5q"/>
-        <segue reference="N9M-jQ-SPw"/>
-        <segue reference="qKX-MI-0nm"/>
-        <segue reference="ekB-3V-pnZ"/>
-        <segue reference="7RM-4c-dPc"/>
-        <segue reference="XSd-l0-pp8"/>
+        <segue reference="kLD-Ih-YTU"/>
+        <segue reference="WyC-WJ-4Zw"/>
         <segue reference="obP-oB-5hK"/>
         <segue reference="AV6-u6-wf3"/>
         <segue reference="q8S-fp-6E9"/>
-        <segue reference="WyC-WJ-4Zw"/>
-        <segue reference="cD3-NL-LSF"/>
-        <segue reference="w7k-32-K2a"/>
+        <segue reference="x6J-nf-xdV"/>
         <segue reference="eZd-JO-exV"/>
+        <segue reference="w7k-32-K2a"/>
         <segue reference="hLD-FZ-jQI"/>
-        <segue reference="kLD-Ih-YTU"/>
+        <segue reference="cD3-NL-LSF"/>
     </inferredMetricsTieBreakers>
 </document>
