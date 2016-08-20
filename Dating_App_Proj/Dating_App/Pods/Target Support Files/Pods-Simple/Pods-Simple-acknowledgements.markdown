@@ -8,7 +8,71 @@ Copyright © 2015 Batch.com
 
 ## Firebase
 
-https://www.firebase.com/terms/terms-of-service.html
+Copyright 2016 Google
+
+## FirebaseAnalytics
+
+Copyright 2016 Google
+
+## FirebaseAppIndexing
+
+Copyright 2016 Google
+
+## FirebaseAuth
+
+Copyright 2016 Google
+
+## FirebaseCrash
+
+Copyright 2016 Google
+
+## FirebaseDatabase
+
+Copyright 2016 Google
+
+## FirebaseDynamicLinks
+
+Copyright 2016 Google Inc.
+
+## FirebaseInstanceID
+
+Copyright 2016 Google
+
+## FirebaseMessaging
+
+Copyright 2016 Google
+
+## FirebaseStorage
+
+Copyright 2016 Google Inc.
+
+## Google-Mobile-Ads-SDK
+
+Copyright 2011 Google Inc. All Rights Reserved.
+
+## GoogleIPhoneUtilities
+
+Copyright 2015 Google Inc.
+
+## GoogleInterchangeUtilities
+
+Copyright 2015 Google Inc.
+
+## GoogleNetworkingUtilities
+
+Copyright 2015 Google Inc.
+
+## GoogleParsingUtilities
+
+Copyright 2015 Google Inc.
+
+## GoogleSymbolUtilities
+
+Copyright 2015 Google Inc.
+
+## GoogleUtilities
+
+Copyright 2015 Google Inc.
 
 ## JSQMessagesViewController
 
@@ -16,7 +80,7 @@ https://www.firebase.com/terms/terms-of-service.html
 MIT License
 Copyright (c) 2013-present Jesse Squires
 
-http://www.hexedbits.com
+http://www.jessesquires.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
 associated documentation files (the "Software"), to deal in the Software without restriction, including

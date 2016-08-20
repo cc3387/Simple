@@ -36,6 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
         //Register for push notifications
         registerForPushNotifications(application)
         
+        //For the purpose of Firebase authorization
+        FIRApp.configure()
+        
 //        var timer: NSTimer!
 //        var refresher: UIRefreshControl!
 //        refresher = UIRefreshControl()
@@ -46,30 +49,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
         // Override point for customization after application launch.
         return true
     }
-
+    
+//    override init() {
+//        // Firebase Init
+//        FIRApp.configure()
+//    }
+    
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
         
-        func autologin(){
-            if(loginid != "" && password != ""){
-                var ref = Firebase(url:"https://simpleplus.firebaseio.com")
-                ref.authUser(loginid, password: password) {
-                    error, authData in
-                    if error != nil {
-                        // an error occured while attempting login
-                        print("Login info is wrong");
-                    } else {
-                        print("Login info is correct");
-                    };
-                }
-                self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-                var storyboard = UIStoryboard(name: "Main", bundle: nil)
-                var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Profile_Main") as! UIViewController
-                self.window?.rootViewController = initialViewController
-//              self.window?.makeKeyAndVisible()
-            }
-        }
+//        func autologin(){
+//            if(loginid != "" && password != ""){
+//                var ref = Firebase(url:"https://simpleplus.firebaseio.com")
+//                ref.authUser(loginid, password: password) {
+//                    error, authData in
+//                    if error != nil {
+//                        // an error occured while attempting login
+//                        print("Login info is wrong");
+//                    } else {
+//                        print("Login info is correct");
+//                    };
+//                }
+//                self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//                var storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Profile_Main") as! UIViewController
+//                self.window?.rootViewController = initialViewController
+//                self.window?.makeKeyAndVisible()
+//            }
+//        }
         
         //autologin();
         
@@ -88,25 +97,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
 //        refresher1.addTarget(self, action: "refresh1:", forControlEvents: .ValueChanged)
 //        timer = NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector:"autologin", userInfo: nil, repeats: true)
         
-        func autologin(){
-        if(loginid != "" && password != ""){
-            var ref = Firebase(url:"https://simpleplus.firebaseio.com")
-            ref.authUser(loginid, password: password) {
-                error, authData in
-                if error != nil {
-                    // an error occured while attempting login
-                    print("Login info is wrong");
-                } else {
-                    print("Login info is correct");
-                };
-            }
-            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            var storyboard = UIStoryboard(name: "Main", bundle: nil)
-            var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Chatroom") as! UIViewController
-            self.window?.rootViewController = initialViewController
-//          self.window?.makeKeyAndVisible()
-        }
-        }
+//        func autologin(){
+//        if(loginid != "" && password != ""){
+//            var ref = Firebase(url:"https://simpleplus.firebaseio.com")
+//            ref.authUser(loginid, password: password) {
+//                error, authData in
+//                if error != nil {
+//                    // an error occured while attempting login
+//                    print("Login info is wrong");
+//                } else {
+//                    print("Login info is correct");
+//                };
+//            }
+//            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//            var storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Chatroom") as! UIViewController
+//            self.window?.rootViewController = initialViewController
+//            self.window?.makeKeyAndVisible()
+//        }
+//        }
         
         let devDeviceToken = login_user.phoneid
         if let pushClient = BatchClientPush(apiKey: "577F39F55EDFB32D2A5AC16A8A3941", restKey: "a524aa85f96b3bc103188428b026bd5b") {
@@ -124,20 +133,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
         }
 
         //Calling the function
-        autologin();
+        //autologin();
     }
 
-    func send_reminder(){
-        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
-        let notification = UILocalNotification()
-        notification.fireDate = NSDate(timeIntervalSinceNow: 1)
-        notification.alertBody = "Time to Send Your Friend messages!"
-        notification.alertAction = "Read Message!"
-        notification.soundName = UILocalNotificationDefaultSoundName
-        notification.userInfo = ["CustomField1": "w00t"]
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
-    }
+//    func send_reminder(){
+//        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+//        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+//        let notification = UILocalNotification()
+//        notification.fireDate = NSDate(timeIntervalSinceNow: 1)
+//        notification.alertBody = "Time to Send Your Friend messages!"
+//        notification.alertAction = "Read Message!"
+//        notification.soundName = UILocalNotificationDefaultSoundName
+//        notification.userInfo = ["CustomField1": "w00t"]
+//        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+//    }
     
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
@@ -176,6 +185,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
             forTypes: [.Badge, .Sound, .Alert], categories: nil)
         application.registerUserNotificationSettings(notificationSettings)
     }
+    
 
 }
 

@@ -17,23 +17,23 @@ class Google_ViewController_Update: UIViewController, CLLocationManagerDelegate,
     
     @IBAction func Request_From_Text(sender: AnyObject) {
         
-        let address = self.Address.text;
-        
-        register_info.address = address!;
-        
-        self.mapTasks.getLatLngForZip(register_info.address);
-        
-        let coordinate = CLLocationCoordinate2D(latitude: self.mapTasks.fetchedAddressLatitude, longitude: self.mapTasks.fetchedAddressLongitude)
-
-        var NameRef = Firebase(url: "https://simpleplus.firebaseio.com/users/" + login_user.uid)
-                
-        var location = [
-            "longitude": self.mapTasks.fetchedAddressLongitude,
-            "latitude": self.mapTasks.fetchedAddressLatitude,
-            "Address": register_info.address
-        ];
-                
-        NameRef.updateChildValues(location as [NSObject : AnyObject]);
+//        let address = self.Address.text;
+//        
+//        register_info.address = address!;
+//        
+//        self.mapTasks.getLatLngForZip(register_info.address);
+//        
+//        let coordinate = CLLocationCoordinate2D(latitude: self.mapTasks.fetchedAddressLatitude, longitude: self.mapTasks.fetchedAddressLongitude)
+//
+//        var NameRef = Firebase(url: "https://simpleplus.firebaseio.com/users/" + login_user.uid)
+//                
+//        var location = [
+//            "longitude": self.mapTasks.fetchedAddressLongitude,
+//            "latitude": self.mapTasks.fetchedAddressLatitude,
+//            "Address": register_info.address
+//        ];
+//                
+//        NameRef.updateChildValues(location as [NSObject : AnyObject]);
 
         
         self.loadDestinationVC();

@@ -20,6 +20,12 @@ class FinalSend_Final: UIViewController{
     @IBOutlet weak var School: UILabel!
     @IBOutlet weak var Major: UILabel!
     
+    
+    var ref = FIRDatabase.database().reference()
+    //var ref = Firebase(url:"https://simpleplus.firebaseio.com/")
+    //var refauto = Firebase(url:"https://simpleplus.firebaseio.com/autologin")
+    //var userref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
+    
     @IBAction func ConfirmSend(sender: AnyObject) {
         
         let manager = AFHTTPRequestOperationManager();
@@ -33,10 +39,9 @@ class FinalSend_Final: UIViewController{
         //var loc_lng: String = String(format:"%f",loc_lng_int);
         //var loc_lat:String = String(format:"%f",loc_lat_int);
         
-        var ref = Firebase(url:"https://simpleplus.firebaseio.com/")
-        var refauto = Firebase(url:"https://simpleplus.firebaseio.com/autologin")
-        var userref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
-        
+        var refauto = self.ref.child("autologin")
+        var userref = self.ref.child("friends")
+    
         var profile = [
             //"title": register_info.user_id,
             "username": register_info.username,

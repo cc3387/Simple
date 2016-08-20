@@ -22,7 +22,6 @@ class Login_With_User: UIViewController{
     var decision_pwd: Int = 0
     var user1:User!
     var count: Int = 0;
-    var ref: Firebase!
     
     @IBOutlet var login_email: UILabel!
     
@@ -37,37 +36,37 @@ class Login_With_User: UIViewController{
     }
     
     @IBAction func Login(sender: AnyObject) {
-        var ref = Firebase(url:"https://simpleplus.firebaseio.com")
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        ref.authUser(loginid, password: self.Password.text) {
-            error, authData in
-            if error != nil {
-                // an error occured while attempting login
-                print("Login info is wrong");
-            } else {
-                // user is logged in, check authData for data
-                login.password = self.Password.text!;
-                self.Password.text = "**********";
-                login.chatid = ref.authData.uid
-                let editor = BatchUser.editor()
-                editor.setIdentifier(ref.authData.uid)
-                editor.save()
-                NSUserDefaults.standardUserDefaults().setObject(login.loginid, forKey: "keepUsername")
-                NSUserDefaults.standardUserDefaults().setObject(login.password, forKey: "keepPassword")
-                NSUserDefaults.standardUserDefaults().synchronize()
-                frienduser.emailarray.removeAll();
-                frienduser.useridarray.removeAll();
-                frienduser.phoneidarray.removeAll();
-                frienduser.profilenamearray.removeAll();
-                self.loadDestinationVC();
-            };
-        }
+//        var ref = Firebase(url:"https://simpleplus.firebaseio.com")
+//        self.navigationController?.setNavigationBarHidden(true, animated: false)
+//        
+//        ref.authUser(loginid, password: self.Password.text) {
+//            error, authData in
+//            if error != nil {
+//                // an error occured while attempting login
+//                print("Login info is wrong");
+//            } else {
+//                // user is logged in, check authData for data
+//                login.password = self.Password.text!;
+//                self.Password.text = "**********";
+//                login.chatid = ref.authData.uid
+//                let editor = BatchUser.editor()
+//                editor.setIdentifier(ref.authData.uid)
+//                editor.save()
+//                NSUserDefaults.standardUserDefaults().setObject(login.loginid, forKey: "keepUsername")
+//                NSUserDefaults.standardUserDefaults().setObject(login.password, forKey: "keepPassword")
+//                NSUserDefaults.standardUserDefaults().synchronize()
+//                frienduser.emailarray.removeAll();
+//                frienduser.useridarray.removeAll();
+//                frienduser.phoneidarray.removeAll();
+//                frienduser.profilenamearray.removeAll();
+//                self.loadDestinationVC();
+//            };
+//        }
     }
     
     @IBAction func New_User(sender: AnyObject) {
-        loginid = "";
-        loadDestinationVC1()
+//        loginid = "";
+//        loadDestinationVC1()
     }
     
     //Load destination to the main profile

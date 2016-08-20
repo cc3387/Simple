@@ -42,15 +42,20 @@ class Question_Answer: UIViewController{
     @IBOutlet weak var Friend: UILabel!
     @IBOutlet weak var Answercorrect: UILabel!
     @IBOutlet weak var Turnonnotification: UILabel!
-    let ref = Firebase(url:"https://simpleplus.firebaseio.com/pref/" + login_user.uid)
-    let reffd = Firebase(url:"https://simpleplus.firebaseio.com/pref/" + convo_final.friend_id_final)
+//    let ref = Firebase(url:"https://simpleplus.firebaseio.com/pref/" + login_user.uid)
+//    let reffd = Firebase(url:"https://simpleplus.firebaseio.com/pref/" + convo_final.friend_id_final)
+    
+    var ref = FIRDatabase.database().reference().child("pref").child(login_user.uid)
+    var reffd = FIRDatabase.database().reference().child("pref").child(convo_final.friend_id_final)
+    
     var count = 0;
 
     @IBAction func Yes(sender: AnyObject) {
     
-        let loginid = "https://simpleplus.firebaseio.com/friends/" + convo_final.friend_id_final + "_fd/" + login_user.uid;
-        let rref = Firebase(url:loginid);
-
+//        let loginid = "https://simpleplus.firebaseio.com/friends/" + convo_final.friend_id_final + "_fd/" + login_user.uid;
+        
+        let loginid = convo_final.friend_id_final + "_fd";
+        let rref = FIRDatabase.database().reference().child("friends").child(loginid).child(login_user.uid)
         let param = ["Notification": 1]
     
         rref.updateChildValues(param);
@@ -58,9 +63,10 @@ class Question_Answer: UIViewController{
     }
     
     @IBAction func No(sender: AnyObject) {
-        let loginid = "https://simpleplus.firebaseio.com/friends/" + convo_final.friend_id_final + "_fd/" + login_user.uid;
-        let rref = Firebase(url:loginid);
+//        let loginid = "https://simpleplus.firebaseio.com/friends/" + convo_final.friend_id_final + "_fd/" + login_user.uid;
         
+        let loginid = convo_final.friend_id_final + "_fd";
+                let rref = FIRDatabase.database().reference().child("friends").child(loginid).child(login_user.uid)
         let param = ["Notification": 0]
         
         rref.updateChildValues(param);
@@ -87,15 +93,15 @@ class Question_Answer: UIViewController{
             self.q9user.text = "";
             }
             else{
-            self.q1user.text = snapshot.value["q1"] as? String
-            self.q2user.text = snapshot.value["q2"] as? String
-            self.q3user.text = snapshot.value["q3"] as? String
-            self.q4user.text = snapshot.value["q4"] as? String
-            self.q5user.text = snapshot.value["q5"] as? String
-            self.q6user.text = snapshot.value["q6"] as? String
-            self.q7user.text = snapshot.value["q7"] as? String
-            self.q8user.text = snapshot.value["q8"] as? String
-            self.q9user.text = snapshot.value["q9"] as? String
+            self.q1user.text = snapshot.value!["q1"] as? String
+            self.q2user.text = snapshot.value!["q2"] as? String
+            self.q3user.text = snapshot.value!["q3"] as? String
+            self.q4user.text = snapshot.value!["q4"] as? String
+            self.q5user.text = snapshot.value!["q5"] as? String
+            self.q6user.text = snapshot.value!["q6"] as? String
+            self.q7user.text = snapshot.value!["q7"] as? String
+            self.q8user.text = snapshot.value!["q8"] as? String
+            self.q9user.text = snapshot.value!["q9"] as? String
             }
             
             self.reffd.observeEventType(.Value, withBlock: { snapshot in
@@ -111,15 +117,15 @@ class Question_Answer: UIViewController{
                     self.q9friend.text = "";
                 }
                 else{
-                    self.q1friend.text = snapshot.value["q1"] as? String
-                    self.q2friend.text = snapshot.value["q2"] as? String
-                    self.q3friend.text = snapshot.value["q3"] as? String
-                    self.q4friend.text = snapshot.value["q4"] as? String
-                    self.q5friend.text = snapshot.value["q5"] as? String
-                    self.q6friend.text = snapshot.value["q6"] as? String
-                    self.q7friend.text = snapshot.value["q7"] as? String
-                    self.q8friend.text = snapshot.value["q8"] as? String
-                    self.q9friend.text = snapshot.value["q9"] as? String
+                    self.q1friend.text = snapshot.value!["q1"] as? String
+                    self.q2friend.text = snapshot.value!["q2"] as? String
+                    self.q3friend.text = snapshot.value!["q3"] as? String
+                    self.q4friend.text = snapshot.value!["q4"] as? String
+                    self.q5friend.text = snapshot.value!["q5"] as? String
+                    self.q6friend.text = snapshot.value!["q6"] as? String
+                    self.q7friend.text = snapshot.value!["q7"] as? String
+                    self.q8friend.text = snapshot.value!["q8"] as? String
+                    self.q9friend.text = snapshot.value!["q9"] as? String
                 }
                 
                 

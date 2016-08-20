@@ -22,7 +22,7 @@ class ViewControllerLogin: UIViewController{
     var decision_pwd: Int = 0
     var user1:User!
     var count: Int = 0;
-    var ref: Firebase!
+//    var ref: Firebase!
     var userName = String()
     var pssword = String()
    
@@ -44,7 +44,8 @@ class ViewControllerLogin: UIViewController{
     
     @IBAction func Login(sender: AnyObject) {
         
-        var ref = Firebase(url:"https://simpleplus.firebaseio.com")
+//        var ref = Firebase(url:"https://simpleplus.firebaseio.com")
+//        var ref = FIRDatabase.database().reference()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         login.loginid = self.Username.text!;
@@ -53,7 +54,7 @@ class ViewControllerLogin: UIViewController{
         login.password = self.Password.text!;
         }
             
-        ref.authUser(login.loginid, password: login.password) {
+        FIRAuth.auth()!.signInWithEmail(login.loginid as String, password: login.password as String) {
             error, authData in
             if error != nil {
                 // an error occured while attempting login
@@ -64,7 +65,8 @@ class ViewControllerLogin: UIViewController{
                 loginid = self.Username.text!;
                 //login.password = self.Password.text!;
                 //self.Password.text = "**********";
-                login.chatid = ref.authData.uid
+                //login.chatid = ref.authData.uid
+                login.chatid = (FIRAuth.auth()!.currentUser!.uid)
                 NSUserDefaults.standardUserDefaults().setObject(login.loginid, forKey: "keepUsername")
                 NSUserDefaults.standardUserDefaults().setObject(login.password, forKey: "keepPassword")
                 NSUserDefaults.standardUserDefaults().synchronize()
@@ -224,24 +226,3 @@ class ViewControllerLogin: UIViewController{
     }*/
     
 }
-
-//Storing the userid as global variable in the ios app machine
-struct login{
-    
-    static var loginid = "";
-    static var password = "";
-    static var chatid = "";
-    static var registered:Int = 0;
-    
-}
-
-struct arrays{
-    
-    static var friendsArray:[String] = [String]() //Set an empty array for friend names
-    static var friendlocArray:[String] = [String]() //Set an empty array for friend locations
-    static var frienduniArray:[String] = [String]() //Set an empty array for university locations
-    static var friendmajorArray:[String] = [String]() //Set an empty array for major locations
-    static var friendidArray:[String] = [String]() //Set an empty array for friend's ID
-    static var chatcheck:[Int] = [Int]() //Check 1:1 relationship
-    
-};

@@ -146,21 +146,27 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
             if(selectednames.count == 1){
                 convo_final.friend_id_final = selectednames[0];
             
-                let loginid = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd/" + convo_final.friend_id_final;
-                let rref = Firebase(url:loginid);
+//                let loginid = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd/" + convo_final.friend_id_final;
+                
+                
+                let loginid = "friends/" + login_user.uid + "_fd/" + convo_final.friend_id_final;
+                
+                var rref = FIRDatabase.database().reference().child(loginid)
+                
+//                let rref = Firebase(url:loginid);
                 rref.observeEventType(.Value, withBlock: { snapshot in
                     if(login_user.uid != self.data[indexPath.row]){
-                        let friends_name:String? = snapshot.value["Profile_Name"] as? String
-                        let friends_loc:String? = snapshot.value["location"] as? String
-                        let friends_uni:String? = snapshot.value["Education"] as? String
-                        let friends_major:String? = snapshot.value["Major"] as? String
-                        let friends_id:String? = snapshot.value["Email"] as? String
-                        let friends_username:String? = snapshot.value["username"] as? String
-                        let friends_photo:String? = snapshot.value["Photo"] as? String
-                        let uid:String? = snapshot.value["uid"] as? String
-                        let phoneid:String? = snapshot.value["phoneid"] as? String
-                        let chat_id:Int? = snapshot.value["Chatid"] as? Int
-                        let notification:Int? = snapshot.value["Notification"] as? Int
+                        let friends_name:String? = snapshot.value!["Profile_Name"] as? String
+                        let friends_loc:String? = snapshot.value!["location"] as? String
+                        let friends_uni:String? = snapshot.value!["Education"] as? String
+                        let friends_major:String? = snapshot.value!["Major"] as? String
+                        let friends_id:String? = snapshot.value!["Email"] as? String
+                        let friends_username:String? = snapshot.value!["username"] as? String
+                        let friends_photo:String? = snapshot.value!["Photo"] as? String
+                        let uid:String? = snapshot.value!["uid"] as? String
+                        let phoneid:String? = snapshot.value!["phoneid"] as? String
+                        let chat_id:Int? = snapshot.value!["Chatid"] as? Int
+                        let notification:Int? = snapshot.value!["Notification"] as? Int
                         convo_final.chat_check_final = chat_id;
                         convo_final.friend_phoneid_final = phoneid!;
                         convo_final.friend_id_final = uid!;
@@ -183,21 +189,24 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
             convo_final.friend_id_final = data[indexPath.row];
                 
-            let loginid = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd/" + convo_final.friend_id_final;
-            let rref = Firebase(url:loginid);
+//            let loginid = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd/" + convo_final.friend_id_final;
+            let loginid = "friends/" + login_user.uid + "_fd/" + convo_final.friend_id_final;
+            var rref = FIRDatabase.database().reference().child(loginid)
+
+//            let rref = Firebase(url:loginid);
             rref.observeEventType(.Value, withBlock: { snapshot in
                 if(login_user.uid != self.data[indexPath.row]){
-                    let friends_name:String? = snapshot.value["Profile_Name"] as? String
-                    let friends_loc:String? = snapshot.value["location"] as? String
-                    let friends_uni:String? = snapshot.value["Education"] as? String
-                    let friends_major:String? = snapshot.value["Major"] as? String
-                    let friends_id:String? = snapshot.value["Email"] as? String
-                    let friends_username:String? = snapshot.value["username"] as? String
-                    let friends_photo:String? = snapshot.value["Photo"] as? String
-                    let uid:String? = snapshot.value["uid"] as? String
-                    let phoneid:String? = snapshot.value["phoneid"] as? String
-                    let chat_id:Int? = snapshot.value["Chatid"] as? Int
-                    let notification:Int? = snapshot.value["Notification"] as? Int
+                    let friends_name:String? = snapshot.value!["Profile_Name"] as? String
+                    let friends_loc:String? = snapshot.value!["location"] as? String
+                    let friends_uni:String? = snapshot.value!["Education"] as? String
+                    let friends_major:String? = snapshot.value!["Major"] as? String
+                    let friends_id:String? = snapshot.value!["Email"] as? String
+                    let friends_username:String? = snapshot.value!["username"] as? String
+                    let friends_photo:String? = snapshot.value!["Photo"] as? String
+                    let uid:String? = snapshot.value!["uid"] as? String
+                    let phoneid:String? = snapshot.value!["phoneid"] as? String
+                    let chat_id:Int? = snapshot.value!["Chatid"] as? Int
+                    let notification:Int? = snapshot.value!["Notification"] as? Int
                     convo_final.chat_check_final = chat_id;
                     print(convo_final.chat_check_final)
                     convo_final.friend_phoneid_final = phoneid!;
@@ -218,22 +227,26 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
         }
         else{
             convo_final.friend_id_final = data[indexPath.row];
-            let loginid = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd/" + data[indexPath.row];
-            let rref = Firebase(url:loginid);
+//            let loginid = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd/" + data[indexPath.row];
+//            let rref = Firebase(url:loginid);
+            
+            let loginid = "friends/" + login_user.uid + "_fd/" + convo_final.friend_id_final;
+            var rref = FIRDatabase.database().reference().child(loginid)
+            
             print(convo_final.friend_id_final);
             rref.observeEventType(.Value, withBlock: { snapshot in
                 if(login_user.uid != self.data[indexPath.row]){
-                    let friends_name:String? = snapshot.value["Profile_Name"] as? String
-                    let friends_loc:String? = snapshot.value["location"] as? String
-                    let friends_uni:String? = snapshot.value["Education"] as? String
-                    let friends_major:String? = snapshot.value["Major"] as? String
-                    let friends_id:String? = snapshot.value["Email"] as? String
-                    let friends_username:String? = snapshot.value["username"] as? String
-                    let friends_photo:String? = snapshot.value["Photo"] as? String
-                    let uid:String? = snapshot.value["uid"] as? String
-                    let phoneid:String? = snapshot.value["phoneid"] as? String
-                    let chat_id:Int? = snapshot.value["Chatid"] as? Int
-                    let notification:Int? = snapshot.value["Notification"] as? Int
+                    let friends_name:String? = snapshot.value!["Profile_Name"] as? String
+                    let friends_loc:String? = snapshot.value!["location"] as? String
+                    let friends_uni:String? = snapshot.value!["Education"] as? String
+                    let friends_major:String? = snapshot.value!["Major"] as? String
+                    let friends_id:String? = snapshot.value!["Email"] as? String
+                    let friends_username:String? = snapshot.value!["username"] as? String
+                    let friends_photo:String? = snapshot.value!["Photo"] as? String
+                    let uid:String? = snapshot.value!["uid"] as? String
+                    let phoneid:String? = snapshot.value!["phoneid"] as? String
+                    let chat_id:Int? = snapshot.value!["Chatid"] as? Int
+                    let notification:Int? = snapshot.value!["Notification"] as? Int
                     convo_final.chat_check_final = chat_id;
                     print(convo_final.chat_check_final)
                     convo_final.friend_phoneid_final = phoneid!;

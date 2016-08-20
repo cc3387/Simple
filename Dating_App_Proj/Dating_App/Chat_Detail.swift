@@ -15,7 +15,8 @@ import Batch
 
 class ChatDetail: JSQMessagesViewController{
     
-    var messageRef: Firebase!
+//    var messageRef: Firebase!
+    var rootRef = FIRDatabase.database().reference()
     var messages = [JSQMessage]()
     var check = 0
     var noticeonce = 0;
@@ -26,8 +27,6 @@ class ChatDetail: JSQMessagesViewController{
     
     override func viewDidLoad(){
         super.viewDidLoad()
-//        self.navigationController!.navigationBar.hidden = true
-//        self.navigationController!.interactivePopGestureRecognizer!.enabled = false
         self.senderDisplayName = ""
         self.senderId = login_user.uid
         title = "Chat - " + convo_final.friend_Profile_final 
@@ -71,19 +70,25 @@ class ChatDetail: JSQMessagesViewController{
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!,
         senderDisplayName: String!, date: NSDate!) {
             
-            let rootRef = Firebase(url: "https://simpleplus.firebaseio.com/messages/")
-            
+//          let rootRef = Firebase(url: "https://simpleplus.firebaseio.com/messages/")
+        
+        let messageRef = FIRDatabase.database().reference().child("messages")
+        var finalidmsg = "";
+        
             //Define the server hosting name
             if(convo_final.chat_check_final == 1){
-            messageRef = rootRef.childByAppendingPath(login_user.uid + convo_final.friend_id_final + "msg")
+//            messageRef = rootRef.childByAppendingPath(login_user.uid + convo_final.friend_id_final + "msg")
+              finalidmsg = login_user.uid + convo_final.friend_id_final + "msg";
             }
             else if (convo_final.chat_check_final == 2){
-            messageRef = rootRef.childByAppendingPath(convo_final.friend_id_final + login_user.uid + "msg")
+//            messageRef = rootRef.childByAppendingPath(convo_final.friend_id_final + login_user.uid + "msg")
+              finalidmsg = convo_final.friend_id_final + login_user.uid + "msg";
+//                var messageRef = FIRDatabase.database().reference().child("messages").child(message);
             }
         
             var Timestamp = "\(NSDate().timeIntervalSince1970*1000)"
         
-            let itemRef = messageRef.childByAutoId()
+            let itemRef = messageRef.child(finalidmsg).childByAutoId()
             
             let messageItem = [
                 "Timestamp": Timestamp,
@@ -154,25 +159,33 @@ class ChatDetail: JSQMessagesViewController{
     //Function to observe the information
     private func observeMessages() {
         
-        let rootRef = Firebase(url: "https://simpleplus.firebaseio.com/messages/")
+        //let rootRef = Firebase(url: "https://simpleplus.firebaseio.com/messages/")
+        
+        let messageRef = FIRDatabase.database().reference().child("messages")
+        var finalidmsg = "";
+//        var messageRef  = rootRef
+        
+        
         if(convo_final.chat_check_final == 1){
-            messageRef = rootRef.childByAppendingPath(login_user.uid + convo_final.friend_id_final + "msg")
+//      messageRef = rootRef.childByAppendingPath(login_user.uid + convo_final.friend_id_final + "msg")
+        finalidmsg = login_user.uid + convo_final.friend_id_final + "msg"
         }
         else if (convo_final.chat_check_final == 2){
-            messageRef = rootRef.childByAppendingPath(convo_final.friend_id_final + login_user.uid + "msg")
+//      messageRef = rootRef.childByAppendingPath(convo_final.friend_id_final + login_user.uid + "msg")
+        finalidmsg = convo_final.friend_id_final + login_user.uid + "msg"
         }
 
         //Define the messageQuery
-        let messagesQuery = messageRef.queryLimitedToLast(25)
+        let messagesQuery = messageRef.child(finalidmsg).queryLimitedToLast(25)
         self.messages = [];
         
         //Loading the message query
-        messagesQuery.observeEventType(.ChildAdded) { (snapshot: FDataSnapshot!) in
-            let id = snapshot.value["senderId"] as! String
-            let text = snapshot.value["text"] as! String
+        messagesQuery.observeEventType(.ChildAdded, withBlock:{ snapshot in
+            let id = snapshot.value!["senderId"] as! String
+            let text = snapshot.value!["text"] as! String
             self.addMessage(id, text: text)
             self.finishReceivingMessage()
-            
+        })
 //            if(Chat_notification == 1){
 //                let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
 //                UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
@@ -187,7 +200,7 @@ class ChatDetail: JSQMessagesViewController{
 //                UIApplication.sharedApplication().scheduleLocalNotification(notification)
 //                self.noticeonce += 1;
 //            }
-        }
+//        })
         
     }
     

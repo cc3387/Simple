@@ -103,7 +103,7 @@ class Edu_PickerView_AUS: UIViewController,UIPickerViewDataSource, UIPickerViewD
         return pickerData[component].count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[component][row]
     }
     

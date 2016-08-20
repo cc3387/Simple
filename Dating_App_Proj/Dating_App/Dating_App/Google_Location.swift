@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreLocation
+import Foundation
 
 class Google_ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
@@ -16,6 +18,24 @@ class Google_ViewController: UIViewController, CLLocationManagerDelegate, GMSMap
     
     
     @IBAction func Request_From_Text(sender: AnyObject) {
+        
+//            let locManager = CLLocationManager()
+//            locManager.requestWhenInUseAuthorization()
+//        
+//            var currentLocation = CLLocation()
+//        
+//            if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse ||
+//            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Authorized){
+//            currentLocation = locManager.location!
+//            register_info.location_lat = currentLocation.coordinate.longitude
+//            register_info.location_lng = currentLocation.coordinate.latitude
+//            
+//            print(currentLocation.coordinate.longitude)
+//            print(currentLocation.coordinate.latitude)
+//        
+//            }
+
+/////////////////////////////////////////////////////////////////////////////////
         
         let address:String = self.Address.text!;
         
@@ -31,7 +51,7 @@ class Google_ViewController: UIViewController, CLLocationManagerDelegate, GMSMap
         print("The Longitude is:");
         print(register_info.location_lng);
         
-        
+//////////////////////////////////////////////////////////////////////////////////////////
 //        self.mapTasks.geocodeAddress(address, withCompletionHandler: { (status, success) -> Void in
 //            
 //            if !success {
@@ -155,5 +175,19 @@ class Google_ViewController: UIViewController, CLLocationManagerDelegate, GMSMap
     func loadDestinationVC(){
         self.performSegueWithIdentifier("Gender", sender: nil)
     }
+    
+    
+//    func locationManager(manager: CLLocationManager!, locations: [AnyObject]!)
+//    {
+//        let latestLocation: AnyObject = locations[locations.count - 1]
+//        
+//        register_info.location_lat =
+//                               latestLocation.coordinate.latitude
+//        register_info.location_lng =
+//                                latestLocation.coordinate.longitude
+//    } 
 
+    
+    
+    
 }

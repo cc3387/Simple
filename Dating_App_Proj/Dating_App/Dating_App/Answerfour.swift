@@ -23,8 +23,9 @@ class Ansfour: UIViewController{
     
     @IBOutlet weak var answertwolabel: UILabel!
     
-    let ref = Firebase(url:"https://simpleplus.firebaseio.com/pref/" + login_user.uid)
+    //    let ref = Firebase(url:"https://simpleplus.firebaseio.com/pref/" + login_user.uid)
     
+    var ref = FIRDatabase.database().reference().child("pref").child(login_user.uid)
     override func viewDidLoad() {
         
         self.questionlabel.text = "Glasses or Contacts?";

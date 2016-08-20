@@ -102,11 +102,11 @@
 		AA7EF40F1BAE46C500C8A305 /* malaysia_morning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA7EF40E1BAE46C500C8A305 /* malaysia_morning.jpg */; };
 		AA7EF4111BAE479A00C8A305 /* chicago_afternoon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA7EF4101BAE479A00C8A305 /* chicago_afternoon.jpg */; };
 		AA7F86B91D2AB4D500329B84 /* Contact_Us.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7F86B81D2AB4D500329B84 /* Contact_Us.swift */; };
-		AA85AF531C78E0BF00321605 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA85AF521C78E0BF00321605 /* Firebase.framework */; };
 		AA8B166F1B8EAD8C00096E73 /* cloud-horizon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA8B166E1B8EAD8C00096E73 /* cloud-horizon.jpg */; };
 		AAA36DD11C102C5F0073F6B0 /* UIImageView+AFNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA36DD01C102C5F0073F6B0 /* UIImageView+AFNetworking.swift */; };
 		AAAA0FD81BC6CF6B004F2474 /* Start_View_Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0FD71BC6CF6B004F2474 /* Start_View_Controller.swift */; };
 		AAAA0FDA1BC6D210004F2474 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0FD91BC6D210004F2474 /* User.swift */; };
+		AAB352751D66A5B10019D8AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAB352741D66A5B10019D8AF /* GoogleService-Info.plist */; };
 		AAD2047D1C1A99CB008E1770 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAD2047C1C1A99CB008E1770 /* Main.storyboard */; };
 		AAD788161BF95535002E436C /* Chat_Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD788151BF95535002E436C /* Chat_Main.swift */; };
 		AADACDD41D15438C0091B142 /* Load_Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADACDD31D15438A0091B142 /* Load_Friends.swift */; };
@@ -246,11 +246,11 @@
 		AA7EF40E1BAE46C500C8A305 /* malaysia_morning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = malaysia_morning.jpg; sourceTree = "<group>"; };
 		AA7EF4101BAE479A00C8A305 /* chicago_afternoon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chicago_afternoon.jpg; sourceTree = "<group>"; };
 		AA7F86B81D2AB4D500329B84 /* Contact_Us.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact_Us.swift; sourceTree = "<group>"; };
-		AA85AF521C78E0BF00321605 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../Firebase.framework; sourceTree = "<group>"; };
 		AA8B166E1B8EAD8C00096E73 /* cloud-horizon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cloud-horizon.jpg"; sourceTree = "<group>"; };
 		AAA36DD01C102C5F0073F6B0 /* UIImageView+AFNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+AFNetworking.swift"; sourceTree = "<group>"; };
 		AAAA0FD71BC6CF6B004F2474 /* Start_View_Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Start_View_Controller.swift; sourceTree = "<group>"; };
 		AAAA0FD91BC6D210004F2474 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AAB352741D66A5B10019D8AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AAD2047C1C1A99CB008E1770 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AAD788151BF95535002E436C /* Chat_Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat_Main.swift; sourceTree = "<group>"; };
 		AADACDD31D15438A0091B142 /* Load_Friends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Load_Friends.swift; path = ../Load_Friends.swift; sourceTree = "<group>"; };
@@ -298,7 +298,6 @@
 				AA271DB11B4E1A9B00EA5BA6 /* CFNetwork.framework in Frameworks */,
 				AA271DAF1B4E1A8800EA5BA6 /* CoreGraphics.framework in Frameworks */,
 				AA271DAD1B4E1A6000EA5BA6 /* CoreLocation.framework in Frameworks */,
-				AA85AF531C78E0BF00321605 /* Firebase.framework in Frameworks */,
 				AA3C847C1B770CF500C76304 /* GoogleMaps.framework in Frameworks */,
 				AA271DAB1B4E1A4600EA5BA6 /* MobileCoreServices.framework in Frameworks */,
 				AA271DA91B4E1A2A00EA5BA6 /* QuartzCore.framework in Frameworks */,
@@ -391,6 +390,7 @@
 				AAA36DD01C102C5F0073F6B0 /* UIImageView+AFNetworking.swift */,
 				AA0876031D431D0500775DC7 /* Login_Transfer.swift */,
 				AA0E41B11D371D1D00657C3C /* Transfer_Page.swift */,
+				AAB352741D66A5B10019D8AF /* GoogleService-Info.plist */,
 				AAD2047C1C1A99CB008E1770 /* Main.storyboard */,
 				AA239AD61BAD9CCD00192AE0 /* Images.xcassets */,
 				AAF3ACAA1BCB346E0097C47D /* Background_Color.tif */,
@@ -451,7 +451,6 @@
 			isa = PBXGroup;
 			children = (
 				AAE335521CFEF47A004B9722 /* JSQMessagesAssets.bundle */,
-				AA85AF521C78E0BF00321605 /* Firebase.framework */,
 				AA3C848D1B770ED800C76304 /* AVFoundation.framework */,
 				AA3C848B1B770ECA00C76304 /* CoreData.framework */,
 				AA3C84891B770EC400C76304 /* CoreText.framework */,
@@ -731,6 +730,7 @@
 				AA239AE31BAD9EB300192AE0 /* Sunset.jpg in Resources */,
 				AA0E68BC1B8ECC53000941C4 /* Female_Cloud.tif in Resources */,
 				AAD2047D1C1A99CB008E1770 /* Main.storyboard in Resources */,
+				AAB352751D66A5B10019D8AF /* GoogleService-Info.plist in Resources */,
 				AA239AE11BAD9EA100192AE0 /* EDC_View.jpg in Resources */,
 				AA239AED1BAD9F4700192AE0 /* Classical_Music.jpg in Resources */,
 				AA8B166F1B8EAD8C00096E73 /* cloud-horizon.jpg in Resources */,

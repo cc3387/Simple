@@ -107,19 +107,33 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate,UIPickerView
         register_info.Profile_name = self.Location.text!;
         register_info.email = self.Email.text!;
             
+          //Old Firebase Version
+//        var myRootRef = Firebase(url:"https://simpleplus.firebaseio.com")
+//        myRootRef.createUser(register_info.email, password: register_info.password,
+//                withValueCompletionBlock: { error, result in
+//                    if error != nil {
+//                        // There was an error creating the account
+//                    } else {
+//                       let uid = result["uid"] as? String
+//                       register_info.uid = uid!;
+//                       print("Successfully created user account with uid: \(uid)")
+//                    }
+//        })
         
-        var myRootRef = Firebase(url:"https://simpleplus.firebaseio.com")
-        myRootRef.createUser(register_info.email, password: register_info.password,
-                withValueCompletionBlock: { error, result in
-                    if error != nil {
-                        // There was an error creating the account
-                    } else {
-                       let uid = result["uid"] as? String
-                       register_info.uid = uid!;
-                       print("Successfully created user account with uid: \(uid)")
-                    }
-        })
             
+          //New Firebase Version
+          FIRAuth.auth()?.createUserWithEmail(register_info.email, password: register_info.password) { (user, error) in
+            
+            if error != nil {
+            // There was an error creating the account
+            } else {
+            let uid = user?.uid
+            register_info.uid = uid!;
+            print("Successfully created user account with uid: \(uid)")
+            }
+           
+           }
+
             //Disable the button and end field
             self.Username.enabled = false;
             self.Password.enabled = false;

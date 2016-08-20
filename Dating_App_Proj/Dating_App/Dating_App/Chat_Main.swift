@@ -147,7 +147,7 @@ class Chat_Main : UIViewController{
     }
     
     //Getting the login_user id that is collected from the login page
-    var loginuser: String = login.loginid;
+    var loginuser: String = login.loginid as String;
     var user1: String = "";
     
     //Friend's Array in name, location, university, major and chat check
@@ -923,20 +923,22 @@ class Chat_Main : UIViewController{
             self.User_ID.textColor = UIColor.whiteColor();
         }
         
-        let loginid = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd";
-        let rref = Firebase(url:loginid);
-
+//        let loginid = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd";
+        
+        let loginid = "friends/" + login_user.uid + "_fd"
+//        var rref = Firebase(url:loginid);
+        var rref = FIRDatabase.database().reference().child(loginid)
         rref.observeEventType(.Value, withBlock: { snapshot in
-            for index in snapshot.children.allObjects as! [FDataSnapshot]{
+            for index in snapshot.children.allObjects as! [FIRDataSnapshot]{
                 //Retrieve information from firebase
-                let friends_name:String? = index.value["Profile_Name"] as? String
-                let friends_loc:String? = index.value["location"] as? String
-                let friends_uni:String? = index.value["Education"] as? String
-                let friends_major:String? = index.value["Major"] as? String
-                let friends_id:String? = index.value["Email"] as? String
-                let friends_username:String? = index.value["username"] as? String
-                let friends_photo:String? = index.value["Photo"] as? String
-                let chat_id:Int? = index.value["Chatid"] as? Int
+                let friends_name:String? = index.value!["Profile_Name"] as? String
+                let friends_loc:String? = index.value!["location"] as? String
+                let friends_uni:String? = index.value!["Education"] as? String
+                let friends_major:String? = index.value!["Major"] as? String
+                let friends_id:String? = index.value!["Email"] as? String
+                let friends_username:String? = index.value!["username"] as? String
+                let friends_photo:String? = index.value!["Photo"] as? String
+                let chat_id:Int? = index.value!["Chatid"] as? Int
                 
                 print(friends_name);
                 

@@ -22,40 +22,113 @@ class Start_Page : UIViewController{
         
         self.activityIndicator.startAnimating()
         self.activityIndicator.hidden = false
-        var ref = Firebase(url:"https://simpleplus.firebaseio.com/autologin")
-        var reflogin = Firebase(url:"https://simpleplus.firebaseio.com")
+//        var ref = Firebase(url:"https://simpleplus.firebaseio.com/autologin")
+//        var reflogin = Firebase(url:"https://simpleplus.firebaseio.com")
+        
+          var ref = FIRDatabase.database().reference().child("autologin")
+//          var reflogin = FIRDatabase.database().reference()
+        
         let phoneid = BatchPush.lastKnownPushToken()
+        
         ref.queryOrderedByChild("phoneid").queryEqualToValue(phoneid)
-            .observeEventType(.ChildAdded, withBlock: { snapshot in
-                if let username = snapshot.value["username"] as? String {
-                    login.loginid = username
-                    print(login.loginid)
-                    if let password = snapshot.value["password"] as? String {
-                        login.password = password
-                        print(login.password)
-                        if(username != "" && password != ""){
-                            reflogin.authUser(login.loginid, password: login.password) {
-                                error, authData in
-                                if error != nil {
-                                    // an error occured while attempting login
-                                    print("Login info is wrong");
-                                } else {
-                                    login.chatid = ref.authData.uid
-                                    indication = 1;
-                                    frienduser.emailarray.removeAll();
-                                    frienduser.useridarray.removeAll();
-                                    frienduser.phoneidarray.removeAll();
-                                    frienduser.profilenamearray.removeAll();
-                                    self.loadDestinationVC1();
-                                };
-                            }
-                        }
-                        else{
-                            
-                        }
+            .observeSingleEventOfType(.ChildAdded, withBlock: { snapshot in
+                let loginid = snapshot.value!["username"] as! String!
+                let password  = snapshot.value!["password"] as! String!
+                
+                login.loginid = loginid
+                login.password = password
+                
+                print(login.loginid)
+                print(login.password)
+                
+                
+                //Logging in with details extracted from autologin data
+                if(loginid != "" && password != ""){
+                    FIRAuth.auth()!.signInWithEmail(login.loginid, password: login.password) { (user, error) in
+                        if error != nil {
+                            // an error occured while attempting login
+                            print("Login info is wrong");
+                        } else {
+                            login.chatid = (FIRAuth.auth()!.currentUser!.uid)
+                            indication = 1;
+                            frienduser.emailarray.removeAll();
+                            frienduser.useridarray.removeAll();
+                            frienduser.phoneidarray.removeAll();
+                            frienduser.profilenamearray.removeAll();
+                            self.loadDestinationVC1();
+                        };
                     }
                 }
-            })
+                
+        })
+
+////////////////////////////////////////////////////////////////////////////////
+        
+//        let phoneid = BatchPush.lastKnownPushToken()
+//        ref.queryOrderedByChild("phoneid").queryEqualToValue(phoneid)
+//            .observeEventType(.ChildAdded, withBlock: { snapshot in
+//                if let username = snapshot.value!["username"] as? String {
+//                    login.loginid = username
+//                    print(login.loginid)
+//                    if let password = snapshot.value!["password"] as? String {
+//                        login.password = password
+//                        print(login.password)
+//                        if(username != "" && password != ""){
+//                            FIRAuth.auth()!.signInWithEmail(login.loginid, password: login.password) {
+//                                error, authData in
+//                                if error != nil {
+//                                    // an error occured while attempting login
+//                                    print("Login info is wrong");
+//                                } else {
+//                                    login.chatid = (FIRAuth.auth()?.currentUser?.uid)!
+//                                    indication = 1;
+//                                    frienduser.emailarray.removeAll();
+//                                    frienduser.useridarray.removeAll();
+//                                    frienduser.phoneidarray.removeAll();
+//                                    frienduser.profilenamearray.removeAll();
+//                                    self.loadDestinationVC1();
+//                                };
+//                            }
+//                        }
+//                        else{
+//                            
+//                        }
+//                    }
+//                }
+//            })
+        
+//            ref.queryOrderedByChild("phoneid").queryEqualToValue(phoneid)
+//                    .observeEventType(.ChildAdded, withBlock: { snapshot in
+//                        if let userdetail = snapshot.value as? NSArray{
+//                            login.loginid = userdetail[2] as! String
+//                            print(login.loginid)
+//                            login.password = userdetail[0] as! String
+//                            print(login.password)
+//                            
+//                            if(login.loginid != "" && login.password != ""){
+//                            FIRAuth.auth()!.signInWithEmail(login.loginid, password: login.password) {
+//                                error, authData in
+//                                if error != nil {
+//                                // an error occured while attempting login
+//                                print("Login info is wrong");
+//                                } else {
+//                                login.chatid = (FIRAuth.auth()!.currentUser!.uid)
+//                                indication = 1;
+//                                frienduser.emailarray.removeAll();
+//                                frienduser.useridarray.removeAll();
+//                                frienduser.phoneidarray.removeAll();
+//                                frienduser.profilenamearray.removeAll();
+//                                self.loadDestinationVC1();
+//                                };
+//                                }
+//                                }
+//                                else{
+//                                                            
+//                                }
+//                    }
+//            })
+        
+        
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(5 * NSEC_PER_SEC)), dispatch_get_main_queue()){
             self.activityIndicator.stopAnimating()
@@ -178,6 +251,28 @@ struct convo_final{
     static var friend_Profile_final: String = "";
     static var chat_check_final: Int?;
     static var notification: Int?;
+};
+
+
+//Storing the userid as global variable in the ios app machine
+struct login{
+    
+    static var loginid = "";
+    static var password = "";
+    static var chatid = "";
+    static var registered:Int = 0;
+    
+}
+
+struct arrays{
+    
+    static var friendsArray:[String] = [String]() //Set an empty array for friend names
+    static var friendlocArray:[String] = [String]() //Set an empty array for friend locations
+    static var frienduniArray:[String] = [String]() //Set an empty array for university locations
+    static var friendmajorArray:[String] = [String]() //Set an empty array for major locations
+    static var friendidArray:[String] = [String]() //Set an empty array for friend's ID
+    static var chatcheck:[Int] = [Int]() //Check 1:1 relationship
+    
 };
 
 

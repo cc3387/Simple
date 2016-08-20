@@ -11,38 +11,40 @@ import Firebase
 
 class Load_Friends : UIViewController{
     
+    var ref = FIRDatabase.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.view.endEditing(true)
-        let ref = Firebase(url:"https://simpleplus.firebaseio.com/users")
-        ref.queryOrderedByChild("Email").queryEqualToValue(login.loginid)
+        //var ref = Firebase(url:"https://simpleplus.firebaseio.com/users");
+        
+        self.ref.queryOrderedByChild("Email").queryEqualToValue(login.loginid)
             .observeEventType(.ChildAdded, withBlock: { snapshot in
-                if let login_name = snapshot.value["Profile_Name"] as? String {
+                if let login_name = snapshot.value!["Profile_Name"] as? String {
                     login_user.loginname = login_name;
                     print(login_user.loginname);
                     
-                    if let ulat = snapshot.value["latitude"] as? Double{
+                    if let ulat = snapshot.value!["latitude"] as? Double{
                         login_user.latitude = ulat;
                         print(login_user.latitude);
-                        if let ulon = snapshot.value["longitude"] as? Double{
+                        if let ulon = snapshot.value!["longitude"] as? Double{
                             login_user.longitude = ulon;
                             print(login_user.longitude);
-                            if let username = snapshot.value["username"] as? String{
+                            if let username = snapshot.value!["username"] as? String{
                                 login_user.user_name = username;
                                 print(login_user.user_name);
-                                if let major = snapshot.value["Major"] as? String{
+                                if let major = snapshot.value!["Major"] as? String{
                                     login_user.major = major;
                                     print(login_user.major);
-                                    if let university = snapshot.value["Education"] as? String{
+                                    if let university = snapshot.value!["Education"] as? String{
                                         login_user.university = university;
                                         print(login_user.university);
-                                        if let location = snapshot.value["location"] as? String{
+                                        if let location = snapshot.value!["location"] as? String{
                                             login_user.location = location;
                                             print(login_user.location);
-                                            if let ProfileName = snapshot.value["Profile_Name"] as? String{
+                                            if let ProfileName = snapshot.value!["Profile_Name"] as? String{
                                                 login_user.Profile_Name = ProfileName;
                                                 print(login_user.Profile_Name);
                             
@@ -57,12 +59,16 @@ class Load_Friends : UIViewController{
         })
         
         //Download all the Friends' emails
-        var friend = "https://simpleplus.firebaseio.com/friends/" + login_user.user_name + "_fd";
-        let friendemail = Firebase(url:friend)
+//        var friend = "https://simpleplus.firebaseio.com/friends/" + login_user.user_name + "_fd";
+//        let friendemail = Firebase(url:friend)
+        
+        var friend = "friends/" + login_user.user_name + "_fd"
+        let friendemail = FIRDatabase.database().reference().child(friend)
+        
         frienduser.emailarray = [];
         friendemail.queryOrderedByChild("Email").observeEventType(.Value, withBlock:{friendsnapshot in
-            for index in friendsnapshot.children.allObjects as! [FDataSnapshot]{
-                if let id = index.value["Email"] as! String?{
+            for index in friendsnapshot.children.allObjects as! [FIRDataSnapshot]{
+                if let id = index.value!["Email"] as! String?{
                     frienduser.emailarray.append(id);
                 }
             }

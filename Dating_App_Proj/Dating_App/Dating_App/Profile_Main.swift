@@ -96,7 +96,7 @@ class Profile_Main : UIViewController{
         
     Batch.defaultUserProfile()?.customIdentifier = login.chatid
         
-    loginid = login.loginid
+    loginid = login.loginid as String
     self.navigationController?.setNavigationBarHidden(true, animated: false)
     frienduser.emailarray.removeAll();
     frienduser.useridarray.removeAll();
@@ -191,41 +191,42 @@ class Profile_Main : UIViewController{
             Time_Greetings.textColor = UIColor.whiteColor();
         }
         
-        let ref = Firebase(url:"https://simpleplus.firebaseio.com/users")
+//        let ref = Firebase(url:"https://simpleplus.firebaseio.com/users")
+        var ref = FIRDatabase.database().reference().child("users")
         ref.queryOrderedByChild("Email").queryEqualToValue(login.loginid)
             .observeEventType(.ChildAdded, withBlock: { snapshot in
-                if let login_name = snapshot.value["Profile_Name"] as? String {
+                if let login_name = snapshot.value!["Profile_Name"] as? String {
                     login_user.loginname = login_name;
                     print(login_user.loginname);
                     self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
                     self.User_ID.textColor = UIColor.whiteColor();
                     
-                    if let ulat = snapshot.value["latitude"] as? Double{
+                    if let ulat = snapshot.value!["latitude"] as? Double{
                         login_user.latitude = ulat;
                         print(login_user.latitude);
-                        if let ulon = snapshot.value["longitude"] as? Double{
+                        if let ulon = snapshot.value!["longitude"] as? Double{
                             login_user.longitude = ulon;
                             print(login_user.longitude);
-                            if let username = snapshot.value["username"] as? String{
+                            if let username = snapshot.value!["username"] as? String{
                                 login_user.user_name = username;
                                 print(login_user.user_name);
-                                if let major = snapshot.value["Major"] as? String{
+                                if let major = snapshot.value!["Major"] as? String{
                                     login_user.major = major;
                                     print(login_user.major);
-                                    if let university = snapshot.value["Education"] as? String{
+                                    if let university = snapshot.value!["Education"] as? String{
                                         login_user.university = university;
                                         print(login_user.university);
-                                        if let location = snapshot.value["Address"] as? String{
+                                        if let location = snapshot.value!["Address"] as? String{
                                             login_user.location = location;
                                             print(login_user.location);
-                                            if let ProfileName = snapshot.value["Profile_Name"] as? String{
+                                            if let ProfileName = snapshot.value!["Profile_Name"] as? String{
                                                 login_user.Profile_Name = ProfileName;
                                                 print(login_user.Profile_Name);
-                                                if let base64String = snapshot.value["Photo"] as? String{
+                                                if let base64String = snapshot.value!["Photo"] as? String{
                                                         login_user.photo = base64String;
-                                                    if let uid = snapshot.value["uid"] as? String{
+                                                    if let uid = snapshot.value!["uid"] as? String{
                                                         login_user.uid = uid;
-                                                        if let phoneid = snapshot.value["phoneid"] as? String{
+                                                        if let phoneid = snapshot.value!["phoneid"] as? String{
                                                             login_user.phoneid = phoneid;
                                                         }
                                                     }
@@ -250,28 +251,31 @@ class Profile_Main : UIViewController{
 //        
 ////        if(frienduser.useridarray.count == 0){
 //        //Download all the Friends' emails
-        var friend = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd";
-        let friendemail = Firebase(url:friend)
-            
+//        var friend = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd";
+//        let friendemail = Firebase(url:friend)
+        
+        var friend = "friends/" + login_user.uid + "_fd"
+        let friendemail = FIRDatabase.database().reference().child(friend)
+        
         friendemail.queryOrderedByChild("Email").observeEventType(.Value, withBlock:{friendsnapshot in
-            for index in friendsnapshot.children.allObjects as! [FDataSnapshot]{
-                if let id = index.value["Email"] as! String?{
+            for index in friendsnapshot.children.allObjects as! [FIRDataSnapshot]{
+                if let id = index.value!["Email"] as! String?{
                     if(id != login.loginid){
                     frienduser.emailarray.append(id);
                     }
-                    if let id2 = index.value["uid"] as! String?{
+                    if let id2 = index.value!["uid"] as! String?{
                         if(id2 != login_user.uid){
                             frienduser.useridarray.append(id2);
                         }
-                        if let id3 = index.value["Profile_Name"] as! String?{
+                        if let id3 = index.value!["Profile_Name"] as! String?{
                             if(id3 != login_user.Profile_Name){
                             frienduser.profilenamearray.append(id3);
                             }
-                                if let id4 = index.value["phoneid"] as! String?{
+                                if let id4 = index.value!["phoneid"] as! String?{
                                     if(id4 != login_user.phoneid){
                                         frienduser.phoneidarray.append(id4);
                                     }
-                                    if let id5 = index.value["Photo"] as! String?{
+                                    if let id5 = index.value!["Photo"] as! String?{
                                         if(id5 != login_user.phoneid){
                                             frienduser.photoarray.append(id5);
                                         }
@@ -372,9 +376,12 @@ class Profile_Main : UIViewController{
         //            }) { (AFHTTPRequestOperation, NSError) -> Void in
         //                print("fail")
         //        }
-        //        
-        let ref = Firebase(url:"https://simpleplus.firebaseio.com")
-        ref.unauth();
+        //
+        
+        //        let ref = Firebase(url:"https://simpleplus.firebaseio.com")
+        //        ref.unauth();
+        
+        try! FIRAuth.auth()!.signOut()
         loadoriginal();
     }
     
