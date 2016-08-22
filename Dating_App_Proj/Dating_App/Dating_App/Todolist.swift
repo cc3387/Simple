@@ -15,7 +15,7 @@ class Todolist: UIViewController{
         if(login_user.latitude >= 40 && login_user.latitude <= 41 &&
             login_user.longitude <= -73.5 && login_user.longitude > -74.5){
             
-            let random = arc4random_uniform(5);
+            let random = arc4random_uniform(9);
             
             if(random == 0){
                 if let url = NSURL(string: "http://www.10best.com/destinations/") {
@@ -42,6 +42,29 @@ class Todolist: UIViewController{
                     UIApplication.sharedApplication().openURL(url)
                 }
             }
+            else if(random == 5){
+                if let url = NSURL(string: "https://www.eventbrite.com/d/ny--new-york/parties") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            else if(random == 6){
+                if let url = NSURL(string: "https://www.eventbrite.com/d/ny--brooklyn/events") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            else if(random == 7){
+                if let url = NSURL(string: "https://www.timeout.com/newyork/brooklyn") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            else if(random == 8){
+                if let url = NSURL(string: "https://pulsd.com/new-york") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            
+            
+            
         }
         
         //Hong Kong

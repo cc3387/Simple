@@ -15,6 +15,7 @@ var loginid: String = "";
 class Start_Page : UIViewController{
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    var phoneid: String = "";
     
     override func viewDidLoad() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -22,15 +23,24 @@ class Start_Page : UIViewController{
         
         self.activityIndicator.startAnimating()
         self.activityIndicator.hidden = false
-//        var ref = Firebase(url:"https://simpleplus.firebaseio.com/autologin")
-//        var reflogin = Firebase(url:"https://simpleplus.firebaseio.com")
         
-          var ref = FIRDatabase.database().reference().child("autologin")
-//          var reflogin = FIRDatabase.database().reference()
         
-        let phoneid = BatchPush.lastKnownPushToken()
+        //        var ref = Firebase(url:"https://simpleplus.firebaseio.com/autologin")
+        //        var reflogin = Firebase(url:"https://simpleplus.firebaseio.com")
         
-        ref.queryOrderedByChild("phoneid").queryEqualToValue(phoneid)
+        var ref = FIRDatabase.database().reference().child("autologin")
+        //          var reflogin = FIRDatabase.database().reference()
+        
+        if(BatchPush.lastKnownPushToken() == nil){
+        self.phoneid = BatchUser.installationID()!
+        login.phoneid = self.phoneid
+        }
+        else if(BatchPush.lastKnownPushToken() != nil){
+        self.phoneid = BatchPush.lastKnownPushToken()
+        login.phoneid = self.phoneid
+        }
+        
+        ref.queryOrderedByChild("phoneid").queryEqualToValue(self.phoneid)
             .observeSingleEventOfType(.ChildAdded, withBlock: { snapshot in
                 let loginid = snapshot.value!["username"] as! String!
                 let password  = snapshot.value!["password"] as! String!
@@ -55,78 +65,95 @@ class Start_Page : UIViewController{
                             frienduser.useridarray.removeAll();
                             frienduser.phoneidarray.removeAll();
                             frienduser.profilenamearray.removeAll();
+                            
+                            
+                            var friend = "friends/" + login.chatid  + "_fd"
+                            let friendlist = FIRDatabase.database().reference().child(friend)
+                            friendlist.queryOrderedByChild("uid").observeEventType(.Value, withBlock:{friendsnapshot in
+                                for index in friendsnapshot.children.allObjects as! [FIRDataSnapshot]{
+                                    
+                                    let uid = index.value!["uid"] as! String!
+                                    let id = uid + "_fd"
+                                    
+                                    var friendlst = FIRDatabase.database().reference().child("friends").child(id).child(login.chatid).child("phoneid")
+                                    
+                                    friendlst.setValue(BatchPush.lastKnownPushToken())
+                                    
+                                }
+                            })
+                            
                             self.loadDestinationVC1();
                         };
                     }
                 }
                 
-        })
-
-////////////////////////////////////////////////////////////////////////////////
+            })
         
-//        let phoneid = BatchPush.lastKnownPushToken()
-//        ref.queryOrderedByChild("phoneid").queryEqualToValue(phoneid)
-//            .observeEventType(.ChildAdded, withBlock: { snapshot in
-//                if let username = snapshot.value!["username"] as? String {
-//                    login.loginid = username
-//                    print(login.loginid)
-//                    if let password = snapshot.value!["password"] as? String {
-//                        login.password = password
-//                        print(login.password)
-//                        if(username != "" && password != ""){
-//                            FIRAuth.auth()!.signInWithEmail(login.loginid, password: login.password) {
-//                                error, authData in
-//                                if error != nil {
-//                                    // an error occured while attempting login
-//                                    print("Login info is wrong");
-//                                } else {
-//                                    login.chatid = (FIRAuth.auth()?.currentUser?.uid)!
-//                                    indication = 1;
-//                                    frienduser.emailarray.removeAll();
-//                                    frienduser.useridarray.removeAll();
-//                                    frienduser.phoneidarray.removeAll();
-//                                    frienduser.profilenamearray.removeAll();
-//                                    self.loadDestinationVC1();
-//                                };
-//                            }
-//                        }
-//                        else{
-//                            
-//                        }
-//                    }
-//                }
-//            })
+        ////////////////////////////////////////////////////////////////////////////////
         
-//            ref.queryOrderedByChild("phoneid").queryEqualToValue(phoneid)
-//                    .observeEventType(.ChildAdded, withBlock: { snapshot in
-//                        if let userdetail = snapshot.value as? NSArray{
-//                            login.loginid = userdetail[2] as! String
-//                            print(login.loginid)
-//                            login.password = userdetail[0] as! String
-//                            print(login.password)
-//                            
-//                            if(login.loginid != "" && login.password != ""){
-//                            FIRAuth.auth()!.signInWithEmail(login.loginid, password: login.password) {
-//                                error, authData in
-//                                if error != nil {
-//                                // an error occured while attempting login
-//                                print("Login info is wrong");
-//                                } else {
-//                                login.chatid = (FIRAuth.auth()!.currentUser!.uid)
-//                                indication = 1;
-//                                frienduser.emailarray.removeAll();
-//                                frienduser.useridarray.removeAll();
-//                                frienduser.phoneidarray.removeAll();
-//                                frienduser.profilenamearray.removeAll();
-//                                self.loadDestinationVC1();
-//                                };
-//                                }
-//                                }
-//                                else{
-//                                                            
-//                                }
-//                    }
-//            })
+        //        let phoneid = BatchPush.lastKnownPushToken()
+        //        ref.queryOrderedByChild("phoneid").queryEqualToValue(phoneid)
+        //            .observeEventType(.ChildAdded, withBlock: { snapshot in
+        //                if let username = snapshot.value!["username"] as? String {
+        //                    login.loginid = username
+        //                    print(login.loginid)
+        //                    if let password = snapshot.value!["password"] as? String {
+        //                        login.password = password
+        //                        print(login.password)
+        //                        if(username != "" && password != ""){
+        //                            FIRAuth.auth()!.signInWithEmail(login.loginid, password: login.password) {
+        //                                error, authData in
+        //                                if error != nil {
+        //                                    // an error occured while attempting login
+        //                                    print("Login info is wrong");
+        //                                } else {
+        //                                    login.chatid = (FIRAuth.auth()?.currentUser?.uid)!
+        //                                    indication = 1;
+        //                                    frienduser.emailarray.removeAll();
+        //                                    frienduser.useridarray.removeAll();
+        //                                    frienduser.phoneidarray.removeAll();
+        //                                    frienduser.profilenamearray.removeAll();
+        //                                    self.loadDestinationVC1();
+        //                                };
+        //                            }
+        //                        }
+        //                        else{
+        //
+        //                        }
+        //                    }
+        //                }
+        //            })
+        
+        //            ref.queryOrderedByChild("phoneid").queryEqualToValue(phoneid)
+        //                    .observeEventType(.ChildAdded, withBlock: { snapshot in
+        //                        if let userdetail = snapshot.value as? NSArray{
+        //                            login.loginid = userdetail[2] as! String
+        //                            print(login.loginid)
+        //                            login.password = userdetail[0] as! String
+        //                            print(login.password)
+        //
+        //                            if(login.loginid != "" && login.password != ""){
+        //                            FIRAuth.auth()!.signInWithEmail(login.loginid, password: login.password) {
+        //                                error, authData in
+        //                                if error != nil {
+        //                                // an error occured while attempting login
+        //                                print("Login info is wrong");
+        //                                } else {
+        //                                login.chatid = (FIRAuth.auth()!.currentUser!.uid)
+        //                                indication = 1;
+        //                                frienduser.emailarray.removeAll();
+        //                                frienduser.useridarray.removeAll();
+        //                                frienduser.phoneidarray.removeAll();
+        //                                frienduser.profilenamearray.removeAll();
+        //                                self.loadDestinationVC1();
+        //                                };
+        //                                }
+        //                                }
+        //                                else{
+        //
+        //                                }
+        //                    }
+        //            })
         
         
         
@@ -260,6 +287,7 @@ struct login{
     static var loginid = "";
     static var password = "";
     static var chatid = "";
+    static var phoneid = "";
     static var registered:Int = 0;
     
 }

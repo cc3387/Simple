@@ -100,8 +100,8 @@ class Profile_Meet_Main : UIViewController{
             var usernamefriend = login_user.uid + "_fd";
             var friendusername = self.uid1 + "_fd";
             
-            var ref = FIRDatabase.database().reference().child("friends/")
-            var fdref = FIRDatabase.database().reference().child("friends/")
+            var ref = FIRDatabase.database().reference().child("friends")
+            var fdref = FIRDatabase.database().reference().child("friends")
 //            var ref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
 //            let fdref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
             
@@ -153,8 +153,8 @@ class Profile_Meet_Main : UIViewController{
             var friendusername = self.uid2 + "_fd";
 //            var ref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
 //            let fdref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
-            var ref = FIRDatabase.database().reference().child("friends/")
-            var fdref = FIRDatabase.database().reference().child("friends/")
+            var ref = FIRDatabase.database().reference().child("friends")
+            var fdref = FIRDatabase.database().reference().child("friends")
             
             var friendinfo = [
                 "Profile_Name" : self.Second_Match.text!,
@@ -204,8 +204,8 @@ class Profile_Meet_Main : UIViewController{
 //            var ref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
 //            let fdref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
             
-            var ref = FIRDatabase.database().reference().child("friends/")
-            var fdref = FIRDatabase.database().reference().child("friends/")
+            var ref = FIRDatabase.database().reference().child("friends")
+            var fdref = FIRDatabase.database().reference().child("friends")
             
             var friendinfo = [
                 "Profile_Name" : self.Third_Match.text!,
@@ -256,8 +256,8 @@ class Profile_Meet_Main : UIViewController{
 //            var ref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
 //            let fdref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
             
-            var ref = FIRDatabase.database().reference().child("friends/")
-            var fdref = FIRDatabase.database().reference().child("friends/")
+            var ref = FIRDatabase.database().reference().child("friends")
+            var fdref = FIRDatabase.database().reference().child("friends")
             
             var friendinfo = [
                 "Profile_Name" : self.Fourth_Match.text!,

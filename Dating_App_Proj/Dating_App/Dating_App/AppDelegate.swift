@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         //Include Batch
-        Batch.startWithAPIKey("577F39F55EDFB32D2A5AC16A8A3941")
+        Batch.startWithAPIKey("DEV577F39F560C20E0DCE06C1229D7")
         
         // Register for push notifications
         BatchPush.registerForRemoteNotifications()
@@ -118,9 +118,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
 //        }
         
         let devDeviceToken = login_user.phoneid
-        if let pushClient = BatchClientPush(apiKey: "577F39F55EDFB32D2A5AC16A8A3941", restKey: "a524aa85f96b3bc103188428b026bd5b") {
+        if let pushClient = BatchClientPush(apiKey: "DEV577F39F560C20E0DCE06C1229D7", restKey: "a524aa85f96b3bc103188428b026bd5b") {
             
-            pushClient.sandbox = false
+            pushClient.sandbox = true
             pushClient.customPayload = ["aps": ["badge": 0]]
             pushClient.recipients.tokens.append(devDeviceToken)
             pushClient.send { (response, error) in
@@ -162,6 +162,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
     
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
         
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
+    {
+        BatchPush.dismissNotifications()
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {

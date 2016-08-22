@@ -50,12 +50,12 @@ class ViewControllerLogin: UIViewController{
         
         login.loginid = self.Username.text!;
         
-        if(self.Password.text != "**********"){
+//        if(self.Password.text != "**********"){
         login.password = self.Password.text!;
-        }
+//        }
             
-        FIRAuth.auth()!.signInWithEmail(login.loginid as String, password: login.password as String) {
-            error, authData in
+        FIRAuth.auth()!.signInWithEmail(self.Username.text!, password: self.Password.text!) {
+            (user, error) in
             if error != nil {
                 // an error occured while attempting login
                 print("Login info is wrong");
@@ -63,10 +63,40 @@ class ViewControllerLogin: UIViewController{
                 // user is logged in, check authData for data
                 login.loginid = self.Username.text!;
                 loginid = self.Username.text!;
+                login.chatid = (FIRAuth.auth()!.currentUser!.uid)
                 //login.password = self.Password.text!;
                 //self.Password.text = "**********";
                 //login.chatid = ref.authData.uid
-                login.chatid = (FIRAuth.auth()!.currentUser!.uid)
+                
+                var autologin = [
+                    "username": self.Username.text!,
+                    "password": self.Password.text!,
+                    "phoneid" : BatchPush.lastKnownPushToken()
+                ];
+                
+                let phoneloginfinal = (BatchPush.lastKnownPushToken() as String) + "login"
+                var refauto = FIRDatabase.database().reference().child("autologin")
+                var ref = FIRDatabase.database().reference().child("users").child(login.chatid)
+                
+                ref.child("phoneid").setValue(BatchPush.lastKnownPushToken());
+                refauto.childByAppendingPath(phoneloginfinal).setValue(autologin);
+                
+                
+                var friend = "friends/" + login.chatid  + "_fd"
+                let friendlist = FIRDatabase.database().reference().child(friend)
+                friendlist.queryOrderedByChild("uid").observeEventType(.Value, withBlock:{friendsnapshot in
+                    for index in friendsnapshot.children.allObjects as! [FIRDataSnapshot]{
+                        
+                        let uid = index.value!["uid"] as! String!
+                        let id = uid + "_fd"
+                        
+                        var friendlst = FIRDatabase.database().reference().child("friends").child(id).child(login.chatid).child("phoneid")
+                        
+                        friendlst.setValue(BatchPush.lastKnownPushToken())
+                        
+                    }
+                })
+                
                 NSUserDefaults.standardUserDefaults().setObject(login.loginid, forKey: "keepUsername")
                 NSUserDefaults.standardUserDefaults().setObject(login.password, forKey: "keepPassword")
                 NSUserDefaults.standardUserDefaults().synchronize()
