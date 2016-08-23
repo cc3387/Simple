@@ -24,6 +24,7 @@ class Start_Page : UIViewController{
         self.activityIndicator.startAnimating()
         self.activityIndicator.hidden = false
         
+        print(BatchUser.installationID())
         
         //        var ref = Firebase(url:"https://simpleplus.firebaseio.com/autologin")
         //        var reflogin = Firebase(url:"https://simpleplus.firebaseio.com")
