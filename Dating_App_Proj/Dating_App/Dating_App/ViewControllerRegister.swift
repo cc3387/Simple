@@ -126,6 +126,7 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate,UIPickerView
             
             if error != nil {
             // There was an error creating the account
+            print("There was an error in creating")
             } else {
             let uid = user?.uid
             register_info.uid = uid!;

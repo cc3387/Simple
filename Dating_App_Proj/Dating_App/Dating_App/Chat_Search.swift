@@ -98,7 +98,7 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
                     selectednames.append(data1[count]);
                     selectedphotos.append(dataphoto[count]);
                 }
-                count++;
+                count += 1;
             }
             
             if(selectednames.count == 1){

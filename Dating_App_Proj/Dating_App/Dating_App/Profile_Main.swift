@@ -102,6 +102,7 @@ class Profile_Main : UIViewController{
     frienduser.useridarray.removeAll();
     frienduser.phoneidarray.removeAll();
     frienduser.profilenamearray.removeAll();
+    frienduser.photoarray.removeAll()
 
     let hours = hour();
     let minutes = minute();
