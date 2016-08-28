@@ -40,7 +40,14 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate,UIPickerView
         myPicker.dataSource = self;
         //LocPicker.delegate = self;
         //LocPicker.dataSource = self;
+        
+        if(BatchPush.lastKnownPushToken() != nil){
         register_info.phoneid = BatchPush.lastKnownPushToken()
+        }
+        else{
+        register_info.phoneid = "xxxxxxxxxxxx"
+        }
+            
         print(register_info.phoneid)
         updateAge();
         

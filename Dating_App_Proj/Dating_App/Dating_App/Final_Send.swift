@@ -57,7 +57,7 @@ class FinalSend_Final: UIViewController{
             "Education":register_info.education,
             "Major":register_info.Major,
             "Address": register_info.address,
-            "Qone": register_info.beer_or_wine,
+            "Qone": register_info.beer_or_wine,	
             "Qtwo": register_info.sports_or_art,
             "Qthree": register_info.Cooking_Dineout,
             "University_Rank": register_info.URank,

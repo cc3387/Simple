@@ -55,7 +55,7 @@ class Start_Page : UIViewController{
                 
                 //Logging in with details extracted from autologin data
                 if(loginid != "" && password != ""){
-                    FIRAuth.auth()!.signInWithEmail(login.loginid, password: login.password) { (user, error) in
+                    FIRAuth.auth()?.signInWithEmail(login.loginid, password: login.password) { (user, error) in
                         if error != nil {
                             // an error occured while attempting login
                             print("Login info is wrong");

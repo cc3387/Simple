@@ -22,10 +22,14 @@ class ViewControllerLogin: UIViewController{
     var decision_pwd: Int = 0
     var user1:User!
     var count: Int = 0;
-//    var ref: Firebase!
+    var phoneloginfinal = "";
     var userName = String()
     var pssword = String()
-   
+    var autologin = [
+        "username": "",
+        "password": "",
+        "phoneid" : ""
+    ];
 
     
     override func viewDidLoad() {
@@ -36,7 +40,7 @@ class ViewControllerLogin: UIViewController{
     userName = NSUserDefaults.standardUserDefaults().stringForKey("keepUsername")!
     pssword = NSUserDefaults.standardUserDefaults().stringForKey("keepPassword")!
     self.Username.text = userName;
-    self.Password.text = "**********";
+    self.Password.text = "";
     login.password = pssword;
     }
     
@@ -54,7 +58,7 @@ class ViewControllerLogin: UIViewController{
         login.password = self.Password.text!;
 //        }
             
-        FIRAuth.auth()!.signInWithEmail(self.Username.text!, password: self.Password.text!) {
+        FIRAuth.auth()?.signInWithEmail(self.Username.text!, password: self.Password.text!) {
             (user, error) in
             if error != nil {
                 // an error occured while attempting login
@@ -68,18 +72,42 @@ class ViewControllerLogin: UIViewController{
                 //self.Password.text = "**********";
                 //login.chatid = ref.authData.uid
                 
-                var autologin = [
+                
+                if(BatchPush.lastKnownPushToken() != nil){
+                self.autologin = [
                     "username": self.Username.text!,
                     "password": self.Password.text!,
                     "phoneid" : BatchPush.lastKnownPushToken()
                 ];
+                    
+                }
+                else{
+                    self.autologin = [
+                        "username": self.Username.text!,
+                        "password": self.Password.text!,
+                        "phoneid" : "xxxxxxxxxxxxxxxx"
+                    ];
+                }
                 
-                let phoneloginfinal = (BatchPush.lastKnownPushToken() as String) + "login"
+                if(BatchPush.lastKnownPushToken() != nil){
+                    self.phoneloginfinal = (BatchPush.lastKnownPushToken() as String) + "login"
+                }
+                else{
+                    self.phoneloginfinal = "nologin";
+                }
+                
+                
                 var refauto = FIRDatabase.database().reference().child("autologin")
                 var ref = FIRDatabase.database().reference().child("users").child(login.chatid)
                 
-                ref.child("phoneid").setValue(BatchPush.lastKnownPushToken());
-                refauto.childByAppendingPath(phoneloginfinal).setValue(autologin);
+                if(BatchPush.lastKnownPushToken() != nil){
+                    ref.child("phoneid").setValue(BatchPush.lastKnownPushToken());
+                }
+                else{
+                    ref.child("phoneid").setValue("xxxxxxxxxxxxxxxxxxxxx");
+                }
+                
+            refauto.childByAppendingPath(self.phoneloginfinal).setValue(self.autologin);
                 
                 
                 var friend = "friends/" + login.chatid  + "_fd"
@@ -92,7 +120,13 @@ class ViewControllerLogin: UIViewController{
                         
                         var friendlst = FIRDatabase.database().reference().child("friends").child(id).child(login.chatid).child("phoneid")
                         
-                        friendlst.setValue(BatchPush.lastKnownPushToken())
+                        
+                        if(BatchPush.lastKnownPushToken() != nil){
+                            friendlst.setValue(BatchPush.lastKnownPushToken())
+                        }
+                        else{
+                            friendlst.setValue("xxxxxxxxxxxxxxx");
+                        }
                         
                     }
                 })

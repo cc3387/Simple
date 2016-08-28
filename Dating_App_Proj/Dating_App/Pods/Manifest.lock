@@ -1,7 +1,5 @@
 PODS:
   - Batch (1.5.4)
-  - Firebase (3.4.0):
-    - Firebase/Core (= 3.4.0)
   - Firebase/AdMob (3.4.0):
     - Firebase/Analytics
     - Google-Mobile-Ads-SDK (= 7.9.1)
@@ -81,7 +79,6 @@ PODS:
 
 DEPENDENCIES:
   - Batch (~> 1.5.4)
-  - Firebase (>= 2.5.1)
   - Firebase/AdMob
   - Firebase/AppIndexing
   - Firebase/Auth
@@ -115,6 +112,6 @@ SPEC CHECKSUMS:
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
 
-PODFILE CHECKSUM: 912be06bb84a3e026ad26c78052dbe29b8c05af3
+PODFILE CHECKSUM: b5da943fddec2f12ca5cafd5b203c4e74baaaf69
 
 COCOAPODS: 1.0.1

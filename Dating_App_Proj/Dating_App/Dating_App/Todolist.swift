@@ -144,7 +144,8 @@ class Todolist: UIViewController{
         if(login_user.latitude >= 40 && login_user.latitude <= 41 &&
             login_user.longitude <= -73.5 && login_user.longitude > -74.5){
         
-        let random = arc4random_uniform(2);
+        let random = arc4random_uniform(3);
+        
         if(random == 0){
             if let url = NSURL(string: "http://ny.eater.com/maps/best-new-new-york-restaurants-heatmap") {
                 UIApplication.sharedApplication().openURL(url)
@@ -155,6 +156,34 @@ class Todolist: UIViewController{
                 UIApplication.sharedApplication().openURL(url)
             }
         }
+        else if(random == 2){
+            if let url = NSURL(string: "https://www.thrillist.com/eat/new-york") {
+                UIApplication.sharedApplication().openURL(url)
+            }
+        }
+        }
+        
+        //Hong Kong
+        if(login_user.latitude >= 22.2 && login_user.latitude <= 22.5 &&
+            login_user.longitude <= 114.2 && login_user.longitude > 114.1){
+            
+            let random = arc4random_uniform(3);
+            
+            if(random == 0){
+                if let url = NSURL(string: "http://www.tommyooi.com/must-eat-food-in-hong-kong/") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            else if(random == 1){
+                if let url = NSURL(string: "http://goingawesomeplaces.com/the-top-20-hk-restaurant-eat-list/") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            else if(random == 2){
+                if let url = NSURL(string: "http://www.thatfoodcray.com/that-restaurant-cray-where-to-eat-in-hong-kong/") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
         }
     }
     
