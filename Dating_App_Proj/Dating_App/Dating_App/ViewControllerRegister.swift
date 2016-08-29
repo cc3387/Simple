@@ -41,6 +41,10 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate,UIPickerView
         //LocPicker.delegate = self;
         //LocPicker.dataSource = self;
         
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
         if(BatchPush.lastKnownPushToken() != nil){
         register_info.phoneid = BatchPush.lastKnownPushToken()
         }
@@ -217,6 +221,12 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate,UIPickerView
                 }
             }*/
         }
+    }
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {
