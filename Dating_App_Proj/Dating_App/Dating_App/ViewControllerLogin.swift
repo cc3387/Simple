@@ -8,6 +8,9 @@
 
 import UIKit
 import Firebase
+import Batch
+
+var indication = 0;
 
 class ViewControllerLogin: UIViewController{
     
@@ -19,211 +22,136 @@ class ViewControllerLogin: UIViewController{
     var decision_pwd: Int = 0
     var user1:User!
     var count: Int = 0;
-    var ref: Firebase!
+    var phoneloginfinal = "";
+    var userName = String()
+    var pssword = String()
+    var autologin = [
+        "username": "",
+        "password": "",
+        "phoneid" : ""
+    ];
+
     
     override func viewDidLoad() {
     self.navigationController?.setNavigationBarHidden(true, animated: false)
+    super.viewDidLoad()
+    
+    if(indication == 1){
+    userName = UserDefaults.standard.string(forKey: "keepUsername")!
+    pssword = UserDefaults.standard.string(forKey: "keepPassword")!
+    self.Username.text = userName;
+    self.Password.text = "";
+    login.password = pssword;
+    }
         
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewControllerLogin.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    
     }
     
-    /*override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }*/
-
-    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "Main_Profile" {
-            if let destinationVC = segue.destinationViewController as? Main_Profile{
-                destinationVC.loginuser = Username.text;
-            }
-        }
-    }*/
     
-    @IBAction func Login(sender: AnyObject) {
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    @IBAction func Login(_ sender: AnyObject) {
         
-        var ref = Firebase(url:"https://simpleplus.firebaseio.com")
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        ref.authUser(self.Username.text, password: self.Password.text) {
-            error, authData in
+        
+        login.loginid = self.Username.text!;
+        
+//        if(self.Password.text != "**********"){
+        login.password = self.Password.text!;
+//        }
+            
+        FIRAuth.auth()?.signIn(withEmail: self.Username.text!, password: self.Password.text!) {
+            (user, error) in
             if error != nil {
                 // an error occured while attempting login
                 print("Login info is wrong");
             } else {
                 // user is logged in, check authData for data
                 login.loginid = self.Username.text!;
-                login.password = self.Password.text!;
-                self.Password.text = "**********";
-                login.chatid = ref.authData.uid
-                print(login.chatid)
-                self.loadDestinationVC();
-            }
-        }
-        
-        //Login with our own register
-        /*let manager = AFHTTPRequestOperationManager()
-        
-        var params = [
-            
-            "username":Username.text,
-            "password":Password.text
-            
-        ]
-        
-        manager.POST("http://localhost:3000/login1",
-            parameters: params,
-            
-            //what is needed for success to execute?
-            success: { (AFHTTPRequestOperation, userObject) -> Void in
-                println(userObject)
-                if let results = userObject as? NSDictionary {
-                    if let user_details = results["user"] as? NSDictionary {
-                        if let username = user_details["username"] as? String {
-                            self.user1 = User(username: username, token: "helloworld")
-                            let defaults = NSUserDefaults.standardUserDefaults()
-                            defaults.setObject(self.user1.token, forKey: "token")
-                            defaults.synchronize()
-                            self.performSegueWithIdentifier("openProfile", sender: self)
-                            
-                        }
-                        
-                    }
+                loginid = self.Username.text!;
+                login.chatid = (FIRAuth.auth()!.currentUser!.uid)
+
+                if(BatchPush.lastKnownPushToken() != nil){
+                self.autologin = [
+                    "username": self.Username.text!,
+                    "password": self.Password.text!,
+                    "phoneid" : BatchPush.lastKnownPushToken()
+                ];
+                    
                 }
-            }) { (AFHTTPRequestOperation, NSError) -> Void in
-                println("fail in sending")
-        }*/
+                else{
+                    self.autologin = [
+                        "username": self.Username.text!,
+                        "password": self.Password.text!,
+                        "phoneid" : "xxxxxxxxxxxxxxxx"
+                    ];
+                }
+                
+                if(BatchPush.lastKnownPushToken() != nil){
+                    self.phoneloginfinal = (BatchPush.lastKnownPushToken() as String) + "login"
+                }
+                else{
+                    self.phoneloginfinal = "nologin";
+                }
+                
+                
+                var refauto = FIRDatabase.database().reference().child("autologin")
+                var ref = FIRDatabase.database().reference().child("users").child(login.chatid)
+                
+                if(BatchPush.lastKnownPushToken() != nil){
+                    ref.child("phoneid").setValue(BatchPush.lastKnownPushToken());
+                }
+                else{
+                    ref.child("phoneid").setValue("xxxxxxxxxxxxxxxxxxxxx");
+                }
+                
+            refauto.child(byAppendingPath: self.phoneloginfinal).setValue(self.autologin);
+                
+                
+                var friend = "friends/" + login.chatid  + "_fd"
+                let friendlist = FIRDatabase.database().reference().child(friend)
+                friendlist.queryOrdered(byChild: "uid").observe(.value, with:{friendsnapshot in
+                    for index in friendsnapshot.children.allObjects as! [FIRDataSnapshot]{
+                        
+                        if let source = index.value as? [String:AnyObject] {
+                        let uid = source["uid"] as! String!
+                        let id = uid! + "_fd"
+                        
+                        var friendlst = FIRDatabase.database().reference().child("friends").child(id).child(login.chatid).child("phoneid")
+                        
+                        
+                        if(BatchPush.lastKnownPushToken() != nil){
+                            friendlst.setValue(BatchPush.lastKnownPushToken())
+                        }
+                        else{
+                            friendlst.setValue("xxxxxxxxxxxxxxx");
+                        }
+                        }
+                    }
+                })
+                
+                UserDefaults.standard.set(login.loginid, forKey: "keepUsername")
+                UserDefaults.standard.set(login.password, forKey: "keepPassword")
+                UserDefaults.standard.synchronize()
+                indication = 1;
+                frienduser.emailarray.removeAll();
+                frienduser.useridarray.removeAll();
+                frienduser.phoneidarray.removeAll();
+                frienduser.profilenamearray.removeAll();
+                self.loadDestinationVC();
+            };
+        }
     }
     
     //Load destination to the main profile
     func loadDestinationVC(){
-    self.performSegueWithIdentifier("LoadProfile", sender: nil)
+    self.performSegue(withIdentifier: "LoadProfile", sender: nil)
     }
-
-    
-    /*func finduserid(){
-        var query = PFQuery(className: "UserDetails");
-        query.includeKey(self.Username.text);
-        query.whereKey("username", equalTo: self.Username.text);
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [AnyObject]?, error: NSError?) -> Void in
-            if objects!.count == 0 {
-                self.decision_user = 0;
-            }
-            else {
-                self.decision_user = 1;
-                // The find succeeded.
-                //println("Successfully retrieved \(objects!.count) record.")
-                // Do something with the found objects
-                if let objects = objects as? [PFObject] {
-                    for object in objects {
-                        //println("Username_ID is: ");
-                        println(object.objectId);
-                    }
-                }
-            }
-        }
-    }*/
-    
-    /*func move(){
-    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        counter++;
-        if segue.identifier == "Main_Profile" {
-            if let destinationVC = segue.destinationViewController as? Main_Profile{
-                destinationVC.loginuser = counter
-            }
-          }
-        }
-    }*/
-    
-    
-    //This part retrieve the Username saved that were passed on after clicking the "Login" button
-    /*func RetrieveUsername(){
-        let usertext = Username.text;
-        //Creating a new PFQuery
-        var query = PFQuery(className: "User")
-        query.whereKey("username", equalTo: usertext)
-        //Call FindObjectsinBackground
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [AnyObject]?, error: NSError?) -> Void in
-            if objects!.count == 0 {
-                self.decision_user = 0;
-            }
-            else {
-                self.decision_user = 1;
-                // The find succeeded.
-                //println("Successfully retrieved \(objects!.count) record.")
-                // Do something with the found objects
-                if let objects = objects as? [PFObject] {
-                    for object in objects {
-                        //println("Username_ID is: ");
-                        println(object.objectId)
-                    }
-                }
-            }
-        }
-    }*/
-    
-
-    //This part retrieve the Password saved that were passed on after clicking the "Login" button
-    /*func RetrievePassword(){
-        
-        let passwordtext = Password.text;
-        //Creating a new PFQuery
-        var query = PFQuery(className: "User")
-        query.whereKey("password", equalTo: passwordtext)
-        //Call FindObjectsinBackground
-        query.findObjectsInBackgroundWithBlock{
-            (objects:[AnyObject]?, error: NSError?) -> Void in
-            
-            if objects!.count == 0{
-            self.decision_pwd = 0;
-            }
-            else {
-                self.decision_pwd = 1;
-                // The find succeeded.
-                //println("Successfully retrieved \(objects!.count) record.")
-                // Do something with the found objects
-                if let objects = objects as? [PFObject] {
-                    for object in objects {
-                        //println("Password ID is: ")
-                        println(object.objectId)
-                  }
-               }
-            }
-        }
-    }*/
-    
-    
-    //if login fails how do I redirect back?
-    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier == "openProfile") {
-            //self.user = User(username: "hsuregan5")
-            let newViewController = segue.destinationViewController as! Profile_Main
-            //println("YAY::")
-            println(self.user1.username)
-            newViewController.user1 = self.user
-            
-        }
-    }*/
-    
 }
-
-//Storing the userid as global variable in the ios app machine
-struct login{
-    
-    static var loginid = "";
-    static var password = "";
-    static var chatid = "";
-    static var registered:Int = 0;
-    
-}
-
-struct arrays{
-    
-    static var friendsArray:[String] = [String]() //Set an empty array for friend names
-    static var friendlocArray:[String] = [String]() //Set an empty array for friend locations
-    static var frienduniArray:[String] = [String]() //Set an empty array for university locations
-    static var friendmajorArray:[String] = [String]() //Set an empty array for major locations
-    static var friendidArray:[String] = [String]() //Set an empty array for friend's ID
-    static var chatcheck:[Int] = [Int]() //Check 1:1 relationship
-    
-};

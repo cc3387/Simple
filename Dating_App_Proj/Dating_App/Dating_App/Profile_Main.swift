@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Firebase
+import Batch
 
 class Profile_Main : UIViewController{
 
@@ -20,20 +21,63 @@ class Profile_Main : UIViewController{
     var friendsArray:[String] = [String]() //Set an array with empty array
     var friend:String = "";
     var read_count: Int = 0;
+    var id:String = "";
+    var id1:String = "";
+    var id_user:String = login_user.user_name;
+    var timestamp:String = "";
+    var timestamp1:String = "";
+    var lstmessage:String = "";
+    var lstmessage1:String = "";
+    var indication:Int = 0;
+    var count:Int = 0;
     
     //Getting Profile name from the server
-    
     @IBOutlet weak var Profile_Name: UILabel!
     
-    @IBAction func Single_Meet(sender: AnyObject) {
+    
+    @IBAction func ProfileLoad(_ sender: AnyObject) {
+        if(login_user.user_name != ""){
+        loadusermeet()
+        }
+    }
+    
+    @IBAction func Single_Meet(_ sender: AnyObject) {
+        if(login_user.user_name != ""){
         loadDestinationVC();
+        }
     }
     
-    @IBAction func To_Chat(sender: AnyObject) {
+    @IBAction func To_Chat(_ sender: AnyObject) {
+        if(login_user.user_name != ""){
         loadtoChat();
+        }
+    }
+    
+    @IBAction func To_Choice(_ sender: AnyObject) {
+        if(login_user.user_name != ""){
+        loadchoice()
+        }
+    }
+    
+    @IBAction func ToUpdate(_ sender: AnyObject) {
+        if(login_user.user_name != ""){
+        loadupdateprofile()
+        }
+    }
+    
+    @IBAction func ToContactUs(_ sender: AnyObject) {
+        if(login_user.user_name != ""){
+        loadcontactus()
+        }
     }
     
     
+    @IBAction func ToTermsandConditions(_ sender: AnyObject) {
+        if(login_user.user_name != ""){
+        loadtermsandcondition()
+        }
+    }
+ 
     //Getting the login_user id that is collected from the login page
     var loginuser: String = "";
     var user1: String = "";
@@ -43,25 +87,41 @@ class Profile_Main : UIViewController{
     //Action Item
     override func viewDidLoad() {
     super.viewDidLoad()
+    self.view.endEditing(true)
+    
+    //Register for Batch
+    let editor = BatchUser.editor();
+    editor.setIdentifier(login.chatid);
+    editor.save();
+        
+    Batch.defaultUserProfile()?.customIdentifier = login.chatid
+        
+    loginid = login.loginid as String
     self.navigationController?.setNavigationBarHidden(true, animated: false)
-    //self.navigationController!.interactivePopGestureRecognizer!.enabled = false
-    let hours = hour();
-    let minutes = minute();
+    frienduser.emailarray.removeAll();
+    frienduser.useridarray.removeAll();
+    frienduser.phoneidarray.removeAll();
+    frienduser.profilenamearray.removeAll();
+    frienduser.photoarray.removeAll()
+
+    let hours = hour() as! String!;
+    let minutes = minute() as! String!;
     let hour_i = hour_int();
     let minute_i = minute_Int();
         
         if(hour_i > 6 && hour_i < 12){
             
             if(minute_i < 10){
-            self.Time_Greetings.text = "Good Morning, the time is " + hours + " : " + "0" + minutes;
+            self.Time_Greetings.text = "Good Morning, the time is " + "\(hours!)" + " : " + "0" + "\(minutes!)";
             }
             else{
-            self.Time_Greetings.text = "Good Morning, the time is " + hours + " : " + minutes;
+            self.Time_Greetings.text = "Good Morning, the time is " + "\(hours!)" + " : " + "\(minutes!)";
             }
             
             let random = arc4random_uniform(3);
             
-            Time_Greetings.textColor = UIColor.blackColor();
+            self.User_ID.textColor = UIColor.white;
+            Time_Greetings.textColor = UIColor.white;
             
             if(random == 0){
             Bkground_Image.image = UIImage(named: "malaysia_morning.jpg");
@@ -77,33 +137,34 @@ class Profile_Main : UIViewController{
         else if(hour_i >= 12 && hour_i <= 18){
             
             if(minute_i < 10){
-                self.Time_Greetings.text = "Good Afternoon, the time is " + hours + " : " + "0" + minutes;
+                self.Time_Greetings.text = "Good Afternoon, the time is " + "\(hours!)" + " : " + "0" + "\(minutes!)";
             }
             else{
-                self.Time_Greetings.text = "Good Afternoon, the time is " + hours + " : " + minutes;
+                self.Time_Greetings.text = "Good Afternoon, the time is " + "\(hours!)" + " : " + "\(minutes!)";
             }
             
             let random = arc4random_uniform(2);
             
             if(random == 0){
-            Bkground_Image.image = UIImage(named: "chicago_afternoon.jpg");
+            Bkground_Image.image = UIImage(named: "Dawn_City.jpg");
             }
             
             if(random == 1){
-            Bkground_Image.image = UIImage(named: "Sunset.jpg");
+            Bkground_Image.image = UIImage(named: "Dawn_City.jpg");
             }
                 
             //Setting the User ID to login user id
             //self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
             //self.User_ID.textColor = UIColor.blackColor();
+            Time_Greetings.textColor = UIColor.white;
         }
         else{
             
             if(minute_i < 10){
-                self.Time_Greetings.text = "Good Evening, the time is " + hours + " : " + "0" + minutes;
+                self.Time_Greetings.text = "Good Evening, the time is " + "\(hours!)" + " : " + "0" + "\(minutes!)";
             }
             else{
-                self.Time_Greetings.text = "Good Evening, the time is " + hours + " : " + minutes;
+                self.Time_Greetings.text = "Good Evening, the time is " + "\(hours!)" + " : " + "\(minutes!)";
             }
             
             
@@ -116,7 +177,7 @@ class Profile_Main : UIViewController{
             Bkground_Image.image = UIImage(named: "hongkongnight.jpg");
             }
             else if(random == 2){
-            Bkground_Image.image = UIImage(named: "Paris_Night.jpg");
+            Bkground_Image.image = UIImage(named: "New_York_Night.jpg");
             }
             else if(random == 3){
             Bkground_Image.image = UIImage(named: "seattle_night.jpg");
@@ -126,48 +187,58 @@ class Profile_Main : UIViewController{
             }
             
             //Setting the User ID to login user id
-            //self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
-            //self.User_ID.textColor = UIColor.whiteColor();
+            self.User_ID.textColor = UIColor.white;
+            Time_Greetings.textColor = UIColor.white;
         }
         
-        let ref = Firebase(url:"https://simpleplus.firebaseio.com/users")
-        ref.queryOrderedByChild("Email").queryEqualToValue(login.loginid)
-            .observeEventType(.ChildAdded, withBlock: { snapshot in
-                if let login_name = snapshot.value["Profile_Name"] as? String {
-                    login_user.loginname = login_name;
-                    print(login_user.loginname);
-                    self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
-                    self.User_ID.textColor = UIColor.whiteColor();
-                    
-                    if let ulat = snapshot.value["latitude"] as? Double{
-                        login_user.latitude = ulat;
-                        print(login_user.latitude);
-                        if let ulon = snapshot.value["longitude"] as? Double{
-                            login_user.longitude = ulon;
-                            print(login_user.longitude);
-                            if let username = snapshot.value["username"] as? String{
-                                login_user.user_name = username;
-                                print(login_user.user_name);
-                                if let major = snapshot.value["Major"] as? String{
-                                    login_user.major = major;
-                                    print(login_user.major);
-                                    if let university = snapshot.value["Education"] as? String{
-                                        login_user.university = university;
-                                        print(login_user.university);
-                                        if let location = snapshot.value["location"] as? String{
-                                            login_user.location = location;
-                                            print(login_user.location);
-                                            if let ProfileName = snapshot.value["Profile_Name"] as? String{
-                                                login_user.Profile_Name = ProfileName;
-                                                print(login_user.Profile_Name);
-                                                if let base64String = snapshot.value["Photo"] as? String{
-                                                    let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions())
-                                                        let decodedImage = UIImage(data: decodedData!)!
-                                                        self.Profile_Pic.image = decodedImage
-                                                        self.Profile_Pic.contentMode = .ScaleAspectFit
-                                                        login_user.photo = base64String;
-                                                }
-                                            }
+        var ref = FIRDatabase.database().reference().child("users")
+        ref.queryOrdered(byChild: "Email").queryEqual(toValue: login.loginid)
+            .observe(.childAdded, with: { snapshot in
+                
+                if let source = snapshot.value as? [String:AnyObject] {
+                
+                login_user.loginname = (source["Profile_Name"] as? String)!
+                self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
+                self.User_ID.textColor = UIColor.white;
+            
+                login_user.latitude = (source["latitude"] as? Double)!
+                login_user.longitude = (source["longitude"] as? Double)!
+                login_user.user_name = (source["username"] as? String)!
+                login_user.major = (source["Major"] as? String)!
+                login_user.university = (source["Education"] as? String)!
+                login_user.location = (source["Address"] as? String)!
+                login_user.Profile_Name = (source["Profile_Name"] as? String)!
+                login_user.photo = (source["Photo"] as? String)!
+                login_user.uid = (source["uid"] as? String)!
+                login_user.phoneid = (source["phoneid"] as? String)!
+                }
+            })
+        
+        var friend = "friends/" + login_user.uid + "_fd"
+        let friendemail = FIRDatabase.database().reference().child(friend)
+        
+        friendemail.queryOrdered(byChild: "Email").observe(.value, with:{friendsnapshot in
+            for index in friendsnapshot.children.allObjects as! [FIRDataSnapshot]{
+                if let source = index.value as? [String:AnyObject] {
+                if let id = source["Email"] as! String?{
+                    if(id != login.loginid){
+                    frienduser.emailarray.append(id);
+                    }
+                    if let id2 = source["uid"] as! String?{
+                        if(id2 != login_user.uid){
+                            frienduser.useridarray.append(id2);
+                        }
+                        if let id3 = source["Profile_Name"] as! String?{
+                            if(id3 != login_user.Profile_Name){
+                            frienduser.profilenamearray.append(id3);
+                            }
+                                if let id4 = source["phoneid"] as! String?{
+                                    if(id4 != login_user.phoneid){
+                                        frienduser.phoneidarray.append(id4);
+                                    }
+                                    if let id5 = source["Photo"] as! String?{
+                                        if(id5 != login_user.phoneid){
+                                            frienduser.photoarray.append(id5);
                                         }
                                     }
                                 }
@@ -175,182 +246,22 @@ class Profile_Main : UIViewController{
                         }
                     }
                 }
-            })
+             }
+          })
         
-        //Download all the Friends' emails
-        var friend = "https://simpleplus.firebaseio.com/friends/" + login_user.user_name + "_fd";
-        let friendemail = Firebase(url:friend)
-        frienduser.emailarray = [];
-        friendemail.queryOrderedByChild("Email").observeEventType(.Value, withBlock:{friendsnapshot in
-            for index in friendsnapshot.children.allObjects as! [FDataSnapshot]{
-                if let id = index.value["Email"] as! String?{
-                    frienduser.emailarray.append(id);
-                }
-            }
-        })
-
-        //Sending ChatList and Friends to the server before checking on new information
-        //let manager = AFHTTPRequestOperationManager()
+        print(login.chatid)
         
-        //Clean up the friendslist
-        //var param1 = [
-        //]
-        
-        //var param2 = [
-        //    "username":login.loginid
-        //]
-        
-        /*manager.POST("http://localhost:3000/renew",
-            
-            parameters: param1,
-            //what is needed for success to execute?
-            success: { (AFHTTPRequestOperation, AnyObject) -> Void in
-                print("Successfully renew user info")
-            }) { (AFHTTPRequestOperation, NSError) -> Void in
-                print("fail")
-        }
-        
-        manager.POST("http://localhost:3000/user",
-            
-            parameters: param2,
-            //what is needed for success to execute?
-            success: { (AFHTTPRequestOperation, AnyObject) -> Void in
-                print("Successfully renew user info")
-            }) { (AFHTTPRequestOperation, NSError) -> Void in
-                print("fail")
-        }
-        
-        manager.GET("http://localhost:3000/user",
-            parameters: nil,
-            success: { (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
-                print("Object obtained successfully");
-                print(responseObject.count);
-                
-                if(responseObject.count > 0){
-                if let results = responseObject[0] as? NSDictionary {
-                    if let Profile_Name = results["Profile_Name"] as? String {
-                    login_user.user_name = Profile_Name;
-                        login_user.loginname = Profile_Name;
-                        if let Profile_Loc = results["location"] as? String {
-                            login_user.location = Profile_Loc;
-                            if let Profile_Edu = results["Education"] as? String {
-                                login_user.university = Profile_Edu;
-                                if let Profile_Major = results["Major"] as? String {
-                                    login_user.major = Profile_Major;
-                                }
-                            }
-                        }
-                     }
-                  }
-               }
-            },
-            failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
-                print("Error: " + error.localizedDescription)
-            }
-        )
-    
-        
-        
-        //Retrieving the information from parse and append to the friendsArray
-        //Creating a new PFQuery
-        var query = PFQuery(className: login.loginid + "_chatlist")
-
-        query.findObjectsInBackgroundWithBlock{
-            (objects:[AnyObject]?, error: NSError?) -> Void in
-            
-            //Clear the Message Array
-            self.friendsArray = [String]()
-            
-            if let objects = objects as? [PFObject]{
-                
-                //Loop through the objects array
-                for friendsObject in objects {
-                    
-                    //Retrieve the Text column value of each PFObject
-                    let friends_name:String? = (friendsObject as PFObject)["Friends"] as? String
-                    
-                    //Assign it into our MessageArray
-                    if friends_name != nil {
-                        self.friendsArray.append(friends_name!);
-                        NSLog(friends_name!);
-                        //self.friend = friends_name!;
-                   }
-                }
-                
-                print(self.friendsArray.count);
-                self.read_count = self.friendsArray.count;
-                
-                if(self.read_count == 0){
-                
-                var userchatlist: PFObject = PFObject(className: self.loginuser + "_chatlist");
-                    userchatlist["Friends"] = self.loginuser;
-                    userchatlist.saveInBackgroundWithBlock{
-                        (success: Bool, error: NSError?) -> Void in
-                        if(success){
-                            NSLog("Friend Saved Successfully!")
-                        }
-                        else{
-                            NSLog(error!.description)
-                        }
-                    }
-                }
-                else{
-                while(self.read_count > 0){
-                self.friend = self.friendsArray[self.read_count - 1];
-                var param = [
-                    "username":login.loginid,
-                    "friend":self.friend
-                ]
-                
-                manager.POST("http://localhost:3000/display_all",
-                    
-                    parameters: param,
-                    //what is needed for success to execute?
-                    success: { (AFHTTPRequestOperation, AnyObject) -> Void in
-                        print("successfully retrieve user's info")
-                    }) { (AFHTTPRequestOperation, NSError) -> Void in
-                        print("fail")
-                }
-              self.read_count -= 1;
-              }
-            }
-          }
-        }*/
     }
     
     
     //To Logout and delete token that is assigned
-    @IBAction func Logout(sender: AnyObject) {
-        
-        //print(loginUsername.text)
-        let manager = AFHTTPRequestOperationManager()
-        
-        var params = [
-            
-            "username":login.loginid,
-            "password":login.password
-            
-        ]
-        
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(nil, forKey: "token")
-        //defaults.getObject(for
-        defaults.synchronize()
-        
-        
-        manager.POST("http://localhost:3000/logout",
-            parameters: params,
-            
-            //what is needed for success to execute?
-            success: { (AFHTTPRequestOperation, AnyObject) -> Void in
-                print("successful logout")
-            }) { (AFHTTPRequestOperation, NSError) -> Void in
-                print("fail")
-        }
+    @IBAction func Logoutbutton(_ sender: AnyObject) {
+        try! FIRAuth.auth()!.signOut()
+        loadoriginal();
     }
     
-    override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = true
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -361,25 +272,19 @@ class Profile_Main : UIViewController{
     func hour() -> String
     {
         //Get Hour
-        let date:NSDate = NSDate();
-        let calendar: NSCalendar = NSCalendar.currentCalendar();
-        let components:NSDateComponents = calendar.components(
-            NSCalendarUnit.NSHourCalendarUnit, fromDate: date)
-        let hours = components.hour
-        let hour = String(hours);
+        let date:Date = Date();
+        let calendar: Calendar = Calendar.current;
+        let hour = calendar.component(.hour, from: date)
         //Return Hour
-        return hour
+        return String(hour)
     }
     
     func hour_int() -> Int
     {
         //Get Hour
-        let date:NSDate = NSDate();
-        let calendar: NSCalendar = NSCalendar.currentCalendar();
-        let components:NSDateComponents = calendar.components(
-            NSCalendarUnit.NSHourCalendarUnit, fromDate: date)
-        let hours = components.hour
-        let hour = Int(hours);
+        let date:Date = Date();
+        let calendar: Calendar = Calendar.current;
+        let hour = calendar.component(.hour, from: date)
         //Return Hour
         return hour
     }
@@ -388,51 +293,88 @@ class Profile_Main : UIViewController{
     func minute() -> String
     {
         //Get Minute
-        let date:NSDate = NSDate();
-        let calendar: NSCalendar = NSCalendar.currentCalendar();
-        let components:NSDateComponents = calendar.components(
-            NSCalendarUnit.NSMinuteCalendarUnit, fromDate: date)
-        let minutes = components.minute
-        let minute = String(minutes);
+        let date:Date = Date();
+        let calendar: Calendar = Calendar.current;
+        let minutes = calendar.component(.minute, from: date)
         //Return Minute
-        return minute
+        return String(minutes)
     }
     
     func minute_Int() -> Int
     {
         //Get Minute
-        let date:NSDate = NSDate();
-        let calendar: NSCalendar = NSCalendar.currentCalendar();
-        let components:NSDateComponents = calendar.components(
-            NSCalendarUnit.NSMinuteCalendarUnit, fromDate: date)
-        let minutes = components.minute
-        let minute = Int(minutes);
+        let date:Date = Date();
+        let calendar: Calendar = Calendar.current;
+        let minutes = calendar.component(.minute, from: date)
         //Return Minute
-        return minute
+        return minutes
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("To_Meet", sender: nil)
+    self.performSegue(withIdentifier: "To_Meet", sender: nil)
     }
     
     func loadtoChat(){
-        self.performSegueWithIdentifier("Chat", sender: nil)
+    self.performSegue(withIdentifier: "Chat", sender: nil)
     }
-};
-
-
-struct login_user{
-    static var user_name: String = "";
-    static var Profile_Name: String = "";
-    static var loginname: String = "";
-    static var location: String = "";
-    static var longitude: Double = 0;
-    static var latitude: Double = 0;
-    static var university: String = "";
-    static var major: String = "";
-    static var photo: String = "";
-};
-
-struct frienduser{
-    static var emailarray = [String]();
+    
+    func loadusermeet(){
+        self.performSegue(withIdentifier: "Touserprofile", sender: nil)
+    }
+    
+    func loadchoice(){
+        self.performSegue(withIdentifier: "ToChoice", sender: nil)
+    }
+    
+    
+    func loadupdateprofile(){
+        self.performSegue(withIdentifier: "ToUpdateProfile", sender: nil)
+    }
+    
+    func loadcontactus(){
+        self.performSegue(withIdentifier: "Tocontactus", sender: nil)
+    }
+    
+    func loadtermsandcondition(){
+        self.performSegue(withIdentifier: "totermsandconditions", sender: nil)
+    }
+    
+    func refreshEvery30Secs(){
+        //observe()
+    }
+    
+    func refreshEvery3600Secs(){
+        send_reminder()
+    }
+    
+    func refresh(_ sender: AnyObject){
+        refreshEvery30Secs() // calls when ever button is pressed
+        refreshEvery3600Secs()
+    }
+    
+    func loadoriginal(){
+        self.performSegue(withIdentifier: "original", sender: nil)
+    }
+    
+    
+    override var shouldAutorotate : Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    
+    
+    func send_reminder(){
+            let notificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(notificationSettings)
+            let notification = UILocalNotification()
+            notification.fireDate = Date(timeIntervalSinceNow: 1)
+            notification.alertBody = "Time to Check Your Friend's messages!"
+            notification.alertAction = "Read Message!"
+            notification.soundName = UILocalNotificationDefaultSoundName
+            notification.userInfo = ["CustomField1": "w00t"]
+            UIApplication.shared.scheduleLocalNotification(notification)
+    }
 };

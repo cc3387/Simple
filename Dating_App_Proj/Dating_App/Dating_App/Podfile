@@ -1,0 +1,7 @@
+platform :ios, “8.4”
+use_frameworks!
+target ‘Simple’ do
+  pod 'Firebase'
+  pod 'JSQMessagesViewController'
+  pod 'Batch', '~>1.5.4'
+end

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Batch
 
 class ViewControllerRegister: UIViewController, UITextFieldDelegate,UIPickerViewDataSource, UIPickerViewDelegate{
     
@@ -39,53 +40,66 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate,UIPickerView
         myPicker.dataSource = self;
         //LocPicker.delegate = self;
         //LocPicker.dataSource = self;
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewControllerRegister.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+        if(BatchPush.lastKnownPushToken() != nil){
+        register_info.phoneid = BatchPush.lastKnownPushToken() as NSString
+        }
+        else{
+        register_info.phoneid = "xxxxxxxxxxxx"
+        }
+            
+        print(register_info.phoneid)
         updateAge();
         
         if(login.registered == 1){
-            self.Username.enabled = false;
-            self.Password.enabled = false;
-            self.Email.enabled = false;
-            self.Age.enabled = false;
-            self.Location.enabled = false;
-            self.Sender.enabled = false;
+            self.Username.isEnabled = false;
+            self.Password.isEnabled = false;
+            self.Email.isEnabled = false;
+            self.Age.isEnabled = false;
+            self.Location.isEnabled = false;
+            self.Sender.isEnabled = false;
         }
     }
 
     //Register Button Click
-    @IBAction func Register(sender: AnyObject) {
+    @IBAction func Register(_ sender: AnyObject) {
         if(self.Username.text == ""){
-        self.User_Note.textColor = UIColor.redColor();
+        self.User_Note.textColor = UIColor.red;
         }
         else if (self.Username.text != "" && self.Password.text == ""){
-        self.User_Note.textColor = UIColor.clearColor();
-        self.Password_Not.textColor = UIColor.redColor();
+        self.User_Note.textColor = UIColor.clear;
+        self.Password_Not.textColor = UIColor.red;
         }
         else if(self.Username.text != "" && self.Password.text != "" && self.Email.text == ""){
-        self.User_Note.textColor = UIColor.clearColor();
-        self.Password_Not.textColor = UIColor.clearColor();
-        self.Email_Not.textColor = UIColor.redColor();
+        self.User_Note.textColor = UIColor.clear;
+        self.Password_Not.textColor = UIColor.clear;
+        self.Email_Not.textColor = UIColor.red;
         }
         else if(self.Username.text != "" && self.Password.text != "" && self.Email.text != "" && self.Age.text == "" && self.Location.text == ""){
-        self.User_Note.textColor = UIColor.clearColor();
-        self.Password_Not.textColor = UIColor.clearColor();
-        self.Email_Not.textColor = UIColor.clearColor();
-        self.Age_Not.textColor = UIColor.redColor();
-        self.Location_Not.textColor = UIColor.clearColor();
+        self.User_Note.textColor = UIColor.clear;
+        self.Password_Not.textColor = UIColor.clear;
+        self.Email_Not.textColor = UIColor.clear;
+        self.Age_Not.textColor = UIColor.red;
+        self.Location_Not.textColor = UIColor.clear;
         }
         else if(self.Username.text != "" && self.Password.text != "" && self.Email.text != "" && self.Age.text != "" && self.Location.text == ""){
-        self.User_Note.textColor = UIColor.clearColor();
-        self.Password_Not.textColor = UIColor.clearColor();
-        self.Email_Not.textColor = UIColor.clearColor();
-        self.Age_Not.textColor = UIColor.clearColor();
-        self.Location_Not.textColor = UIColor.redColor();
+        self.User_Note.textColor = UIColor.clear;
+        self.Password_Not.textColor = UIColor.clear;
+        self.Email_Not.textColor = UIColor.clear;
+        self.Age_Not.textColor = UIColor.clear;
+        self.Location_Not.textColor = UIColor.red;
         }
         
         if(self.Username.text != "" && self.Password.text != "" && self.Email.text != "" && self.Age.text != "" && self.Location.text != "" ){
-        self.User_Note.textColor = UIColor.clearColor();
-        self.Password_Not.textColor = UIColor.clearColor();
-        self.Email_Not.textColor = UIColor.clearColor();
-        self.Age_Not.textColor = UIColor.clearColor();
-        self.Location_Not.textColor = UIColor.clearColor();
+        self.User_Note.textColor = UIColor.clear;
+        self.Password_Not.textColor = UIColor.clear;
+        self.Email_Not.textColor = UIColor.clear;
+        self.Age_Not.textColor = UIColor.clear;
+        self.Location_Not.textColor = UIColor.clear;
             
             
         //When send button is tappe
@@ -103,26 +117,29 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate,UIPickerView
         register_info.age_range = self.Age.text!;
         register_info.Profile_name = self.Location.text!;
         register_info.email = self.Email.text!;
-            
         
-        var myRootRef = Firebase(url:"https://simpleplus.firebaseio.com")
-        myRootRef.createUser(register_info.email, password: register_info.password,
-                withValueCompletionBlock: { error, result in
-                    if error != nil {
-                        // There was an error creating the account
-                    } else {
-                        let uid = result["uid"] as? String
-                       print("Successfully created user account with uid: \(uid)")
-                    }
-        })
             
+          //New Firebase Version
+          FIRAuth.auth()?.createUser(withEmail: register_info.email, password: register_info.password) { (user, error) in
+            
+            if error != nil {
+            // There was an error creating the account
+            print("There was an error in creating")
+            } else {
+            let uid = user?.uid
+            register_info.uid = uid! as NSString;
+            print("Successfully created user account with uid: \(uid)")
+            }
+           
+           }
+
             //Disable the button and end field
-            self.Username.enabled = false;
-            self.Password.enabled = false;
-            self.Email.enabled = false;
-            self.Age.enabled = false;
-            self.Location.enabled = false;
-            self.Sender.enabled = false;
+            self.Username.isEnabled = false;
+            self.Password.isEnabled = false;
+            self.Email.isEnabled = false;
+            self.Age.isEnabled = false;
+            self.Location.isEnabled = false;
+            self.Sender.isEnabled = false;
             self.Username.text = "";
             self.Password.text = "";
             self.Email.text = "";
@@ -192,6 +209,12 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate,UIPickerView
             }*/
         }
     }
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -203,8 +226,8 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate,UIPickerView
     }
     
     func updateAge(){
-        var sizeComponent = PickerComponent.age.rawValue
-        let size = pickerData[sizeComponent][myPicker.selectedRowInComponent(sizeComponent)]
+        let sizeComponent = PickerComponent.age.rawValue
+        let size = pickerData[sizeComponent][myPicker.selectedRow(inComponent: sizeComponent)]
         self.Age.text = size;
     }
     
@@ -213,58 +236,35 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate,UIPickerView
         ["18-25","25-30","30-35","35-40", "40-45"]
     ]
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return pickerData.count ;
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         updateAge();
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData[component].count;
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         return pickerData[component][row];
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Location_Picker", sender: nil)
+        self.performSegue(withIdentifier: "Location_Picker", sender: nil)
     }
     
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView!) -> UIView
     {
-        var pickerLabel = UILabel()
-        pickerLabel.textColor = UIColor.whiteColor()
+        let pickerLabel = UILabel()
+        pickerLabel.textColor = UIColor.white
         pickerLabel.text = pickerData[component][row]
         // pickerLabel.font = UIFont(name: pickerLabel.font.fontName, size: 15)
         pickerLabel.font = UIFont(name: "System Thin", size: 12) // In this use your custom font
-        pickerLabel.textAlignment = NSTextAlignment.Center
+        pickerLabel.textAlignment = NSTextAlignment.center
         return pickerLabel
     }
 }
 
-//Storing the userid as global variable in the ios app machine
-struct register_info{
-    static var username: String = "";
-    static var password: String = "";
-    static var email: String = "";
-    static var user_id: String = "";
-    static var age_range: String = "";
-    static var Profile_name: String = "";
-    static var location: String = "";
-    static var address: String = "";
-    static var location_lat: Double = 0;
-    static var location_lng: Double = 0;
-    static var Gender: String = "";
-    static var education: String = "";
-    static var Major: String = "";
-    static var beer_or_wine: String = "";
-    static var sports_or_art: String = "";
-    static var EDC_or_Classic: String = "";
-    static var Ethnicity: String = "";
-    static var Cooking_Dineout: String = "";
-    static var URank: String = "";
-    static var Photo: NSString = "";
-}

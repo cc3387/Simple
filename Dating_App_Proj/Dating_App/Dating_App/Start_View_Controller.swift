@@ -16,24 +16,24 @@ class startViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-        var token = defaults.objectForKey("token") //as? String
+        let defaults = UserDefaults.standard
+        let token = defaults.object(forKey: "token") //as? String
         //println("yay");
         print(token)
         
         if(token == nil) {
             //go to the login screen
             //println(token)
-            self.performSegueWithIdentifier("goToLogin", sender: self)
+            self.performSegue(withIdentifier: "goToLogin", sender: self)
             
         } else {
             //go to the accountview
             //token = token as! String
             print(token)
             print("hi")
-            self.performSegueWithIdentifier("goToAccount", sender: self)
+            self.performSegue(withIdentifier: "goToAccount", sender: self)
             
         }
         // call something to the server

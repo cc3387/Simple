@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreLocation
+import Foundation
 
 class Google_ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
@@ -15,7 +17,25 @@ class Google_ViewController: UIViewController, CLLocationManagerDelegate, GMSMap
     var mapTasks = MapTasks();
     
     
-    @IBAction func Request_From_Text(sender: AnyObject) {
+    @IBAction func Request_From_Text(_ sender: AnyObject) {
+        
+//            let locManager = CLLocationManager()
+//            locManager.requestWhenInUseAuthorization()
+//
+//            var currentLocation = CLLocation()
+//        
+//            if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse ||
+//            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Authorized){
+//            currentLocation = locManager.location!
+//            register_info.location_lat = currentLocation.coordinate.longitude
+//            register_info.location_lng = currentLocation.coordinate.latitude
+//            
+//            print(currentLocation.coordinate.longitude)
+//            print(currentLocation.coordinate.latitude)
+//        
+//            }
+
+/////////////////////////////////////////////////////////////////////////////////
         
         let address:String = self.Address.text!;
         
@@ -31,7 +51,7 @@ class Google_ViewController: UIViewController, CLLocationManagerDelegate, GMSMap
         print("The Longitude is:");
         print(register_info.location_lng);
         
-        
+//////////////////////////////////////////////////////////////////////////////////////////
 //        self.mapTasks.geocodeAddress(address, withCompletionHandler: { (status, success) -> Void in
 //            
 //            if !success {
@@ -137,15 +157,47 @@ class Google_ViewController: UIViewController, CLLocationManagerDelegate, GMSMap
     
     override func viewDidLoad() {
         // Do any additional setup after loading the view, typically from a nib.
+        super.viewDidLoad()
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(Google_ViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
         // Dispose of any resources that can be recreated.
     }
     
+    override var shouldAutorotate : Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Gender", sender: nil)
+        self.performSegue(withIdentifier: "Gender", sender: nil)
     }
+    
+    
+//    func locationManager(manager: CLLocationManager!, locations: [AnyObject]!)
+//    {
+//        let latestLocation: AnyObject = locations[locations.count - 1]
+//        
+//        register_info.location_lat =
+//                               latestLocation.coordinate.latitude
+//        register_info.location_lng =
+//                                latestLocation.coordinate.longitude
+//    } 
 
+    
+    
+    
 }

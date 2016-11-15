@@ -40,27 +40,42 @@
                   moduleName = "Simple"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/clement_chan_pig/Documents/Dating_App_Folder/Dating_App_Proj/Dating_App/Dating_App/Main_Profile.swift"
-                  timestampString = "487835083.972996"
+                  timestampString = "500820202.880462"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
+                  offsetFromSymbolStart = "12">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Simple.Main_Profile.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Simple.Main_Profile"
+                  symbolName = "Simple.Main_Profile.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Simple.Main_Profile"
                   moduleName = "Simple"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/clement_chan_pig/Documents/Dating_App_Folder/Dating_App_Proj/Dating_App/Dating_App/Main_Profile.swift"
-                  timestampString = "487835083.973158"
+                  timestampString = "500820202.882989"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "11"
                   endingLineNumber = "11"
-                  offsetFromSymbolStart = "107">
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Simple.Main_Profile.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Simple.Main_Profile&gt;"
+                  moduleName = "Simple"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clement_chan_pig/Documents/Dating_App_Folder/Dating_App_Proj/Dating_App/Dating_App/Main_Profile.swift"
+                  timestampString = "500820202.885358"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -70,12 +85,12 @@
                   moduleName = "Simple"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/clement_chan_pig/Documents/Dating_App_Folder/Dating_App_Proj/Dating_App/Dating_App/Main_Profile.swift"
-                  timestampString = "487835083.97331"
+                  timestampString = "500820202.888003"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "11"
                   endingLineNumber = "11"
-                  offsetFromSymbolStart = "105">
+                  offsetFromSymbolStart = "124">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -103,11 +118,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dating_App/AppDelegate.swift"
-            timestampString = "486535668.250045"
+            timestampString = "489797216.656549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
             landmarkName = "AppDelegate"
             landmarkType = "3">
          </BreakpointContent>
@@ -119,11 +134,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dating_App/AppDelegate.swift"
-            timestampString = "486535668.250045"
+            timestampString = "489797216.656549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "AppDelegate"
             landmarkType = "3">
             <Locations>
@@ -213,11 +228,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dating_App/AppDelegate.swift"
-            timestampString = "486535668.250045"
+            timestampString = "489797216.656549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13">
+            startingLineNumber = "14"
+            endingLineNumber = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -227,11 +242,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dating_App/AppDelegate.swift"
-            timestampString = "486535668.250045"
+            timestampString = "489797216.656549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
             landmarkName = "AppDelegate"
             landmarkType = "3">
             <Locations>
@@ -290,11 +305,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dating_App/AppDelegate.swift"
-            timestampString = "486535668.250045"
+            timestampString = "489797216.656549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12">
+            startingLineNumber = "13"
+            endingLineNumber = "13">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -304,11 +319,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dating_App/Meet_Profile.swift"
-            timestampString = "488076570.628965"
+            timestampString = "500792227.099628"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "528"
-            endingLineNumber = "528">
+            startingLineNumber = "611"
+            endingLineNumber = "611">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -318,61 +333,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dating_App/Chat_Main.swift"
-            timestampString = "488076570.628965"
+            timestampString = "500787872.639612"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "884"
-            endingLineNumber = "884"
+            startingLineNumber = "928"
+            endingLineNumber = "928"
             landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Dating_App/ViewControllerLogin.swift"
-            timestampString = "487896809.288646"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
-            landmarkName = "ViewControllerLogin"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Dating_App/Meet_Profile.swift"
-            timestampString = "487385647.922715"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "Load_Chat_1(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Dating_App/Chat_Main.swift"
-            timestampString = "488076570.628965"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "670"
-            endingLineNumber = "670"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

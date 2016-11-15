@@ -14,11 +14,11 @@ class Male_Female: UIViewController{
     
     override func viewDidLoad() {
     
-        var leftSwipe = UISwipeGestureRecognizer(target: self, action: ("handleSwipes:"))
-        var rightSwipe = UISwipeGestureRecognizer(target: self, action: ("handleSwipes:"))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: (#selector(Male_Female.handleSwipes(_:))))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: (#selector(Male_Female.handleSwipes(_:))))
         
-        leftSwipe.direction = .Left
-        rightSwipe.direction = .Right
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
         
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
@@ -30,14 +30,14 @@ class Male_Female: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    func handleSwipes(sender:UISwipeGestureRecognizer){
+    func handleSwipes(_ sender:UISwipeGestureRecognizer){
         
-        if(sender.direction == .Right){
+        if(sender.direction == .right){
         register_info.Gender = "Female"
         loadDestinationVC()
         print(register_info.Gender)
         }
-        else if(sender.direction == .Left){
+        else if(sender.direction == .left){
         register_info.Gender = "Male"
         loadDestinationVC()
         print(register_info.Gender)
@@ -45,7 +45,15 @@ class Male_Female: UIViewController{
     }
 
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Ethnicity", sender: nil)
+        self.performSegue(withIdentifier: "Ethnicity", sender: nil)
+    }
+    
+    override var shouldAutorotate : Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
 }

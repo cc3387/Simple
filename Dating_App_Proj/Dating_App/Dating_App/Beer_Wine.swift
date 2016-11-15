@@ -14,11 +14,11 @@ class BeerWine: UIViewController{
     
     override func viewDidLoad() {
         
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: ("BeerWineSwipes:"))
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: ("BeerWineSwipes:"))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: (#selector(BeerWine.BeerWineSwipes(_:))))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: (#selector(BeerWine.BeerWineSwipes(_:))))
         
-        leftSwipe.direction = .Left
-        rightSwipe.direction = .Right
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
         
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
@@ -30,15 +30,15 @@ class BeerWine: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    func BeerWineSwipes(sender:UISwipeGestureRecognizer){
+    func BeerWineSwipes(_ sender:UISwipeGestureRecognizer){
         
-        if(sender.direction == .Right){
+        if(sender.direction == .right){
             register_info.beer_or_wine = "Wine"
             print(register_info.beer_or_wine)
             loadDestinationVC()
            
         }
-        else if(sender.direction == .Left){
+        else if(sender.direction == .left){
             register_info.beer_or_wine = "Beer"
             print(register_info.beer_or_wine)
             loadDestinationVC()
@@ -46,7 +46,15 @@ class BeerWine: UIViewController{
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("SportsArt", sender: nil)
+        self.performSegue(withIdentifier: "SportsArt", sender: nil)
+    }
+    
+    override var shouldAutorotate : Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
 }

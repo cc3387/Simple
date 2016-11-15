@@ -26,14 +26,14 @@ class Loc_PickerView: UIViewController,UIPickerViewDataSource, UIPickerViewDeleg
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func Nextq(sender: AnyObject) {
+    @IBAction func Nextq(_ sender: AnyObject) {
         updateLoc();
         loadDestinationVC();
     }
     
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Google_Loc", sender: nil)
+        self.performSegue(withIdentifier: "Google_Loc", sender: nil)
     }
     
     
@@ -42,15 +42,15 @@ class Loc_PickerView: UIViewController,UIPickerViewDataSource, UIPickerViewDeleg
     }
     
     func updateLoc(){
-        var sizeComponent = PickerComponent.loc.rawValue
-        let size = pickerData[sizeComponent][myPicker.selectedRowInComponent(sizeComponent)]
+        let sizeComponent = PickerComponent.loc.rawValue
+        let size = pickerData[sizeComponent][myPicker.selectedRow(inComponent: sizeComponent)]
         self.Loc = size;
         register_info.location = self.map(self.Loc);
         print(register_info.location);
     }
     
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return pickerData.count
     }
     
@@ -58,28 +58,28 @@ class Loc_PickerView: UIViewController,UIPickerViewDataSource, UIPickerViewDeleg
         ["Alabama AL", "Alaska AK", "Arizona AZ", "Arkansas AR", "California CA", "Colorado CO", "Conneticut CT", "Deleware DE", "Florida FL", "Georgia GA", "Hawaii HI", "Idaho ID", "Illinois IL", "Indiana IN", "Iowa IA", "Kansas KS", "Kentucky KY","Louisiana LA", "Maine ME", "Maryland  MD", "Massechusetts MA", "Michigan MI", "Minnesota MN", "Mississippi MS", "Missouri MO", "Montana MT", "Nebraska NE", "Nevada NV", "New Hampshire NH", "New Jersey NJ", "New Mexico NM", "New York NY", "North Carolina NC", "North Dakota ND", "Oklahoma OK", "Oregon OR", "Pennsylvania PA", "Rhode Island RI", "South Caroline SC", "South Dakota SD", "Tennessee TN", "Texas TX", "Utah UT", "Vermont VT", "Virginia VA", "Washington WA", "West Virginia WV", "Wisconsin WI", "Wyoming WY", "International INT'l"]
     ]
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData[component].count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         return pickerData[component][row]
     }
     
     /*Function to change the color of the fonts in the pickerview*/
     
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView!) -> UIView
     {
-        var pickerLabel = UILabel()
-        pickerLabel.textColor = UIColor.whiteColor()
+        let pickerLabel = UILabel()
+        pickerLabel.textColor = UIColor.white
         pickerLabel.text = pickerData[component][row]
         // pickerLabel.font = UIFont(name: pickerLabel.font.fontName, size: 15)
         pickerLabel.font = UIFont(name: "System Thin", size: 12) // In this use your custom font
-        pickerLabel.textAlignment = NSTextAlignment.Center
+        pickerLabel.textAlignment = NSTextAlignment.center
         return pickerLabel
     }
     
-    func map(loc:String) -> String {
+    func map(_ loc:String) -> String {
         
         var location: String?;
         
@@ -235,6 +235,14 @@ class Loc_PickerView: UIViewController,UIPickerViewDataSource, UIPickerViewDeleg
         }
         
         return location!;
+    }
+    
+    override var shouldAutorotate : Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
 }
