@@ -19,18 +19,12 @@ class Start_Page : UIViewController{
     
     override func viewDidLoad() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
         
         self.activityIndicator.startAnimating()
-        self.activityIndicator.hidden = false
-        
-        print(BatchUser.installationID())
-        
-        //        var ref = Firebase(url:"https://simpleplus.firebaseio.com/autologin")
-        //        var reflogin = Firebase(url:"https://simpleplus.firebaseio.com")
+        self.activityIndicator.isHidden = false
         
         var ref = FIRDatabase.database().reference().child("autologin")
-        //          var reflogin = FIRDatabase.database().reference()
         
         if(BatchPush.lastKnownPushToken() == nil){
         self.phoneid = BatchUser.installationID()!
@@ -41,21 +35,19 @@ class Start_Page : UIViewController{
         login.phoneid = self.phoneid
         }
         
-        ref.queryOrderedByChild("phoneid").queryEqualToValue(self.phoneid)
-            .observeSingleEventOfType(.ChildAdded, withBlock: { snapshot in
-                let loginid = snapshot.value!["username"] as! String!
-                let password  = snapshot.value!["password"] as! String!
+        ref.queryOrdered(byChild: "phoneid").queryEqual(toValue: self.phoneid)
+            .observeSingleEvent(of: .childAdded, with: { snapshot in
                 
-                login.loginid = loginid
-                login.password = password
+                if let source = snapshot.value as? [String:AnyObject] {
+                let loginid = source["username"] as? String
+                let password  = source["password"] as? String
                 
-                print(login.loginid)
-                print(login.password)
-                
+                login.loginid = loginid!
+                login.password = password!
                 
                 //Logging in with details extracted from autologin data
-                if(loginid != "" && password != ""){
-                    FIRAuth.auth()?.signInWithEmail(login.loginid, password: login.password) { (user, error) in
+                if(login.loginid != "" && login.password != ""){
+                    FIRAuth.auth()?.signIn(withEmail: login.loginid, password: login.password) { (user, error) in
                         if error != nil {
                             // an error occured while attempting login
                             print("Login info is wrong");
@@ -67,19 +59,20 @@ class Start_Page : UIViewController{
                             frienduser.phoneidarray.removeAll();
                             frienduser.profilenamearray.removeAll();
                             
-                            
                             var friend = "friends/" + login.chatid  + "_fd"
                             let friendlist = FIRDatabase.database().reference().child(friend)
-                            friendlist.queryOrderedByChild("uid").observeEventType(.Value, withBlock:{friendsnapshot in
-                                for index in friendsnapshot.children.allObjects as! [FIRDataSnapshot]{
+                            friendlist.queryOrdered(byChild: "uid").observe(.value, with:{friendsnapshot in
+                                for index in friendsnapshot.children.allObjects as! [FIRDataSnapshot] {
                                     
-                                    let uid = index.value!["uid"] as! String!
-                                    let id = uid + "_fd"
+                                    if let source = index.value as? [String:AnyObject] {
+                                    
+                                    let uid = source["uid"] as! String!
+                                    let id = uid! + "_fd"
                                     
                                     var friendlst = FIRDatabase.database().reference().child("friends").child(id).child(login.chatid).child("phoneid")
                                     
                                     friendlst.setValue(BatchPush.lastKnownPushToken())
-                                    
+                                    }
                                 }
                             })
                             
@@ -87,85 +80,18 @@ class Start_Page : UIViewController{
                         };
                     }
                 }
-                
-            })
+            }
+        })
+              
         
-        ////////////////////////////////////////////////////////////////////////////////
-        
-        //        let phoneid = BatchPush.lastKnownPushToken()
-        //        ref.queryOrderedByChild("phoneid").queryEqualToValue(phoneid)
-        //            .observeEventType(.ChildAdded, withBlock: { snapshot in
-        //                if let username = snapshot.value!["username"] as? String {
-        //                    login.loginid = username
-        //                    print(login.loginid)
-        //                    if let password = snapshot.value!["password"] as? String {
-        //                        login.password = password
-        //                        print(login.password)
-        //                        if(username != "" && password != ""){
-        //                            FIRAuth.auth()!.signInWithEmail(login.loginid, password: login.password) {
-        //                                error, authData in
-        //                                if error != nil {
-        //                                    // an error occured while attempting login
-        //                                    print("Login info is wrong");
-        //                                } else {
-        //                                    login.chatid = (FIRAuth.auth()?.currentUser?.uid)!
-        //                                    indication = 1;
-        //                                    frienduser.emailarray.removeAll();
-        //                                    frienduser.useridarray.removeAll();
-        //                                    frienduser.phoneidarray.removeAll();
-        //                                    frienduser.profilenamearray.removeAll();
-        //                                    self.loadDestinationVC1();
-        //                                };
-        //                            }
-        //                        }
-        //                        else{
-        //
-        //                        }
-        //                    }
-        //                }
-        //            })
-        
-        //            ref.queryOrderedByChild("phoneid").queryEqualToValue(phoneid)
-        //                    .observeEventType(.ChildAdded, withBlock: { snapshot in
-        //                        if let userdetail = snapshot.value as? NSArray{
-        //                            login.loginid = userdetail[2] as! String
-        //                            print(login.loginid)
-        //                            login.password = userdetail[0] as! String
-        //                            print(login.password)
-        //
-        //                            if(login.loginid != "" && login.password != ""){
-        //                            FIRAuth.auth()!.signInWithEmail(login.loginid, password: login.password) {
-        //                                error, authData in
-        //                                if error != nil {
-        //                                // an error occured while attempting login
-        //                                print("Login info is wrong");
-        //                                } else {
-        //                                login.chatid = (FIRAuth.auth()!.currentUser!.uid)
-        //                                indication = 1;
-        //                                frienduser.emailarray.removeAll();
-        //                                frienduser.useridarray.removeAll();
-        //                                frienduser.phoneidarray.removeAll();
-        //                                frienduser.profilenamearray.removeAll();
-        //                                self.loadDestinationVC1();
-        //                                };
-        //                                }
-        //                                }
-        //                                else{
-        //
-        //                                }
-        //                    }
-        //            })
-        
-        
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(5 * NSEC_PER_SEC)), dispatch_get_main_queue()){
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double((Int64)(5 * NSEC_PER_SEC)) / Double(NSEC_PER_SEC)){
             self.activityIndicator.stopAnimating()
-            self.activityIndicator.hidden = true
+            self.activityIndicator.isHidden = true
         };
         
     }
     
-    @IBAction func Login(sender: AnyObject) {
+    @IBAction func Login(_ sender: AnyObject) {
         //        if(loginid == ""){
         loadDestinationVC()
         //        }
@@ -175,22 +101,22 @@ class Start_Page : UIViewController{
     }
     
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
     
     func loadDestinationVC1(){
-        self.performSegueWithIdentifier("ToProfile", sender: nil)
+        self.performSegue(withIdentifier: "ToProfile", sender: nil)
     }
     
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("No_Login", sender: nil)
+        self.performSegue(withIdentifier: "No_Login", sender: nil)
     }
     
 };
@@ -290,7 +216,7 @@ struct login{
     static var chatid = "";
     static var phoneid = "";
     static var registered:Int = 0;
-    
+    static var Photo: UIImage?;
 }
 
 struct arrays{

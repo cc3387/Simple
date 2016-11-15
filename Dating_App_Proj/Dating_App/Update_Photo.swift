@@ -22,49 +22,39 @@ class UpdatePhoto: UIViewController, UIImagePickerControllerDelegate, UINavigati
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    @IBAction func Choose_Photo(sender: AnyObject) {
-        var image = UIImagePickerController()
+    @IBAction func Choose_Photo(_ sender: AnyObject) {
+        let image = UIImagePickerController()
         image.delegate = self
         image.allowsEditing = false
-        image.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        image.sourceType = UIImagePickerControllerSourceType.photoLibrary
         image.allowsEditing = false
-        presentViewController(image, animated: true, completion: nil)
+        present(image, animated: true, completion: nil)
     }
     
-    @IBAction func Upload(sender: AnyObject) {
+    @IBAction func Upload(_ sender: AnyObject) {
         //Make a new UIImage
         let uploadImage = UIImage(fileName:"Profile", type:"png")
         
         
         //Make an NSData PNG representation of the Image
-        let imageData: NSData = UIImagePNGRepresentation(resizeimage(uploadImage!,targetSize: CGSizeMake(uploadImage!.size.height/2, uploadImage!.size.width/2)))!
+        let imageData: Data = UIImagePNGRepresentation(resizeimage(uploadImage!,targetSize: CGSize(width: uploadImage!.size.height/2, height: uploadImage!.size.width/2)))!
         
         //Using base64StringFromData method, we are able to convert data to string
-        self.base64String = imageData.base64EncodedStringWithOptions([])
+        self.base64String = imageData.base64EncodedString(options: []) as NSString!
         
-        var NameRef = FIRDatabase.database().reference().child("users").child(login_user.uid);
+        let NameRef = FIRDatabase.database().reference().child("users").child(login_user.uid);
         
-//        var NameRef = Firebase(url: "https://simpleplus.firebaseio.com/users/" + login_user.uid)
-        
-        var Photo = [
+        let Photo = [
             "Photo": self.base64String
         ];
         
         NameRef.updateChildValues(Photo);
         
-//      let friend = "https://simpleplus.firebaseio.com/friends/";
-        
         for index in frienduser.useridarray{
-        
-//      let friend1 = friend + index + "_fd/" + login_user.uid;
-            
         let friend1 = index + "_fd";
-            
-//        var NameRef1 = Firebase(url: friend1)
-            
         let NameRef1 = FIRDatabase.database().reference().child("friends").child(friend1).child(login_user.uid);
             
-        var Photo = [
+        let Photo = [
             "Photo": self.base64String
         ];
         
@@ -75,29 +65,29 @@ class UpdatePhoto: UIViewController, UIImagePickerControllerDelegate, UINavigati
         loadDestinationVC()
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let img = info[UIImagePickerControllerOriginalImage] as? UIImage {
             img.save("Profile", type: "png")
             imageView.image = img
-            imageView.contentMode = .ScaleAspectFit
+            imageView.contentMode = .scaleAspectFit
         }
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Update_Photo", sender: nil)
+        self.performSegue(withIdentifier: "Update_Photo", sender: nil)
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
 }

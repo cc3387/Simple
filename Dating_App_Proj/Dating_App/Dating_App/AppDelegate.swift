@@ -22,10 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
     var loginid = login.loginid
     var password = login.password
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         //Include Batch
-        Batch.startWithAPIKey("577F39F55EDFB32D2A5AC16A8A3941")
+        Batch.start(withAPIKey: "DEV582972DC529B1FE31875A6CB6D6")
         
         // Register for push notifications
         BatchPush.registerForRemoteNotifications()
@@ -34,94 +34,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
         GMSServices.provideAPIKey("AIzaSyCDpeX5sgpfZFhhXyzCcU57drXp--q6PBw")
         
         //Register for push notifications
-        registerForPushNotifications(application)
+        //registerForPushNotifications(application)
         
         //For the purpose of Firebase authorization
         FIRApp.configure()
-        
-//        var timer: NSTimer!
-//        var refresher: UIRefreshControl!
-//        refresher = UIRefreshControl()
-//        refresher.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
-//        timer = NSTimer.scheduledTimerWithTimeInterval(3600.0, target: self, selector:"send_reminder", userInfo: nil, repeats: true)
-        
         
         // Override point for customization after application launch.
         return true
     }
     
-//    override init() {
-//        // Firebase Init
-//        FIRApp.configure()
-//    }
-    
-    
-    func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
         
-//        func autologin(){
-//            if(loginid != "" && password != ""){
-//                var ref = Firebase(url:"https://simpleplus.firebaseio.com")
-//                ref.authUser(loginid, password: password) {
-//                    error, authData in
-//                    if error != nil {
-//                        // an error occured while attempting login
-//                        print("Login info is wrong");
-//                    } else {
-//                        print("Login info is correct");
-//                    };
-//                }
-//                self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-//                var storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Profile_Main") as! UIViewController
-//                self.window?.rootViewController = initialViewController
-//                self.window?.makeKeyAndVisible()
-//            }
-//        }
-        
-        //autologin();
-        
     }
 
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
         var loginid = login.loginid
         var password = login.password
         
-//        var timer1: NSTimer!
-//        var refresher1: UIRefreshControl!
-//        refresher1 = UIRefreshControl()
-//        refresher1.addTarget(self, action: "refresh1:", forControlEvents: .ValueChanged)
-//        timer = NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector:"autologin", userInfo: nil, repeats: true)
-        
-//        func autologin(){
-//        if(loginid != "" && password != ""){
-//            var ref = Firebase(url:"https://simpleplus.firebaseio.com")
-//            ref.authUser(loginid, password: password) {
-//                error, authData in
-//                if error != nil {
-//                    // an error occured while attempting login
-//                    print("Login info is wrong");
-//                } else {
-//                    print("Login info is correct");
-//                };
-//            }
-//            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-//            var storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Chatroom") as! UIViewController
-//            self.window?.rootViewController = initialViewController
-//            self.window?.makeKeyAndVisible()
-//        }
-//        }
-        
         let devDeviceToken = login_user.phoneid
-        if let pushClient = BatchClientPush(apiKey: "577F39F55EDFB32D2A5AC16A8A3941", restKey: "a524aa85f96b3bc103188428b026bd5b") {
+        if let pushClient = BatchClientPush(apiKey: "DEV582972DC529B1FE31875A6CB6D6", restKey: "a524aa85f96b3bc103188428b026bd5b") {
             
             pushClient.sandbox = false
-            pushClient.customPayload = ["aps": ["badge": 0]]
+            pushClient.customPayload = ["aps": ["badge": 0] as AnyObject]
             pushClient.recipients.tokens.append(devDeviceToken)
             pushClient.send { (response, error) in
                 if let error = error {
@@ -131,63 +70,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
                 }
             }
         }
-
-        //Calling the function
-        //autologin();
     }
-
-//    func send_reminder(){
-//        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-//        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
-//        let notification = UILocalNotification()
-//        notification.fireDate = NSDate(timeIntervalSinceNow: 1)
-//        notification.alertBody = "Time to Send Your Friend messages!"
-//        notification.alertAction = "Read Message!"
-//        notification.soundName = UILocalNotificationDefaultSoundName
-//        notification.userInfo = ["CustomField1": "w00t"]
-//        UIApplication.sharedApplication().scheduleLocalNotification(notification)
-//    }
     
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
 
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
-    func applicationWillTerminate(application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
         
     }
     
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any])
     {
         BatchPush.dismissNotifications()
     }
     
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let tokenChars = (deviceToken as NSData).bytes.bindMemory(to: CChar.self, capacity: deviceToken.count)
         var tokenString = ""
         
-        for i in 0..<deviceToken.length {
+        for i in 0..<deviceToken.count {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
         }
         
         print("Device Token:", tokenString)
     }
     
-    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Failed to register:", error)
     }
     
     
-    func registerForPushNotifications(application: UIApplication) {
+    func registerForPushNotifications(_ application: UIApplication) {
         let notificationSettings = UIUserNotificationSettings(
-            forTypes: [.Badge, .Sound, .Alert], categories: nil)
+            types: [.badge, .sound, .alert], categories: nil)
         application.registerUserNotificationSettings(notificationSettings)
     }
     

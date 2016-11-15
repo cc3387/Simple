@@ -19,7 +19,7 @@ class FinalSend: UIViewController{
     @IBOutlet weak var School: UILabel!
     @IBOutlet weak var Major: UILabel!
     
-    @IBAction func ConfirmSend(sender: AnyObject) {
+    @IBAction func ConfirmSend(_ sender: AnyObject) {
         
         let manager = AFHTTPRequestOperationManager();
         
@@ -32,7 +32,7 @@ class FinalSend: UIViewController{
         //var loc_lng: String = String(format:"%f",loc_lng_int);
         //var loc_lat:String = String(format:"%f",loc_lat_int);
         
-        var params = [
+        let params = [
             //"title": register_info.user_id,
             "username": register_info.username,
             "password": register_info.password,
@@ -51,9 +51,9 @@ class FinalSend: UIViewController{
             "Sports_Art": register_info.sports_or_art,
             "Cooking_DineOut": register_info.Cooking_Dineout,
             "University_Rank": register_info.URank
-        ];
+        ] as [String : Any];
         
-        manager.POST("http://localhost:3000/register",
+        manager.post("http://localhost:3000/register",
             parameters: params,
             success: { (AFHTTPRequestOperation, AnyObject) -> Void in
                 print("success!")
@@ -120,7 +120,7 @@ class FinalSend: UIViewController{
     
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Start", sender: nil)
+        self.performSegue(withIdentifier: "Start", sender: nil)
     }
     
 }

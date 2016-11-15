@@ -33,11 +33,11 @@ class Ansone: UIViewController{
         self.answeronelabel.text = "Rural";
         self.answertwolabel.text = "Urban";
         
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: ("Swipes:"))
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: ("Swipes:"))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: (#selector(Ansone.Swipes(_:))))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: (#selector(Ansone.Swipes(_:))))
         
-        leftSwipe.direction = .Left
-        rightSwipe.direction = .Right
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
         
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
@@ -49,9 +49,9 @@ class Ansone: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    func Swipes(sender:UISwipeGestureRecognizer){
+    func Swipes(_ sender:UISwipeGestureRecognizer){
         
-        if(sender.direction == .Right){
+        if(sender.direction == .right){
             
             let param = ["q2": "Urban"]
             
@@ -60,7 +60,7 @@ class Ansone: UIViewController{
             loadDestinationVC()
             
         }
-        else if(sender.direction == .Left){
+        else if(sender.direction == .left){
             
             let param = ["q2": "Rural"]
             
@@ -71,15 +71,15 @@ class Ansone: UIViewController{
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Toansthree", sender: nil)
+        self.performSegue(withIdentifier: "Toansthree", sender: nil)
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
 };

@@ -26,7 +26,7 @@ class FinalSend_Final: UIViewController{
     //var refauto = Firebase(url:"https://simpleplus.firebaseio.com/autologin")
     //var userref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
     
-    @IBAction func ConfirmSend(sender: AnyObject) {
+    @IBAction func ConfirmSend(_ sender: AnyObject) {
         
         let manager = AFHTTPRequestOperationManager();
         
@@ -39,10 +39,10 @@ class FinalSend_Final: UIViewController{
         //var loc_lng: String = String(format:"%f",loc_lng_int);
         //var loc_lat:String = String(format:"%f",loc_lat_int);
         
-        var refauto = self.ref.child("autologin")
-        var userref = self.ref.child("friends")
+        let refauto = self.ref.child("autologin")
+        let userref = self.ref.child("friends")
     
-        var profile = [
+        let profile = [
             //"title": register_info.user_id,
             "username": register_info.username,
             "password": register_info.password,
@@ -65,9 +65,9 @@ class FinalSend_Final: UIViewController{
             "Photo": register_info.Photo,
             "uid": register_info.uid,
             "phoneid": register_info.phoneid
-        ];
+        ] as [String : Any];
         
-        var friend = [
+        let friend = [
             "username" : register_info.username,
             "location" : register_info.location,
             "Education": register_info.education,
@@ -75,23 +75,23 @@ class FinalSend_Final: UIViewController{
             "Email": register_info.email,
             "uid": register_info.uid,
             "phoneid": register_info.phoneid
-        ];
+        ] as [String : Any];
         
-        var autologin = [
+        let autologin = [
             "username": register_info.email,
             "password": register_info.password,
             "phoneid" : register_info.phoneid
-        ];
+        ] as [String : Any];
         
         let phonelogin = register_info.phoneid
         let phoneloginfinal = (phonelogin as String) + "login"
         
-        var usersRef = ref.childByAppendingPath("users");
-        var usernamefriend = register_info.uid as String + "_fd";
-        usersRef.childByAppendingPath(register_info.uid as String).setValue(profile);
-        var userfd = userref.childByAppendingPath(usernamefriend);
-        userfd.childByAppendingPath(register_info.uid as String).setValue(friend);
-        refauto.childByAppendingPath(phoneloginfinal).setValue(autologin);
+        let usersRef = ref.child(byAppendingPath: "users");
+        let usernamefriend = register_info.uid as String + "_fd";
+        usersRef.child(byAppendingPath: register_info.uid as String).setValue(profile);
+        let userfd = userref.child(byAppendingPath: usernamefriend);
+        userfd.child(byAppendingPath: register_info.uid as String).setValue(friend);
+        refauto.child(byAppendingPath: phoneloginfinal).setValue(autologin);
         login.registered = 1;
         loadDestinationVC();
     }
@@ -118,15 +118,15 @@ class FinalSend_Final: UIViewController{
     
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Start", sender: nil)
+        self.performSegue(withIdentifier: "Start", sender: nil)
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
 }

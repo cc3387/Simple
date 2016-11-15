@@ -14,11 +14,11 @@ class SportsArtGallery: UIViewController{
     
     override func viewDidLoad() {
         
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: ("SportArtSwipes:"))
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: ("SportArtSwipes:"))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: (#selector(SportsArtGallery.SportArtSwipes(_:))))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: (#selector(SportsArtGallery.SportArtSwipes(_:))))
         
-        leftSwipe.direction = .Left
-        rightSwipe.direction = .Right
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
         
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
@@ -30,14 +30,14 @@ class SportsArtGallery: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    func SportArtSwipes(sender:UISwipeGestureRecognizer){
+    func SportArtSwipes(_ sender:UISwipeGestureRecognizer){
         
-        if(sender.direction == .Right){
+        if(sender.direction == .right){
             register_info.sports_or_art = "Art_Gallery"
             loadDestinationVC()
             print(register_info.sports_or_art)
         }
-        else if(sender.direction == .Left){
+        else if(sender.direction == .left){
             register_info.sports_or_art = "Sports_Event"
             loadDestinationVC()
             print(register_info.sports_or_art)
@@ -45,15 +45,15 @@ class SportsArtGallery: UIViewController{
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("EDC_Classical", sender: nil)
+        self.performSegue(withIdentifier: "EDC_Classical", sender: nil)
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
 }

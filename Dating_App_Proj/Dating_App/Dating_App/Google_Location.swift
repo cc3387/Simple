@@ -17,11 +17,11 @@ class Google_ViewController: UIViewController, CLLocationManagerDelegate, GMSMap
     var mapTasks = MapTasks();
     
     
-    @IBAction func Request_From_Text(sender: AnyObject) {
+    @IBAction func Request_From_Text(_ sender: AnyObject) {
         
 //            let locManager = CLLocationManager()
 //            locManager.requestWhenInUseAuthorization()
-//        
+//
 //            var currentLocation = CLLocation()
 //        
 //            if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse ||
@@ -159,7 +159,7 @@ class Google_ViewController: UIViewController, CLLocationManagerDelegate, GMSMap
         // Do any additional setup after loading the view, typically from a nib.
         super.viewDidLoad()
         //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(Google_ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
@@ -173,17 +173,17 @@ class Google_ViewController: UIViewController, CLLocationManagerDelegate, GMSMap
         // Dispose of any resources that can be recreated.
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Gender", sender: nil)
+        self.performSegue(withIdentifier: "Gender", sender: nil)
     }
     
     

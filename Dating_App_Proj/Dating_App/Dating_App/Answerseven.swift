@@ -32,11 +32,11 @@ class Ansseven: UIViewController{
         self.answeronelabel.text = "Smoke";
         self.answertwolabel.text = "Non-Smoke";
         
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: ("Swipes:"))
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: ("Swipes:"))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: (#selector(Ansseven.Swipes(_:))))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: (#selector(Ansseven.Swipes(_:))))
         
-        leftSwipe.direction = .Left
-        rightSwipe.direction = .Right
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
         
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
@@ -48,9 +48,9 @@ class Ansseven: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    func Swipes(sender:UISwipeGestureRecognizer){
+    func Swipes(_ sender:UISwipeGestureRecognizer){
         
-        if(sender.direction == .Right){
+        if(sender.direction == .right){
             
             let param = ["q7": "Non-Smoke"]
             
@@ -59,7 +59,7 @@ class Ansseven: UIViewController{
             loadDestinationVC()
             
         }
-        else if(sender.direction == .Left){
+        else if(sender.direction == .left){
             
             let param = ["q7": "Smoke"]
             
@@ -70,15 +70,15 @@ class Ansseven: UIViewController{
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Toanseight", sender: nil)
+        self.performSegue(withIdentifier: "Toanseight", sender: nil)
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
 };

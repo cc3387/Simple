@@ -21,7 +21,6 @@
 		AA0876021D41CE3100775DC7 /* Question_Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0876011D41CE3100775DC7 /* Question_Match.swift */; };
 		AA0876041D431D0500775DC7 /* Login_Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0876031D431D0500775DC7 /* Login_Transfer.swift */; };
 		AA0E41B21D371D1D00657C3C /* Transfer_Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0E41B11D371D1D00657C3C /* Transfer_Page.swift */; };
-		AA0E41B41D38878E00657C3C /* BatchClientPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0E41B31D38878D00657C3C /* BatchClientPush.swift */; };
 		AA0E68B81B8EC9F9000941C4 /* Male_Cloud.tif in Resources */ = {isa = PBXBuildFile; fileRef = AA0E68B71B8EC9F9000941C4 /* Male_Cloud.tif */; };
 		AA0E68BC1B8ECC53000941C4 /* Female_Cloud.tif in Resources */ = {isa = PBXBuildFile; fileRef = AA0E68BB1B8ECC53000941C4 /* Female_Cloud.tif */; };
 		AA10153A1B5170A7007F77B8 /* ViewControllerLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1015391B5170A7007F77B8 /* ViewControllerLogin.swift */; };
@@ -62,6 +61,7 @@
 		AA271DAF1B4E1A8800EA5BA6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA271DAE1B4E1A8800EA5BA6 /* CoreGraphics.framework */; };
 		AA271DB11B4E1A9B00EA5BA6 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA271DB01B4E1A9B00EA5BA6 /* CFNetwork.framework */; };
 		AA271DB31B4E1AAD00EA5BA6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA271DB21B4E1AAD00EA5BA6 /* AudioToolbox.framework */; };
+		AA2F30281DDA954700CCE02A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA2F30271DDA954700CCE02A /* GoogleService-Info.plist */; };
 		AA3527911BDB007F00679464 /* Edu_PickerView_UK.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3527901BDB007F00679464 /* Edu_PickerView_UK.swift */; };
 		AA3527931BDB629100679464 /* Edu_PickerView_HK.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3527921BDB629000679464 /* Edu_PickerView_HK.swift */; };
 		AA3527951BDB683400679464 /* Edu_PickerView_Aus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3527941BDB683400679464 /* Edu_PickerView_Aus.swift */; };
@@ -102,14 +102,16 @@
 		AA7EF40F1BAE46C500C8A305 /* malaysia_morning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA7EF40E1BAE46C500C8A305 /* malaysia_morning.jpg */; };
 		AA7EF4111BAE479A00C8A305 /* chicago_afternoon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA7EF4101BAE479A00C8A305 /* chicago_afternoon.jpg */; };
 		AA7F86B91D2AB4D500329B84 /* Contact_Us.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7F86B81D2AB4D500329B84 /* Contact_Us.swift */; };
+		AA8152081DD8EA4700693BEE /* BatchClientPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8152071DD8EA4700693BEE /* BatchClientPush.swift */; };
 		AA8B166F1B8EAD8C00096E73 /* cloud-horizon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA8B166E1B8EAD8C00096E73 /* cloud-horizon.jpg */; };
 		AAA36DD11C102C5F0073F6B0 /* UIImageView+AFNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA36DD01C102C5F0073F6B0 /* UIImageView+AFNetworking.swift */; };
 		AAAA0FD81BC6CF6B004F2474 /* Start_View_Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0FD71BC6CF6B004F2474 /* Start_View_Controller.swift */; };
 		AAAA0FDA1BC6D210004F2474 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0FD91BC6D210004F2474 /* User.swift */; };
-		AAB352751D66A5B10019D8AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAB352741D66A5B10019D8AF /* GoogleService-Info.plist */; };
 		AAD2047D1C1A99CB008E1770 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAD2047C1C1A99CB008E1770 /* Main.storyboard */; };
 		AAD788161BF95535002E436C /* Chat_Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD788151BF95535002E436C /* Chat_Main.swift */; };
 		AADACDD41D15438C0091B142 /* Load_Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADACDD31D15438A0091B142 /* Load_Friends.swift */; };
+		AADDC8101D7BC36900B2D755 /* Friend_Photo_Zoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADDC80F1D7BC36900B2D755 /* Friend_Photo_Zoom.swift */; };
+		AADDC8131D7C60EC00B2D755 /* Profile_Photo_Zoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADDC8121D7C60EC00B2D755 /* Profile_Photo_Zoom.swift */; };
 		AADFA22B1B6D74E600491DBF /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AADFA2191B6D74E600491DBF /* AFHTTPRequestOperation.m */; };
 		AADFA22C1B6D74E600491DBF /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AADFA2191B6D74E600491DBF /* AFHTTPRequestOperation.m */; };
 		AADFA22D1B6D74E600491DBF /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AADFA21B1B6D74E600491DBF /* AFHTTPRequestOperationManager.m */; };
@@ -158,7 +160,6 @@
 		AA0876011D41CE3100775DC7 /* Question_Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question_Match.swift; sourceTree = "<group>"; };
 		AA0876031D431D0500775DC7 /* Login_Transfer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login_Transfer.swift; sourceTree = "<group>"; };
 		AA0E41B11D371D1D00657C3C /* Transfer_Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transfer_Page.swift; sourceTree = "<group>"; };
-		AA0E41B31D38878D00657C3C /* BatchClientPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchClientPush.swift; sourceTree = "<group>"; };
 		AA0E68B71B8EC9F9000941C4 /* Male_Cloud.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Male_Cloud.tif; sourceTree = "<group>"; };
 		AA0E68BB1B8ECC53000941C4 /* Female_Cloud.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Female_Cloud.tif; sourceTree = "<group>"; };
 		AA1015391B5170A7007F77B8 /* ViewControllerLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerLogin.swift; sourceTree = "<group>"; };
@@ -204,6 +205,8 @@
 		AA271DB01B4E1A9B00EA5BA6 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AA271DB21B4E1AAD00EA5BA6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AA271DC61B4E1C6F00EA5BA6 /* Dating_App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dating_App-Bridging-Header.h"; sourceTree = "<group>"; };
+		AA28C7261DD9AB65006C7746 /* Simple.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Simple.entitlements; sourceTree = "<group>"; };
+		AA2F30271DDA954700CCE02A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AA3527901BDB007F00679464 /* Edu_PickerView_UK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edu_PickerView_UK.swift; sourceTree = "<group>"; };
 		AA3527921BDB629000679464 /* Edu_PickerView_HK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edu_PickerView_HK.swift; sourceTree = "<group>"; };
 		AA3527941BDB683400679464 /* Edu_PickerView_Aus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edu_PickerView_Aus.swift; sourceTree = "<group>"; };
@@ -246,14 +249,16 @@
 		AA7EF40E1BAE46C500C8A305 /* malaysia_morning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = malaysia_morning.jpg; sourceTree = "<group>"; };
 		AA7EF4101BAE479A00C8A305 /* chicago_afternoon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chicago_afternoon.jpg; sourceTree = "<group>"; };
 		AA7F86B81D2AB4D500329B84 /* Contact_Us.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact_Us.swift; sourceTree = "<group>"; };
+		AA8152071DD8EA4700693BEE /* BatchClientPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatchClientPush.swift; sourceTree = "<group>"; };
 		AA8B166E1B8EAD8C00096E73 /* cloud-horizon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cloud-horizon.jpg"; sourceTree = "<group>"; };
 		AAA36DD01C102C5F0073F6B0 /* UIImageView+AFNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+AFNetworking.swift"; sourceTree = "<group>"; };
 		AAAA0FD71BC6CF6B004F2474 /* Start_View_Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Start_View_Controller.swift; sourceTree = "<group>"; };
 		AAAA0FD91BC6D210004F2474 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		AAB352741D66A5B10019D8AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AAD2047C1C1A99CB008E1770 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AAD788151BF95535002E436C /* Chat_Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat_Main.swift; sourceTree = "<group>"; };
 		AADACDD31D15438A0091B142 /* Load_Friends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Load_Friends.swift; path = ../Load_Friends.swift; sourceTree = "<group>"; };
+		AADDC80F1D7BC36900B2D755 /* Friend_Photo_Zoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend_Photo_Zoom.swift; sourceTree = "<group>"; };
+		AADDC8121D7C60EC00B2D755 /* Profile_Photo_Zoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_Photo_Zoom.swift; sourceTree = "<group>"; };
 		AADFA2181B6D74E600491DBF /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		AADFA2191B6D74E600491DBF /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		AADFA21A1B6D74E600491DBF /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -338,6 +343,7 @@
 		AA271D6C1B4DF4CC00EA5BA6 = {
 			isa = PBXGroup;
 			children = (
+				AA28C7261DD9AB65006C7746 /* Simple.entitlements */,
 				AA080ED91D5839DF002AFDE7 /* GoogleMaps.bundle */,
 				AA25DDFB1CFFEE2300E57068 /* JSQMessagesAssets.bundle */,
 				AA271DC01B4E1B2B00EA5BA6 /* Frameworks */,
@@ -362,6 +368,7 @@
 		AA271D771B4DF4CC00EA5BA6 /* Dating_App */ = {
 			isa = PBXGroup;
 			children = (
+				AADDC8111D7C5D0400B2D755 /* Photo_Gallery */,
 				AA642B111D477E3D0033EEA3 /* WhatToDo */,
 				AA0876001D41CDFB00775DC7 /* Match */,
 				AAD18BED1D3BD90300237ACB /* Questions */,
@@ -390,7 +397,8 @@
 				AAA36DD01C102C5F0073F6B0 /* UIImageView+AFNetworking.swift */,
 				AA0876031D431D0500775DC7 /* Login_Transfer.swift */,
 				AA0E41B11D371D1D00657C3C /* Transfer_Page.swift */,
-				AAB352741D66A5B10019D8AF /* GoogleService-Info.plist */,
+				AA8152071DD8EA4700693BEE /* BatchClientPush.swift */,
+				AA2F30271DDA954700CCE02A /* GoogleService-Info.plist */,
 				AAD2047C1C1A99CB008E1770 /* Main.storyboard */,
 				AA239AD61BAD9CCD00192AE0 /* Images.xcassets */,
 				AAF3ACAA1BCB346E0097C47D /* Background_Color.tif */,
@@ -415,7 +423,6 @@
 				AADFA1841B67A23000491DBF /* Male_Female */,
 				AA239ADC1BAD9D4A00192AE0 /* LaunchScreen.xib */,
 				AA271D781B4DF4CC00EA5BA6 /* Supporting Files */,
-				AA0E41B31D38878D00657C3C /* BatchClientPush.swift */,
 			);
 			path = Dating_App;
 			sourceTree = "<group>";
@@ -565,6 +572,15 @@
 			name = Questions;
 			sourceTree = "<group>";
 		};
+		AADDC8111D7C5D0400B2D755 /* Photo_Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				AADDC80F1D7BC36900B2D755 /* Friend_Photo_Zoom.swift */,
+				AADDC8121D7C60EC00B2D755 /* Profile_Photo_Zoom.swift */,
+			);
+			name = Photo_Gallery;
+			sourceTree = "<group>";
+		};
 		AADFA1831B67A20F00491DBF /* Location_Pictures */ = {
 			isa = PBXGroup;
 			children = (
@@ -674,6 +690,7 @@
 					AA271D741B4DF4CC00EA5BA6 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = 7PK4W84Q3C;
+						LastSwiftMigration = 0810;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -730,7 +747,7 @@
 				AA239AE31BAD9EB300192AE0 /* Sunset.jpg in Resources */,
 				AA0E68BC1B8ECC53000941C4 /* Female_Cloud.tif in Resources */,
 				AAD2047D1C1A99CB008E1770 /* Main.storyboard in Resources */,
-				AAB352751D66A5B10019D8AF /* GoogleService-Info.plist in Resources */,
+				AA2F30281DDA954700CCE02A /* GoogleService-Info.plist in Resources */,
 				AA239AE11BAD9EA100192AE0 /* EDC_View.jpg in Resources */,
 				AA239AED1BAD9F4700192AE0 /* Classical_Music.jpg in Resources */,
 				AA8B166F1B8EAD8C00096E73 /* cloud-horizon.jpg in Resources */,
@@ -820,6 +837,7 @@
 				AA39FCBB1D2E1C24000DB554 /* Ask_Question.swift in Sources */,
 				AA3527971BDB6C5F00679464 /* Edu_PickerView_Can.swift in Sources */,
 				AA1EB5B01D20074400760CA6 /* Friends_Profile_Detail.swift in Sources */,
+				AADDC8131D7C60EC00B2D755 /* Profile_Photo_Zoom.swift in Sources */,
 				AA0875F91D41B02E00775DC7 /* Answersix.swift in Sources */,
 				AA6C581C1D18D487008F9932 /* Login_With_User.swift in Sources */,
 				AA1EB5B41D2046BA00760CA6 /* Update_Photo.swift in Sources */,
@@ -828,12 +846,13 @@
 				AA0875FB1D41B19100775DC7 /* Answerseven.swift in Sources */,
 				AA6C581E1D1A09F6008F9932 /* View_Profile.swift in Sources */,
 				AA0875F51D41AB6E00775DC7 /* Answerfour.swift in Sources */,
+				AA8152081DD8EA4700693BEE /* BatchClientPush.swift in Sources */,
 				AA10153A1B5170A7007F77B8 /* ViewControllerLogin.swift in Sources */,
 				AA239AEF1BAD9FCF00192AE0 /* ViewControllerRegister.swift in Sources */,
 				AA080ED61D570AE3002AFDE7 /* Terms_and_Conditions_2.swift in Sources */,
 				AA04E8BE1D4E8C1A0077AB48 /* Terms_and_Conditions.swift in Sources */,
 				AAAA0FDA1BC6D210004F2474 /* User.swift in Sources */,
-				AA0E41B41D38878E00657C3C /* BatchClientPush.swift in Sources */,
+				AADDC8101D7BC36900B2D755 /* Friend_Photo_Zoom.swift in Sources */,
 				AA4020101BBCA9E800ABA237 /* Ethnicity_PickerView.swift in Sources */,
 				AA6550AC1D0DE4B4007DD200 /* Update_Location.swift in Sources */,
 				AADFA2311B6D74E600491DBF /* AFNetworkReachabilityManager.m in Sources */,
@@ -996,6 +1015,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Simple.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1007,12 +1027,13 @@
 					"/Users/clement_chan_pig/Documents/IOS_Programs/Swift-SRWebClient-master/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = Dating_App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Simple;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Dating_App/Dating_App-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1023,6 +1044,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Simple.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1034,11 +1056,12 @@
 					"/Users/clement_chan_pig/Documents/IOS_Programs/Swift-SRWebClient-master/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = Dating_App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Simple;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Dating_App/Dating_App-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

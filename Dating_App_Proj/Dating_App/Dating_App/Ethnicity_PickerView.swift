@@ -29,7 +29,7 @@ class Ethinicity_PickerView: UIViewController,UIPickerViewDataSource, UIPickerVi
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func Nextquest(sender: AnyObject) {
+    @IBAction func Nextquest(_ sender: AnyObject) {
         updateLoc();
         loadDestinationVC();
     
@@ -40,15 +40,15 @@ class Ethinicity_PickerView: UIViewController,UIPickerViewDataSource, UIPickerVi
     }
     
     func updateLoc(){
-        var sizeComponent = PickerComponent.loc.rawValue
-        let size = pickerData[sizeComponent][myPicker.selectedRowInComponent(sizeComponent)]
+        let sizeComponent = PickerComponent.loc.rawValue
+        let size = pickerData[sizeComponent][myPicker.selectedRow(inComponent: sizeComponent)]
         self.Ethnic = size;
         register_info.Ethnicity = self.Ethnic;
         print(register_info.Ethnicity);
     }
     
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return pickerData.count
     }
     
@@ -56,37 +56,37 @@ class Ethinicity_PickerView: UIViewController,UIPickerViewDataSource, UIPickerVi
         ["White", "Black or African American", "American Indian", "Asian", "Native Hawaiian", "Nonresident Alien"]
     ]
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData[component].count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         return pickerData[component][row]
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Education", sender: nil)
+        self.performSegue(withIdentifier: "Education", sender: nil)
     }
     
     /*Function to change the color of the fonts in the pickerview*/
     
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView!) -> UIView
     {
-        var pickerLabel = UILabel()
-        pickerLabel.textColor = UIColor.whiteColor()
+        let pickerLabel = UILabel()
+        pickerLabel.textColor = UIColor.white
         pickerLabel.text = pickerData[component][row]
         pickerLabel.font = UIFont(name: pickerLabel.font.fontName, size: 12)
         //pickerLabel.font = UIFont(name: "System Thin", size: 13) // In this use your custom font
-        pickerLabel.textAlignment = NSTextAlignment.Center
+        pickerLabel.textAlignment = NSTextAlignment.center
         return pickerLabel
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
 }

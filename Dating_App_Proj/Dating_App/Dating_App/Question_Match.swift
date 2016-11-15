@@ -50,7 +50,7 @@ class Question_Answer: UIViewController{
     
     var count = 0;
 
-    @IBAction func Yes(sender: AnyObject) {
+    @IBAction func Yes(_ sender: AnyObject) {
     
 //        let loginid = "https://simpleplus.firebaseio.com/friends/" + convo_final.friend_id_final + "_fd/" + login_user.uid;
         
@@ -62,7 +62,7 @@ class Question_Answer: UIViewController{
         loadDestinationVC()
     }
     
-    @IBAction func No(sender: AnyObject) {
+    @IBAction func No(_ sender: AnyObject) {
 //        let loginid = "https://simpleplus.firebaseio.com/friends/" + convo_final.friend_id_final + "_fd/" + login_user.uid;
         
         let loginid = convo_final.friend_id_final + "_fd";
@@ -80,7 +80,7 @@ class Question_Answer: UIViewController{
         self.User.text = login_user.Profile_Name
         self.Friend.text = convo_final.friend_Profile_final
         
-        self.ref.observeEventType(.Value, withBlock: { snapshot in
+        self.ref.observe(.value, with: { snapshot in
             if(snapshot.exists() == false){
             self.q1user.text = "";
             self.q2user.text = "";
@@ -93,18 +93,21 @@ class Question_Answer: UIViewController{
             self.q9user.text = "";
             }
             else{
-            self.q1user.text = snapshot.value!["q1"] as? String
-            self.q2user.text = snapshot.value!["q2"] as? String
-            self.q3user.text = snapshot.value!["q3"] as? String
-            self.q4user.text = snapshot.value!["q4"] as? String
-            self.q5user.text = snapshot.value!["q5"] as? String
-            self.q6user.text = snapshot.value!["q6"] as? String
-            self.q7user.text = snapshot.value!["q7"] as? String
-            self.q8user.text = snapshot.value!["q8"] as? String
-            self.q9user.text = snapshot.value!["q9"] as? String
+            
+            if let source = snapshot.value as? [String:AnyObject] {
+            self.q1user.text = source["q1"] as? String
+            self.q2user.text = source["q2"] as? String
+            self.q3user.text = source["q3"] as? String
+            self.q4user.text = source["q4"] as? String
+            self.q5user.text = source["q5"] as? String
+            self.q6user.text = source["q6"] as? String
+            self.q7user.text = source["q7"] as? String
+            self.q8user.text = source["q8"] as? String
+            self.q9user.text = source["q9"] as? String
+            }
             }
             
-            self.reffd.observeEventType(.Value, withBlock: { snapshot in
+            self.reffd.observe(.value, with: { snapshot in
                 if(snapshot.exists() == false){
                     self.q1friend.text = "";
                     self.q2friend.text = "";
@@ -117,115 +120,117 @@ class Question_Answer: UIViewController{
                     self.q9friend.text = "";
                 }
                 else{
-                    self.q1friend.text = snapshot.value!["q1"] as? String
-                    self.q2friend.text = snapshot.value!["q2"] as? String
-                    self.q3friend.text = snapshot.value!["q3"] as? String
-                    self.q4friend.text = snapshot.value!["q4"] as? String
-                    self.q5friend.text = snapshot.value!["q5"] as? String
-                    self.q6friend.text = snapshot.value!["q6"] as? String
-                    self.q7friend.text = snapshot.value!["q7"] as? String
-                    self.q8friend.text = snapshot.value!["q8"] as? String
-                    self.q9friend.text = snapshot.value!["q9"] as? String
+                    if let source = snapshot.value as? [String:AnyObject] {
+                    self.q1friend.text = source["q1"] as? String
+                    self.q2friend.text = source["q2"] as? String
+                    self.q3friend.text = source["q3"] as? String
+                    self.q4friend.text = source["q4"] as? String
+                    self.q5friend.text = source["q5"] as? String
+                    self.q6friend.text = source["q6"] as? String
+                    self.q7friend.text = source["q7"] as? String
+                    self.q8friend.text = source["q8"] as? String
+                    self.q9friend.text = source["q9"] as? String
+                    }
                 }
                 
                 
                 //Question 1
                 if(self.q1user.text == self.q1friend.text){
                     self.Matchone.text = "Match"
-                    self.Matchone.textColor = UIColor.greenColor()
+                    self.Matchone.textColor = UIColor.green
                     self.count += 1;
                 }
                 else if(self.q1user.text != self.q1friend.text){
                     self.Matchone.text = "Not Match"
-                    self.Matchone.textColor = UIColor.redColor()
+                    self.Matchone.textColor = UIColor.red
                 }
                 
                 //Question 2
                 if(self.q2user.text == self.q2friend.text){
                     self.Matchtwo.text = "Match"
-                    self.Matchtwo.textColor = UIColor.greenColor()
+                    self.Matchtwo.textColor = UIColor.green
                     self.count += 1;
                 }
                 else if(self.q2user.text != self.q2friend.text){
                     self.Matchtwo.text = "Not Match"
-                    self.Matchtwo.textColor = UIColor.redColor()
+                    self.Matchtwo.textColor = UIColor.red
                 }
                 
                 //Question 3
                 if(self.q3user.text == self.q3friend.text){
                     self.Matchthree.text = "Match"
-                    self.Matchthree.textColor = UIColor.greenColor()
+                    self.Matchthree.textColor = UIColor.green
                     self.count += 1;
                 }
                 else if(self.q3user.text != self.q3friend.text){
                     self.Matchthree.text = "Not Match"
-                    self.Matchthree.textColor = UIColor.redColor()
+                    self.Matchthree.textColor = UIColor.red
                 }
                 
                 //Question 4
                 if(self.q4user.text == self.q4friend.text){
                     self.Matchfour.text = "Match"
-                    self.Matchfour.textColor = UIColor.greenColor()
+                    self.Matchfour.textColor = UIColor.green
                     self.count += 1;
                 }
                 else if(self.q4user.text != self.q4friend.text){
                     self.Matchfour.text = "Not Match"
-                    self.Matchfour.textColor = UIColor.redColor()
+                    self.Matchfour.textColor = UIColor.red
                 }
                 
                 //Question 5
                 if(self.q5user.text == self.q5friend.text){
                     self.Matchfive.text = "Match"
-                    self.Matchfive.textColor = UIColor.greenColor()
+                    self.Matchfive.textColor = UIColor.green
                     self.count += 1;
                 }
                 else if(self.q5user.text != self.q5friend.text){
                     self.Matchfive.text = "Not Match"
-                    self.Matchfive.textColor = UIColor.redColor()
+                    self.Matchfive.textColor = UIColor.red
                 }
                 
                 //Question 6
                 if(self.q6user.text == self.q6friend.text){
                     self.Matchsix.text = "Match"
-                    self.Matchsix.textColor = UIColor.greenColor()
+                    self.Matchsix.textColor = UIColor.green
                     self.count += 1;
                 }
                 else if(self.q6user.text != self.q6friend.text){
                     self.Matchsix.text = "Not Match"
-                    self.Matchsix.textColor = UIColor.redColor()
+                    self.Matchsix.textColor = UIColor.red
                 }
                 
                 //Question 7
                 if(self.q7user.text == self.q7friend.text){
                     self.Matchseven.text = "Match"
-                    self.Matchseven.textColor = UIColor.greenColor()
+                    self.Matchseven.textColor = UIColor.green
                     self.count += 1;
                 }
                 else if(self.q7user.text != self.q7friend.text){
                     self.Matchseven.text = "Not Match"
-                    self.Matchseven.textColor = UIColor.redColor()
+                    self.Matchseven.textColor = UIColor.red
                 }
                 
                 //Question 8
                 if(self.q8user.text == self.q8friend.text){
                     self.Matcheight.text = "Match"
-                    self.Matcheight.textColor = UIColor.greenColor()
+                    self.Matcheight.textColor = UIColor.green
                     self.count += 1;
                 }
                 else if(self.q8user.text != self.q8friend.text){
                     self.Matcheight.text = "Not Match"
-                    self.Matcheight.textColor = UIColor.redColor()
+                    self.Matcheight.textColor = UIColor.red
                 }
                 
                 //Question 9
                 if(self.q9user.text == self.q9friend.text){
                     self.Matchnine.text = "Match"
-                    self.Matchnine.textColor = UIColor.greenColor()
+                    self.Matchnine.textColor = UIColor.green
                     self.count += 1;
                 }
                 else if(self.q9user.text != self.q9friend.text){
                     self.Matchnine.text = "Not Match"
-                    self.Matchnine.textColor = UIColor.redColor()
+                    self.Matchnine.textColor = UIColor.red
                 }
                 
                 self.Answercorrect.text = "Number of questions matched : \(self.count) "
@@ -242,16 +247,16 @@ class Question_Answer: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Back_To_Menu", sender: nil)
+        self.performSegue(withIdentifier: "Back_To_Menu", sender: nil)
     }
     
 };

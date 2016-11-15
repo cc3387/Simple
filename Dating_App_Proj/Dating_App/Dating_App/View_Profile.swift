@@ -39,12 +39,12 @@ class Profile_View : UIViewController{
                 self.Time_Greetings.text = "Good Morning, the time is " + hours + " : " + minutes;
             }
             
-            Time_Greetings.textColor = UIColor.whiteColor();
+            Time_Greetings.textColor = UIColor.white;
             Bkground_Image.image = UIImage(named: "Night_Sky_Pond.jpg");
             
             //Setting the User ID to login user id
             self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
-            self.User_ID.textColor = UIColor.whiteColor();
+            self.User_ID.textColor = UIColor.white;
         }
         else if(hour_i >= 12 && hour_i <= 18){
             
@@ -67,7 +67,7 @@ class Profile_View : UIViewController{
             
             //Setting the User ID to login user id
             self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
-            self.User_ID.textColor = UIColor.whiteColor();
+            self.User_ID.textColor = UIColor.white;
         }
         else{
             
@@ -93,14 +93,15 @@ class Profile_View : UIViewController{
             
             //Setting the User ID to login user id
             self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
-            self.User_ID.textColor = UIColor.whiteColor();
+            self.User_ID.textColor = UIColor.white;
         }
         
         
-        let decodedData = NSData(base64EncodedString: login_user.photo, options: NSDataBase64DecodingOptions())
+        let decodedData = Data(base64Encoded: login_user.photo, options: Data.Base64DecodingOptions())
         let decodedImage = UIImage(data: decodedData!)!
         self.Profile_Pic.image = decodedImage
-        self.Profile_Pic.contentMode = .ScaleAspectFit
+        login.Photo = decodedImage
+        self.Profile_Pic.contentMode = .scaleAspectFit
         self.Profile_Name.text = "Profile Name : " + login_user.Profile_Name
         self.Location.text = "Location : " + login_user.location
         self.University.text = "University : " + login_user.university
@@ -111,25 +112,19 @@ class Profile_View : UIViewController{
     func hour() -> String
     {
         //Get Hour
-        let date:NSDate = NSDate();
-        let calendar: NSCalendar = NSCalendar.currentCalendar();
-        let components:NSDateComponents = calendar.components(
-            NSCalendarUnit.NSHourCalendarUnit, fromDate: date)
-        let hours = components.hour
-        let hour = String(hours);
+        let date:Date = Date();
+        let calendar: Calendar = Calendar.current;
+        let hour = calendar.component(.hour, from: date)
         //Return Hour
-        return hour
+        return String(hour)
     }
     
     func hour_int() -> Int
     {
         //Get Hour
-        let date:NSDate = NSDate();
-        let calendar: NSCalendar = NSCalendar.currentCalendar();
-        let components:NSDateComponents = calendar.components(
-            NSCalendarUnit.NSHourCalendarUnit, fromDate: date)
-        let hours = components.hour
-        let hour = Int(hours);
+        let date:Date = Date();
+        let calendar: Calendar = Calendar.current;
+        let hour = calendar.component(.hour, from: date)
         //Return Hour
         return hour
     }
@@ -138,35 +133,29 @@ class Profile_View : UIViewController{
     func minute() -> String
     {
         //Get Minute
-        let date:NSDate = NSDate();
-        let calendar: NSCalendar = NSCalendar.currentCalendar();
-        let components:NSDateComponents = calendar.components(
-            NSCalendarUnit.NSMinuteCalendarUnit, fromDate: date)
-        let minutes = components.minute
-        let minute = String(minutes);
+        let date:Date = Date();
+        let calendar: Calendar = Calendar.current;
+        let minutes = calendar.component(.minute, from: date)
         //Return Minute
-        return minute
+        return String(minutes)
     }
     
     func minute_Int() -> Int
     {
         //Get Minute
-        let date:NSDate = NSDate();
-        let calendar: NSCalendar = NSCalendar.currentCalendar();
-        let components:NSDateComponents = calendar.components(
-            NSCalendarUnit.NSMinuteCalendarUnit, fromDate: date)
-        let minutes = components.minute
-        let minute = Int(minutes);
+        let date:Date = Date();
+        let calendar: Calendar = Calendar.current;
+        let minutes = calendar.component(.minute, from: date)
         //Return Minute
-        return minute
+        return minutes
     }
-    
-    override func shouldAutorotate() -> Bool {
+
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
     

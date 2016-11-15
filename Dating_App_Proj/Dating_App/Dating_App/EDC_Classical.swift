@@ -14,11 +14,11 @@ class EDCClassical: UIViewController{
     
     override func viewDidLoad() {
         
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: ("EDCClassicalSwipe:"))
-        var rightSwipe = UISwipeGestureRecognizer(target: self, action: ("EDCClassicalSwipe:"))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: (#selector(EDCClassical.EDCClassicalSwipe(_:))))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: (#selector(EDCClassical.EDCClassicalSwipe(_:))))
         
-        leftSwipe.direction = .Left
-        rightSwipe.direction = .Right
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
         
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
@@ -30,14 +30,14 @@ class EDCClassical: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    func EDCClassicalSwipe(sender:UISwipeGestureRecognizer){
+    func EDCClassicalSwipe(_ sender:UISwipeGestureRecognizer){
         
-        if(sender.direction == .Right){
+        if(sender.direction == .right){
             register_info.EDC_or_Classic = "Classical"
             loadDestinationVC()
             print(register_info.EDC_or_Classic)
         }
-        else if(sender.direction == .Left){
+        else if(sender.direction == .left){
             register_info.EDC_or_Classic = "EDC"
             loadDestinationVC()
             print(register_info.EDC_or_Classic)
@@ -45,15 +45,15 @@ class EDCClassical: UIViewController{
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Cooking", sender: nil)
+        self.performSegue(withIdentifier: "Cooking", sender: nil)
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
 }

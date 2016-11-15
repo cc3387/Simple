@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 //Resizing the image before loading
-func resizeimage(image: UIImage, targetSize: CGSize) -> UIImage {
+func resizeimage(_ image: UIImage, targetSize: CGSize) -> UIImage {
     let size = image.size
     
     let widthRatio  = targetSize.width  / image.size.width
@@ -19,43 +19,43 @@ func resizeimage(image: UIImage, targetSize: CGSize) -> UIImage {
     // Figure out what our orientation is, and use that to form the rectangle
     var newSize: CGSize
     if(widthRatio > heightRatio) {
-        newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
+        newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
     } else {
-        newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
+        newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
     }
     
     // This is the rect that we've calculated out and this is what is actually used below
-    let rect = CGRectMake(0, 0, newSize.width, newSize.height)
+    let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
     
     // Actually do the resizing to the rect using the ImageContext stuff
     UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-    image.drawInRect(rect)
+    image.draw(in: rect)
     let newImage = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     
-    return newImage
+    return newImage!
 }
 
 
 //Saving Images after the selection
 extension UIImage {
     
-    func save(fileName: String, type: String) {
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
+    func save(_ fileName: String, type: String) {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] 
         
-        if type.lowercaseString == "png" {
+        if type.lowercased() == "png" {
             let path = "\(documentsPath)/\(fileName).\(type)"
-            UIImagePNGRepresentation(self)!.writeToFile(path, atomically: true)
-        } else if type.lowercaseString == "jpg" {
+            try? UIImagePNGRepresentation(self)!.write(to: URL(fileURLWithPath: path), options: [.atomic])
+        } else if type.lowercased() == "jpg" {
             let path = "\(documentsPath)/\(fileName).\(type)"
-            UIImageJPEGRepresentation(self, 1.0)!.writeToFile(path, atomically: true)
+            try? UIImageJPEGRepresentation(self, 1.0)!.write(to: URL(fileURLWithPath: path), options: [.atomic])
         } else {
             
         }
     }
     
     convenience init?(fileName: String, type: String) {
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] 
         let path = "\(documentsPath)/\(fileName).\(type)"
         self.init(contentsOfFile: path)
     }
@@ -71,54 +71,54 @@ class ChoosePhoto: UIViewController, UIImagePickerControllerDelegate, UINavigati
         super.viewDidLoad()
     }
 
-    @IBAction func loadImageButtonTapped(sender: AnyObject) {
-        var image = UIImagePickerController()
+    @IBAction func loadImageButtonTapped(_ sender: AnyObject) {
+        let image = UIImagePickerController()
         image.delegate = self
         image.allowsEditing = false
-        image.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        image.sourceType = UIImagePickerControllerSourceType.photoLibrary
         image.allowsEditing = false
-        presentViewController(image, animated: true, completion: nil)
+        present(image, animated: true, completion: nil)
     }
     
-    @IBAction func UploadButtons(sender: UIButton) {
+    @IBAction func UploadButtons(_ sender: UIButton) {
         
         //Make a new UIImage
         let uploadImage = UIImage(fileName:"Profile", type:"png")
         
         
         //Make an NSData PNG representation of the Image
-        let imageData: NSData = UIImagePNGRepresentation(resizeimage(uploadImage!,targetSize: CGSizeMake(uploadImage!.size.height/5, uploadImage!.size.width/5)))!
+        let imageData: Data = UIImagePNGRepresentation(resizeimage(uploadImage!,targetSize: CGSize(width: uploadImage!.size.height/5, height: uploadImage!.size.width/5)))!
         
         //Using base64StringFromData method, we are able to convert data to string
-        self.base64String = imageData.base64EncodedStringWithOptions([])
+        self.base64String = imageData.base64EncodedString(options: []) as NSString!
         register_info.Photo = self.base64String as NSString
         loadDestinationVC()
         
     }
         
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let img = info[UIImagePickerControllerOriginalImage] as? UIImage {
             img.save("Profile", type: "png")
             imageView.image = img
-            imageView.contentMode = .ScaleAspectFit
+            imageView.contentMode = .scaleAspectFit
         }
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Final_Send", sender: nil)
+        self.performSegue(withIdentifier: "Final_Send", sender: nil)
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
 }

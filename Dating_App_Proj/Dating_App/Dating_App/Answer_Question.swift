@@ -23,8 +23,6 @@ class Answer: UIViewController{
     
     @IBOutlet weak var answertwolabel: UILabel!
     
-//    let ref = Firebase(url:"https://simpleplus.firebaseio.com/pref/" + login_user.uid)
-    		
     var ref = FIRDatabase.database().reference().child("pref").child(login_user.uid)
     
     override func viewDidLoad() {	
@@ -33,11 +31,11 @@ class Answer: UIViewController{
         self.answeronelabel.text = "PC";
         self.answertwolabel.text = "Mac";
         
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: ("Swipes:"))
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: ("Swipes:"))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: (#selector(Answer.Swipes(_:))))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: (#selector(Answer.Swipes(_:))))
         
-        leftSwipe.direction = .Left
-        rightSwipe.direction = .Right
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
         
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
@@ -49,9 +47,9 @@ class Answer: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    func Swipes(sender:UISwipeGestureRecognizer){
+    func Swipes(_ sender:UISwipeGestureRecognizer){
         
-        if(sender.direction == .Right){
+        if(sender.direction == .right){
                 
             let param = ["q1": "Mac"]
             
@@ -60,7 +58,7 @@ class Answer: UIViewController{
             loadDestinationVC()
             
         }
-        else if(sender.direction == .Left){
+        else if(sender.direction == .left){
             
             let param = ["q1": "PC"]
             
@@ -71,15 +69,15 @@ class Answer: UIViewController{
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Toansone", sender: nil)
+        self.performSegue(withIdentifier: "Toansone", sender: nil)
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
 
 };

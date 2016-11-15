@@ -29,53 +29,27 @@ class Login_With_User: UIViewController{
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.login_email.text = loginid
         super.viewDidLoad()
-        NSUserDefaults.standardUserDefaults().setObject(login.loginid, forKey: "keepUsername")
-        NSUserDefaults.standardUserDefaults().setObject(login.password, forKey: "keepPassword")
+        UserDefaults.standard.set(login.loginid, forKey: "keepUsername")
+        UserDefaults.standard.set(login.password, forKey: "keepPassword")
         frienduser.emailarray.removeAll();
         frienduser.useridarray.removeAll();
     }
     
-    @IBAction func Login(sender: AnyObject) {
-//        var ref = Firebase(url:"https://simpleplus.firebaseio.com")
-//        self.navigationController?.setNavigationBarHidden(true, animated: false)
-//        
-//        ref.authUser(loginid, password: self.Password.text) {
-//            error, authData in
-//            if error != nil {
-//                // an error occured while attempting login
-//                print("Login info is wrong");
-//            } else {
-//                // user is logged in, check authData for data
-//                login.password = self.Password.text!;
-//                self.Password.text = "**********";
-//                login.chatid = ref.authData.uid
-//                let editor = BatchUser.editor()
-//                editor.setIdentifier(ref.authData.uid)
-//                editor.save()
-//                NSUserDefaults.standardUserDefaults().setObject(login.loginid, forKey: "keepUsername")
-//                NSUserDefaults.standardUserDefaults().setObject(login.password, forKey: "keepPassword")
-//                NSUserDefaults.standardUserDefaults().synchronize()
-//                frienduser.emailarray.removeAll();
-//                frienduser.useridarray.removeAll();
-//                frienduser.phoneidarray.removeAll();
-//                frienduser.profilenamearray.removeAll();
-//                self.loadDestinationVC();
-//            };
-//        }
+    @IBAction func Login(_ sender: AnyObject) {
+
     }
     
-    @IBAction func New_User(sender: AnyObject) {
-//        loginid = "";
-//        loadDestinationVC1()
+    @IBAction func New_User(_ sender: AnyObject) {
+
     }
     
     //Load destination to the main profile
     func loadDestinationVC(){
-    self.performSegueWithIdentifier("Login_With_User", sender: nil)
+    self.performSegue(withIdentifier: "Login_With_User", sender: nil)
     }
     
     func loadDestinationVC1(){
-        self.performSegueWithIdentifier("New_User", sender: nil)
+        self.performSegue(withIdentifier: "New_User", sender: nil)
     }
     
 }

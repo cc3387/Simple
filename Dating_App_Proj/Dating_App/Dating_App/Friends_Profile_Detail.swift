@@ -22,7 +22,7 @@ class Friends_Profile_View : UIViewController{
     @IBOutlet weak var Major: UILabel!
     
     override func viewDidLoad() {
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.view.endEditing(true)
         let hours = hour();
@@ -39,12 +39,12 @@ class Friends_Profile_View : UIViewController{
                 self.Time_Greetings.text = "Good Morning, the time is " + hours + " : " + minutes;
             }
             
-            Time_Greetings.textColor = UIColor.whiteColor();
+            Time_Greetings.textColor = UIColor.white;
             Bkground_Image.image = UIImage(named: "Night_Sky_Pond.jpg");
             
             //Setting the User ID to login user id
             self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
-            self.User_ID.textColor = UIColor.whiteColor();
+            self.User_ID.textColor = UIColor.white;
         }
         else if(hour_i >= 12 && hour_i <= 18){
             
@@ -67,7 +67,7 @@ class Friends_Profile_View : UIViewController{
             
             //Setting the User ID to login user id
             self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
-            self.User_ID.textColor = UIColor.whiteColor();
+            self.User_ID.textColor = UIColor.white;
         }
         else{
             
@@ -93,11 +93,11 @@ class Friends_Profile_View : UIViewController{
             
             //Setting the User ID to login user id
             self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
-            self.User_ID.textColor = UIColor.whiteColor();
+            self.User_ID.textColor = UIColor.white;
         }
         
         self.Profile_Pic.image = friend_profile.Photo;
-        self.Profile_Pic.contentMode = .ScaleAspectFit
+        self.Profile_Pic.contentMode = .scaleAspectFit
         self.Profile_Name.text = "Name: " + friend_profile.Profile_Name!
         self.Profile_Name.sizeToFit()
         self.Profile_Name.adjustsFontSizeToFitWidth = true
@@ -112,37 +112,31 @@ class Friends_Profile_View : UIViewController{
         self.Major.adjustsFontSizeToFitWidth = true
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
     //Functions that will be used to display the time
     func hour() -> String
     {
         //Get Hour
-        let date:NSDate = NSDate();
-        let calendar: NSCalendar = NSCalendar.currentCalendar();
-        let components:NSDateComponents = calendar.components(
-            NSCalendarUnit.NSHourCalendarUnit, fromDate: date)
-        let hours = components.hour
-        let hour = String(hours);
+        let date:Date = Date();
+        let calendar: Calendar = Calendar.current;
+        let hour = calendar.component(.hour, from: date)
         //Return Hour
-        return hour
+        return String(hour)
     }
     
     func hour_int() -> Int
     {
         //Get Hour
-        let date:NSDate = NSDate();
-        let calendar: NSCalendar = NSCalendar.currentCalendar();
-        let components:NSDateComponents = calendar.components(
-            NSCalendarUnit.NSHourCalendarUnit, fromDate: date)
-        let hours = components.hour
-        let hour = Int(hours);
+        let date:Date = Date();
+        let calendar: Calendar = Calendar.current;
+        let hour = calendar.component(.hour, from: date)
         //Return Hour
         return hour
     }
@@ -151,31 +145,25 @@ class Friends_Profile_View : UIViewController{
     func minute() -> String
     {
         //Get Minute
-        let date:NSDate = NSDate();
-        let calendar: NSCalendar = NSCalendar.currentCalendar();
-        let components:NSDateComponents = calendar.components(
-            NSCalendarUnit.NSMinuteCalendarUnit, fromDate: date)
-        let minutes = components.minute
-        let minute = String(minutes);
+        let date:Date = Date();
+        let calendar: Calendar = Calendar.current;
+        let minutes = calendar.component(.minute, from: date)
         //Return Minute
-        return minute
+        return String(minutes)
     }
     
     func minute_Int() -> Int
     {
         //Get Minute
-        let date:NSDate = NSDate();
-        let calendar: NSCalendar = NSCalendar.currentCalendar();
-        let components:NSDateComponents = calendar.components(
-            NSCalendarUnit.NSMinuteCalendarUnit, fromDate: date)
-        let minutes = components.minute
-        let minute = Int(minutes);
+        let date:Date = Date();
+        let calendar: Calendar = Calendar.current;
+        let minutes = calendar.component(.minute, from: date)
         //Return Minute
-        return minute
+        return minutes
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("AnswerQuestion", sender: nil)
+        self.performSegue(withIdentifier: "AnswerQuestion", sender: nil)
     }
 
 };

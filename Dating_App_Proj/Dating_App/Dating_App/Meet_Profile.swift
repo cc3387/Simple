@@ -94,18 +94,16 @@ class Profile_Meet_Main : UIViewController{
     @IBOutlet weak var Fifth_Match: UILabel!
     
     
-    @IBAction func Chat_1(sender: AnyObject) {
+    @IBAction func Chat_1(_ sender: AnyObject) {
         
         if(self.first_match != ""){
-            var usernamefriend = login_user.uid + "_fd";
-            var friendusername = self.uid1 + "_fd";
+            let usernamefriend = login_user.uid + "_fd";
+            let friendusername = self.uid1 + "_fd";
             
-            var ref = FIRDatabase.database().reference().child("friends")
-            var fdref = FIRDatabase.database().reference().child("friends")
-//            var ref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
-//            let fdref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
+            let ref = FIRDatabase.database().reference().child("friends")
+            let fdref = FIRDatabase.database().reference().child("friends")
             
-            var friendinfo = [
+            let friendinfo = [
                 "Profile_Name" : self.First_Match.text!,
                 "location" : self.First_Loc.text!,
                 "Education": self.First_Uni.text!,
@@ -115,11 +113,11 @@ class Profile_Meet_Main : UIViewController{
                 "Photo": self.first_photo_string,
                 "uid": self.uid1,
                 "phoneid": self.phoneid1,
-                "Notification": 0,
+                "Notification": 1,
                 "Chatid": 1
-            ];
+            ] as [String : Any];
             
-            var infofriend = [
+            let infofriend = [
                 "Profile_Name" : login_user.Profile_Name,
                 "location" : login_user.location,
                 "Education": login_user.university,
@@ -129,14 +127,14 @@ class Profile_Meet_Main : UIViewController{
                 "Photo": login_user.photo,
                 "uid": login_user.uid,
                 "phoneid": login_user.phoneid,
-                "Notification": 0,
+                "Notification": 1,
                 "Chatid": 2
-            ];
+            ] as [String : Any];
             
-            var usernamefd = ref.childByAppendingPath(usernamefriend);
-            var fdusername = fdref.childByAppendingPath(friendusername);
-            usernamefd.childByAppendingPath(self.uid1).setValue(friendinfo);
-            fdusername.childByAppendingPath(login_user.uid).setValue(infofriend);
+            let usernamefd = ref.child(byAppendingPath: usernamefriend);
+            let fdusername = fdref.child(byAppendingPath: friendusername);
+            usernamefd.child(byAppendingPath: self.uid1).setValue(friendinfo);
+            fdusername.child(byAppendingPath: login_user.uid).setValue(infofriend);
             
             //Load to the next destination
             loadDestinationVC();
@@ -147,16 +145,14 @@ class Profile_Meet_Main : UIViewController{
     }
 
     //Buttons to Chat ViewController
-    @IBAction func Chat_2(sender: AnyObject) {
+    @IBAction func Chat_2(_ sender: AnyObject) {
         if(self.second_match != ""){
-            var usernamefriend = login_user.uid + "_fd";
-            var friendusername = self.uid2 + "_fd";
-//            var ref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
-//            let fdref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
-            var ref = FIRDatabase.database().reference().child("friends")
-            var fdref = FIRDatabase.database().reference().child("friends")
+            let usernamefriend = login_user.uid + "_fd";
+            let friendusername = self.uid2 + "_fd";
+            let ref = FIRDatabase.database().reference().child("friends")
+            let fdref = FIRDatabase.database().reference().child("friends")
             
-            var friendinfo = [
+            let friendinfo = [
                 "Profile_Name" : self.Second_Match.text!,
                 "location" : self.Second_Loc.text!,
                 "Education": self.Second_Uni.text!,
@@ -166,11 +162,11 @@ class Profile_Meet_Main : UIViewController{
                 "Photo": self.second_photo_string,
                 "uid": self.uid2,
                 "phoneid": self.phoneid2,
-                "Notification": 0,
+                "Notification": 1,
                 "Chatid": 1
-            ];
+            ] as [String : Any];
             
-            var infofriend = [
+            let infofriend = [
                 "Profile_Name" : login_user.Profile_Name,
                 "location" : login_user.location,
                 "Education": login_user.university,
@@ -180,14 +176,14 @@ class Profile_Meet_Main : UIViewController{
                 "Photo": login_user.photo,
                 "uid": login_user.uid,
                 "phoneid": login_user.phoneid,
-                "Notification": 0,
+                "Notification": 1,
                 "Chatid": 2
-            ];
+            ] as [String : Any];
             
-            var usernamefd = ref.childByAppendingPath(usernamefriend);
-            var fdusername = fdref.childByAppendingPath(friendusername);
-            usernamefd.childByAppendingPath(self.uid2).setValue(friendinfo);
-            fdusername.childByAppendingPath(login_user.uid).setValue(infofriend);
+            let usernamefd = ref.child(byAppendingPath: usernamefriend);
+            let fdusername = fdref.child(byAppendingPath: friendusername);
+            usernamefd.child(byAppendingPath: self.uid2).setValue(friendinfo);
+            fdusername.child(byAppendingPath: login_user.uid).setValue(infofriend);
             
             //Load to the next destination
             loadDestinationVC();
@@ -197,17 +193,14 @@ class Profile_Meet_Main : UIViewController{
         }
     }
 
-    @IBAction func Chat_3(sender: AnyObject) {
+    @IBAction func Chat_3(_ sender: AnyObject) {
         if(self.third_match != ""){
-            var usernamefriend = login_user.uid  + "_fd";
-            var friendusername = self.uid3 + "_fd";
-//            var ref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
-//            let fdref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
+            let usernamefriend = login_user.uid  + "_fd";
+            let friendusername = self.uid3 + "_fd";
+            let ref = FIRDatabase.database().reference().child("friends")
+            let fdref = FIRDatabase.database().reference().child("friends")
             
-            var ref = FIRDatabase.database().reference().child("friends")
-            var fdref = FIRDatabase.database().reference().child("friends")
-            
-            var friendinfo = [
+            let friendinfo = [
                 "Profile_Name" : self.Third_Match.text!,
                 "location" : self.Third_Loc.text!,
                 "Education": self.Third_Uni.text!,
@@ -217,11 +210,11 @@ class Profile_Meet_Main : UIViewController{
                 "Photo": self.third_photo_string,
                 "uid": self.uid3,
                 "phoneid": self.phoneid3,
-                "Notification": 0,
+                "Notification": 1,
                 "Chatid": 1
-            ];
+            ] as [String : Any];
             
-            var infofriend = [
+            let infofriend = [
                 "Profile_Name" : login_user.Profile_Name,
                 "location" : login_user.location,
                 "Education": login_user.university,
@@ -231,14 +224,14 @@ class Profile_Meet_Main : UIViewController{
                 "Photo": login_user.photo,
                 "uid": login_user.uid,
                 "phoneid": login_user.phoneid,
-                "Notification": 0,
+                "Notification": 1,
                 "Chatid": 2
-            ];
+            ] as [String : Any];
             
-            var usernamefd = ref.childByAppendingPath(usernamefriend);
-            var fdusername = fdref.childByAppendingPath(friendusername);
-            usernamefd.childByAppendingPath(self.uid3).setValue(friendinfo);
-            fdusername.childByAppendingPath(login_user.uid).setValue(infofriend);
+            let usernamefd = ref.child(byAppendingPath: usernamefriend);
+            let fdusername = fdref.child(byAppendingPath: friendusername);
+            usernamefd.child(byAppendingPath: self.uid3).setValue(friendinfo);
+            fdusername.child(byAppendingPath: login_user.uid).setValue(infofriend);
             
             
             //Load to the next destination
@@ -249,17 +242,14 @@ class Profile_Meet_Main : UIViewController{
         }
     }
     
-    @IBAction func Chat_4(sender: AnyObject) {
+    @IBAction func Chat_4(_ sender: AnyObject) {
         if(self.fourth_match != ""){
-            var usernamefriend = login_user.uid + "_fd";
-            var friendusername = self.uid4 + "_fd";
-//            var ref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
-//            let fdref = Firebase(url:"https://simpleplus.firebaseio.com/friends/")
+            let usernamefriend = login_user.uid + "_fd";
+            let friendusername = self.uid4 + "_fd";
+            let ref = FIRDatabase.database().reference().child("friends")
+            let fdref = FIRDatabase.database().reference().child("friends")
             
-            var ref = FIRDatabase.database().reference().child("friends")
-            var fdref = FIRDatabase.database().reference().child("friends")
-            
-            var friendinfo = [
+            let friendinfo = [
                 "Profile_Name" : self.Fourth_Match.text!,
                 "location" : self.Fourth_Loc.text!,
                 "Education": self.Fourth_Uni.text!,
@@ -269,11 +259,11 @@ class Profile_Meet_Main : UIViewController{
                 "Photo": self.fourth_photo_string,
                 "uid": self.uid4,
                 "phoneid": self.phoneid4,
-                "Notification": 0,
+                "Notification": 1,
                 "Chatid": 1
-            ];
+            ] as [String : Any];
             
-            var infofriend = [
+            let infofriend = [
                 "Profile_Name" : login_user.Profile_Name,
                 "location" : login_user.location,
                 "Education": login_user.university,
@@ -283,14 +273,14 @@ class Profile_Meet_Main : UIViewController{
                 "Photo": login_user.photo,
                 "uid": login_user.uid,
                 "phoneid": login_user.phoneid,
-                "Notification": 0,
+                "Notification": 1,
                 "Chatid": 2
-            ];
+            ] as [String : Any];
             
-            var usernamefd = ref.childByAppendingPath(usernamefriend);
-            var fdusername = fdref.childByAppendingPath(friendusername);
-            usernamefd.childByAppendingPath(self.uid4).setValue(friendinfo);
-            fdusername.childByAppendingPath(login_user.uid).setValue(infofriend);
+            let usernamefd = ref.child(byAppendingPath: usernamefriend);
+            let fdusername = fdref.child(byAppendingPath: friendusername);
+            usernamefd.child(byAppendingPath: self.uid4).setValue(friendinfo);
+            fdusername.child(byAppendingPath: login_user.uid).setValue(infofriend);
             
             //Load to the next destination
             loadDestinationVC();
@@ -320,13 +310,13 @@ class Profile_Meet_Main : UIViewController{
                 self.Time_Greetings.text = "Good Morning, the time is " + hours + " : " + minutes;
             }
             
-            Time_Greetings.textColor = UIColor.whiteColor();
+            Time_Greetings.textColor = UIColor.white;
             Bkground_Image.image = UIImage(named: "Night_Sky_Pond.jpg");
             
             //Setting the User ID to login user id
             self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
-            self.User_ID.textColor = UIColor.whiteColor();
-            Time_Greetings.textColor = UIColor.whiteColor();
+            self.User_ID.textColor = UIColor.white;
+            Time_Greetings.textColor = UIColor.white;
         }
         else if(hour_i >= 12 && hour_i <= 18){
             
@@ -349,8 +339,8 @@ class Profile_Meet_Main : UIViewController{
             
             //Setting the User ID to login user id
             self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
-            self.User_ID.textColor = UIColor.whiteColor();
-            Time_Greetings.textColor = UIColor.whiteColor();
+            self.User_ID.textColor = UIColor.white;
+            Time_Greetings.textColor = UIColor.white;
         }
         else{
             
@@ -376,24 +366,23 @@ class Profile_Meet_Main : UIViewController{
             
             //Setting the User ID to login user id
             self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
-            self.User_ID.textColor = UIColor.whiteColor();
-            Time_Greetings.textColor = UIColor.whiteColor();
+            self.User_ID.textColor = UIColor.white;
+            Time_Greetings.textColor = UIColor.white;
         }
         
         //Download all the users to the meeting page
-//        let ref = Firebase(url:"https://simpleplus.firebaseio.com/users")
-        
         var ref = FIRDatabase.database().reference().child("users")
-        ref.queryOrderedByChild("longitude").queryStartingAtValue(login_user.longitude-1).queryEndingAtValue(login_user.longitude+1).observeEventType(.Value, withBlock: { longitudesnapshot in
-                let latref = ref.queryOrderedByChild("latitude").queryStartingAtValue(login_user.latitude-1).queryEndingAtValue(login_user.latitude+1).observeEventType(.Value, withBlock: { latitudesnapshot in
+        ref.queryOrdered(byChild: "longitude").queryStarting(atValue: login_user.longitude-1).queryEnding(atValue: login_user.longitude+1).observe(.value, with: { longitudesnapshot in
+                let latref = ref.queryOrdered(byChild: "latitude").queryStarting(atValue: login_user.latitude-1).queryEnding(atValue: login_user.latitude+1).observe(.value, with: { latitudesnapshot in
                     
                     var count = 0;
                     
                     for index in latitudesnapshot.children.allObjects as! [FIRDataSnapshot]{
                         
+                        if let source = index.value as? [String:AnyObject] {
                         var uname: String = "";
-                        var ind: Int = 0;
-                        uname = (index.value!["Email"] as! String?)!;
+                        var ind = 0;
+                        uname = (source["Email"] as! String?)!;
                         
                         for friend in frienduser.emailarray{
                             if(uname == friend){
@@ -402,26 +391,23 @@ class Profile_Meet_Main : UIViewController{
                         }
                         
                         if(uname != login.loginid && count == 0 && ind == 0){
-                        self.First_Match.text = index.value!["Profile_Name"] as! String?;
-                        self.First_Loc.text = index.value!["location"] as! String?;
-                        self.First_Uni.text = index.value!["Education"] as! String?;
-                        self.First_Major.text = index.value!["Major"] as! String?;
-                        self.first_id = (index.value!["username"] as! String?)!;
-                        self.first_match = (index.value!["Email"] as! String?)!;
-                        self.first_photo_string = (index.value!["Photo"] as! String?)!;
-                        var decodedData = NSData(base64EncodedString: self.first_photo_string, options: NSDataBase64DecodingOptions())
+                        self.First_Match.text = source["Profile_Name"] as! String?;
+                        self.First_Loc.text = source["location"] as! String?;
+                        self.First_Uni.text = source["Education"] as! String?;
+                        self.First_Major.text = source["Major"] as! String?;
+                        self.first_id = (source["username"] as! String?)!;
+                        self.first_match = (source["Email"] as! String?)!;
+                        self.first_photo_string = (source["Photo"] as! String?)!;
+                        var decodedData = Data(base64Encoded: self.first_photo_string, options: NSData.Base64DecodingOptions())
                         var decodedImage = UIImage(data: decodedData!)!
                         self.Image_1.image = decodedImage
-                        self.Image_1.contentMode = .ScaleAspectFit
-//                        self.q11 = (index.value["Qone"] as! String?)!;
-//                        self.q12 = (index.value["Qtwo"] as! String?)!;
-//                        self.q13 = (index.value["Qthree"] as! String?)!;
-                        self.uid1 = (index.value!["uid"] as! String?)!;
-                        self.phoneid1 = (index.value!["phoneid"] as! String?)!;
-                        self.First_Match.textColor = UIColor.whiteColor();
-                        self.First_Loc.textColor = UIColor.whiteColor();
-                        self.First_Uni.textColor = UIColor.whiteColor();
-                        self.First_Major.textColor = UIColor.whiteColor();
+                        self.Image_1.contentMode = .scaleAspectFit
+                        self.uid1 = (source["uid"] as! String?)!;
+                        self.phoneid1 = (source["phoneid"] as! String?)!;
+                        self.First_Match.textColor = UIColor.white;
+                        self.First_Loc.textColor = UIColor.white;
+                        self.First_Uni.textColor = UIColor.white;
+                        self.First_Major.textColor = UIColor.white;
                         self.First_Match.sizeToFit()
                         self.First_Loc.sizeToFit()
                         self.First_Uni.sizeToFit()
@@ -433,26 +419,23 @@ class Profile_Meet_Main : UIViewController{
                         count += 1;
                         }
                         else if(uname != login.loginid && count == 1 && ind == 0){
-                        self.Second_Match.text = index.value!["Profile_Name"] as! String?;
-                        self.Second_Loc.text = index.value!["location"] as! String?;
-                        self.Second_Uni.text = index.value!["Education"] as! String?;
-                        self.Second_Major.text = index.value!["Major"] as! String?;
-                        self.second_id = (index.value!["username"] as! String?)!;
-                        self.second_match = (index.value!["Email"] as! String?)!;
-                        self.second_photo_string = (index.value!["Photo"] as! String?)!;
-                        var decodedData = NSData(base64EncodedString: self.second_photo_string, options: NSDataBase64DecodingOptions())
+                        self.Second_Match.text = source["Profile_Name"] as! String?;
+                        self.Second_Loc.text = source["location"] as! String?;
+                        self.Second_Uni.text = source["Education"] as! String?;
+                        self.Second_Major.text = source["Major"] as! String?;
+                        self.second_id = (source["username"] as! String?)!;
+                        self.second_match = (source["Email"] as! String?)!;
+                        self.second_photo_string = (source["Photo"] as! String?)!;
+                        var decodedData = Data(base64Encoded: self.second_photo_string, options: NSData.Base64DecodingOptions())
                         var decodedImage = UIImage(data: decodedData!)!
                         self.Image_2.image = decodedImage
-                        self.Image_2.contentMode = .ScaleAspectFit
-//                        self.q21 = (index.value["Qone"] as! String?)!;
-//                        self.q22 = (index.value["Qtwo"] as! String?)!;
-//                        self.q23 = (index.value["Qthree"] as! String?)!;
-                        self.uid2 = (index.value!["uid"] as! String?)!;
-                        self.phoneid2 = (index.value!["phoneid"] as! String?)!;
-                        self.Second_Match.textColor = UIColor.whiteColor();
-                        self.Second_Loc.textColor = UIColor.whiteColor();
-                        self.Second_Uni.textColor = UIColor.whiteColor();
-                        self.Second_Major.textColor = UIColor.whiteColor();
+                        self.Image_2.contentMode = .scaleAspectFit
+                        self.uid2 = (source["uid"] as! String?)!;
+                        self.phoneid2 = (source["phoneid"] as! String?)!;
+                        self.Second_Match.textColor = UIColor.white;
+                        self.Second_Loc.textColor = UIColor.white;
+                        self.Second_Uni.textColor = UIColor.white;
+                        self.Second_Major.textColor = UIColor.white;
                         self.Second_Match.sizeToFit()
                         self.Second_Loc.sizeToFit()
                         self.Second_Uni.sizeToFit()
@@ -464,26 +447,23 @@ class Profile_Meet_Main : UIViewController{
                         count += 1;
                         }
                         else if(uname != login.loginid && count == 2 && ind == 0){
-                        self.Third_Match.text = index.value!["Profile_Name"] as! String?;
-                        self.Third_Loc.text = index.value!["location"] as! String?;
-                        self.Third_Uni.text = index.value!["Education"] as! String?;
-                        self.Third_Major.text = index.value!["Major"] as! String?;
-                        self.third_id = (index.value!["username"] as! String?)!;
-                        self.third_match = (index.value!["Email"] as! String?)!;
-                        self.third_photo_string = (index.value!["Photo"] as! String?)!;
-                        var decodedData = NSData(base64EncodedString: self.third_photo_string, options: NSDataBase64DecodingOptions())
+                        self.Third_Match.text = source["Profile_Name"] as! String?;
+                        self.Third_Loc.text = source["location"] as! String?;
+                        self.Third_Uni.text = source["Education"] as! String?;
+                        self.Third_Major.text = source["Major"] as! String?;
+                        self.third_id = (source["username"] as! String?)!;
+                        self.third_match = (source["Email"] as! String?)!;
+                        self.third_photo_string = (source["Photo"] as! String?)!;
+                        var decodedData = Data(base64Encoded: self.third_photo_string, options: NSData.Base64DecodingOptions())
                         var decodedImage = UIImage(data: decodedData!)!
                         self.Image_3.image = decodedImage
-                        self.Image_3.contentMode = .ScaleAspectFit
-//                        self.q31 = (index.value["Qone"] as! String?)!;
-//                        self.q32 = (index.value["Qtwo"] as! String?)!;
-//                        self.q33 = (index.value["Qthree"] as! String?)!;
-                        self.uid3 = (index.value!["uid"] as! String?)!;
-                        self.phoneid3 = (index.value!["phoneid"] as! String?)!;
-                        self.Third_Match.textColor = UIColor.whiteColor();
-                        self.Third_Loc.textColor = UIColor.whiteColor();
-                        self.Third_Uni.textColor = UIColor.whiteColor();
-                        self.Third_Major.textColor = UIColor.whiteColor();
+                        self.Image_3.contentMode = .scaleAspectFit
+                        self.uid3 = (source["uid"] as! String?)!;
+                        self.phoneid3 = (source["phoneid"] as! String?)!;
+                        self.Third_Match.textColor = UIColor.white;
+                        self.Third_Loc.textColor = UIColor.white;
+                        self.Third_Uni.textColor = UIColor.white;
+                        self.Third_Major.textColor = UIColor.white;
                         self.Third_Match.sizeToFit()
                         self.Third_Loc.sizeToFit()
                         self.Third_Uni.sizeToFit()
@@ -495,26 +475,23 @@ class Profile_Meet_Main : UIViewController{
                         count += 1;
                         }
                         else if(uname != login.loginid && count == 3 && ind == 0){
-                        self.Fourth_Match.text = index.value!["Profile_Name"] as! String?;
-                        self.Fourth_Loc.text = index.value!["location"] as! String?;
-                        self.Fourth_Uni.text = index.value!["Education"] as! String?;
-                        self.Fourth_Major.text = index.value!["Major"] as! String?;
-                        self.fourth_id = (index.value!["username"] as! String?)!;
-                        self.fourth_match = (index.value!["Email"] as! String?)!;
-                        self.fourth_photo_string = (index.value!["Photo"] as! String?)!;
-                        var decodedData = NSData(base64EncodedString: self.fourth_photo_string, options: NSDataBase64DecodingOptions())
+                        self.Fourth_Match.text = source["Profile_Name"] as! String?;
+                        self.Fourth_Loc.text = source["location"] as! String?;
+                        self.Fourth_Uni.text = source["Education"] as! String?;
+                        self.Fourth_Major.text = source["Major"] as! String?;
+                        self.fourth_id = (source["username"] as! String?)!;
+                        self.fourth_match = (source["Email"] as! String?)!;
+                        self.fourth_photo_string = (source["Photo"] as! String?)!;
+                        var decodedData = Data(base64Encoded: self.fourth_photo_string, options: NSData.Base64DecodingOptions())
                         var decodedImage = UIImage(data: decodedData!)!
                         self.Image_4.image = decodedImage
-                        self.Image_4.contentMode = .ScaleAspectFit
-//                        self.q41 = (index.value["Qone"] as! String?)!;
-//                        self.q42 = (index.value["Qtwo"] as! String?)!;
-//                        self.q43 = (index.value["Qthree"] as! String?)!;
-                        self.uid4 = (index.value!["uid"] as! String?)!;
-                        self.phoneid4 = (index.value!["phoneid"] as! String?)!;
-                        self.Fourth_Match.textColor = UIColor.whiteColor();
-                        self.Fourth_Loc.textColor = UIColor.whiteColor();
-                        self.Fourth_Uni.textColor = UIColor.whiteColor();
-                        self.Fourth_Major.textColor = UIColor.whiteColor();
+                        self.Image_4.contentMode = .scaleAspectFit
+                        self.uid4 = (source["uid"] as! String?)!;
+                        self.phoneid4 = (source["phoneid"] as! String?)!;
+                        self.Fourth_Match.textColor = UIColor.white;
+                        self.Fourth_Loc.textColor = UIColor.white;
+                        self.Fourth_Uni.textColor = UIColor.white;
+                        self.Fourth_Major.textColor = UIColor.white;
                         self.Fourth_Match.sizeToFit()
                         self.Fourth_Loc.sizeToFit()
                         self.Fourth_Uni.sizeToFit()
@@ -525,6 +502,7 @@ class Profile_Meet_Main : UIViewController{
                         self.Fourth_Major.adjustsFontSizeToFitWidth = true
                         count += 1;
                         }
+                      }
                     }
                 })
         })
@@ -539,25 +517,19 @@ class Profile_Meet_Main : UIViewController{
     func hour() -> String
     {
         //Get Hour
-        let date:NSDate = NSDate();
-        let calendar: NSCalendar = NSCalendar.currentCalendar();
-        let components:NSDateComponents = calendar.components(
-            NSCalendarUnit.NSHourCalendarUnit, fromDate: date)
-        let hours = components.hour
-        let hour = String(hours);
+        let date:Date = Date();
+        let calendar: Calendar = Calendar.current;
+        let hour = calendar.component(.hour, from: date)
         //Return Hour
-        return hour
+        return String(hour)
     }
     
     func hour_int() -> Int
     {
         //Get Hour
-        let date:NSDate = NSDate();
-        let calendar: NSCalendar = NSCalendar.currentCalendar();
-        let components:NSDateComponents = calendar.components(
-            NSCalendarUnit.NSHourCalendarUnit, fromDate: date)
-        let hours = components.hour
-        let hour = Int(hours);
+        let date:Date = Date();
+        let calendar: Calendar = Calendar.current;
+        let hour = calendar.component(.hour, from: date)
         //Return Hour
         return hour
     }
@@ -566,39 +538,34 @@ class Profile_Meet_Main : UIViewController{
     func minute() -> String
     {
         //Get Minute
-        let date:NSDate = NSDate();
-        let calendar: NSCalendar = NSCalendar.currentCalendar();
-        let components:NSDateComponents = calendar.components(
-            NSCalendarUnit.NSMinuteCalendarUnit, fromDate: date)
-        let minutes = components.minute
-        let minute = String(minutes);
+        let date:Date = Date();
+        let calendar: Calendar = Calendar.current;
+        let minutes = calendar.component(.minute, from: date)
         //Return Minute
-        return minute
+        return String(minutes)
     }
     
     func minute_Int() -> Int
     {
         //Get Minute
-        let date:NSDate = NSDate();
-        let calendar: NSCalendar = NSCalendar.currentCalendar();
-        let components:NSDateComponents = calendar.components(
-            NSCalendarUnit.NSMinuteCalendarUnit, fromDate: date)
-        let minutes = components.minute
-        let minute = Int(minutes);
+        let date:Date = Date();
+        let calendar: Calendar = Calendar.current;
+        let minutes = calendar.component(.minute, from: date)
         //Return Minute
-        return minute
+        return minutes
     }
+
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("To_Chat", sender: nil)
+        self.performSegue(withIdentifier: "To_Chat", sender: nil)
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
 };

@@ -32,11 +32,11 @@ class Ansnine: UIViewController{
         self.answeronelabel.text = "Early bird";
         self.answertwolabel.text = "Night owl";
         
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: ("Swipes:"))
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: ("Swipes:"))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: (#selector(Ansnine.Swipes(_:))))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: (#selector(Ansnine.Swipes(_:))))
         
-        leftSwipe.direction = .Left
-        rightSwipe.direction = .Right
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
         
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
@@ -48,9 +48,9 @@ class Ansnine: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    func Swipes(sender:UISwipeGestureRecognizer){
+    func Swipes(_ sender:UISwipeGestureRecognizer){
         
-        if(sender.direction == .Right){
+        if(sender.direction == .right){
             
             let param = ["q9": "Night owl"]
             
@@ -59,7 +59,7 @@ class Ansnine: UIViewController{
             loadDestinationVC()
             
         }
-        else if(sender.direction == .Left){
+        else if(sender.direction == .left){
             
             let param = ["q9": "Early bird"]
             
@@ -70,15 +70,15 @@ class Ansnine: UIViewController{
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("ReturnToProfile", sender: nil)
+        self.performSegue(withIdentifier: "ReturnToProfile", sender: nil)
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
 };

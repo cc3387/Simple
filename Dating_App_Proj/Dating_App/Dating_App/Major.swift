@@ -16,7 +16,7 @@ class Major: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource{
     var Major = "";
     
     
-    @IBAction func UpdateMajor(sender: AnyObject) {
+    @IBAction func UpdateMajor(_ sender: AnyObject) {
         self.updateMajor();
         loadDestinationVC();
     }
@@ -37,14 +37,14 @@ class Major: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource{
     }
     
     func updateMajor(){
-        var sizeComponent = PickerComponent.loc.rawValue
-        let size = pickerData[sizeComponent][myPicker.selectedRowInComponent(sizeComponent)]
+        let sizeComponent = PickerComponent.loc.rawValue
+        let size = pickerData[sizeComponent][myPicker.selectedRow(inComponent: sizeComponent)]
         self.Major = size;
         register_info.Major = self.Major;
         print(register_info.Major);
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return pickerData.count
     }
 
@@ -180,38 +180,38 @@ class Major: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource{
     ]
     ]
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData[component].count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         return pickerData[component][row]
     }
     
     /*Function to change the color of the fonts in the pickerview*/
     
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView!) -> UIView
     {
-        var pickerLabel = UILabel()
-        pickerLabel.textColor = UIColor.whiteColor()
+        let pickerLabel = UILabel()
+        pickerLabel.textColor = UIColor.white
         pickerLabel.text = pickerData[component][row]
         pickerLabel.font = UIFont(name: pickerLabel.font.fontName, size: 14)
         //pickerLabel.font = UIFont(name: "System Thin", size: 12) // In this use your custom font
-        pickerLabel.textAlignment = NSTextAlignment.Center
+        pickerLabel.textAlignment = NSTextAlignment.center
         return pickerLabel
     }
     
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Beer_Wine", sender: nil)
+        self.performSegue(withIdentifier: "Beer_Wine", sender: nil)
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
 }

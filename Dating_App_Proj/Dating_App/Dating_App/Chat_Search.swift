@@ -35,27 +35,27 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
     }
     
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = false;
     }
     
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = false;
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
     }
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         filtered = data1.filter({ (text) -> Bool in
-            let tmp: NSString = text
-            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            let tmp: NSString = text as NSString
+            let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
             return range.location != NSNotFound
         })
         
@@ -73,23 +73,23 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
     }
     
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(searchActive) {
             return filtered.count
         }
         return data.count;
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as UITableViewCell
         
         if(searchActive){
-            cell.textLabel?.text = filtered[indexPath.row]
+            cell.textLabel?.text = filtered[(indexPath as NSIndexPath).row]
             var count = 0;
             var selectednames = [String]();
             var selectedphotos = [String]();
@@ -103,22 +103,22 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
             
             if(selectednames.count == 1){
             let base64String = selectedphotos[0];
-                var decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions())
-                var decodedImage = UIImage(data: decodedData!)!
+                let decodedData = Data(base64Encoded: base64String, options: Data.Base64DecodingOptions())
+                let decodedImage = UIImage(data: decodedData!)!
                 cell.imageView!.image = decodedImage
             }
             else{
-            let base64String = dataphoto[indexPath.row];
-            var decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions())
-            var decodedImage = UIImage(data: decodedData!)!
+            let base64String = dataphoto[(indexPath as NSIndexPath).row];
+            let decodedData = Data(base64Encoded: base64String, options: Data.Base64DecodingOptions())
+            let decodedImage = UIImage(data: decodedData!)!
             cell.imageView!.image = decodedImage
             }
         }
         else {
-            cell.textLabel?.text = data1[indexPath.row];
-            let base64String = dataphoto[indexPath.row];
-            var decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions())
-            var decodedImage = UIImage(data: decodedData!)!
+            cell.textLabel?.text = data1[(indexPath as NSIndexPath).row];
+            let base64String = dataphoto[(indexPath as NSIndexPath).row];
+            let decodedData = Data(base64Encoded: base64String, options: Data.Base64DecodingOptions())
+            let decodedImage = UIImage(data: decodedData!)!
             cell.imageView!.image = decodedImage
         }
         
@@ -127,12 +127,12 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
     }
     
     //Select Row in index Path
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if(searchActive){
             
             var count = 0;
-            let selectedname = filtered[indexPath.row]
+            let selectedname = filtered[(indexPath as NSIndexPath).row]
             var selectednames = [String]();
             
             
@@ -140,7 +140,7 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
                 if(index == selectedname){
                     selectednames.append(data[count]);
                 }
-                count++;
+                count += 1;
             }
             
             if(selectednames.count == 1){
@@ -154,61 +154,62 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
                 var rref = FIRDatabase.database().reference().child(loginid)
                 
 //                let rref = Firebase(url:loginid);
-                rref.observeEventType(.Value, withBlock: { snapshot in
-                    if(login_user.uid != self.data[indexPath.row]){
-                        let friends_name:String? = snapshot.value!["Profile_Name"] as? String
-                        let friends_loc:String? = snapshot.value!["location"] as? String
-                        let friends_uni:String? = snapshot.value!["Education"] as? String
-                        let friends_major:String? = snapshot.value!["Major"] as? String
-                        let friends_id:String? = snapshot.value!["Email"] as? String
-                        let friends_username:String? = snapshot.value!["username"] as? String
-                        let friends_photo:String? = snapshot.value!["Photo"] as? String
-                        let uid:String? = snapshot.value!["uid"] as? String
-                        let phoneid:String? = snapshot.value!["phoneid"] as? String
-                        let chat_id:Int? = snapshot.value!["Chatid"] as? Int
-                        let notification:Int? = snapshot.value!["Notification"] as? Int
+                rref.observe(.value, with: { snapshot in
+                    if(login_user.uid != self.data[(indexPath as NSIndexPath).row]){
+                        
+                        if let source = snapshot.value as? [String:AnyObject] {
+                        let friends_name:String? = source["Profile_Name"] as? String
+                        let friends_loc:String? = source["location"] as? String
+                        let friends_uni:String? = source["Education"] as? String
+                        let friends_major:String? = source["Major"] as? String
+                        let friends_id:String? = source["Email"] as? String
+                        let friends_username:String? = source["username"] as? String
+                        let friends_photo:String? = source["Photo"] as? String
+                        let uid:String? = source["uid"] as? String
+                        let phoneid:String? = source["phoneid"] as? String
+                        let chat_id:Int? = source["Chatid"] as? Int
+                        let notification:Int? = source["Notification"] as? Int
                         convo_final.chat_check_final = chat_id;
                         convo_final.friend_phoneid_final = phoneid!;
                         convo_final.friend_id_final = uid!;
                         convo_final.friend_Profile_final = friends_name!;
                         convo_final.notification = notification!;
-                        print(convo_final.chat_check_final)
                         friend_profile.Profile_Name = friends_name;
                         friend_profile.Location = friends_loc;
                         friend_profile.University = friends_uni;
                         friend_profile.Major = friends_major;
                         let base64String = friends_photo
-                        var decodedData = NSData(base64EncodedString: base64String!, options: NSDataBase64DecodingOptions())
+                        var decodedData = Data(base64Encoded: base64String!, options: NSData.Base64DecodingOptions())
                         var decodedImage = UIImage(data: decodedData!)!
                         friend_profile.Photo = decodedImage
-                        
+                        }
                     }
                 })
             }
             else{
         
-            convo_final.friend_id_final = data[indexPath.row];
+            convo_final.friend_id_final = data[(indexPath as NSIndexPath).row];
                 
 //            let loginid = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd/" + convo_final.friend_id_final;
             let loginid = "friends/" + login_user.uid + "_fd/" + convo_final.friend_id_final;
             var rref = FIRDatabase.database().reference().child(loginid)
 
 //            let rref = Firebase(url:loginid);
-            rref.observeEventType(.Value, withBlock: { snapshot in
-                if(login_user.uid != self.data[indexPath.row]){
-                    let friends_name:String? = snapshot.value!["Profile_Name"] as? String
-                    let friends_loc:String? = snapshot.value!["location"] as? String
-                    let friends_uni:String? = snapshot.value!["Education"] as? String
-                    let friends_major:String? = snapshot.value!["Major"] as? String
-                    let friends_id:String? = snapshot.value!["Email"] as? String
-                    let friends_username:String? = snapshot.value!["username"] as? String
-                    let friends_photo:String? = snapshot.value!["Photo"] as? String
-                    let uid:String? = snapshot.value!["uid"] as? String
-                    let phoneid:String? = snapshot.value!["phoneid"] as? String
-                    let chat_id:Int? = snapshot.value!["Chatid"] as? Int
-                    let notification:Int? = snapshot.value!["Notification"] as? Int
+            rref.observe(.value, with: { snapshot in
+                if(login_user.uid != self.data[(indexPath as NSIndexPath).row]){
+                    if let source = snapshot.value as? [String:AnyObject] {
+                    let friends_name:String? = source["Profile_Name"] as? String
+                    let friends_loc:String? = source["location"] as? String
+                    let friends_uni:String? = source["Education"] as? String
+                    let friends_major:String? = source["Major"] as? String
+                    let friends_id:String? = source["Email"] as? String
+                    let friends_username:String? = source["username"] as? String
+                    let friends_photo:String? = source["Photo"] as? String
+                    let uid:String? = source["uid"] as? String
+                    let phoneid:String? = source["phoneid"] as? String
+                    let chat_id:Int? = source["Chatid"] as? Int
+                    let notification:Int? = source["Notification"] as? Int
                     convo_final.chat_check_final = chat_id;
-                    print(convo_final.chat_check_final)
                     convo_final.friend_phoneid_final = phoneid!;
                     convo_final.friend_id_final = uid!;
                     convo_final.friend_Profile_final = friends_name!;
@@ -218,37 +219,34 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
                     friend_profile.University = friends_uni;
                     friend_profile.Major = friends_major;
                     let base64String = friends_photo
-                    var decodedData = NSData(base64EncodedString: base64String!, options: NSDataBase64DecodingOptions())
+                    var decodedData = Data(base64Encoded: base64String!, options: NSData.Base64DecodingOptions())
                     var decodedImage = UIImage(data: decodedData!)!
                     friend_profile.Photo = decodedImage
+                    }
                 }
                 })
             }
         }
         else{
-            convo_final.friend_id_final = data[indexPath.row];
-//            let loginid = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd/" + data[indexPath.row];
-//            let rref = Firebase(url:loginid);
-            
+            convo_final.friend_id_final = data[(indexPath as NSIndexPath).row];
             let loginid = "friends/" + login_user.uid + "_fd/" + convo_final.friend_id_final;
             var rref = FIRDatabase.database().reference().child(loginid)
-            
-            print(convo_final.friend_id_final);
-            rref.observeEventType(.Value, withBlock: { snapshot in
-                if(login_user.uid != self.data[indexPath.row]){
-                    let friends_name:String? = snapshot.value!["Profile_Name"] as? String
-                    let friends_loc:String? = snapshot.value!["location"] as? String
-                    let friends_uni:String? = snapshot.value!["Education"] as? String
-                    let friends_major:String? = snapshot.value!["Major"] as? String
-                    let friends_id:String? = snapshot.value!["Email"] as? String
-                    let friends_username:String? = snapshot.value!["username"] as? String
-                    let friends_photo:String? = snapshot.value!["Photo"] as? String
-                    let uid:String? = snapshot.value!["uid"] as? String
-                    let phoneid:String? = snapshot.value!["phoneid"] as? String
-                    let chat_id:Int? = snapshot.value!["Chatid"] as? Int
-                    let notification:Int? = snapshot.value!["Notification"] as? Int
+            rref.observe(.value, with: { snapshot in
+                if(login_user.uid != self.data[(indexPath as NSIndexPath).row]){
+                    
+                    if let source = snapshot.value as? [String:AnyObject] {
+                    let friends_name:String? = source["Profile_Name"] as? String
+                    let friends_loc:String? = source["location"] as? String
+                    let friends_uni:String? = source["Education"] as? String
+                    let friends_major:String? = source["Major"] as? String
+                    let friends_id:String? = source["Email"] as? String
+                    let friends_username:String? = source["username"] as? String
+                    let friends_photo:String? = source["Photo"] as? String
+                    let uid:String? = source["uid"] as? String
+                    let phoneid:String? = source["phoneid"] as? String
+                    let chat_id:Int? = source["Chatid"] as? Int
+                    let notification:Int? = source["Notification"] as? Int
                     convo_final.chat_check_final = chat_id;
-                    print(convo_final.chat_check_final)
                     convo_final.friend_phoneid_final = phoneid!;
                     convo_final.friend_id_final = uid!;
                     convo_final.friend_Profile_final = friends_name!;
@@ -258,9 +256,10 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
                     friend_profile.University = friends_uni;
                     friend_profile.Major = friends_major;
                     let base64String = friends_photo
-                    var decodedData = NSData(base64EncodedString: base64String!, options: NSDataBase64DecodingOptions())
+                    var decodedData = Data(base64Encoded: base64String!, options: NSData.Base64DecodingOptions())
                     var decodedImage = UIImage(data: decodedData!)!
                     friend_profile.Photo = decodedImage
+                    }
                 }
             })
         }

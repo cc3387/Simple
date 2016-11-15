@@ -18,7 +18,7 @@ import Foundation
 
 // TODO: Document this
 @objc
-public class BatchClientPush: NSObject, NSURLSessionDelegate {
+public class BatchClientPush: NSObject, URLSessionDelegate {
     private static let apiURLFormat = "https://api.batch.com/1.0/%@/transactional/send"
     private static let apiMaxRecipients = 10000
     private static let jsonContentType = "application/json"
@@ -26,7 +26,7 @@ public class BatchClientPush: NSObject, NSURLSessionDelegate {
     private let apiKey: String
     private let restKey: String
     
-    private let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+    private let session = URLSession(configuration: URLSessionConfiguration.default)
     
     // TODO: Document all this
     public private(set) var message = BatchClientPushMessage()
@@ -50,18 +50,18 @@ public class BatchClientPush: NSObject, NSURLSessionDelegate {
         self.restKey = restKey
     }
     
-    func send(completionHandler: (response: String?, error: NSError?) -> ()) {
+    func send(completionHandler: @escaping (_ response: String?, _ error: NSError?) -> ()) {
         guard recipients.count > 0 else {
-            completionHandler(response: nil, error: NSError(domain: "BatchClientPushErrorDomain",
-                code: -2,
-                userInfo: [NSLocalizedDescriptionKey: "Validation error: No recipients were specified"]))
+            completionHandler(nil, NSError(domain: "BatchClientPushErrorDomain",
+                                           code: -2,
+                                           userInfo: [NSLocalizedDescriptionKey: "Validation error: No recipients were specified"]))
             return
         }
         
         guard recipients.count <= BatchClientPush.apiMaxRecipients else {
-            completionHandler(response: nil, error: NSError(domain: "BatchClientPushErrorDomain",
-                code: -2,
-                userInfo: [NSLocalizedDescriptionKey: "Validation error: Recipients count exceeds \(BatchClientPush.apiMaxRecipients)"]))
+            completionHandler(nil, NSError(domain: "BatchClientPushErrorDomain",
+                                           code: -2,
+                                           userInfo: [NSLocalizedDescriptionKey: "Validation error: Recipients count exceeds \(BatchClientPush.apiMaxRecipients)"]))
             return
         }
         
@@ -69,46 +69,45 @@ public class BatchClientPush: NSObject, NSURLSessionDelegate {
         
         if let customPayload = customPayload {
             do {
-                jsonPayload = try NSJSONSerialization.dataWithJSONObject(customPayload, options: [])
+                jsonPayload = try JSONSerialization.data(withJSONObject: customPayload, options: []) as NSData?
             } catch let error as NSError {
-                completionHandler(response: nil, error: NSError(domain: "BatchClientPushErrorDomain",
-                    code: -3,
-                    userInfo: [
-                        NSUnderlyingErrorKey: error,
-                        NSLocalizedDescriptionKey: "Validation error: An error occurred while serializing the custom payload to JSON. Make sure it's a dictionary only made of foundation objects compatible with NSJSONSerialization. (Additional info: \(error.localizedDescription)"
+                completionHandler(nil, NSError(domain: "BatchClientPushErrorDomain",
+                                               code: -3,
+                                               userInfo: [
+                                                NSUnderlyingErrorKey: error,
+                                                NSLocalizedDescriptionKey: "Validation error: An error occurred while serializing the custom payload to JSON. Make sure it's a dictionary only made of foundation objects compatible with NSJSONSerialization. (Additional info: \(error.localizedDescription)"
                     ]))
                 return
             }
         }
         
-        guard let request = buildRequest(jsonPayload) else {
-            completionHandler(response: nil, error: NSError(domain: "BatchClientPushErrorDomain",
-                code: -1,
-                userInfo: [NSLocalizedDescriptionKey: "Unknown error while building the HTTP request"]))
+        guard let request = buildRequest(customPayload: jsonPayload) else {
+            completionHandler(nil, NSError(domain: "BatchClientPushErrorDomain",
+                                           code: -1,
+                                           userInfo: [NSLocalizedDescriptionKey: "Unknown error while building the HTTP request"]))
             return
         }
         
-        let task = session.dataTaskWithRequest(request, completionHandler: {
-            (data: NSData?, response: NSURLResponse?, error: NSError?) in
+        let task = session.dataTask(with: request as URLRequest) { (data, response, error) -> Void in
             
             var stringResponseData: String?
             if let data = data {
-                stringResponseData = String(data: data, encoding: NSUTF8StringEncoding)
+                stringResponseData = String(data: data, encoding: String.Encoding.utf8)
             }
             
-            var userFacingError: NSError? = error
+            var userFacingError: NSError? = error as NSError?
             
-            if let response = response as? NSHTTPURLResponse
-                where response.statusCode != 201 && error == nil {
+            if let response = response as? HTTPURLResponse
+                , response.statusCode != 201 && error == nil {
                 userFacingError = NSError(domain: "BatchClientPushErrorDomain",
-                    code: -4,
-                    userInfo: [
-                        NSLocalizedDescriptionKey: "Server error: Status code \(response.statusCode), please see the response string for more info."
+                                          code: -4,
+                                          userInfo: [
+                                            NSLocalizedDescriptionKey: "Server error: Status code \(response.statusCode), please see the response string for more info."
                     ])
             }
             
-            completionHandler(response: stringResponseData, error: userFacingError)
-        })
+            completionHandler(stringResponseData, userFacingError)
+        }
         
         task.resume()
     }
@@ -116,12 +115,12 @@ public class BatchClientPush: NSObject, NSURLSessionDelegate {
     private func buildRequest(customPayload: NSData?) -> NSURLRequest? {
         guard let url = NSURL(string: String(format: BatchClientPush.apiURLFormat, apiKey)) else { return nil }
         
-        guard let body = buildRequestBody(customPayload) else { return nil }
+        guard let body = buildRequestBody(customPayload: customPayload) else { return nil }
         
-        let request = NSMutableURLRequest(URL: url)
+        let request = NSMutableURLRequest(url: url as URL)
         
-        request.HTTPMethod = "POST"
-        request.HTTPBody = body
+        request.httpMethod = "POST"
+        request.httpBody = body as Data
         request.setValue(restKey, forHTTPHeaderField: "X-Authorization")
         request.setValue(BatchClientPush.jsonContentType, forHTTPHeaderField: "Accept")
         request.setValue(BatchClientPush.jsonContentType, forHTTPHeaderField: "Content-Type")
@@ -131,26 +130,26 @@ public class BatchClientPush: NSObject, NSURLSessionDelegate {
     
     private func buildRequestBody(customPayload: NSData?) -> NSData? {
         var body: [String: AnyObject] = [:]
-        body["group_id"] = groupId
-        body["sandbox"] = sandbox
+        body["group_id"] = groupId as AnyObject?
+        body["sandbox"] = sandbox as AnyObject?
         body["recipients"] = [
             "custom_ids": recipients.customIds,
             "tokens": recipients.tokens,
             "install_ids": recipients.installIds
-        ]
+            ] as AnyObject?
         
-        body["message"] = message.dictionaryRepresentation()
+        body["message"] = message.dictionaryRepresentation() as AnyObject?
         
         if let customPayload = customPayload {
-            body["custom_payload"] = String(data: customPayload, encoding: NSUTF8StringEncoding)
+            body["custom_payload"] = String(data: customPayload as Data, encoding: String.Encoding.utf8) as AnyObject?
         }
         
         if let deeplink = deeplink {
-            body["deeplink"] = deeplink
+            body["deeplink"] = deeplink as AnyObject?
         }
         
         do {
-            return try NSJSONSerialization.dataWithJSONObject(body, options: [])
+            return try JSONSerialization.data(withJSONObject: body, options: []) as NSData?
         } catch {
             return nil
         }
@@ -169,7 +168,7 @@ public class BatchClientPushMessage: NSObject {
             res["title"] = title
         }
         
-        return res
+        return res as [String : AnyObject]
     }
     
 }

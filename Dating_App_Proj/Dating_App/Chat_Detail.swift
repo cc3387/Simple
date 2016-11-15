@@ -31,23 +31,23 @@ class ChatDetail: JSQMessagesViewController{
         self.senderId = login_user.uid
         title = "Chat - " + convo_final.friend_Profile_final 
         setupBubbles()
-        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
-        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
+        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         self.inputToolbar!.contentView!.leftBarButtonItem = nil
     }
     
-    override func collectionView(collectionView: JSQMessagesCollectionView!,
-        messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!,
+        messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
             return messages[indexPath.item]
     }
     
-    override func collectionView(collectionView: UICollectionView,
+    override func collectionView(_ collectionView: UICollectionView,
         numberOfItemsInSection section: Int) -> Int {
             return messages.count
     }
     
-    override func collectionView(collectionView: JSQMessagesCollectionView!,
-        messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!,
+        messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
             let message = messages[indexPath.item] // 1
             if message.senderId == senderId { // 2
                 return outgoingBubbleImageView
@@ -56,37 +56,32 @@ class ChatDetail: JSQMessagesViewController{
             }
     }
     
-    override func collectionView(collectionView: JSQMessagesCollectionView!,
-        avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!,
+        avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
             return nil
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         observeMessages()
     }
   
     //Sending the message to server
-    override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!,
-        senderDisplayName: String!, date: NSDate!) {
-            
-//          let rootRef = Firebase(url: "https://simpleplus.firebaseio.com/messages/")
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!,
+        senderDisplayName: String!, date: Date!) {
         
         let messageRef = FIRDatabase.database().reference().child("messages")
         var finalidmsg = "";
         
             //Define the server hosting name
             if(convo_final.chat_check_final == 1){
-//            messageRef = rootRef.childByAppendingPath(login_user.uid + convo_final.friend_id_final + "msg")
-              finalidmsg = login_user.uid + convo_final.friend_id_final + "msg";
+            finalidmsg = login_user.uid + convo_final.friend_id_final + "msg";
             }
             else if (convo_final.chat_check_final == 2){
-//            messageRef = rootRef.childByAppendingPath(convo_final.friend_id_final + login_user.uid + "msg")
-              finalidmsg = convo_final.friend_id_final + login_user.uid + "msg";
-//                var messageRef = FIRDatabase.database().reference().child("messages").child(message);
+            finalidmsg = convo_final.friend_id_final + login_user.uid + "msg";
             }
         
-            var Timestamp = "\(NSDate().timeIntervalSince1970*1000)"
+            var Timestamp = "\(Date().timeIntervalSince1970*1000)"
         
             let itemRef = messageRef.child(finalidmsg).childByAutoId()
             
@@ -104,10 +99,10 @@ class ChatDetail: JSQMessagesViewController{
             //5 Sending notification to your friend's phone
             let devDeviceToken = convo_final.friend_phoneid_final
             print(devDeviceToken)
-            if let pushClient = BatchClientPush(apiKey: "577F39F55EDFB32D2A5AC16A8A3941", restKey: "a524aa85f96b3bc103188428b026bd5b") {
+            if let pushClient = BatchClientPush(apiKey: "DEV582972DC529B1FE31875A6CB6D6", restKey: "a524aa85f96b3bc103188428b026bd5b") {
             
             pushClient.sandbox = false
-            pushClient.customPayload = ["aps": ["badge": 1]]
+            pushClient.customPayload = ["aps": ["badge": 1] as AnyObject]
             pushClient.groupId = "tests"
             pushClient.message.title = "Simple"
             pushClient.message.body = login_user.Profile_Name + " sent you a message!"
@@ -132,91 +127,73 @@ class ChatDetail: JSQMessagesViewController{
             finishSendingMessage()
     }
     
-    override func collectionView(collectionView: UICollectionView,
-        cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-            let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath)
+    override func collectionView(_ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            let cell = super.collectionView(collectionView, cellForItemAt: indexPath)
                 as! JSQMessagesCollectionViewCell
             
-            let message = messages[indexPath.item]
+            let message = messages[(indexPath as NSIndexPath).item]
             
             if message.senderId == senderId {
-                cell.textView!.textColor = UIColor.whiteColor()
+                cell.textView!.textColor = UIColor.white
             } else {
-                cell.textView!.textColor = UIColor.blackColor()
+                cell.textView!.textColor = UIColor.black
             }
             
             return cell
     }
     
     //To Set up chat bubbles for the chat app process
-    private func setupBubbles() {
+    fileprivate func setupBubbles() {
         let factory = JSQMessagesBubbleImageFactory()
-        outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(
-            UIColor.jsq_messageBubbleBlueColor())
-        incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(
-            UIColor.jsq_messageBubbleLightGrayColor())
+        outgoingBubbleImageView = factory?.outgoingMessagesBubbleImage(
+            with: UIColor.jsq_messageBubbleBlue())
+        incomingBubbleImageView = factory?.incomingMessagesBubbleImage(
+            with: UIColor.jsq_messageBubbleLightGray())
     }
     
     //Function to observe the information
-    private func observeMessages() {
-        
-        //let rootRef = Firebase(url: "https://simpleplus.firebaseio.com/messages/")
+    fileprivate func observeMessages() {
         
         let messageRef = FIRDatabase.database().reference().child("messages")
         var finalidmsg = "";
-//        var messageRef  = rootRef
         
         
         if(convo_final.chat_check_final == 1){
-//      messageRef = rootRef.childByAppendingPath(login_user.uid + convo_final.friend_id_final + "msg")
         finalidmsg = login_user.uid + convo_final.friend_id_final + "msg"
         }
         else if (convo_final.chat_check_final == 2){
-//      messageRef = rootRef.childByAppendingPath(convo_final.friend_id_final + login_user.uid + "msg")
         finalidmsg = convo_final.friend_id_final + login_user.uid + "msg"
         }
 
         //Define the messageQuery
-        let messagesQuery = messageRef.child(finalidmsg).queryLimitedToLast(25)
+        let messagesQuery = messageRef.child(finalidmsg).queryLimited(toLast: 25)
         self.messages = [];
         
         //Loading the message query
-        messagesQuery.observeEventType(.ChildAdded, withBlock:{ snapshot in
-            let id = snapshot.value!["senderId"] as! String
-            let text = snapshot.value!["text"] as! String
+        messagesQuery.observe(.childAdded, with:{ snapshot in
+            if let source = snapshot.value as? [String:AnyObject] {
+            let id = source["senderId"] as! String
+            let text = source["text"] as! String
             self.addMessage(id, text: text)
             self.finishReceivingMessage()
+            }
         })
-//            if(Chat_notification == 1){
-//                let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-//                UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
-//                
-//                //send notifications to the app
-//                let notification = UILocalNotification()
-//                notification.fireDate = NSDate(timeIntervalSinceNow: 5)
-//                notification.alertBody = "New Message from " + convo_final.friend_id_final + " chatroom!"
-//                notification.alertAction = "Read Message!"
-//                notification.soundName = UILocalNotificationDefaultSoundName
-//                notification.userInfo = ["CustomField1": "w00t"]
-//                UIApplication.sharedApplication().scheduleLocalNotification(notification)
-//                self.noticeonce += 1;
-//            }
-//        })
         
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
     //Function to add messages and send to the server
-    func addMessage(id: String, text: String) {
+    func addMessage(_ id: String, text: String) {
         let message = JSQMessage(senderId: id, displayName: "", text: text)
-        messages.append(message)
+        messages.append(message!)
     }
 };
 

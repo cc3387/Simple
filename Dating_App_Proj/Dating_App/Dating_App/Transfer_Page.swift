@@ -17,25 +17,25 @@ class Transfer : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.activityIndicator.startAnimating()
-        self.activityIndicator.hidden = false
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(5 * NSEC_PER_SEC)), dispatch_get_main_queue()){
+        self.activityIndicator.isHidden = false
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double((Int64)(5 * NSEC_PER_SEC)) / Double(NSEC_PER_SEC)){
             self.activityIndicator.stopAnimating()
-            self.activityIndicator.hidden = true
+            self.activityIndicator.isHidden = true
             self.loadDestinationVC()
         };
         self.loadDestinationVC()
     }
 
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
     func loadDestinationVC(){
-    self.performSegueWithIdentifier("To_Main", sender: nil)
+    self.performSegue(withIdentifier: "To_Main", sender: nil)
     }
 };

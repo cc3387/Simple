@@ -14,11 +14,11 @@ class Cooking_DineOut: UIViewController{
     
     override func viewDidLoad() {
         
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: ("CookingDineoutSwipe:"))
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: ("CookingDineoutSwipe:"))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: (#selector(Cooking_DineOut.CookingDineoutSwipe(_:))))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: (#selector(Cooking_DineOut.CookingDineoutSwipe(_:))))
         
-        leftSwipe.direction = .Left
-        rightSwipe.direction = .Right
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
         
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
@@ -31,14 +31,14 @@ class Cooking_DineOut: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    func CookingDineoutSwipe(sender:UISwipeGestureRecognizer){
+    func CookingDineoutSwipe(_ sender:UISwipeGestureRecognizer){
         
-        if(sender.direction == .Right){
+        if(sender.direction == .right){
             register_info.Cooking_Dineout = "Dine_Out"
             loadDestinationVC()
             print(register_info.Cooking_Dineout)
         }
-        else if(sender.direction == .Left){
+        else if(sender.direction == .left){
             register_info.Cooking_Dineout = "Cooking_Home"
             loadDestinationVC()
             print(register_info.Cooking_Dineout)
@@ -46,15 +46,15 @@ class Cooking_DineOut: UIViewController{
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Profile_Upload", sender: nil)
+        self.performSegue(withIdentifier: "Profile_Upload", sender: nil)
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
 }

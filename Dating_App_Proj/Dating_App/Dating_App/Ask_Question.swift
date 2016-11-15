@@ -22,7 +22,7 @@ class Ask_Questions: UIViewController{
     
     @IBOutlet weak var MessageSent: UILabel!
     
-    @IBAction func SendQuestion(sender: AnyObject) {
+    @IBAction func SendQuestion(_ sender: AnyObject) {
             
 //            let starturl = "https://simpleplus.firebaseio.com/question/" + login_user.uid + convo_final.friend_id_final + "q"
 //            
@@ -44,7 +44,7 @@ class Ask_Questions: UIViewController{
     }
     
     override func viewDidLoad() {
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.Welcome.text = "Ask "+convo_final.friend_Profile_final + " a question"
     }
@@ -59,7 +59,7 @@ class Ask_Questions: UIViewController{
     }
     
     func loadDestinationVC(){
-        self.performSegueWithIdentifier("Back_To_Friend", sender: nil)
+        self.performSegue(withIdentifier: "Back_To_Friend", sender: nil)
     }
     
 }
