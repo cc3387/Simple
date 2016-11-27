@@ -92,12 +92,7 @@ class Start_Page : UIViewController{
     }
     
     @IBAction func Login(_ sender: AnyObject) {
-        //        if(loginid == ""){
         loadDestinationVC()
-        //        }
-        //        else if(loginid != ""){
-        //            loadDestinationVC1()
-        //        }
     }
     
     
@@ -143,6 +138,10 @@ struct frienduser{
     static var phoneidarray = [String]();
     static var profilenamearray = [String]();
     static var photoarray = [String]();
+    static var blockarray = [String]();
+    static var useridarrayfinal = [String]();
+    static var phoneidarrayfinal = [String]();
+    static var profilenamearrayfinal = [String]();
 };
 
 //Storing the userid as global variable in the ios app machine

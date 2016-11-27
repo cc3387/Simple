@@ -114,6 +114,7 @@ class Profile_Meet_Main : UIViewController{
                 "uid": self.uid1,
                 "phoneid": self.phoneid1,
                 "Notification": 1,
+                "Block": "0",
                 "Chatid": 1
             ] as [String : Any];
             
@@ -128,6 +129,7 @@ class Profile_Meet_Main : UIViewController{
                 "uid": login_user.uid,
                 "phoneid": login_user.phoneid,
                 "Notification": 1,
+                "Block": "0",
                 "Chatid": 2
             ] as [String : Any];
             
@@ -163,6 +165,7 @@ class Profile_Meet_Main : UIViewController{
                 "uid": self.uid2,
                 "phoneid": self.phoneid2,
                 "Notification": 1,
+                "Block": "0",
                 "Chatid": 1
             ] as [String : Any];
             
@@ -177,6 +180,7 @@ class Profile_Meet_Main : UIViewController{
                 "uid": login_user.uid,
                 "phoneid": login_user.phoneid,
                 "Notification": 1,
+                "Block": "0",
                 "Chatid": 2
             ] as [String : Any];
             
@@ -211,6 +215,7 @@ class Profile_Meet_Main : UIViewController{
                 "uid": self.uid3,
                 "phoneid": self.phoneid3,
                 "Notification": 1,
+                "Block": "0",
                 "Chatid": 1
             ] as [String : Any];
             
@@ -225,6 +230,7 @@ class Profile_Meet_Main : UIViewController{
                 "uid": login_user.uid,
                 "phoneid": login_user.phoneid,
                 "Notification": 1,
+                "Block": "0",
                 "Chatid": 2
             ] as [String : Any];
             
@@ -260,6 +266,7 @@ class Profile_Meet_Main : UIViewController{
                 "uid": self.uid4,
                 "phoneid": self.phoneid4,
                 "Notification": 1,
+                "Block": "0",
                 "Chatid": 1
             ] as [String : Any];
             
@@ -274,6 +281,7 @@ class Profile_Meet_Main : UIViewController{
                 "uid": login_user.uid,
                 "phoneid": login_user.phoneid,
                 "Notification": 1,
+                "Block": "0",
                 "Chatid": 2
             ] as [String : Any];
             
@@ -384,7 +392,7 @@ class Profile_Meet_Main : UIViewController{
                         var ind = 0;
                         uname = (source["Email"] as! String?)!;
                         
-                        for friend in frienduser.emailarray{
+                        for friend in frienduser.emailarray {
                             if(uname == friend){
                                 ind = 1;
                             }

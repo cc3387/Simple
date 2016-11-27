@@ -18,9 +18,9 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     var searchActive : Bool = false
     var selectedname: String = "";
-    var data = frienduser.useridarray
-    var data1 = frienduser.profilenamearray
-    var dataphoto = frienduser.photoarray
+    var data = frienduser.useridarrayfinal
+    var data1 = frienduser.profilenamearrayfinal
+    var dataphoto:[String] = frienduser.phoneidarrayfinal
     var filtered:[String] = []
     var filtered1:[String] = []
     
@@ -145,15 +145,10 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
             
             if(selectednames.count == 1){
                 convo_final.friend_id_final = selectednames[0];
-            
-//                let loginid = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd/" + convo_final.friend_id_final;
-                
-                
                 let loginid = "friends/" + login_user.uid + "_fd/" + convo_final.friend_id_final;
                 
                 var rref = FIRDatabase.database().reference().child(loginid)
                 
-//                let rref = Firebase(url:loginid);
                 rref.observe(.value, with: { snapshot in
                     if(login_user.uid != self.data[(indexPath as NSIndexPath).row]){
                         
@@ -189,12 +184,8 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
             else{
         
             convo_final.friend_id_final = data[(indexPath as NSIndexPath).row];
-                
-//            let loginid = "https://simpleplus.firebaseio.com/friends/" + login_user.uid + "_fd/" + convo_final.friend_id_final;
             let loginid = "friends/" + login_user.uid + "_fd/" + convo_final.friend_id_final;
-            var rref = FIRDatabase.database().reference().child(loginid)
-
-//            let rref = Firebase(url:loginid);
+            var rref = FIRDatabase.database().reference().child(loginid);
             rref.observe(.value, with: { snapshot in
                 if(login_user.uid != self.data[(indexPath as NSIndexPath).row]){
                     if let source = snapshot.value as? [String:AnyObject] {
@@ -265,4 +256,5 @@ class Chat_Search: UIViewController, UITableViewDataSource, UITableViewDelegate,
         }
     }
 };
+
 

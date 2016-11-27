@@ -112,6 +112,15 @@ class Friends_Profile_View : UIViewController{
         self.Major.adjustsFontSizeToFitWidth = true
     }
     
+    @IBAction func BlockUser(_ sender: Any) {
+    var ref = FIRDatabase.database().reference()
+    ref.child("friends").child(login_user.uid+"_fd").child(convo_final.friend_id_final).updateChildValues(["Block":"1"])
+    ref.child("friends").child(convo_final.friend_id_final+"_fd").child(login_user.uid).updateChildValues(["Block":"1"])
+    loadDestination()
+    }
+    
+    
+    
     override var shouldAutorotate : Bool {
         return true
     }
@@ -164,6 +173,10 @@ class Friends_Profile_View : UIViewController{
     
     func loadDestinationVC(){
         self.performSegue(withIdentifier: "AnswerQuestion", sender: nil)
+    }
+    
+    func loadDestination(){
+        self.performSegue(withIdentifier: "blockuser", sender: nil)
     }
 
 };

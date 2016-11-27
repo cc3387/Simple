@@ -89,6 +89,9 @@ class Profile_Main : UIViewController{
     super.viewDidLoad()
     self.view.endEditing(true)
     
+    self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
+    self.User_ID.textColor = UIColor.white;
+        
     //Register for Batch
     let editor = BatchUser.editor();
     editor.setIdentifier(login.chatid);
@@ -98,11 +101,15 @@ class Profile_Main : UIViewController{
         
     loginid = login.loginid as String
     self.navigationController?.setNavigationBarHidden(true, animated: false)
-    frienduser.emailarray.removeAll();
-    frienduser.useridarray.removeAll();
-    frienduser.phoneidarray.removeAll();
-    frienduser.profilenamearray.removeAll();
-    frienduser.photoarray.removeAll()
+//    frienduser.emailarray.removeAll();
+//    frienduser.useridarray.removeAll();
+//    frienduser.phoneidarray.removeAll();
+//    frienduser.profilenamearray.removeAll();
+//    frienduser.photoarray.removeAll()
+//    frienduser.blockarray.removeAll()
+    frienduser.useridarrayfinal.removeAll();
+    frienduser.phoneidarrayfinal.removeAll();
+    frienduser.profilenamearrayfinal.removeAll();
 
     let hours = hour() as! String!;
     let minutes = minute() as! String!;
@@ -152,10 +159,7 @@ class Profile_Main : UIViewController{
             if(random == 1){
             Bkground_Image.image = UIImage(named: "Dawn_City.jpg");
             }
-                
-            //Setting the User ID to login user id
-            //self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
-            //self.User_ID.textColor = UIColor.blackColor();
+
             Time_Greetings.textColor = UIColor.white;
         }
         else{
@@ -191,65 +195,86 @@ class Profile_Main : UIViewController{
             Time_Greetings.textColor = UIColor.white;
         }
         
-        var ref = FIRDatabase.database().reference().child("users")
-        ref.queryOrdered(byChild: "Email").queryEqual(toValue: login.loginid)
-            .observe(.childAdded, with: { snapshot in
-                
-                if let source = snapshot.value as? [String:AnyObject] {
-                
-                login_user.loginname = (source["Profile_Name"] as? String)!
-                self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
-                self.User_ID.textColor = UIColor.white;
-            
-                login_user.latitude = (source["latitude"] as? Double)!
-                login_user.longitude = (source["longitude"] as? Double)!
-                login_user.user_name = (source["username"] as? String)!
-                login_user.major = (source["Major"] as? String)!
-                login_user.university = (source["Education"] as? String)!
-                login_user.location = (source["Address"] as? String)!
-                login_user.Profile_Name = (source["Profile_Name"] as? String)!
-                login_user.photo = (source["Photo"] as? String)!
-                login_user.uid = (source["uid"] as? String)!
-                login_user.phoneid = (source["phoneid"] as? String)!
-                }
+//        var ref = FIRDatabase.database().reference().child("users")
+//        ref.queryOrdered(byChild: "Email").queryEqual(toValue: login.loginid)
+//            .observe(.childAdded, with: { snapshot in
+//                
+//                if let source = snapshot.value as? [String:AnyObject] {
+//                
+//                login_user.loginname = (source["Profile_Name"] as? String)!
+//                self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
+//                self.User_ID.textColor = UIColor.white;
+//            
+//                login_user.latitude = (source["latitude"] as? Double)!
+//                login_user.longitude = (source["longitude"] as? Double)!
+//                login_user.user_name = (source["username"] as? String)!
+//                login_user.major = (source["Major"] as? String)!
+//                login_user.university = (source["Education"] as? String)!
+//                login_user.location = (source["Address"] as? String)!
+//                login_user.Profile_Name = (source["Profile_Name"] as? String)!
+//                login_user.photo = (source["Photo"] as? String)!
+//                login_user.uid = (source["uid"] as? String)!
+//                login_user.phoneid = (source["phoneid"] as? String)!
+//                }
+//            })
+//        
+//        var friend = "friends/" + login_user.uid + "_fd"
+//        let friendemail = FIRDatabase.database().reference().child(friend)
+//        
+//        friendemail.queryOrdered(byChild: "Email").observe(.value, with:{friendsnapshot in
+//            for index in friendsnapshot.children.allObjects as! [FIRDataSnapshot]{
+//                if let source = index.value as? [String:AnyObject] {
+//                    
+//                    
+//                    if let id = source["Email"] as! String?{
+//                    if(id != login.loginid){
+//                    frienduser.emailarray.append(id);
+//                    }
+//                    if let id2 = source["uid"] as! String?{
+//                        if(id2 != login_user.uid){
+//                            frienduser.useridarray.append(id2);
+//                        }
+//                        if let id3 = source["Profile_Name"] as! String?{
+//                            if(id3 != login_user.Profile_Name){
+//                            frienduser.profilenamearray.append(id3);
+//                            }
+//                                if let id4 = source["phoneid"] as! String?{
+//                                    if(id4 != login_user.phoneid){
+//                                        frienduser.phoneidarray.append(id4);
+//                                    }
+//                                    if let id5 = source["Photo"] as! String?{
+//                                        if(id5 != login_user.phoneid){
+//                                            frienduser.photoarray.append(id5);
+//                                        }
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                 }
+//               }
+//       })
+        
+        //Ref for final email
+        var reftwo = FIRDatabase.database().reference().child("friends").child(login_user.uid+"_fd")
+        
+        for email in frienduser.emailarray{
+            reftwo.queryOrdered(byChild: "Email").queryEqual(toValue: email)
+                .observe(.childAdded, with: { snapshot in
+                    if let source = snapshot.value as? [String:AnyObject] {
+                        let block = source["Block"] as! String!
+                        let userid = source["uid"] as! String!
+                        let profilename = source["Profile_Name"] as! String!
+                        let photo = source["Photo"] as! String!
+                        
+                        if(block == "0"){
+                            frienduser.useridarrayfinal.append(userid!)
+                            frienduser.profilenamearrayfinal.append(profilename!)
+                            frienduser.phoneidarrayfinal.append(photo!)
+                        }
+                    }
             })
-        
-        var friend = "friends/" + login_user.uid + "_fd"
-        let friendemail = FIRDatabase.database().reference().child(friend)
-        
-        friendemail.queryOrdered(byChild: "Email").observe(.value, with:{friendsnapshot in
-            for index in friendsnapshot.children.allObjects as! [FIRDataSnapshot]{
-                if let source = index.value as? [String:AnyObject] {
-                if let id = source["Email"] as! String?{
-                    if(id != login.loginid){
-                    frienduser.emailarray.append(id);
-                    }
-                    if let id2 = source["uid"] as! String?{
-                        if(id2 != login_user.uid){
-                            frienduser.useridarray.append(id2);
-                        }
-                        if let id3 = source["Profile_Name"] as! String?{
-                            if(id3 != login_user.Profile_Name){
-                            frienduser.profilenamearray.append(id3);
-                            }
-                                if let id4 = source["phoneid"] as! String?{
-                                    if(id4 != login_user.phoneid){
-                                        frienduser.phoneidarray.append(id4);
-                                    }
-                                    if let id5 = source["Photo"] as! String?{
-                                        if(id5 != login_user.phoneid){
-                                            frienduser.photoarray.append(id5);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-             }
-          })
-        
-        print(login.chatid)
+        }
         
     }
     
