@@ -62,6 +62,7 @@
 		AA271DB11B4E1A9B00EA5BA6 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA271DB01B4E1A9B00EA5BA6 /* CFNetwork.framework */; };
 		AA271DB31B4E1AAD00EA5BA6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA271DB21B4E1AAD00EA5BA6 /* AudioToolbox.framework */; };
 		AA2F30281DDA954700CCE02A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA2F30271DDA954700CCE02A /* GoogleService-Info.plist */; };
+		AA2F67191DF00A9200307949 /* EULA.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2F67181DF00A9200307949 /* EULA.swift */; };
 		AA3527911BDB007F00679464 /* Edu_PickerView_UK.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3527901BDB007F00679464 /* Edu_PickerView_UK.swift */; };
 		AA3527931BDB629100679464 /* Edu_PickerView_HK.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3527921BDB629000679464 /* Edu_PickerView_HK.swift */; };
 		AA3527951BDB683400679464 /* Edu_PickerView_Aus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3527941BDB683400679464 /* Edu_PickerView_Aus.swift */; };
@@ -207,6 +208,7 @@
 		AA271DC61B4E1C6F00EA5BA6 /* Dating_App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dating_App-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA28C7261DD9AB65006C7746 /* Simple.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Simple.entitlements; sourceTree = "<group>"; };
 		AA2F30271DDA954700CCE02A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AA2F67181DF00A9200307949 /* EULA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EULA.swift; sourceTree = "<group>"; };
 		AA3527901BDB007F00679464 /* Edu_PickerView_UK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edu_PickerView_UK.swift; sourceTree = "<group>"; };
 		AA3527921BDB629000679464 /* Edu_PickerView_HK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edu_PickerView_HK.swift; sourceTree = "<group>"; };
 		AA3527941BDB683400679464 /* Edu_PickerView_Aus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edu_PickerView_Aus.swift; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 				AA5AC1F11B64559E00158156 /* Preferences */,
 				AA271D7A1B4DF4CC00EA5BA6 /* AppDelegate.swift */,
 				AA6C58191D18D2D1008F9932 /* Start_Page.swift */,
+				AA2F67181DF00A9200307949 /* EULA.swift */,
 				AA6C581B1D18D487008F9932 /* Login_With_User.swift */,
 				AA271D7C1B4DF4CC00EA5BA6 /* ViewController.swift */,
 				AA239AF01BADA14200192AE0 /* Main_Profile.swift */,
@@ -848,6 +851,7 @@
 				AA0875F51D41AB6E00775DC7 /* Answerfour.swift in Sources */,
 				AA8152081DD8EA4700693BEE /* BatchClientPush.swift in Sources */,
 				AA10153A1B5170A7007F77B8 /* ViewControllerLogin.swift in Sources */,
+				AA2F67191DF00A9200307949 /* EULA.swift in Sources */,
 				AA239AEF1BAD9FCF00192AE0 /* ViewControllerRegister.swift in Sources */,
 				AA080ED61D570AE3002AFDE7 /* Terms_and_Conditions_2.swift in Sources */,
 				AA04E8BE1D4E8C1A0077AB48 /* Terms_and_Conditions.swift in Sources */,
@@ -941,14 +945,17 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -964,7 +971,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -985,8 +992,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1002,9 +1011,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1029,6 +1039,7 @@
 				INFOPLIST_FILE = Dating_App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Uni-clem.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Simple;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Dating_App/Dating_App-Bridging-Header.h";
@@ -1058,6 +1069,7 @@
 				INFOPLIST_FILE = Dating_App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Uni-clem.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Simple;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Dating_App/Dating_App-Bridging-Header.h";
@@ -1080,6 +1092,7 @@
 				);
 				INFOPLIST_FILE = Dating_AppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Uni-clem.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dating_App.app/Dating_App";
 			};
@@ -1095,6 +1108,7 @@
 				);
 				INFOPLIST_FILE = Dating_AppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Uni-clem.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dating_App.app/Dating_App";
 			};
