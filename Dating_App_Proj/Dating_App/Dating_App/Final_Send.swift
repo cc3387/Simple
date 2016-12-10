@@ -43,10 +43,8 @@ class FinalSend_Final: UIViewController{
         let userref = self.ref.child("friends")
     
         let profile = [
-            //"title": register_info.user_id,
             "username": register_info.username,
             "password": register_info.password,
-            //"user_id": register_info.user_id,
             "Profile_Name": register_info.Profile_name,
             "Age_Range": register_info.age_range,
             "location": register_info.location,
@@ -64,7 +62,8 @@ class FinalSend_Final: UIViewController{
             "Email": register_info.email,
             "Photo": register_info.Photo,
             "uid": register_info.uid,
-            "phoneid": register_info.phoneid
+            "phoneid": register_info.phoneid,
+            "EULA": "0"
         ] as [String : Any];
         
         let friend = [

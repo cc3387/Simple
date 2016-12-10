@@ -1037,7 +1037,7 @@
 					"/Users/clement_chan_pig/Documents/IOS_Programs/Swift-SRWebClient-master/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = Dating_App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Uni-clem.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Simple;
@@ -1067,7 +1067,7 @@
 					"/Users/clement_chan_pig/Documents/IOS_Programs/Swift-SRWebClient-master/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = Dating_App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Uni-clem.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Simple;
