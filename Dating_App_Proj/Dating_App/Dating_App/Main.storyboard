@@ -2771,11 +2771,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iyc-Fs-cTu">
-                                <rect key="frame" x="19" y="394" width="103" height="88"/>
+                                <rect key="frame" x="19" y="389" width="103" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L4g-KF-FVa">
-                                <rect key="frame" x="19" y="490" width="103" height="103"/>
+                                <rect key="frame" x="19" y="487" width="103" height="103"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dS1-hd-H8N">
@@ -2874,7 +2874,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lCV-Bu-j6w">
-                                <rect key="frame" x="22" y="396" width="96" height="86"/>
+                                <rect key="frame" x="22" y="389" width="96" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2884,7 +2884,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Akh-8Q-svD">
-                                <rect key="frame" x="22" y="490" width="96" height="103"/>
+                                <rect key="frame" x="22" y="486" width="96" height="103"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3721,7 +3721,7 @@
                                         <rect key="frame" x="0.0" y="72" width="600" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xcr-ab-cOj" id="0mS-F5-ftK">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="29.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="29"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -5099,7 +5099,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rb8-yA-yWd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zwh-uN-1wP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zwh-uN-1wP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -6391,36 +6391,36 @@
         <image name="night_sky.jpg" width="2000" height="1316"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="74n-tz-374"/>
-        <segue reference="SXU-1V-KgJ"/>
-        <segue reference="oAD-S1-FPn"/>
-        <segue reference="M8N-uj-wXk"/>
-        <segue reference="mof-Hz-kcj"/>
-        <segue reference="Wcs-As-A37"/>
+        <segue reference="FMG-e5-Jf9"/>
+        <segue reference="GA4-8d-znT"/>
         <segue reference="AF6-iT-AOH"/>
         <segue reference="Pxh-Dh-6Hw"/>
         <segue reference="lp7-Dm-2mL"/>
-        <segue reference="qKX-MI-0nm"/>
-        <segue reference="yuN-ds-Mjy"/>
         <segue reference="ncF-EY-ukg"/>
         <segue reference="q8S-fp-6E9"/>
         <segue reference="WBr-w9-Hh7"/>
         <segue reference="9iu-GU-fhF"/>
         <segue reference="QVH-EZ-uIV"/>
+        <segue reference="yuN-ds-Mjy"/>
         <segue reference="79I-hO-QUR"/>
         <segue reference="r9a-2o-BFV"/>
-        <segue reference="koq-jY-IDo"/>
+        <segue reference="qKX-MI-0nm"/>
+        <segue reference="M8N-uj-wXk"/>
+        <segue reference="mof-Hz-kcj"/>
+        <segue reference="SXU-1V-KgJ"/>
+        <segue reference="74n-tz-374"/>
+        <segue reference="WeT-bG-vcD"/>
         <segue reference="uAq-hg-nYX"/>
+        <segue reference="koq-jY-IDo"/>
         <segue reference="ny4-sU-M0o"/>
         <segue reference="fTe-SU-cnY"/>
+        <segue reference="q1R-fB-xUp"/>
+        <segue reference="eZd-JO-exV"/>
+        <segue reference="hLD-FZ-jQI"/>
         <segue reference="c6S-gR-r2d"/>
         <segue reference="sAp-QK-ydJ"/>
-        <segue reference="WeT-bG-vcD"/>
-        <segue reference="bt9-n8-i2R"/>
         <segue reference="9qU-UM-F4o"/>
+        <segue reference="bt9-n8-i2R"/>
         <segue reference="hX4-9H-kZv"/>
-        <segue reference="hLD-FZ-jQI"/>
-        <segue reference="eZd-JO-exV"/>
-        <segue reference="q1R-fB-xUp"/>
     </inferredMetricsTieBreakers>
 </document>
