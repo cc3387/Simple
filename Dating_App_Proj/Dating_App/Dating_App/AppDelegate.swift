@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
         GMSServices.provideAPIKey("AIzaSyCDpeX5sgpfZFhhXyzCcU57drXp--q6PBw")
         
         //Register for push notifications
-        //registerForPushNotifications(application)
+        registerForPushNotifications(application)
         
         //For the purpose of Firebase authorization
         FIRApp.configure()

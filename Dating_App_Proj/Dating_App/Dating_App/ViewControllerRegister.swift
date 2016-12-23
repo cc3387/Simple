@@ -148,65 +148,6 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate,UIPickerView
             
             self.loadDestinationVC();
             
-        //Create a PF Object (Parse Codes)
-            
-        /*var user = PFUser()
-        var userDetails: PFObject = PFObject(className: "UserDetails")
-        //Set the Text Key to the text of the message TextField
-        user.username = self.Username.text
-        user.password = self.Password.text
-        user.email = self.Email.text
-        userDetails["username"] = self.Username.text
-        userDetails["Age"] = self.Age.text
-        userDetails["Profile_Name"] = self.Location.text
-
-        //Save the PFObject, Send to parse
-        user.signUpInBackgroundWithBlock {
-                (succeeded: Bool, error: NSError?) -> Void in
-                if let error = error {
-                    let errorString = error.userInfo?["error"] as? NSString
-                    // Show the errorString somewhere and let the user try again.
-                    self.userexist.textColor = UIColor.redColor();
-                    
-                } else {
-                //Save Details at the user details file as well
-                    userDetails.saveInBackgroundWithBlock{
-                        
-                        (success: Bool, error: NSError?) -> Void in
-                        
-                        if(success){
-                            NSLog("Message Sent Successfully!")
-                        }
-                            
-                        else{
-                            NSLog(error!.description)
-                        }
-                    }
-                    
-                    register_info.user_id = self.Username.text;
-                    register_info.username = self.Username.text;
-                    register_info.password = self.Password.text;
-                    register_info.age_range = self.Age.text;
-                    register_info.Profile_name = self.Location.text;
-                    
-                    //Disable the button and end field
-                    self.Username.enabled = false;
-                    self.Password.enabled = false;
-                    self.Email.enabled = false;
-                    self.Age.enabled = false;
-                    self.Location.enabled = false;
-                    self.Sender.enabled = false;
-                    
-                    
-                    self.Username.text = "";
-                    self.Password.text = "";
-                    self.Email.text = "";
-                    self.Age.text = "";
-                    self.Location.text = "";
-                    
-                    self.loadDestinationVC();
-                }
-            }*/
         }
     }
     
@@ -262,7 +203,7 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate,UIPickerView
         pickerLabel.textColor = UIColor.white
         pickerLabel.text = pickerData[component][row]
         // pickerLabel.font = UIFont(name: pickerLabel.font.fontName, size: 15)
-        pickerLabel.font = UIFont(name: "System Thin", size: 12) // In this use your custom font
+        pickerLabel.font = UIFont(name: "System Thin", size: 10) // In this use your custom font
         pickerLabel.textAlignment = NSTextAlignment.center
         return pickerLabel
     }

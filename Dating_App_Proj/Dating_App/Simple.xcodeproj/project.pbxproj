@@ -83,6 +83,7 @@
 		AA4020121BBCD36000ABA237 /* Cooking_DineOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4020111BBCD36000ABA237 /* Cooking_DineOut.swift */; };
 		AA4020221BBE265D00ABA237 /* hongkongnight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA4020211BBE265D00ABA237 /* hongkongnight.jpg */; };
 		AA4020241BBE272400ABA237 /* Paris_Night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA4020231BBE272400ABA237 /* Paris_Night.jpg */; };
+		AA530D9F1E0C90DF00013B51 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA530D9E1E0C90DF00013B51 /* Notification.swift */; };
 		AA5AC2011B651A8100158156 /* Male_Female.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5AC2001B651A8100158156 /* Male_Female.swift */; };
 		AA642B131D4838020033EEA3 /* Todolist.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA642B121D4838020033EEA3 /* Todolist.swift */; };
 		AA6550651D03AD9D007DD200 /* Choose_Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6550641D03AD9D007DD200 /* Choose_Photos.swift */; };
@@ -230,6 +231,7 @@
 		AA4020211BBE265D00ABA237 /* hongkongnight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hongkongnight.jpg; sourceTree = "<group>"; };
 		AA4020231BBE272400ABA237 /* Paris_Night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Paris_Night.jpg; sourceTree = "<group>"; };
 		AA505FEB9877389876F11326 /* Pods-Simple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple.release.xcconfig"; path = "Pods/Target Support Files/Pods-Simple/Pods-Simple.release.xcconfig"; sourceTree = "<group>"; };
+		AA530D9E1E0C90DF00013B51 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		AA5648491C75813C006F36F7 /* Dating_App-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Dating_App-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA5AC2001B651A8100158156 /* Male_Female.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Male_Female.swift; sourceTree = "<group>"; };
 		AA642B121D4838020033EEA3 /* Todolist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Todolist.swift; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 				AA0876031D431D0500775DC7 /* Login_Transfer.swift */,
 				AA0E41B11D371D1D00657C3C /* Transfer_Page.swift */,
 				AA8152071DD8EA4700693BEE /* BatchClientPush.swift */,
+				AA530D9E1E0C90DF00013B51 /* Notification.swift */,
 				AA2F30271DDA954700CCE02A /* GoogleService-Info.plist */,
 				AAD2047C1C1A99CB008E1770 /* Main.storyboard */,
 				AA239AD61BAD9CCD00192AE0 /* Images.xcassets */,
@@ -855,6 +858,7 @@
 				AA239AEF1BAD9FCF00192AE0 /* ViewControllerRegister.swift in Sources */,
 				AA080ED61D570AE3002AFDE7 /* Terms_and_Conditions_2.swift in Sources */,
 				AA04E8BE1D4E8C1A0077AB48 /* Terms_and_Conditions.swift in Sources */,
+				AA530D9F1E0C90DF00013B51 /* Notification.swift in Sources */,
 				AAAA0FDA1BC6D210004F2474 /* User.swift in Sources */,
 				AADDC8101D7BC36900B2D755 /* Friend_Photo_Zoom.swift in Sources */,
 				AA4020101BBCA9E800ABA237 /* Ethnicity_PickerView.swift in Sources */,
@@ -1037,7 +1041,7 @@
 					"/Users/clement_chan_pig/Documents/IOS_Programs/Swift-SRWebClient-master/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = Dating_App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Uni-clem.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Simple;
@@ -1067,7 +1071,7 @@
 					"/Users/clement_chan_pig/Documents/IOS_Programs/Swift-SRWebClient-master/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = Dating_App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Uni-clem.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Simple;

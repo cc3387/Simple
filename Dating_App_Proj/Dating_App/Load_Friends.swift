@@ -40,6 +40,7 @@ class Load_Friends : UIViewController{
         self.indicator.startAnimating()
         self.indicator.isHidden = false
         
+        //Remove all the arrays in frienduser struct
         frienduser.emailarray.removeAll();
         frienduser.useridarray.removeAll();
         frienduser.phoneidarray.removeAll();
@@ -49,6 +50,15 @@ class Load_Friends : UIViewController{
         frienduser.useridarrayfinal.removeAll();
         frienduser.phoneidarrayfinal.removeAll();
         frienduser.profilenamearrayfinal.removeAll();
+        
+        //Remove all the arrays in Notification struct
+        Notification.emailarray.removeAll();
+        Notification.useridarray.removeAll();
+        Notification.phoneidarray.removeAll();
+        Notification.profilenamearray.removeAll();
+        Notification.photoarray.removeAll()
+        Notification.blockarray.removeAll()
+        
         
         
         var ref = FIRDatabase.database().reference().child("users")
@@ -71,6 +81,7 @@ class Load_Friends : UIViewController{
                 }
             })
         
+        //Load Friend Users into the Profile
         var friend = "friends/" + login_user.uid + "_fd"
         let friendemail = FIRDatabase.database().reference().child(friend)
         
@@ -105,6 +116,70 @@ class Load_Friends : UIViewController{
                         }
                     }
                 }
+            }
+        })
+        
+        //Load Notification List
+        var notification = "Notifications/" + login_user.uid + "_fd"
+        let notify = FIRDatabase.database().reference().child(notification)
+        
+        notify.queryOrdered(byChild: "Email").observe(.value, with:{friendsnapshot in
+            for index in friendsnapshot.children.allObjects as! [FIRDataSnapshot]{
+                if let source = index.value as? [String:AnyObject] {
+                    
+                    if let id6 = source["Chatid"] as! Int?{
+                    
+                    if let id = source["Email"] as! String?{
+                        if(id != login.loginid){
+                            Notification.emailarray.append(id);
+                        }
+                        if let id2 = source["uid"] as! String?{
+                            if(id2 != login_user.uid){
+                                Notification.useridarray.append(id2);
+                                Notification.chatid.append(id6);
+                            }
+                            if let id3 = source["Profile_Name"] as! String?{
+                                if(id2 != login_user.uid){
+                                    Notification.profilenamearray.append(id3);
+                                }
+                                if let id4 = source["phoneid"] as! String?{
+                                    if(id2 != login_user.uid){
+                                        Notification.phoneidarray.append(id4);
+                                    }
+                                    if let id5 = source["Photo"] as! String?{
+                                        if(id2 != login_user.uid){
+                                            Notification.photoarray.append(id5);
+                                        }
+                                        
+                                        if let id7 = source["location"] as! String?{
+                                            if(id2 != login_user.uid){
+                                                Notification.locationarray.append(id7);
+                                            }
+                                            
+                                            if let id8 = source["Education"] as! String?{
+                                                if(id2 != login_user.uid){
+                                                    Notification.educationarray.append(id8);
+                                                }
+                                                if let id9 = source["Major"] as! String?{
+                                                    if(id2 != login_user.uid){
+                                                        Notification.majorarray.append(id9);
+                                                        
+                                                        if let idten = source["username"] as! String?{
+                                                            if(id2 != login_user.uid){
+                                                               Notification.usernamearray.append(idten);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                  }
+               }
             }
         })
         

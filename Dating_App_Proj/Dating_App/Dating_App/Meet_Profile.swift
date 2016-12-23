@@ -100,8 +100,8 @@ class Profile_Meet_Main : UIViewController{
             let usernamefriend = login_user.uid + "_fd";
             let friendusername = self.uid1 + "_fd";
             
-            let ref = FIRDatabase.database().reference().child("friends")
-            let fdref = FIRDatabase.database().reference().child("friends")
+            let ref = FIRDatabase.database().reference().child("Notifications")
+            let fdref = FIRDatabase.database().reference().child("Notifications")
             
             let friendinfo = [
                 "Profile_Name" : self.First_Match.text!,
@@ -132,7 +132,7 @@ class Profile_Meet_Main : UIViewController{
                 "Block": "0",
                 "Chatid": 2
             ] as [String : Any];
-            
+
             let usernamefd = ref.child(byAppendingPath: usernamefriend);
             let fdusername = fdref.child(byAppendingPath: friendusername);
             usernamefd.child(byAppendingPath: self.uid1).setValue(friendinfo);
@@ -151,8 +151,8 @@ class Profile_Meet_Main : UIViewController{
         if(self.second_match != ""){
             let usernamefriend = login_user.uid + "_fd";
             let friendusername = self.uid2 + "_fd";
-            let ref = FIRDatabase.database().reference().child("friends")
-            let fdref = FIRDatabase.database().reference().child("friends")
+            let ref = FIRDatabase.database().reference().child("Notifications")
+            let fdref = FIRDatabase.database().reference().child("Notifications")
             
             let friendinfo = [
                 "Profile_Name" : self.Second_Match.text!,
@@ -201,8 +201,8 @@ class Profile_Meet_Main : UIViewController{
         if(self.third_match != ""){
             let usernamefriend = login_user.uid  + "_fd";
             let friendusername = self.uid3 + "_fd";
-            let ref = FIRDatabase.database().reference().child("friends")
-            let fdref = FIRDatabase.database().reference().child("friends")
+            let ref = FIRDatabase.database().reference().child("Notifications")
+            let fdref = FIRDatabase.database().reference().child("Notifications")
             
             let friendinfo = [
                 "Profile_Name" : self.Third_Match.text!,
@@ -252,8 +252,8 @@ class Profile_Meet_Main : UIViewController{
         if(self.fourth_match != ""){
             let usernamefriend = login_user.uid + "_fd";
             let friendusername = self.uid4 + "_fd";
-            let ref = FIRDatabase.database().reference().child("friends")
-            let fdref = FIRDatabase.database().reference().child("friends")
+            let ref = FIRDatabase.database().reference().child("Notifications")
+            let fdref = FIRDatabase.database().reference().child("Notifications")
             
             let friendinfo = [
                 "Profile_Name" : self.Fourth_Match.text!,
@@ -392,8 +392,14 @@ class Profile_Meet_Main : UIViewController{
                         var ind = 0;
                         uname = (source["Email"] as! String?)!;
                         
-                        for friend in frienduser.emailarray {
+                        for friend in Notification.emailarray {
                             if(uname == friend){
+                                ind = 1;
+                            }
+                        }
+                          
+                        for friendtwo in frienduser.emailarray {
+                            if(uname == friendtwo){
                                 ind = 1;
                             }
                         }

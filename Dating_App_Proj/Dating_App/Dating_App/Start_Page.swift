@@ -230,6 +230,23 @@ struct arrays{
 };
 
 
+//Notification Struct
+
+struct Notification{
+    
+    static var profilenamearray = [String]();
+    static var locationarray = [String]();
+    static var educationarray = [String]();
+    static var majorarray = [String]();
+    static var usernamearray = [String]();
+    static var emailarray = [String]();
+    static var photoarray = [String]();
+    static var useridarray = [String]();
+    static var phoneidarray = [String]();
+    static var blockarray = [String]();
+    static var chatid = [Int]();
+};
+
 //Define the question array
 var Question_array = 0
 var Questions = [String]()

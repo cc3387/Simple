@@ -152,6 +152,6 @@ class ViewControllerLogin: UIViewController{
     
     //Load destination to the main profile
     func loadDestinationVC(){
-    self.performSegue(withIdentifier: "LoadProfile", sender: nil)
+        self.performSegue(withIdentifier: "LoadProfile", sender: nil)
     }
 }

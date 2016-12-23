@@ -101,12 +101,6 @@ class Profile_Main : UIViewController{
         
     loginid = login.loginid as String
     self.navigationController?.setNavigationBarHidden(true, animated: false)
-//    frienduser.emailarray.removeAll();
-//    frienduser.useridarray.removeAll();
-//    frienduser.phoneidarray.removeAll();
-//    frienduser.profilenamearray.removeAll();
-//    frienduser.photoarray.removeAll()
-//    frienduser.blockarray.removeAll()
     frienduser.useridarrayfinal.removeAll();
     frienduser.phoneidarrayfinal.removeAll();
     frienduser.profilenamearrayfinal.removeAll();
@@ -275,7 +269,6 @@ class Profile_Main : UIViewController{
                     }
             })
         }
-        
     }
     
     
