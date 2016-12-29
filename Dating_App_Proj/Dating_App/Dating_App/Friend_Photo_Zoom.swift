@@ -8,8 +8,16 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class PhotoZoom: UIViewController, UIScrollViewDelegate {
+    
+    @IBAction func Block(_ sender: Any) {
+        var ref = FIRDatabase.database().reference()
+        ref.child("friends").child(login_user.uid+"_fd").child(convo_final.friend_id_final).updateChildValues(["Block":"1"])
+        ref.child("friends").child(convo_final.friend_id_final+"_fd").child(login_user.uid).updateChildValues(["Block":"1"])
+        loadDestination()
+    }
     
     
     @IBOutlet weak var myUIScrollView: UIScrollView!
@@ -41,5 +49,9 @@ class PhotoZoom: UIViewController, UIScrollViewDelegate {
         self.myUIScrollView.minimumZoomScale = minScale
         
         self.myUIScrollView.zoomScale = minScale
+    }
+    
+    func loadDestination(){
+        self.performSegue(withIdentifier: "Blockfriend", sender: nil)
     }
 }

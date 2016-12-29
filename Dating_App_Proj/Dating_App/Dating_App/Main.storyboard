@@ -1834,7 +1834,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PtC-gJ-Hz3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4819" y="340"/>
+            <point key="canvasLocation" x="4818" y="339"/>
         </scene>
         <!--Major-->
         <scene sceneID="wXF-Ft-CSs">
@@ -2893,6 +2893,50 @@
                                     <action selector="Chat_4:" destination="IZz-UV-kqK" eventType="touchUpInside" id="C1w-eA-6KF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztb-Bt-Tes">
+                                <rect key="frame" x="235" y="170" width="50" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                                <state key="normal" title="Block" backgroundImage="Background_Color.tif">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Block_1:" destination="IZz-UV-kqK" eventType="touchUpInside" id="ScB-bR-2pj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PgW-IM-9d2">
+                                <rect key="frame" x="235" y="275" width="50" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                                <state key="normal" title="Block" backgroundImage="Background_Color.tif">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Decline_2:" destination="IZz-UV-kqK" eventType="touchUpInside" id="EdM-eu-dQQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Wx-xd-uBH">
+                                <rect key="frame" x="235" y="381" width="50" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                                <state key="normal" title="Block" backgroundImage="Background_Color.tif">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Decline_3:" destination="IZz-UV-kqK" eventType="touchUpInside" id="IFo-Es-rBQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcq-0W-svo">
+                                <rect key="frame" x="235" y="480" width="50" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                                <state key="normal" title="Block" backgroundImage="Background_Color.tif">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Decline_4:" destination="IZz-UV-kqK" eventType="touchUpInside" id="3FD-Hw-8pB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <variation key="default">
@@ -2932,11 +2976,12 @@
                         <outlet property="User_ID" destination="xsd-gt-IaW" id="SRD-3O-m0X"/>
                         <outlet property="user_greetings" destination="xsd-gt-IaW" id="PGt-Jj-e7o"/>
                         <segue destination="AJk-mc-Qmm" kind="show" identifier="To_Chat" id="GA4-8d-znT"/>
+                        <segue destination="bpH-nP-zcn" kind="show" identifier="Block" id="qpS-pE-sES"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBL-Fl-cy4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="967" y="-2550"/>
+            <point key="canvasLocation" x="965.60000000000002" y="-2553.3733133433284"/>
         </scene>
         <!--Transfer-->
         <scene sceneID="52f-pb-QmW">
@@ -3721,7 +3766,7 @@
                                         <rect key="frame" x="0.0" y="72" width="600" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xcr-ab-cOj" id="0mS-F5-ftK">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="29"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -5237,7 +5282,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
-                                <state key="normal" title="Delete User">
+                                <state key="normal" title="Block User">
                                     <color key="titleColor" red="1" green="0.11737545364338697" blue="0.026072249323205399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -5308,16 +5353,28 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30w-hn-Ldc">
+                                <rect key="frame" x="20" y="385" width="80" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                                <state key="normal" title="Block User" backgroundImage="Background_Color.tif">
+                                    <color key="titleColor" red="1" green="0.1173754536" blue="0.026072249320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="Block:" destination="U4q-vs-fjt" eventType="touchUpInside" id="Zcb-xq-gDy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="myUIScrollView" destination="pY9-3y-3BU" id="1WW-WI-fBk"/>
+                        <segue destination="bpH-nP-zcn" kind="show" identifier="Blockfriend" id="c8q-uM-1a0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WX4-yQ-iPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4688.8000000000002" y="-290.10494752623691"/>
+            <point key="canvasLocation" x="4689" y="-309"/>
         </scene>
         <!--Todolist-->
         <scene sceneID="bOF-nj-KGl">
@@ -6392,35 +6449,35 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="FMG-e5-Jf9"/>
+        <segue reference="qpS-pE-sES"/>
         <segue reference="GA4-8d-znT"/>
-        <segue reference="AF6-iT-AOH"/>
+        <segue reference="mof-Hz-kcj"/>
+        <segue reference="qKX-MI-0nm"/>
         <segue reference="Pxh-Dh-6Hw"/>
+        <segue reference="AF6-iT-AOH"/>
         <segue reference="lp7-Dm-2mL"/>
-        <segue reference="ncF-EY-ukg"/>
-        <segue reference="q8S-fp-6E9"/>
-        <segue reference="WBr-w9-Hh7"/>
+        <segue reference="c6S-gR-r2d"/>
+        <segue reference="bt9-n8-i2R"/>
+        <segue reference="9qU-UM-F4o"/>
+        <segue reference="hX4-9H-kZv"/>
         <segue reference="9iu-GU-fhF"/>
         <segue reference="QVH-EZ-uIV"/>
+        <segue reference="WBr-w9-Hh7"/>
+        <segue reference="q8S-fp-6E9"/>
+        <segue reference="ncF-EY-ukg"/>
         <segue reference="yuN-ds-Mjy"/>
         <segue reference="79I-hO-QUR"/>
         <segue reference="r9a-2o-BFV"/>
-        <segue reference="qKX-MI-0nm"/>
-        <segue reference="M8N-uj-wXk"/>
-        <segue reference="mof-Hz-kcj"/>
-        <segue reference="SXU-1V-KgJ"/>
-        <segue reference="74n-tz-374"/>
-        <segue reference="WeT-bG-vcD"/>
+        <segue reference="ny4-sU-M0o"/>
         <segue reference="uAq-hg-nYX"/>
         <segue reference="koq-jY-IDo"/>
-        <segue reference="ny4-sU-M0o"/>
         <segue reference="fTe-SU-cnY"/>
-        <segue reference="q1R-fB-xUp"/>
-        <segue reference="eZd-JO-exV"/>
-        <segue reference="hLD-FZ-jQI"/>
-        <segue reference="c6S-gR-r2d"/>
         <segue reference="sAp-QK-ydJ"/>
-        <segue reference="9qU-UM-F4o"/>
-        <segue reference="bt9-n8-i2R"/>
-        <segue reference="hX4-9H-kZv"/>
+        <segue reference="eZd-JO-exV"/>
+        <segue reference="q1R-fB-xUp"/>
+        <segue reference="hLD-FZ-jQI"/>
+        <segue reference="74n-tz-374"/>
+        <segue reference="v0a-3s-fKR"/>
+        <segue reference="WeT-bG-vcD"/>
     </inferredMetricsTieBreakers>
 </document>

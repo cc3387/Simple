@@ -93,7 +93,7 @@ class Profile_Meet_Main : UIViewController{
     
     @IBOutlet weak var Fifth_Match: UILabel!
     
-    
+    //Accept Chat Button 1
     @IBAction func Chat_1(_ sender: AnyObject) {
         
         if(self.first_match != ""){
@@ -145,6 +145,63 @@ class Profile_Meet_Main : UIViewController{
             
         }
     }
+    
+    //Decline number 1
+    @IBAction func Block_1(_ sender: Any) {
+    
+        if(self.first_match != ""){
+            let usernamefriend = login_user.uid + "_fd";
+            let friendusername = self.uid1 + "_fd";
+            
+            let ref = FIRDatabase.database().reference().child("friends")
+            let fdref = FIRDatabase.database().reference().child("friends")
+            
+            let friendinfo = [
+                "Profile_Name" : self.First_Match.text!,
+                "location" : self.First_Loc.text!,
+                "Education": self.First_Uni.text!,
+                "Major": self.First_Major.text!,
+                "username": self.first_id,
+                "Email": self.first_match,
+                "Photo": self.first_photo_string,
+                "uid": self.uid1,
+                "phoneid": self.phoneid1,
+                "Notification": 1,
+                "Block": "1",
+                "Chatid": 1
+                ] as [String : Any];
+            
+            let infofriend = [
+                "Profile_Name" : login_user.Profile_Name,
+                "location" : login_user.location,
+                "Education": login_user.university,
+                "Major": login_user.major,
+                "username": login_user.user_name,
+                "Email": login.loginid,
+                "Photo": login_user.photo,
+                "uid": login_user.uid,
+                "phoneid": login_user.phoneid,
+                "Notification": 1,
+                "Block": "1",
+                "Chatid": 2
+                ] as [String : Any];
+            
+            let usernamefd = ref.child(byAppendingPath: usernamefriend);
+            let fdusername = fdref.child(byAppendingPath: friendusername);
+            usernamefd.child(byAppendingPath: self.uid1).setValue(friendinfo);
+            fdusername.child(byAppendingPath: login_user.uid).setValue(infofriend);
+            
+            try! FIRAuth.auth()!.signOut()
+            
+            //Load profile
+            loadDestinationdeclineVC()
+        }
+        else{
+            
+        }
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //Buttons to Chat ViewController
     @IBAction func Chat_2(_ sender: AnyObject) {
@@ -197,6 +254,62 @@ class Profile_Meet_Main : UIViewController{
         }
     }
 
+    @IBAction func Decline_2(_ sender: Any) {
+    
+        if(self.second_match != ""){
+            let usernamefriend = login_user.uid + "_fd";
+            let friendusername = self.uid2 + "_fd";
+            
+            let ref = FIRDatabase.database().reference().child("friends")
+            let fdref = FIRDatabase.database().reference().child("friends")
+            
+            let friendinfo = [
+                "Profile_Name" : self.Second_Match.text!,
+                "location" : self.Second_Loc.text!,
+                "Education": self.Second_Uni.text!,
+                "Major": self.Second_Major.text!,
+                "username": self.second_id,
+                "Email": self.second_match,
+                "Photo": self.second_photo_string,
+                "uid": self.uid2,
+                "phoneid": self.phoneid2,
+                "Notification": 1,
+                "Block": "1",
+                "Chatid": 1
+            ] as [String : Any];
+            
+            let infofriend = [
+                "Profile_Name" : login_user.Profile_Name,
+                "location" : login_user.location,
+                "Education": login_user.university,
+                "Major": login_user.major,
+                "username": login_user.user_name,
+                "Email": login.loginid,
+                "Photo": login_user.photo,
+                "uid": login_user.uid,
+                "phoneid": login_user.phoneid,
+                "Notification": 1,
+                "Block": "1",
+                "Chatid": 2
+            ] as [String : Any];
+
+            
+            let usernamefd = ref.child(byAppendingPath: usernamefriend);
+            let fdusername = fdref.child(byAppendingPath: friendusername);
+            usernamefd.child(byAppendingPath: self.uid2).setValue(friendinfo);
+            fdusername.child(byAppendingPath: login_user.uid).setValue(infofriend);
+            
+            try! FIRAuth.auth()!.signOut()
+            
+            //Load profile
+            loadDestinationdeclineVC()
+        }
+        else{
+            
+        }
+    }
+    
+///////////////////////////////////////////////////////////////////////////////////////////////////////
     @IBAction func Chat_3(_ sender: AnyObject) {
         if(self.third_match != ""){
             let usernamefriend = login_user.uid  + "_fd";
@@ -247,6 +360,60 @@ class Profile_Meet_Main : UIViewController{
             
         }
     }
+
+    @IBAction func Decline_3(_ sender: Any) {
+        
+        if(self.third_match != ""){
+            let usernamefriend = login_user.uid + "_fd";
+            let friendusername = self.uid3 + "_fd";
+            
+            let ref = FIRDatabase.database().reference().child("friends")
+            let fdref = FIRDatabase.database().reference().child("friends")
+            
+            let friendinfo = [
+                "Profile_Name" : self.Third_Match.text!,
+                "location" : self.Third_Loc.text!,
+                "Education": self.Third_Uni.text!,
+                "Major": self.Third_Major.text!,
+                "username": self.third_id,
+                "Email": self.third_match,
+                "Photo": self.third_photo_string,
+                "uid": self.uid3,
+                "phoneid": self.phoneid3,
+                "Notification": 1,
+                "Block": "1",
+                "Chatid": 1
+                ] as [String : Any];
+            
+            let infofriend = [
+                "Profile_Name" : login_user.Profile_Name,
+                "location" : login_user.location,
+                "Education": login_user.university,
+                "Major": login_user.major,
+                "username": login_user.user_name,
+                "Email": login.loginid,
+                "Photo": login_user.photo,
+                "uid": login_user.uid,
+                "phoneid": login_user.phoneid,
+                "Notification": 1,
+                "Block": "1",
+                "Chatid": 2
+                ] as [String : Any];
+            
+            
+            let usernamefd = ref.child(byAppendingPath: usernamefriend);
+            let fdusername = fdref.child(byAppendingPath: friendusername);
+            usernamefd.child(byAppendingPath: self.uid3).setValue(friendinfo);
+            fdusername.child(byAppendingPath: login_user.uid).setValue(infofriend);
+            
+            try! FIRAuth.auth()!.signOut()
+            
+            //Load profile
+            loadDestinationdeclineVC()
+        }
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////
     
     @IBAction func Chat_4(_ sender: AnyObject) {
         if(self.fourth_match != ""){
@@ -297,6 +464,61 @@ class Profile_Meet_Main : UIViewController{
             
         }
     }
+    
+    @IBAction func Decline_4(_ sender: Any) {
+    
+        if(self.fourth_match != ""){
+            let usernamefriend = login_user.uid + "_fd";
+            let friendusername = self.uid4 + "_fd";
+            
+            let ref = FIRDatabase.database().reference().child("friends")
+            let fdref = FIRDatabase.database().reference().child("friends")
+            
+            let friendinfo = [
+                "Profile_Name" : self.Fourth_Match.text!,
+                "location" : self.Fourth_Loc.text!,
+                "Education": self.Fourth_Uni.text!,
+                "Major": self.Fourth_Major.text!,
+                "username": self.fourth_id,
+                "Email": self.fourth_match,
+                "Photo": self.fourth_photo_string,
+                "uid": self.uid4,
+                "phoneid": self.phoneid4,
+                "Notification": 1,
+                "Block": "1",
+                "Chatid": 1
+                ] as [String : Any];
+            
+            let infofriend = [
+                "Profile_Name" : login_user.Profile_Name,
+                "location" : login_user.location,
+                "Education": login_user.university,
+                "Major": login_user.major,
+                "username": login_user.user_name,
+                "Email": login.loginid,
+                "Photo": login_user.photo,
+                "uid": login_user.uid,
+                "phoneid": login_user.phoneid,
+                "Notification": 1,
+                "Block": "1",
+                "Chatid": 2
+                ] as [String : Any];
+            
+            
+            let usernamefd = ref.child(byAppendingPath: usernamefriend);
+            let fdusername = fdref.child(byAppendingPath: friendusername);
+            usernamefd.child(byAppendingPath: self.uid4).setValue(friendinfo);
+            fdusername.child(byAppendingPath: login_user.uid).setValue(infofriend);
+            
+            try! FIRAuth.auth()!.signOut()
+            
+            //Load profile
+            loadDestinationdeclineVC()
+        }
+    }
+    
+////////////////////////////////////////////////////////////////////////////////////////////
+    
 
     //Getting the login_user id that is collected from the login page
     var loginuser: String = login.loginid as String;
@@ -572,6 +794,10 @@ class Profile_Meet_Main : UIViewController{
     
     func loadDestinationVC(){
         self.performSegue(withIdentifier: "To_Chat", sender: nil)
+    }
+    
+    func loadDestinationdeclineVC(){
+        self.performSegue(withIdentifier: "Block", sender: nil)
     }
     
     override var shouldAutorotate : Bool {

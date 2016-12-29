@@ -124,7 +124,7 @@ class Notifyclass: UIViewController, UIScrollViewDelegate{
             "Notification": 1,
             "Block": "1",
             "Chatid": 2
-            ] as [String : Any];
+        ] as [String : Any];
         
         let usernamefd = ref.child(byAppendingPath: usernamefriend);
         let fdusername = fdref.child(byAppendingPath: friendusername);
