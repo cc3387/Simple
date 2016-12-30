@@ -252,3 +252,6 @@ var Question_array = 0
 var Questions = [String]()
 var Answerone = [String]()
 var Answertwo = [String]()
+
+//Start
+var startoverall = 0

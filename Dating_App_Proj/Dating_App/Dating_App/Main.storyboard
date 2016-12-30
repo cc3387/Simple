@@ -146,18 +146,18 @@
                                 <rect key="frame" x="122" y="166" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPa-nB-s0t">
-                                <rect key="frame" x="89" y="210" width="156" height="38"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading Friends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPa-nB-s0t">
+                                <rect key="frame" x="89" y="210" width="196" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mrm-uv-wlR">
-                                <rect key="frame" x="85" y="268" width="95" height="30"/>
+                                <rect key="frame" x="85" y="268" width="100" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
-                                <state key="normal" title="To Menu">
+                                <state key="normal" title="Continue">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -168,6 +168,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="LoadFriends" destination="DPa-nB-s0t" id="85R-E4-jF6"/>
                         <outlet property="indicator" destination="4jc-qF-Ug4" id="cHI-Nb-FVU"/>
                         <segue destination="BwA-PC-VmF" kind="show" identifier="ToEULA" id="nwK-la-ORg"/>
                         <segue destination="f9m-1M-zoV" kind="show" identifier="ToMainMenu" id="BHz-Lg-Q9J"/>
@@ -175,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qoK-jt-5fE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-702" y="-157"/>
+            <point key="canvasLocation" x="-703.20000000000005" y="-157.87106446776613"/>
         </scene>
         <!--EULA-->
         <scene sceneID="fKb-JK-ETx">
@@ -802,7 +803,7 @@
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="0bD-vp-Rlb" kind="show" id="fcR-zb-Mb6"/>
+                                    <action selector="NotificationButton:" destination="f9m-1M-zoV" eventType="touchUpInside" id="g3i-SH-5k0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ukj-N2-mxe">
@@ -855,6 +856,8 @@
                         <segue destination="ffw-JM-W62" kind="show" identifier="totermsandconditions" id="AF6-iT-AOH"/>
                         <segue destination="bpH-nP-zcn" kind="show" identifier="original" id="wt8-Af-s4V"/>
                         <segue destination="PXT-90-g4E" kind="show" identifier="ToUpdateProfile" id="BOi-cc-Ct9"/>
+                        <segue destination="5uR-L2-7UW" kind="show" identifier="Backtoload" id="qnR-Yi-jzm"/>
+                        <segue destination="0bD-vp-Rlb" kind="show" identifier="Notification" id="fc8-Yg-y70"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zo6-8k-MkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2976,12 +2979,12 @@
                         <outlet property="User_ID" destination="xsd-gt-IaW" id="SRD-3O-m0X"/>
                         <outlet property="user_greetings" destination="xsd-gt-IaW" id="PGt-Jj-e7o"/>
                         <segue destination="AJk-mc-Qmm" kind="show" identifier="To_Chat" id="GA4-8d-znT"/>
-                        <segue destination="bpH-nP-zcn" kind="show" identifier="Block" id="qpS-pE-sES"/>
+                        <segue destination="5uR-L2-7UW" kind="show" identifier="Block" id="GkU-x4-WFH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBL-Fl-cy4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="965.60000000000002" y="-2553.3733133433284"/>
+            <point key="canvasLocation" x="966" y="-2830"/>
         </scene>
         <!--Transfer-->
         <scene sceneID="52f-pb-QmW">
@@ -3766,7 +3769,7 @@
                                         <rect key="frame" x="0.0" y="72" width="600" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xcr-ab-cOj" id="0mS-F5-ftK">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="29"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -4267,7 +4270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ln8-fG-12E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2468" y="-1076"/>
+            <point key="canvasLocation" x="-2542" y="-848"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="iBF-ND-Vuh">
@@ -5144,7 +5147,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rb8-yA-yWd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zwh-uN-1wP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zwh-uN-1wP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -5162,7 +5165,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nbF-Iv-jhl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="h71-fy-qxi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="h71-fy-qxi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -6448,36 +6451,36 @@
         <image name="night_sky.jpg" width="2000" height="1316"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FMG-e5-Jf9"/>
-        <segue reference="qpS-pE-sES"/>
-        <segue reference="GA4-8d-znT"/>
-        <segue reference="mof-Hz-kcj"/>
-        <segue reference="qKX-MI-0nm"/>
-        <segue reference="Pxh-Dh-6Hw"/>
-        <segue reference="AF6-iT-AOH"/>
-        <segue reference="lp7-Dm-2mL"/>
-        <segue reference="c6S-gR-r2d"/>
-        <segue reference="bt9-n8-i2R"/>
-        <segue reference="9qU-UM-F4o"/>
-        <segue reference="hX4-9H-kZv"/>
+        <segue reference="yuN-ds-Mjy"/>
+        <segue reference="ncF-EY-ukg"/>
+        <segue reference="q8S-fp-6E9"/>
+        <segue reference="WBr-w9-Hh7"/>
         <segue reference="9iu-GU-fhF"/>
         <segue reference="QVH-EZ-uIV"/>
-        <segue reference="WBr-w9-Hh7"/>
-        <segue reference="q8S-fp-6E9"/>
-        <segue reference="ncF-EY-ukg"/>
-        <segue reference="yuN-ds-Mjy"/>
         <segue reference="79I-hO-QUR"/>
-        <segue reference="r9a-2o-BFV"/>
-        <segue reference="ny4-sU-M0o"/>
         <segue reference="uAq-hg-nYX"/>
         <segue reference="koq-jY-IDo"/>
+        <segue reference="ny4-sU-M0o"/>
         <segue reference="fTe-SU-cnY"/>
+        <segue reference="lp7-Dm-2mL"/>
+        <segue reference="Pxh-Dh-6Hw"/>
+        <segue reference="BHz-Lg-Q9J"/>
+        <segue reference="qnR-Yi-jzm"/>
+        <segue reference="AF6-iT-AOH"/>
+        <segue reference="X3X-cO-PMc"/>
+        <segue reference="gt8-yC-oDn"/>
+        <segue reference="BOi-cc-Ct9"/>
+        <segue reference="wt8-Af-s4V"/>
+        <segue reference="GA4-8d-znT"/>
+        <segue reference="qKX-MI-0nm"/>
         <segue reference="sAp-QK-ydJ"/>
-        <segue reference="eZd-JO-exV"/>
         <segue reference="q1R-fB-xUp"/>
+        <segue reference="eZd-JO-exV"/>
         <segue reference="hLD-FZ-jQI"/>
+        <segue reference="hX4-9H-kZv"/>
+        <segue reference="bt9-n8-i2R"/>
+        <segue reference="9qU-UM-F4o"/>
         <segue reference="74n-tz-374"/>
         <segue reference="v0a-3s-fKR"/>
-        <segue reference="WeT-bG-vcD"/>
     </inferredMetricsTieBreakers>
 </document>

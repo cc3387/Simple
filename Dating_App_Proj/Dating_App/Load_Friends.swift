@@ -12,33 +12,36 @@ import Firebase
 class Load_Friends : UIViewController{
     
     @IBAction func ToMenuPage(_ sender: Any) {
-        var ref = FIRDatabase.database().reference().child("users")
-        ref.queryOrdered(byChild: "Email").queryEqual(toValue: login.loginid)
-            .observe(.childAdded, with: { snapshot in
-                
-                if let source = snapshot.value as? [String:AnyObject] {
-                    
-                    if ((source["EULA"] as? String)! == "0"){
-                    self.loadEULA()
-                    }
-                    else if ((source["EULA"] as? String)! == "1"){
-                    self.loadmainmenu()
-                    }
-                }
-        })
+//        var ref = FIRDatabase.database().reference().child("users")
+//        ref.queryOrdered(byChild: "Email").queryEqual(toValue: login.loginid)
+//            .observe(.childAdded, with: { snapshot in
+//                
+//                if let source = snapshot.value as? [String:AnyObject] {
+//                    
+//                    if ((source["EULA"] as? String)! == "0"){
+//                    self.loadEULA()
+//                    }
+//                    else if ((source["EULA"] as? String)! == "1"){
+//                    self.loadmainmenu()
+//                    }
+//                }
+//        })
     }
     
+    @IBOutlet weak var LoadFriends: UILabel!
     
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     var ref = FIRDatabase.database().reference()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        self.view.endEditing(true)
         self.indicator.startAnimating()
         self.indicator.isHidden = false
+        
+        if(startoverall == 0){
+        self.LoadFriends.text = "Extracting Info"
+        }
         
         //Remove all the arrays in frienduser struct
         frienduser.emailarray.removeAll();
@@ -189,6 +192,21 @@ class Load_Friends : UIViewController{
         };
         
         //self.loadDest()
+        
+        var menuref = FIRDatabase.database().reference().child("users")
+        menuref.queryOrdered(byChild: "Email").queryEqual(toValue: login.loginid)
+            .observe(.childAdded, with: { snapshot in
+                
+                if let source = snapshot.value as? [String:AnyObject] {
+                    
+                    if ((source["EULA"] as? String)! == "0"){
+                        self.loadEULA()
+                    }
+                    else if ((source["EULA"] as? String)! == "1"){
+                        self.loadmainmenu()
+                    }
+                }
+        })
     }
     
     func loadDest(){

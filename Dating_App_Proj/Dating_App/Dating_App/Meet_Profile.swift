@@ -191,8 +191,6 @@ class Profile_Meet_Main : UIViewController{
             usernamefd.child(byAppendingPath: self.uid1).setValue(friendinfo);
             fdusername.child(byAppendingPath: login_user.uid).setValue(infofriend);
             
-            try! FIRAuth.auth()!.signOut()
-            
             //Load profile
             loadDestinationdeclineVC()
         }
@@ -298,9 +296,7 @@ class Profile_Meet_Main : UIViewController{
             let fdusername = fdref.child(byAppendingPath: friendusername);
             usernamefd.child(byAppendingPath: self.uid2).setValue(friendinfo);
             fdusername.child(byAppendingPath: login_user.uid).setValue(infofriend);
-            
-            try! FIRAuth.auth()!.signOut()
-            
+
             //Load profile
             loadDestinationdeclineVC()
         }
@@ -406,8 +402,6 @@ class Profile_Meet_Main : UIViewController{
             usernamefd.child(byAppendingPath: self.uid3).setValue(friendinfo);
             fdusername.child(byAppendingPath: login_user.uid).setValue(infofriend);
             
-            try! FIRAuth.auth()!.signOut()
-            
             //Load profile
             loadDestinationdeclineVC()
         }
@@ -509,8 +503,6 @@ class Profile_Meet_Main : UIViewController{
             let fdusername = fdref.child(byAppendingPath: friendusername);
             usernamefd.child(byAppendingPath: self.uid4).setValue(friendinfo);
             fdusername.child(byAppendingPath: login_user.uid).setValue(infofriend);
-            
-            try! FIRAuth.auth()!.signOut()
             
             //Load profile
             loadDestinationdeclineVC()

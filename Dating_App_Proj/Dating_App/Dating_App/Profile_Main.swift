@@ -34,46 +34,85 @@ class Profile_Main : UIViewController{
     //Getting Profile name from the server
     @IBOutlet weak var Profile_Name: UILabel!
     
+    @IBAction func NotificationButton(_ sender: Any) {
+    
+        if(startoverall == 0){
+            loadagain()
+            startoverall = 1
+        }
+        else if(login_user.user_name != ""){
+            loadnotification()
+        }
+    
+    }
     
     @IBAction func ProfileLoad(_ sender: AnyObject) {
-        if(login_user.user_name != ""){
+        if(startoverall == 0){
+            loadagain()
+            startoverall = 1
+        }
+        else if(login_user.user_name != ""){
         loadusermeet()
         }
     }
     
     @IBAction func Single_Meet(_ sender: AnyObject) {
-        if(login_user.user_name != ""){
+        if(startoverall == 0){
+        loadagain()
+        startoverall = 1
+        }
+        else if(login_user.user_name != ""){
         loadDestinationVC();
         }
     }
     
     @IBAction func To_Chat(_ sender: AnyObject) {
-        if(login_user.user_name != ""){
+        if(startoverall == 0){
+            loadagain()
+            startoverall = 1
+        }
+        else if(login_user.user_name != ""){
         loadtoChat();
         }
     }
     
     @IBAction func To_Choice(_ sender: AnyObject) {
-        if(login_user.user_name != ""){
+        if(startoverall == 0){
+            loadagain()
+            startoverall = 1
+        }
+        else if(login_user.user_name != ""){
         loadchoice()
         }
     }
     
     @IBAction func ToUpdate(_ sender: AnyObject) {
-        if(login_user.user_name != ""){
+        if(startoverall == 0){
+            loadagain()
+            startoverall = 1
+        }
+        else if(login_user.user_name != ""){
         loadupdateprofile()
         }
     }
     
     @IBAction func ToContactUs(_ sender: AnyObject) {
-        if(login_user.user_name != ""){
+        if(startoverall == 0){
+            loadagain()
+            startoverall = 1
+        }
+        else if(login_user.user_name != ""){
         loadcontactus()
         }
     }
     
     
     @IBAction func ToTermsandConditions(_ sender: AnyObject) {
-        if(login_user.user_name != ""){
+        if(startoverall == 0){
+            loadagain()
+            startoverall = 1
+        }
+        else if(login_user.user_name != ""){
         loadtermsandcondition()
         }
     }
@@ -86,8 +125,8 @@ class Profile_Main : UIViewController{
     
     //Action Item
     override func viewDidLoad() {
-    super.viewDidLoad()
-    self.view.endEditing(true)
+//    super.viewDidLoad()
+//    self.view.endEditing(true)
     
     self.User_ID.text = "Welcome to Simple, " + login_user.loginname;
     self.User_ID.textColor = UIColor.white;
@@ -267,8 +306,8 @@ class Profile_Main : UIViewController{
                             frienduser.phoneidarrayfinal.append(photo!)
                         }
                     }
-            })
-        }
+              })
+          }
     }
     
     
@@ -332,16 +371,20 @@ class Profile_Main : UIViewController{
     self.performSegue(withIdentifier: "To_Meet", sender: nil)
     }
     
+    func loadagain(){
+    self.performSegue(withIdentifier: "Backtoload", sender: nil)
+    }
+    
     func loadtoChat(){
     self.performSegue(withIdentifier: "Chat", sender: nil)
     }
     
     func loadusermeet(){
-        self.performSegue(withIdentifier: "Touserprofile", sender: nil)
+    self.performSegue(withIdentifier: "Touserprofile", sender: nil)
     }
     
     func loadchoice(){
-        self.performSegue(withIdentifier: "ToChoice", sender: nil)
+    self.performSegue(withIdentifier: "ToChoice", sender: nil)
     }
     
     
@@ -355,6 +398,10 @@ class Profile_Main : UIViewController{
     
     func loadtermsandcondition(){
         self.performSegue(withIdentifier: "totermsandconditions", sender: nil)
+    }
+    
+    func loadnotification(){
+        self.performSegue(withIdentifier: "Notification", sender: nil)
     }
     
     func refreshEvery30Secs(){
