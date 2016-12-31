@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
         
         //Include Batch
         //Batch.start(withAPIKey: "DEV582972DC529B1FE31875A6CB6D6") //DEV
-        Batch.start(withAPIKey: "5805911AD92366FDBBD35EE90C9E42")
+        Batch.start(withAPIKey: "582972DC5260C0EF339765F650941A")
         
         
         // Register for push notifications
@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITableViewDelegate, UISe
         var password = login.password
         
         let devDeviceToken = login_user.phoneid
-        if let pushClient = BatchClientPush(apiKey: "5805911AD92366FDBBD35EE90C9E42", restKey: "a524aa85f96b3bc103188428b026bd5b") {
+        if let pushClient = BatchClientPush(apiKey: "582972DC5260C0EF339765F650941A", restKey: "a524aa85f96b3bc103188428b026bd5b") {
             
             pushClient.sandbox = false
             pushClient.customPayload = ["aps": ["badge": 0] as AnyObject]

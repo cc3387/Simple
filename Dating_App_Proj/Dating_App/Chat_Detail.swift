@@ -99,7 +99,7 @@ class ChatDetail: JSQMessagesViewController{
             //5 Sending notification to your friend's phone
             let devDeviceToken = convo_final.friend_phoneid_final
             print(devDeviceToken)
-            if let pushClient = BatchClientPush(apiKey: "5805911AD92366FDBBD35EE90C9E42", restKey: "a524aa85f96b3bc103188428b026bd5b") {
+            if let pushClient = BatchClientPush(apiKey: "582972DC5260C0EF339765F650941A", restKey: "a524aa85f96b3bc103188428b026bd5b") {
             
             pushClient.sandbox = false
             pushClient.customPayload = ["aps": ["badge": 1] as AnyObject]

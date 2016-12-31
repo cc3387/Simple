@@ -2579,7 +2579,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sunset.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fWA-XE-b8Q">
-                                <rect key="frame" x="-112" y="-71" width="773" height="742"/>
+                                <rect key="frame" x="-112" y="-71" width="975" height="1080"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cDI-cP-ku6">
@@ -2613,7 +2613,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LyW-ra-Ngn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-703.20000000000005" y="-2551.5742128935535"/>
+            <point key="canvasLocation" x="-1333.5999999999999" y="-2809.745127436282"/>
         </scene>
         <!--Profile Meet Main-->
         <scene sceneID="hBl-vX-ZTc">
@@ -3322,7 +3322,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GSP-UG-Ioc">
-                                <rect key="frame" x="-300" y="-100" width="1200" height="1200"/>
+                                <rect key="frame" x="-300" y="-100" width="1493" height="1371"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4J-rA-MQq">
@@ -3405,7 +3405,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tuq-kz-Yij" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1671" y="-3166"/>
+            <point key="canvasLocation" x="2364" y="-3609.4452773613198"/>
         </scene>
         <!--Chat Main-->
         <scene sceneID="Nyc-3X-hD0">
@@ -4189,7 +4189,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Dawn_City.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Pz1-Yr-yoS">
-                                <rect key="frame" x="-92" y="-143" width="773" height="952"/>
+                                <rect key="frame" x="-92" y="-143" width="955" height="1023"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHr-hp-b3g">
@@ -4270,7 +4270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ln8-fG-12E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2542" y="-848"/>
+            <point key="canvasLocation" x="-2468" y="-961.16941529235385"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="iBF-ND-Vuh">
@@ -5331,7 +5331,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sunset.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="0NO-uJ-Y89">
-                                <rect key="frame" x="-98" y="-31" width="808" height="700"/>
+                                <rect key="frame" x="-98" y="-31" width="1222" height="1032"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pY9-3y-3BU">
@@ -5377,7 +5377,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WX4-yQ-iPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4689" y="-309"/>
+            <point key="canvasLocation" x="4688.8000000000002" y="-309.89505247376314"/>
         </scene>
         <!--Todolist-->
         <scene sceneID="bOF-nj-KGl">
@@ -6451,36 +6451,36 @@
         <image name="night_sky.jpg" width="2000" height="1316"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yuN-ds-Mjy"/>
-        <segue reference="ncF-EY-ukg"/>
-        <segue reference="q8S-fp-6E9"/>
-        <segue reference="WBr-w9-Hh7"/>
-        <segue reference="9iu-GU-fhF"/>
+        <segue reference="hLD-FZ-jQI"/>
+        <segue reference="eZd-JO-exV"/>
+        <segue reference="q1R-fB-xUp"/>
         <segue reference="QVH-EZ-uIV"/>
+        <segue reference="9iu-GU-fhF"/>
+        <segue reference="WBr-w9-Hh7"/>
+        <segue reference="q8S-fp-6E9"/>
+        <segue reference="ncF-EY-ukg"/>
+        <segue reference="yuN-ds-Mjy"/>
         <segue reference="79I-hO-QUR"/>
+        <segue reference="HK2-Wd-bqe"/>
+        <segue reference="Ufm-0E-p2b"/>
+        <segue reference="gt8-yC-oDn"/>
+        <segue reference="Pxh-Dh-6Hw"/>
+        <segue reference="qnR-Yi-jzm"/>
+        <segue reference="BOi-cc-Ct9"/>
+        <segue reference="AF6-iT-AOH"/>
+        <segue reference="lp7-Dm-2mL"/>
+        <segue reference="GA4-8d-znT"/>
+        <segue reference="qKX-MI-0nm"/>
         <segue reference="uAq-hg-nYX"/>
         <segue reference="koq-jY-IDo"/>
         <segue reference="ny4-sU-M0o"/>
         <segue reference="fTe-SU-cnY"/>
-        <segue reference="lp7-Dm-2mL"/>
-        <segue reference="Pxh-Dh-6Hw"/>
-        <segue reference="BHz-Lg-Q9J"/>
-        <segue reference="qnR-Yi-jzm"/>
-        <segue reference="AF6-iT-AOH"/>
-        <segue reference="X3X-cO-PMc"/>
-        <segue reference="gt8-yC-oDn"/>
-        <segue reference="BOi-cc-Ct9"/>
-        <segue reference="wt8-Af-s4V"/>
-        <segue reference="GA4-8d-znT"/>
-        <segue reference="qKX-MI-0nm"/>
-        <segue reference="sAp-QK-ydJ"/>
-        <segue reference="q1R-fB-xUp"/>
-        <segue reference="eZd-JO-exV"/>
-        <segue reference="hLD-FZ-jQI"/>
+        <segue reference="v0a-3s-fKR"/>
+        <segue reference="74n-tz-374"/>
         <segue reference="hX4-9H-kZv"/>
         <segue reference="bt9-n8-i2R"/>
         <segue reference="9qU-UM-F4o"/>
-        <segue reference="74n-tz-374"/>
-        <segue reference="v0a-3s-fKR"/>
+        <segue reference="sAp-QK-ydJ"/>
+        <segue reference="WeT-bG-vcD"/>
     </inferredMetricsTieBreakers>
 </document>
