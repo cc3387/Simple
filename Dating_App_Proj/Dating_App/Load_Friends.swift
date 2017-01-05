@@ -12,20 +12,20 @@ import Firebase
 class Load_Friends : UIViewController{
     
     @IBAction func ToMenuPage(_ sender: Any) {
-//        var ref = FIRDatabase.database().reference().child("users")
-//        ref.queryOrdered(byChild: "Email").queryEqual(toValue: login.loginid)
-//            .observe(.childAdded, with: { snapshot in
-//                
-//                if let source = snapshot.value as? [String:AnyObject] {
-//                    
-//                    if ((source["EULA"] as? String)! == "0"){
-//                    self.loadEULA()
-//                    }
-//                    else if ((source["EULA"] as? String)! == "1"){
-//                    self.loadmainmenu()
-//                    }
-//                }
-//        })
+        var ref = FIRDatabase.database().reference().child("users")
+        ref.queryOrdered(byChild: "Email").queryEqual(toValue: login.loginid)
+            .observe(.childAdded, with: { snapshot in
+                
+                if let source = snapshot.value as? [String:AnyObject] {
+                    
+                    if ((source["EULA"] as? String)! == "0"){
+                    self.loadEULA()
+                    }
+                    else if ((source["EULA"] as? String)! == "1"){
+                    self.loadmainmenu()
+                    }
+                }
+        })
     }
     
     @IBOutlet weak var LoadFriends: UILabel!
