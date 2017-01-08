@@ -103,13 +103,13 @@ class ChatDetail: JSQMessagesViewController{
             
             pushClient.sandbox = false
             pushClient.customPayload = ["aps": ["badge": 1] as AnyObject]
-            pushClient.groupId = "tests"
+            pushClient.groupId = "Final"
             pushClient.message.title = "Simple"
             pushClient.message.body = login_user.Profile_Name + " sent you a message!"
             pushClient.recipients.customIds = ["c657587b-969c-483e-89cb-7c5105af4c55"]
             pushClient.recipients.tokens.append(devDeviceToken)
             
-            if(convo_final.notification == 1){
+            //if(convo_final.notification == 1){
             pushClient.send { (response, error) in
                 if let error = error {
                     print("Something happened while sending the push: \(response) \(error.localizedDescription)")
@@ -117,7 +117,7 @@ class ChatDetail: JSQMessagesViewController{
                     print("Push sent \(response)")
                 }
             }
-            }
+            //}
                 
         } else {
             print("Error while initializing BatchClientPush")
